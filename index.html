@@ -5,57 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Café Judicial</title>
     <style>
-        /* Aseguramos que la página sea desplazable */
         body {
             margin: 0;
             font-family: 'Raleway', sans-serif;
             background-color: #4e342e;
         }
 
-        /* Contenedor para la imagen y el texto */
-        .image-text-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        /* Estilo para la imagen de fondo */
+        /* Asegura que la imagen cubra toda la pantalla y sea fija */
         .background-image {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background-image: url('IMG_3999.jpeg'); /* Asegúrate de tener el nombre correcto de la imagen */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             z-index: -1;
         }
 
-        /* Contenedor del texto sobre la imagen */
-        .overlay-text {
+        .content {
             position: relative;
-            max-height: 100%;
-            overflow-y: auto;
-            background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
-            padding: 20px;
-            box-sizing: border-box;
+            z-index: 1;
             color: white;
-            width: 90%;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
             max-width: 800px;
+            margin: 50px auto;
             border-radius: 10px;
-            z-index: 1; /* Mantiene el texto sobre la imagen */
         }
 
-        /* Estilos del texto */
-        .overlay-text h1, .overlay-text h2 {
+        .content h1, .content h2 {
             font-size: 2rem;
             margin-bottom: 10px;
         }
 
-        .overlay-text p {
+        .content p {
             font-size: 1.2rem;
             margin-bottom: 15px;
         }
@@ -76,124 +62,31 @@
             background-color: #ffc107;
         }
 
-        /* Sección de servicios */
-        .services {
-            background-color: #ffffff;
-            padding: 50px;
-            text-align: center;
-            color: #4e342e;
-            width: 100%;
-            max-width: 1000px;
-            margin-top: 30px;
-            border-radius: 10px;
-        }
-
-        .services h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .services ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .services ul li {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        /* Anuncio lugar físico */
-        .location-announcement {
-            background-color: #4e342e;
-            color: white;
-            padding: 40px;
-            text-align: center;
-            width: 100%;
-            max-width: 1000px;
-            margin-top: 30px;
-            border-radius: 10px;
-        }
-
-        /* Sección de contacto */
-        .contact {
-            background-color: #4e342e;
-            color: white;
-            padding: 40px;
-            text-align: center;
-            width: 100%;
-            max-width: 1000px;
-            margin-top: 30px;
-            border-radius: 10px;
-        }
-
         /* Ajustes para dispositivos móviles */
         @media screen and (max-width: 768px) {
-            .overlay-text h1, .overlay-text h2 {
+            .content h1, .content h2 {
                 font-size: 1.5rem;
             }
-            .overlay-text p {
+            .content p {
                 font-size: 1rem;
             }
             .cta-button {
                 font-size: 0.9rem;
             }
-
-            .background-image {
-                object-fit: cover;
-                object-position: center;
-            }
         }
     </style>
-    <!-- Cargamos la fuente de Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="image-text-container">
-        <img src="IMG_3999.jpeg" alt="Café Judicial Logo" class="background-image">
-        <div class="overlay-text">
-            <h1>Café Judicial</h1>
-            <p><strong>Donde el derecho y la conversación se mezclan con buen café ☕</strong></p>
-            <p>Te damos la bienvenida a <strong>Café Judicial</strong>, un espacio donde el derecho y la conversación se encuentran acompañados de una taza de café de calidad.</p>
-            <h2>¿Cómo puedes participar? 👇</h2>
-            <p>En <strong>Café Judicial</strong> organizamos actividades, charlas y encuentros para la comunidad legal. ¡Súmate a nuestra lista de correo y mantente al día con nuestras novedades!</p>
-            <a href="#" target="_blank" class="cta-button">SUSCRÍBETE AQUÍ</a>
-        </div>
-    </div>
+    <!-- Imagen de fondo -->
+    <div class="background-image"></div>
 
-    <!-- Sección de Servicios Legales para clientes -->
-    <div class="services">
-        <h2>Servicios para Personas que Necesitan un Abogado</h2>
-        <ul>
-            <li>Asesoría jurídica personalizada.</li>
-            <li>Redacción de escrituras y contratos.</li>
-            <li>Representación legal en juicios y mediaciones.</li>
-            <li>Consultas en derecho civil, comercial y familiar.</li>
-        </ul>
-    </div>
-
-    <!-- Sección de Servicios para Abogados -->
-    <div class="services">
-        <h2>Servicios para Abogados</h2>
-        <ul>
-            <li>Charlas y networking para la comunidad legal.</li>
-            <li>Capacitaciones y talleres especializados.</li>
-            <li>Acceso a un espacio colaborativo para profesionales del derecho.</li>
-            <li>Oportunidades para compartir experiencias y casos.</li>
-        </ul>
-    </div>
-
-    <!-- Anuncio del futuro lugar físico -->
-    <div class="location-announcement">
+    <!-- Contenido superpuesto -->
+    <div class="content">
+        <h1>Café Judicial</h1>
+        <p>Donde el derecho y la conversación se mezclan con buen café ☕.</p>
         <h2>¡Pronto un Lugar Físico!</h2>
-        <p>Estamos emocionados de anunciar que pronto abriremos las puertas de un café físico donde podrás disfrutar de un excelente café mientras discutes temas legales en un ambiente relajado. ¡Mantente atento a nuestras redes para más información!</p>
+        <p>Pronto abriremos las puertas de nuestro café físico para que disfrutes de un excelente café mientras discutes temas legales en un ambiente relajado.</p>
+        <a href="#" class="cta-button">SUSCRÍBETE AQUÍ</a>
     </div>
-
-    <!-- Sección de contacto -->
-    <div class="contact">
-        <h2>Contacto</h2>
-        <p>¿Tienes preguntas o necesitas nuestros servicios? Contáctanos en <strong>contacto@cafejudicial.cl</strong></p>
-    </div>
-
 </body>
 </html>
