@@ -53,13 +53,15 @@
     }
 
     #hero {
-      background-image: url('IMG_3999.jpeg');
-      background-attachment: fixed;
+      background-image: url('IMG_3999.jpeg'); /* Aquí usamos la nueva imagen */
       background-size: cover;
+      background-attachment: fixed;
       background-position: center;
+      background-repeat: no-repeat; /* Asegura que la imagen no se repita */
+      height: 100vh; /* Hace que la imagen ocupe toda la altura de la ventana */
       color: white;
       text-align: center;
-      padding: 200px 20px;
+      padding: 100px 20px;
       position: relative;
       margin-top: 80px; /* Ajustamos el margen superior para que no se solape con el menú */
     }
