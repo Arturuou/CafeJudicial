@@ -11,6 +11,7 @@
             font-family: 'Raleway', sans-serif;
             background-color: #4e342e;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
@@ -21,7 +22,7 @@
             position: relative;
             width: 100%;
             height: 100vh;
-            max-width: 1000px; /* Limita el ancho en pantallas más grandes */
+            max-width: 1000px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -31,13 +32,12 @@
         /* Estilo para la imagen de fondo */
         .background-image {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Asegura que la imagen siempre ocupe toda la pantalla */
-            transform: translate(-50%, -50%);
-            z-index: -1; /* Envía la imagen al fondo */
+            object-fit: cover;
+            z-index: -1;
         }
 
         /* Contenedor del texto sobre la imagen */
@@ -50,7 +50,7 @@
             box-sizing: border-box;
             color: white;
             width: 90%;
-            max-width: 800px; /* Limita el ancho del texto */
+            max-width: 800px;
             border-radius: 10px;
         }
 
@@ -81,6 +81,45 @@
             background-color: #ffc107;
         }
 
+        /* Sección de servicios */
+        .services {
+            background-color: #ffffff;
+            padding: 50px;
+            text-align: center;
+            color: #4e342e;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+
+        .services h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .services ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .services ul li {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Anuncio lugar físico */
+        .location-announcement {
+            background-color: #4e342e;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+
         /* Ajustes para dispositivos móviles */
         @media screen and (max-width: 768px) {
             .overlay-text h1, .overlay-text h2 {
@@ -91,6 +130,11 @@
             }
             .cta-button {
                 font-size: 0.9rem;
+            }
+
+            .background-image {
+                object-fit: cover;
+                object-position: center;
             }
         }
     </style>
@@ -104,15 +148,38 @@
             <h1>Café Judicial</h1>
             <p><strong>Donde el derecho y la conversación se mezclan con buen café ☕</strong></p>
             <p>Te damos la bienvenida a <strong>Café Judicial</strong>, un espacio donde el derecho y la conversación se encuentran acompañados de una taza de café de calidad.</p>
-            <h2>Servicios</h2>
-            <p>Ofrecemos asesoría jurídica, redacción de escrituras y representación legal para quienes necesiten orientación profesional.</p>
-            <p><strong>¡Consulta con nosotros!</strong></p>
             <h2>¿Cómo puedes participar? 👇</h2>
             <p>En <strong>Café Judicial</strong> organizamos actividades, charlas y encuentros para la comunidad legal. ¡Súmate a nuestra lista de correo y mantente al día con nuestras novedades!</p>
             <a href="#" target="_blank" class="cta-button">SUSCRÍBETE AQUÍ</a>
-            <h2>Contacto</h2>
-            <p>¿Tienes preguntas o necesitas nuestros servicios? Contáctanos en <strong>contacto@cafejudicial.cl</strong></p>
         </div>
+    </div>
+
+    <!-- Sección de Servicios Legales para clientes -->
+    <div class="services">
+        <h2>Servicios para Personas que Necesitan un Abogado</h2>
+        <ul>
+            <li>Asesoría jurídica personalizada.</li>
+            <li>Redacción de escrituras y contratos.</li>
+            <li>Representación legal en juicios y mediaciones.</li>
+            <li>Consultas en derecho civil, comercial y familiar.</li>
+        </ul>
+    </div>
+
+    <!-- Sección de Servicios para Abogados -->
+    <div class="services">
+        <h2>Servicios para Abogados</h2>
+        <ul>
+            <li>Charlas y networking para la comunidad legal.</li>
+            <li>Capacitaciones y talleres especializados.</li>
+            <li>Acceso a un espacio colaborativo para profesionales del derecho.</li>
+            <li>Oportunidades para compartir experiencias y casos.</li>
+        </ul>
+    </div>
+
+    <!-- Anuncio del futuro lugar físico -->
+    <div class="location-announcement">
+        <h2>¡Pronto un Lugar Físico!</h2>
+        <p>Estamos emocionados de anunciar que pronto abriremos las puertas de un café físico donde podrás disfrutar de un excelente café mientras discutes temas legales en un ambiente relajado. ¡Mantente atento a nuestras redes para más información!</p>
     </div>
 </body>
 </html>
