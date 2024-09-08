@@ -1,204 +1,155 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Café Judicial</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Judicial</title>
+    <style>
+        /* Aseguramos que la página sea desplazable */
+        body {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            background-color: #4e342e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
 
-    header {
-      background-color: #4e342e;
-      padding: 20px;
-      text-align: center;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+        /* Contenedor para la imagen y el texto */
+        .image-text-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            max-width: 1000px; /* Limita el ancho en pantallas más grandes */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
 
-    nav ul {
-      list-style: none;
-      padding: 0;
-      text-align: center;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      background-color: #4e342e;
-    }
+        /* Estilo para la imagen de fondo */
+        .background-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que la imagen siempre ocupe toda la pantalla */
+            transform: translate(-50%, -50%);
+            z-index: -1; /* Envía la imagen al fondo */
+        }
 
-    nav ul li {
-      margin: 0 20px;
-    }
+        /* Contenedor del texto sobre la imagen */
+        .overlay-text {
+            position: relative;
+            max-height: 100%;
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+            padding: 20px;
+            box-sizing: border-box;
+            color: white;
+            width: 90%;
+            max-width: 800px; /* Limita el ancho del texto */
+            border-radius: 10px;
+        }
 
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18px;
-      padding: 10px 20px;
-      display: block;
-    }
+        /* Estilos del texto */
+        .overlay-text h1, .overlay-text h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
 
-    nav ul li a:hover {
-      background-color: #3e2723;
-      border-radius: 5px;
-    }
+        .overlay-text p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
 
-    #hero {
-      background-image: url('IMG_3999.jpeg'); /* Aquí usamos la nueva imagen */
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat; /* Asegura que la imagen no se repita */
-      height: 100vh; /* Hace que la imagen ocupe toda la altura de la ventana */
-      color: white;
-      text-align: center;
-      padding: 100px 20px;
-      position: relative;
-      margin-top: 80px; /* Ajustamos el margen superior para que no se solape con el menú */
-    }
+        /* Botón de llamada a la acción */
+        .cta-button {
+            display: inline-block;
+            background-color: #ffdd57;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
 
-    #hero p {
-      font-size: 24px;
-      background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-      display: inline-block;
-      padding: 10px 20px;
-    }
+        .cta-button:hover {
+            background-color: #ffc107;
+        }
 
-    .cta-button {
-      background-color: #d7ccc8;
-      color: #3e2723;
-      padding: 15px 30px;
-      text-decoration: none;
-      font-size: 18px;
-      border-radius: 5px;
-      display: inline-block;
-      margin-top: 20px;
-    }
+        /* Sección de servicios */
+        .services {
+            background-color: #ffffff;
+            padding: 50px;
+            text-align: center;
+            color: #4e342e;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
 
-    section {
-      padding: 50px 20px;
-      text-align: center;
-    }
+        .services h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
 
-    h2 {
-      color: #3e2723;
-    }
+        .services ul {
+            list-style: none;
+            padding: 0;
+        }
 
-    #contacto form {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: left;
-    }
+        .services ul li {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
 
-    #contacto form label {
-      display: block;
-      margin: 10px 0 5px;
-      color: #3e2723;
-    }
-
-    #contacto form input, #contacto form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    #contacto form button {
-      background-color: #795548;
-      color: white;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #contacto form button:hover {
-      background-color: #5d4037;
-    }
-
-    footer {
-      background-color: #3e2723;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    @media (max-width: 768px) {
-      #hero p {
-        font-size: 20px;
-      }
-
-      nav ul {
-        flex-direction: column;
-      }
-
-      nav ul li {
-        margin: 10px 0;
-      }
-    }
-  </style>
+        /* Ajustes para dispositivos móviles */
+        @media screen and (max-width: 768px) {
+            .overlay-text h1, .overlay-text h2 {
+                font-size: 1.5rem;
+            }
+            .overlay-text p {
+                font-size: 1rem;
+            }
+            .cta-button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <!-- Cargamos la fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="image-text-container">
+        <img src="IMG_3999.jpeg" alt="Café Judicial Logo" class="background-image">
+        <div class="overlay-text">
+            <h1>Café Judicial</h1>
+            <p><strong>¿Eres abogado, estudiante de derecho o amante del café? ☕</strong></p>
+            <p>Te damos la bienvenida a <strong>Café Judicial</strong>, un espacio donde el derecho y la conversación se mezclan con una taza de café de calidad.</p>
+            <h2>¿Cómo puedes ser parte? 👇</h2>
+            <p>En <strong>Café Judicial</strong> organizamos actividades, charlas y encuentros para la comunidad legal. Si quieres participar o ser parte de nuestras iniciativas, suscríbete a nuestra lista de correo.</p>
+            <a href="#" target="_blank" class="cta-button">PARTICIPA AQUÍ</a> <!-- Cambia este enlace a la URL que desees -->
+        </div>
+    </div>
 
-<header>
-  <nav>
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#historia">Historia</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
-
-<section id="hero">
-  <p>Donde el derecho y la conversación se mezclan con buen café.</p>
-  <a href="#conocemas" class="cta-button">Conoce Más</a>
-</section>
-
-<section id="introduccion">
-  <h2>¿Qué es Café Judicial?</h2>
-  <p>Café Judicial es un espacio único donde el mundo del derecho se une con el buen café. Nuestra misión es ofrecer un lugar de encuentro para abogados, estudiantes de derecho y cualquier persona interesada en la justicia, en un ambiente relajado y con la mejor selección de cafés.</p>
-</section>
-
-<section id="servicios">
-  <h2>Nuestros Servicios</h2>
-  <p>En Café Judicial ofrecemos una variedad de servicios legales y de asesoramiento, incluyendo:</p>
-  <ul>
-    <li>Asesorías jurídicas personalizadas.</li>
-    <li>Redacción de escrituras y contratos legales.</li>
-    <li>Apoyo legal integral para particulares y empresas.</li>
-    <li>Consultas en derecho civil, comercial, y familiar.</li>
-  </ul>
-  <p>Participa y sé parte de nuestras actividades jurídicas mientras disfrutas de una taza de café.</p>
-</section>
-
-<section id="contacto">
-  <h2>Contáctanos</h2>
-  <form action="#">
-    <label for="name">Nombre:</label>
-    <input type="text" id="name" name="name">
-    <label for="email">Correo Electrónico:</label>
-    <input type="email" id="email" name="email">
-    <label for="message">Mensaje:</label>
-    <textarea id="message" name="message"></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-</section>
-
-<footer>
-  <p>&copy; 2024 Café Judicial. Todos los derechos reservados.</p>
-</footer>
-
+    <!-- Sección de Servicios Legales -->
+    <div class="services">
+        <h2>Servicios Legales</h2>
+        <p>Ofrecemos una variedad de servicios para particulares y empresas que necesiten asesoramiento legal:</p>
+        <ul>
+            <li>Asesoría jurídica personalizada en diversas áreas del derecho.</li>
+            <li>Redacción y revisión de escrituras y contratos.</li>
+            <li>Apoyo legal en la elaboración de documentos comerciales y civiles.</li>
+            <li>Consultoría para empresas en derecho laboral y comercial.</li>
+            <li>Representación legal en juicios y mediaciones.</li>
+        </ul>
+        <p>Para solicitar nuestros servicios o hacer una consulta, contáctanos en <strong>contacto@cafejudicial.cl</strong></p>
+    </div>
 </body>
 </html>
