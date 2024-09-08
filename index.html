@@ -44,10 +44,13 @@
     }
 
     #hero {
-      background-color: #795548;
+      background-image: url('IMG_3999.jpeg'); /* Aquí usamos la nueva imagen */
+      background-size: cover;
+      background-position: center;
       color: white;
       text-align: center;
       padding: 100px 20px;
+      position: relative;
     }
 
     #hero h1 {
@@ -57,6 +60,9 @@
 
     #hero p {
       font-size: 24px;
+      background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+      display: inline-block;
+      padding: 10px 20px;
     }
 
     .cta-button {
@@ -133,7 +139,6 @@
 <body>
 
 <header>
-  <!-- Referencia a la imagen del logo con el nombre IMG_3987.jpeg -->
   <img src="IMG_3987.jpeg" alt="Logo Café Judicial" style="width: 200px; height: auto;">
 </header>
 
