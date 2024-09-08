@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Café Judicial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #3e2723;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #hero {
+      background-color: #795548;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    #hero h1 {
+      font-size: 48px;
+    }
+
+    #hero p {
+      font-size: 24px;
+    }
+
+    .cta-button {
+      background-color: #d7ccc8;
+      color: #3e2723;
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #3e2723;
+    }
+
+    #contacto form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    #contacto form label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #3e2723;
+    }
+
+    #contacto form input, #contacto form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #contacto form button {
+      background-color: #795548;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #contacto form button:hover {
+      background-color: #5d4037;
+    }
+
+    footer {
+      background-color: #3e2723;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      #hero h1 {
+        font-size: 36px;
+      }
+
+      #hero p {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="hero">
+  <h1>Café Judicial</h1>
+  <p>Donde el derecho y la conversación se mezclan con buen café.</p>
+  <a href="#conocemas" class="cta-button">Conoce Más</a>
+</section>
+
+<section id="introduccion">
+  <h2>¿Qué es Café Judicial?</h2>
+  <p>Café Judicial es un espacio único donde el mundo del derecho se une con el buen café. Nuestra misión es ofrecer un lugar de encuentro para abogados, estudiantes de derecho y cualquier persona interesada en la justicia, en un ambiente relajado y con la mejor selección de cafés.</p>
+</section>
+
+<section id="servicios">
+  <h2>Nuestros Servicios</h2>
+  <p>En Café Judicial ofrecemos una variedad de servicios legales y de asesoramiento, incluyendo:</p>
+  <ul>
+    <li>Asesorías jurídicas personalizadas.</li>
+    <li>Redacción de escrituras y contratos legales.</li>
+    <li>Apoyo legal integral para particulares y empresas.</li>
+    <li>Consultas en derecho civil, comercial, y familiar.</li>
+  </ul>
+  <p>Participa y sé parte de nuestras actividades jurídicas mientras disfrutas de una taza de café.</p>
+</section>
+
+<section id="contacto">
+  <h2>Contáctanos</h2>
+  <form action="#">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name">
+    <label for="email">Correo Electrónico:</label>
+    <input type="email" id="email" name="email">
+    <label for="message">Mensaje:</label>
+    <textarea id="message" name="message"></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2024 Café Judicial. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
