@@ -15,24 +15,32 @@
 
     header {
       background-color: #3e2723;
-      padding: 20px;
+      padding: 40px;
       text-align: center;
+    }
+
+    header img {
+      width: 200px;
+      height: auto;
     }
 
     nav ul {
       list-style: none;
       padding: 0;
+      text-align: center;
+      margin: 20px 0;
     }
 
     nav ul li {
       display: inline;
-      margin: 0 15px;
+      margin: 0 20px;
     }
 
     nav ul li a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      font-size: 18px;
     }
 
     #hero {
@@ -44,6 +52,7 @@
 
     #hero h1 {
       font-size: 48px;
+      margin-top: 20px;
     }
 
     #hero p {
@@ -124,15 +133,18 @@
 <body>
 
 <header>
-  <nav>
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#historia">Historia</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
+  <!-- Referencia a la imagen del logo con el nombre IMG_3987.jpeg -->
+  <img src="IMG_3987.jpeg" alt="Logo Café Judicial" style="width: 200px; height: auto;">
 </header>
+
+<nav>
+  <ul>
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#historia">Historia</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
 
 <section id="hero">
   <h1>Café Judicial</h1>
