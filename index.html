@@ -11,19 +11,19 @@
             background-color: #4e342e;
         }
 
-        /* Ajuste para que la imagen cubra la pantalla y sea más visible */
+        /* Asegura que la imagen cubra toda la pantalla y sea fija */
         .background-image {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('IMG_3999.jpeg'); /* Verifica el nombre correcto de la imagen */
+            background-image: url('IMG_3999.jpeg'); /* Asegúrate de tener el nombre correcto de la imagen */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             z-index: -1;
-            opacity: 0.8; /* Reduzco la opacidad para que el texto se vea mejor */
+            filter: brightness(50%);
         }
 
         .content {
@@ -31,7 +31,7 @@
             z-index: 1;
             color: white;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+            background-color: rgba(0, 0, 0, 0.6);
             max-width: 800px;
             margin: 50px auto;
             border-radius: 10px;
