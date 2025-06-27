@@ -11,14 +11,13 @@
             background-color: #4e342e;
         }
 
-        /* Imagen de fondo fija y centrada */
         .background-image {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('IMG_3999.jpeg'); /* Asegúrate de tener el nombre correcto de la imagen */
+            background-image: url('IMG_3999.jpeg'); /* Imagen de fondo */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -55,7 +54,6 @@
             margin-bottom: 10px;
         }
 
-        /* Botón de llamada a la acción */
         .cta-button {
             display: inline-block;
             background-color: #ffdd57;
@@ -71,7 +69,6 @@
             background-color: #ffc107;
         }
 
-        /* Ajustes para dispositivos móviles */
         @media screen and (max-width: 768px) {
             .content h1, .content h2 {
                 font-size: 1.5rem;
@@ -83,41 +80,50 @@
                 font-size: 0.9rem;
             }
         }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #ffffffa6;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
-    <!-- Imagen de fondo -->
     <div class="background-image"></div>
 
-    <!-- Contenido superpuesto -->
     <div class="content">
         <h1>Café Judicial ☕</h1>
-        <h2>¿Qué es Café Judicial?</h2>
-        <p>Café Judicial es un espacio donde el derecho y la conversación se mezclan con una taza de café de calidad. Aquí, no solo ofrecemos servicios legales, sino también un lugar para charlas, capacitaciones y encuentros con abogados, todo en un ambiente relajado.</p>
+        <p style="font-style: italic; font-size: 1.2rem; margin-bottom: 20px;">
+            Donde la justicia se viste, se huele y se comenta.
+        </p>
 
-        <h1>Servicios Legales en Café Judicial 🏛️</h1>
-        <p><strong>Ofrecemos una amplia gama de servicios legales para personas y empresas que necesitan apoyo profesional en el ámbito jurídico.</strong> 💼</p>
-        
-        <h2>Servicios para Personas 👨‍👩‍👧‍👦</h2>
+        <h2>¿Qué es Café Judicial?</h2>
+        <p>
+            Café Judicial es un ecosistema creativo que combina el mundo legal con productos, servicios y contenido original. 
+            Desde corbatas temáticas hasta kits de autocuidado y asesorías jurídicas con estilo, buscamos dignificar el trabajo 
+            en el sistema de justicia con humor, cercanía y diseño.
+        </p>
+
+        <h2>Productos y Servicios</h2>
         <ul>
-            <li>💼 Asesoría jurídica personalizada.</li>
-            <li>📝 Redacción de escrituras y contratos.</li>
-            <li>⚖️ Representación legal en juicios y mediaciones.</li>
-            <li>📜 Consultas en derecho civil, comercial y familiar.</li>
+            <li>👔 Corbatines temáticos: para audiencias con estilo.</li>
+            <li>🧴 FritHurra!: spray textil que elimina el olor a fritura.</li>
+            <li>💊 Kits “Almuerzo con Actuario” con Resaquit® y más.</li>
+            <li>📚 Asesorías legales personalizadas con mirada humana.</li>
         </ul>
 
-        <h2>Servicios para Abogados 👩‍⚖️👨‍⚖️</h2>
-        <p>En Café Judicial también brindamos un espacio para abogados que busquen compartir ideas, colaborar en proyectos y asistir a capacitaciones.</p>
+        <h2>Próximamente</h2>
+        <ul>
+            <li>☕ Café físico con charlas, tutorías y eventos legales.</li>
+            <li>🧵 Línea textil de edición limitada para profesionales del derecho.</li>
+        </ul>
 
-        <h2>Servicios para Estudiantes de Derecho 📚</h2>
-        <p>Apoyamos a los futuros abogados en su preparación para exámenes y prácticas. Ofrecemos tutorías personalizadas, grupos de estudio, y simulaciones de exámenes orales y escritos.</p>
-        
-        <h2>¡Pronto un Lugar Físico! ☕</h2>
-        <p>Pronto abriremos las puertas de nuestro café físico donde podrás asistir a charlas, eventos y capacitaciones, todo en un ambiente relajado mientras disfrutas de un buen café.</p>
-        <a href="#" class="cta-button">SUSCRÍBETE AQUÍ</a>
-
-        <h2>Contacto 📧</h2>
-        <p>Si tienes alguna duda o sugerencia, no dudes en escribirnos a: <strong>contacto@cafejudicial.cl</strong></p>
+        <a href="mailto:contacto@cafejudicial.cl" class="cta-button">Contáctanos</a>
     </div>
+
+    <footer>
+        Café Judicial® – Donde la justicia se viste, se huele y se comenta.
+    </footer>
 </body>
 </html>
