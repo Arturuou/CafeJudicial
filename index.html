@@ -6,9 +6,9 @@
   <title>Café Judicial® – Donde la justicia se sirve en taza</title>
 
   <!-- SEO / Social -->
-  <meta name="description" content="Café Judicial®: mundo legal + café de especialidad + diseño. Corbatitas temáticas, FritHurra!, kits, asesorías y eventos. Únete como jurado fundador." />
+  <meta name="description" content="Café Judicial®: mundo legal + café de especialidad + diseño. Corbatitas temáticas, FritHurra!, kits, asesorías legales y espacio académico con simulaciones de juicios." />
   <meta property="og:title" content="Café Judicial® – Donde la justicia se sirve en taza" />
-  <meta property="og:description" content="Un espacio para conversar, estudiar y disfrutar… con aroma a justicia. Corbatitas, FritHurra! y más." />
+  <meta property="og:description" content="Un espacio para conversar, estudiar y disfrutar… con aroma a justicia. Corbatitas, FritHurra!, servicios legales y moot court." />
   <meta property="og:image" content="https://arturuou.github.io/CafeJudicial/img/og-cafejudicial.jpg" />
   <meta property="og:type" content="website" />
   <link rel="icon" href="img/favicon.ico" />
@@ -27,6 +27,8 @@
     body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    /* NAV */
     header.site{position:sticky;top:0;z-index:10;background:rgba(15,15,19,.75);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--line)}
     .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
     .nav a.logo{font-family:"Playfair Display",serif;font-weight:700;text-decoration:none;color:var(--ink);font-size:20px}
@@ -34,9 +36,9 @@
     .nav .links a{color:var(--muted);text-decoration:none;font-size:14px}
     .nav .links a:hover{color:var(--ink)}
 
-    /* Hero */
+    /* HERO */
     .hero{position:relative;min-height:70vh;display:grid;place-items:center;text-align:center;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;background:url('IMG_7548.jpeg') center/cover no-repeat;filter:brightness(.6)}
+    .hero::before{content:"";position:absolute;inset:0;background:url('img/IMG_7548.jpeg') center/cover no-repeat;filter:brightness(.6)}
     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(15,16,23,.35) 0%, var(--bg) 100%)}
     .hero .inner{position:relative;z-index:1;padding:84px 20px}
     h1{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(34px,6vw,56px);line-height:1.1;margin:10px 0}
@@ -45,24 +47,25 @@
          font-weight:700;text-decoration:none;padding:12px 16px;border-radius:12px;border:1px solid #bba341;box-shadow:0 6px 16px rgba(0,0,0,.35);transition:.2s}
     .cta:hover{transform:translateY(-1px);filter:brightness(1.05)}
 
+    /* SECCIONES */
     section{padding:64px 0;border-top:1px solid var(--line)}
     h2{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(26px,3.6vw,36px);margin:0 0 8px}
     .lead{color:var(--muted);margin:0 0 20px}
 
-    /* Grids */
+    /* GRIDS */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
     .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;padding:18px;display:flex;flex-direction:column;gap:10px}
     .pill{font-size:12px;color:#e9e3d7;background:#2a1f14;border:1px solid #3b2a1a;border-radius:999px;padding:6px 10px;display:inline-block}
     .card h3{margin:0;font-size:18px}
     .card p{margin:0;color:var(--muted)}
 
-    /* Feature Corbatitas */
+    /* FEATURE */
     .feature{background:linear-gradient(180deg,#151724,#131521);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
     .feature .copy{padding:28px}
     .feature .figure{position:relative;min-height:280px;background:#0f111a}
     .stamp{position:absolute;bottom:14px;left:14px;background:rgba(15,16,27,.75);border:1px solid var(--line);color:#efe5d4;padding:10px 14px;border-radius:12px;font-size:13px}
 
-    /* Ties mini catálogo */
+    /* TIES */
     .ties{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
     .tie{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
     .tie .body{padding:14px}
@@ -72,21 +75,18 @@
     .btn{display:block;margin:12px 14px 16px;padding:10px 12px;border-radius:10px;background:#efe5d4;color:#1d1409;font-weight:700;text-align:center;border:1px solid #b8a487}
     .btn:hover{filter:brightness(1.03)}
 
-    /* Story / Origen del caso */
+    /* STORY / BLOG / QUOTES / FAQ */
     .case{background:linear-gradient(180deg,#14161f,#121320);border:1px solid var(--line);border-radius:16px;padding:22px}
     .case h3{font-size:20px;margin-bottom:8px}
     .case p{color:var(--muted)}
 
-    /* Blog */
     .post{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
     .post img{height:160px;object-fit:cover}
     .post .body{padding:14px}
     .post .meta{font-size:12px;color:#aeb0ba;margin-bottom:6px}
 
-    /* Testimonios */
     .quote{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;font-style:italic;color:#e9e3d7}
 
-    /* FAQ */
     details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
     details+details{margin-top:12px}
     summary{cursor:pointer;font-weight:700}
@@ -105,6 +105,8 @@
       <nav class="links" aria-label="Secciones">
         <a href="#que-es">Qué es</a>
         <a href="#servicios">Servicios</a>
+        <a href="#servicios-legales">Servicios legales</a>
+        <a href="#estudiantes">Estudiantes</a>
         <a href="#corbatitas">Corbatitas</a>
         <a href="#historia">Historia</a>
         <a href="#prensa">Sala de prensa</a>
@@ -124,7 +126,7 @@
   </section>
 
   <main class="wrap" role="main">
-    <!-- Qué es -->
+    <!-- QUÉ ES -->
     <section id="que-es" aria-labelledby="que-es-h">
       <h2 id="que-es-h">¿Qué es Café Judicial?</h2>
       <p class="lead">
@@ -133,7 +135,7 @@
       </p>
     </section>
 
-    <!-- Servicios -->
+    <!-- SERVICIOS (GENERALES) -->
     <section id="servicios" aria-labelledby="servicios-h">
       <h2 id="servicios-h">Productos y servicios</h2>
       <div class="grid">
@@ -170,7 +172,97 @@
       </div>
     </section>
 
-    <!-- Corbatitas destacado -->
+    <!-- SERVICIOS LEGALES & ASESORÍAS -->
+    <section id="servicios-legales" aria-labelledby="servicios-legales-h">
+      <h2 id="servicios-legales-h">Servicios judiciales y asesorías</h2>
+      <p class="lead">
+        Asesoría clara y humana para personas, profesionales y empresas. Te ayudamos a entender tu caso,
+        definir estrategia y tomar decisiones informadas.
+      </p>
+
+      <div class="grid">
+        <article class="card" role="article">
+          <span class="pill">🧭 Primera guía</span>
+          <h3>Orientación inicial</h3>
+          <p>Evaluación preliminar del caso y próximos pasos sugeridos. Derivación cuando corresponda.</p>
+        </article>
+
+        <article class="card" role="article">
+          <span class="pill">📝 Escritos</span>
+          <h3>Redacción y estrategia</h3>
+          <p>Apoyo en escritos, recopilación de antecedentes y preparación de argumentos clave.</p>
+        </article>
+
+        <article class="card" role="article">
+          <span class="pill">⚖️ Audiencias</span>
+          <h3>Acompañamiento</h3>
+          <p>Preparación para audiencias, simulación de preguntas y checklist de evidencias.</p>
+        </article>
+
+        <article class="card" role="article">
+          <span class="pill">🏢 Empresas</span>
+          <h3>Convenios y compliance</h3>
+          <p>Capacitaciones, políticas internas y diagnósticos de riesgo legal para equipos.</p>
+        </article>
+      </div>
+
+      <div style="margin-top:18px">
+        <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero agendar una asesoría</a>
+      </div>
+
+      <p class="lead" style="margin-top:12px; font-size:13px; color:#aeb0ba">
+        *La orientación no constituye patrocinio ni reemplaza el consejo de un abogado habilitado para litigar.
+      </p>
+    </section>
+
+    <!-- ESTUDIANTES & SIMULACIONES -->
+    <section id="estudiantes" aria-labelledby="estudiantes-h">
+      <h2 id="estudiantes-h">Espacio para estudiantes & simulaciones de juicios</h2>
+      <p class="lead">
+        Un hub académico: salas reservables, tutorías, moot court y actividades para fortalecer tu formación jurídica.
+      </p>
+
+      <div class="feature" role="region" aria-label="Moot court y espacio académico">
+        <div class="copy">
+          <h3>Simulaciones de juicios (Moot Court)</h3>
+          <p>
+            Practica alegatos, objeciones y examen de testigos en un entorno controlado.
+            Roles asignados, reglas claras y feedback inmediato para mejorar tu desempeño.
+          </p>
+          <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Reservar simulación</a>
+        </div>
+        <figure class="figure">
+          <img src="img/moot-court.jpg" alt="Simulación de juicio con estudiantes y mesa de tribunal" loading="lazy">
+          <figcaption class="stamp">Entrena hoy, rinde mejor mañana</figcaption>
+        </figure>
+      </div>
+
+      <div class="grid" style="margin-top:18px">
+        <article class="card" role="article">
+          <span class="pill">📚 Estudio</span>
+          <h3>Salas reservables</h3>
+          <p>Mesas para grupos, pizarras y ambiente silencioso. Ideal para preparar exámenes y equipos de clínica jurídica.</p>
+        </article>
+
+        <article class="card" role="article">
+          <span class="pill">🎯 Tutorías</span>
+          <h3>Preparación de cátedras</h3>
+          <p>Sesiones de repaso, mapas de casos y técnicas de argumentación oral.</p>
+        </article>
+
+        <article class="card" role="article">
+          <span class="pill">🗣️ Debate</span>
+          <h3>Club & charlas</h3>
+          <p>Encuentros con docentes y profesionales: análisis de fallos, ética y tendencias del sistema de justicia.</p>
+        </article>
+      </div>
+
+      <div style="margin-top:18px">
+        <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Reservar espacio de estudio</a>
+      </div>
+    </section>
+
+    <!-- CORBATITAS -->
     <section id="corbatitas" aria-labelledby="corbatitas-h">
       <div class="feature" role="region" aria-label="Corbatitas Judiciales">
         <div class="copy">
@@ -221,7 +313,7 @@
       </div>
     </section>
 
-    <!-- Historia / Storytelling -->
+    <!-- HISTORIA -->
     <section id="historia" aria-labelledby="historia-h">
       <h2 id="historia-h">El origen del caso</h2>
       <div class="case">
@@ -234,7 +326,7 @@
       </div>
     </section>
 
-    <!-- Sala de prensa / Blog -->
+    <!-- BLOG / PRENSA -->
     <section id="prensa" aria-labelledby="prensa-h">
       <h2 id="prensa-h">Sala de prensa</h2>
       <p class="lead">Noticias, artículos y avances del proyecto. (Publicaremos quincenalmente)</p>
@@ -266,7 +358,7 @@
       </div>
     </section>
 
-    <!-- Testimonios -->
+    <!-- TESTIMONIOS -->
     <section aria-labelledby="testimonios-h">
       <h2 id="testimonios-h">Lo que dice la barra</h2>
       <div class="grid">
@@ -276,7 +368,7 @@
       </div>
     </section>
 
-    <!-- Próximamente -->
+    <!-- PRÓXIMAMENTE -->
     <section aria-labelledby="proximamente-h">
       <h2 id="proximamente-h">Próximamente</h2>
       <ul class="lead">
@@ -303,7 +395,7 @@
       </details>
     </section>
 
-    <!-- CTA final -->
+    <!-- CTA FINAL -->
     <section id="contacto" class="center" aria-labelledby="cta-h">
       <h2 id="cta-h">Súmate como jurado fundador</h2>
       <p class="lead">Recibe noticias, preventas y acceso a la inauguración.</p>
@@ -316,6 +408,5 @@
     Café Judicial® — Donde la justicia se sirve en taza · Santiago, Chile
   </footer>
 
-  <!-- Mejora de rendimiento: lazy loading ya aplicado; si quieres, se puede añadir defer a scripts cuando existan -->
 </body>
 </html>
