@@ -5,246 +5,317 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Café Judicial® – Donde la justicia se sirve en taza</title>
 
-  <!-- Tipografía -->
+  <!-- SEO / Social -->
+  <meta name="description" content="Café Judicial®: mundo legal + café de especialidad + diseño. Corbatitas temáticas, FritHurra!, kits, asesorías y eventos. Únete como jurado fundador." />
+  <meta property="og:title" content="Café Judicial® – Donde la justicia se sirve en taza" />
+  <meta property="og:description" content="Un espacio para conversar, estudiar y disfrutar… con aroma a justicia. Corbatitas, FritHurra! y más." />
+  <meta property="og:image" content="https://arturuou.github.io/CafeJudicial/img/og-cafejudicial.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="img/favicon.ico" />
+
+  <!-- Tipografías -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0f0f13;
-      --panel:#14161f;
-      --ink:#f4f4f6;
-      --muted:#c8c9d1;
-      --accent:#ffdd57;
-      --accent-ink:#201a00;
-      --line:#24283b;
-      --card:#161826;
+      --bg:#0f0f13; --panel:#14161f; --ink:#f4f4f6; --muted:#c8c9d1;
+      --accent:#ffdd57; --accent-ink:#201a00; --line:#24283b; --card:#161826;
       --gold:#d6b17e;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      background:var(--bg); color:var(--ink);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height:1.55;
-    }
-    img{max-width:100%; display:block}
-
-    .wrap{max-width:1080px; margin:0 auto; padding:0 20px}
+    img{max-width:100%;display:block;height:auto}
+    body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+    a{color:var(--accent)}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+    header.site{position:sticky;top:0;z-index:10;background:rgba(15,15,19,.75);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
+    .nav a.logo{font-family:"Playfair Display",serif;font-weight:700;text-decoration:none;color:var(--ink);font-size:20px}
+    .nav .links{display:flex;gap:14px;flex-wrap:wrap}
+    .nav .links a{color:var(--muted);text-decoration:none;font-size:14px}
+    .nav .links a:hover{color:var(--ink)}
 
     /* Hero */
-    .hero{
-      position:relative; min-height:72vh; display:grid; place-items:center; text-align:center; overflow:hidden;
-    }
-    .hero::before{
-      content:""; position:absolute; inset:0;
-      background: url('IMG_7548.jpeg') center/cover no-repeat;
-      filter: brightness(0.6);
-    }
-    .hero::after{
-      content:""; position:absolute; inset:0;
-      background: linear-gradient(to bottom, rgba(15,16,23,.4) 0%, var(--bg) 100%);
-    }
-    .hero .inner{position:relative; z-index:1; padding:80px 20px}
-    .brand{
-      display:inline-block; font-size:13px; color:var(--muted);
-      padding:6px 12px; border:1px solid var(--line); border-radius:999px;
-      background:rgba(20,22,31,.6);
-    }
-    h1{
-      font-family:"Playfair Display", serif; font-weight:700;
-      font-size: clamp(34px,6vw,56px); line-height:1.1; margin:16px 0 8px;
-    }
-    .sub{
-      font-size: clamp(15px,2.2vw,18px); color:var(--muted); margin:0 0 28px;
-      font-style: italic;
-    }
-    .cta{
-      display:inline-flex; gap:10px; align-items:center; justify-content:center;
-      background:linear-gradient(180deg, #fff2a1, var(--accent));
-      color:var(--accent-ink); font-weight:700; text-decoration:none;
-      padding:14px 18px; border-radius:12px; border:1px solid #bba341;
-      box-shadow: 0 6px 16px rgba(0,0,0,.35);
-      transition:.2s;
-    }
-    .cta:hover{transform:translateY(-1px); filter:brightness(1.05)}
+    .hero{position:relative;min-height:70vh;display:grid;place-items:center;text-align:center;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;background:url('IMG_7548.jpeg') center/cover no-repeat;filter:brightness(.6)}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(15,16,23,.35) 0%, var(--bg) 100%)}
+    .hero .inner{position:relative;z-index:1;padding:84px 20px}
+    h1{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(34px,6vw,56px);line-height:1.1;margin:10px 0}
+    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);font-style:italic;margin-bottom:26px}
+    .cta{display:inline-flex;gap:10px;align-items:center;justify-content:center;background:linear-gradient(180deg,#fff2a1,var(--accent));color:var(--accent-ink);
+         font-weight:700;text-decoration:none;padding:12px 16px;border-radius:12px;border:1px solid #bba341;box-shadow:0 6px 16px rgba(0,0,0,.35);transition:.2s}
+    .cta:hover{transform:translateY(-1px);filter:brightness(1.05)}
 
-    /* Secciones */
-    section{padding:64px 0; border-top:1px solid var(--line)}
-    h2{
-      font-family:"Playfair Display", serif; font-weight:700;
-      font-size: clamp(26px,3.6vw,36px); margin:0 0 8px;
-    }
-    .lead{color:var(--muted); margin:0 0 20px}
+    section{padding:64px 0;border-top:1px solid var(--line)}
+    h2{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(26px,3.6vw,36px);margin:0 0 8px}
+    .lead{color:var(--muted);margin:0 0 20px}
 
-    /* Grid servicios */
-    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:22px}
-    .card{
-      background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden;
-      padding:18px; display:flex; flex-direction:column; gap:10px;
-    }
-    .card h3{margin:0; font-size:18px}
-    .card p{margin:0; color:var(--muted)}
-    .pill{
-      font-size:12px; color:#e9e3d7; background:#2a1f14; border:1px solid #3b2a1a;
-      border-radius:999px; padding:6px 10px; display:inline-block;
-    }
+    /* Grids */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;padding:18px;display:flex;flex-direction:column;gap:10px}
+    .pill{font-size:12px;color:#e9e3d7;background:#2a1f14;border:1px solid #3b2a1a;border-radius:999px;padding:6px 10px;display:inline-block}
+    .card h3{margin:0;font-size:18px}
+    .card p{margin:0;color:var(--muted)}
 
-    /* Feature corbatitas */
-    .feature{
-      background:linear-gradient(180deg, #151724, #131521);
-      border:1px solid var(--line); border-radius:16px; overflow:hidden;
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:0;
-    }
+    /* Feature Corbatitas */
+    .feature{background:linear-gradient(180deg,#151724,#131521);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
     .feature .copy{padding:28px}
-    .feature .copy h3{margin:0 0 6px; font-size:24px}
-    .feature .copy p{color:var(--muted)}
-    .feature .figure{position:relative; min-height:280px; background:#0f111a}
-    .feature .figure img{width:100%; height:100%; object-fit:cover}
-    .stamp{
-      position:absolute; bottom:14px; left:14px; background:rgba(15,16,27,.75);
-      border:1px solid var(--line); color:#efe5d4; padding:10px 14px; border-radius:12px; font-size:13px;
-    }
+    .feature .figure{position:relative;min-height:280px;background:#0f111a}
+    .stamp{position:absolute;bottom:14px;left:14px;background:rgba(15,16,27,.75);border:1px solid var(--line);color:#efe5d4;padding:10px 14px;border-radius:12px;font-size:13px}
 
-    /* Ties */
-    .ties{margin-top:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px}
-    .tie{background:var(--panel); border:1px solid var(--line); border-radius:14px; overflow:hidden}
-    .tie img{width:100%; height:220px; object-fit:cover}
+    /* Ties mini catálogo */
+    .ties{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .tie{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
     .tie .body{padding:14px}
-    .tag{font-size:11px; color:#dac8a3; background:#2a1f14; border:1px solid #3b2a1a; padding:4px 8px; border-radius:999px}
-    .name{margin:8px 0 4px; font-weight:700}
-    .desc{margin:0; color:var(--muted); font-size:14px}
-    .btn{
-      display:block; margin:12px 14px 16px; padding:10px 12px; border-radius:10px;
-      background:#efe5d4; color:#1d1409; font-weight:700; text-align:center;
-      border:1px solid #b8a487;
-    }
+    .tag{font-size:11px;color:#dac8a3;background:#2a1f14;border:1px solid #3b2a1a;padding:4px 8px;border-radius:999px}
+    .name{margin:8px 0 4px;font-weight:700}
+    .desc{margin:0;color:var(--muted);font-size:14px}
+    .btn{display:block;margin:12px 14px 16px;padding:10px 12px;border-radius:10px;background:#efe5d4;color:#1d1409;font-weight:700;text-align:center;border:1px solid #b8a487}
     .btn:hover{filter:brightness(1.03)}
 
-    /* Próximamente */
-    .todo{list-style:none; padding:0; margin:0}
-    .todo li{padding:10px 0; border-bottom:1px dashed var(--line)}
-    .todo li:last-child{border-bottom:none}
+    /* Story / Origen del caso */
+    .case{background:linear-gradient(180deg,#14161f,#121320);border:1px solid var(--line);border-radius:16px;padding:22px}
+    .case h3{font-size:20px;margin-bottom:8px}
+    .case p{color:var(--muted)}
 
-    footer{padding:28px 0; text-align:center; color:#bdbfc8; font-style:italic}
+    /* Blog */
+    .post{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+    .post img{height:160px;object-fit:cover}
+    .post .body{padding:14px}
+    .post .meta{font-size:12px;color:#aeb0ba;margin-bottom:6px}
+
+    /* Testimonios */
+    .quote{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;font-style:italic;color:#e9e3d7}
+
+    /* FAQ */
+    details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+    details+details{margin-top:12px}
+    summary{cursor:pointer;font-weight:700}
+    details p{color:var(--muted);margin-top:8px}
+
+    footer{padding:28px 0;text-align:center;color:#bdbfc8;font-style:italic}
+    .center{text-align:center}
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="inner wrap">
-      <div class="brand">☕⚖️ Café Judicial · Santiago, Chile</div>
-      <h1>Café Judicial®</h1>
-      <p class="sub">Donde la justicia se sirve en taza — y el estilo presenta su mejor alegato.</p>
-      <a class="cta" href="https://forms.gle/tu-formulario" target="_blank">Quiero ser jurado fundador</a>
+  <!-- NAV -->
+  <header class="site">
+    <div class="wrap nav">
+      <a class="logo" href="#top">Café Judicial®</a>
+      <nav class="links" aria-label="Secciones">
+        <a href="#que-es">Qué es</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#corbatitas">Corbatitas</a>
+        <a href="#historia">Historia</a>
+        <a href="#prensa">Sala de prensa</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
+  <!-- HERO -->
+  <section id="top" class="hero" aria-label="Portada">
+    <div class="inner wrap">
+      <h1>Café Judicial®</h1>
+      <p class="sub">Donde la justicia se sirve en taza — y el estilo presenta su mejor alegato.</p>
+      <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero ser jurado fundador</a>
+    </div>
+  </section>
+
+  <main class="wrap" role="main">
     <!-- Qué es -->
-    <section>
-      <h2>¿Qué es Café Judicial?</h2>
+    <section id="que-es" aria-labelledby="que-es-h">
+      <h2 id="que-es-h">¿Qué es Café Judicial?</h2>
       <p class="lead">
-        Café Judicial es un ecosistema creativo que combina el mundo legal con productos, servicios y contenido original.
-        Desde corbatitas temáticas hasta kits de autocuidado y asesorías con mirada humana, dignificamos el trabajo
-        en el sistema de justicia con humor, cercanía y diseño.
+        Un ecosistema creativo que mezcla el mundo legal con café de especialidad, productos con diseño y contenidos cercanos.
+        Corbatitas temáticas, FritHurra!, kits de autocuidado, asesorías y eventos: la justicia, servida en taza y con humor.
       </p>
     </section>
 
     <!-- Servicios -->
-    <section>
-      <h2>Productos y servicios</h2>
+    <section id="servicios" aria-labelledby="servicios-h">
+      <h2 id="servicios-h">Productos y servicios</h2>
       <div class="grid">
-        <div class="card">
-          <div class="pill">👔 Estilo</div>
+        <article class="card" role="article">
+          <span class="pill">👔 Estilo</span>
           <h3>Corbatitas temáticas</h3>
-          <p>Para audiencias con estilo: leyes, balanzas, frases célebres y guiños jurídicos.</p>
-        </div>
-        <div class="card">
-          <div class="pill">🧴 Innovación</div>
+          <p>Diseños inspirados en leyes, balanzas y frases célebres. Para audiencias con estilo.</p>
+        </article>
+        <article class="card" role="article">
+          <span class="pill">🧴 Innovación</span>
           <h3>FritHurra!</h3>
-          <p>Spray textil que elimina el olor a fritura. Ideal para oficina y audiencias.</p>
-        </div>
-        <div class="card">
-          <div class="pill">💊 Bienestar</div>
+          <p>Spray textil que elimina el olor a fritura. Ideal para oficina, audiencias y post-almuerzo.</p>
+        </article>
+        <article class="card" role="article">
+          <span class="pill">💊 Bienestar</span>
           <h3>Kits “Almuerzo con Actuario”</h3>
-          <p>Resaquit® y esenciales para sobrevivir jornadas intensas con humor.</p>
-        </div>
-        <div class="card">
-          <div class="pill">📚 Cercanía</div>
+          <p>Resaquit® y esenciales para jornadas intensas — con humor y cuidado.</p>
+        </article>
+        <article class="card" role="article">
+          <span class="pill">📚 Cercanía</span>
           <h3>Asesorías legales</h3>
-          <p>Orientación clara y personalizada, con lenguaje humano y soluciones reales.</p>
-        </div>
+          <p>Orientación práctica, lenguaje humano y foco en soluciones reales.</p>
+        </article>
+        <article class="card" role="article">
+          <span class="pill">🎙️ Comunidad</span>
+          <h3>Eventos y charlas</h3>
+          <p>Debates, tutorías, presentaciones de libros y networking profesional.</p>
+        </article>
+        <article class="card" role="article">
+          <span class="pill">🛍️ Tienda</span>
+          <h3>Merch y souvenirs</h3>
+          <p>Tazas, libretas, café en grano y ediciones limitadas para regalo.</p>
+        </article>
       </div>
     </section>
 
-    <!-- Corbatitas -->
-    <section>
-      <div class="feature">
+    <!-- Corbatitas destacado -->
+    <section id="corbatitas" aria-labelledby="corbatitas-h">
+      <div class="feature" role="region" aria-label="Corbatitas Judiciales">
         <div class="copy">
-          <h3>Corbatitas Judiciales</h3>
-          <p>Diseños inspirados en artículos, símbolos y frases célebres. Perfectas para audiencias, cátedras o romper la rutina.</p>
-          <a class="cta" href="https://forms.gle/tu-formulario" target="_blank">Avísenme cuando estén</a>
+          <h2 id="corbatitas-h">Corbatitas Judiciales</h2>
+          <p class="lead">
+            Estilo con sentencia firme: artículos, símbolos y frases que sientan precedente.
+            Perfectas para audiencias, cátedras o romper la rutina de oficina.
+          </p>
+          <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Avísenme cuando estén</a>
         </div>
-        <div class="figure">
-          <img src="/img/corbatitas-hero.jpg" alt="Taza de café y corbata temática sobre mesa de madera">
-          <div class="stamp">Pack “Defensa Completa”: Café + Corbata + Libreta</div>
-        </div>
+        <figure class="figure">
+          <img src="img/corbatitas-hero.jpg" alt="Taza de café, corbata temática y código legal sobre mesa" loading="lazy">
+          <figcaption class="stamp">Pack “Defensa Completa”: Café + Corbata + Libreta</figcaption>
+        </figure>
       </div>
 
-      <div class="ties">
-        <div class="tie">
-          <img src="/img/corbata-balanzas.jpg" alt="Corbata con patrón de balanzas">
+      <!-- Mini catálogo -->
+      <div class="ties" role="list" aria-label="Modelos de corbatitas">
+        <article class="tie" role="listitem">
+          <img src="img/corbata-balanzas.jpg" alt="Corbata con patrón de balanzas" loading="lazy">
           <div class="body">
             <span class="tag">Símbolos</span>
             <div class="name">Lex Equitas</div>
             <p class="desc">Balanzas sobre fondo profundo. Elegancia sin objeciones.</p>
           </div>
-          <a class="btn" href="https://forms.gle/tu-formulario" target="_blank">Quiero esta</a>
-        </div>
+          <a class="btn" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero esta</a>
+        </article>
 
-        <div class="tie">
-          <img src="/img/corbatacodigo.jpg" alt="Corbata con microtexto legal">
+        <article class="tie" role="listitem">
+          <img src="img/corbatacodigo.jpg" alt="Corbata con microtexto legal" loading="lazy">
           <div class="body">
             <span class="tag">Artículos</span>
             <div class="name">Art. 1 Inc. 2</div>
-            <p class="desc">Microtipografía de artículos icónicos para tu look.</p>
+            <p class="desc">Microtipografía de artículos icónicos para tu outfit.</p>
           </div>
-          <a class="btn" href="https://forms.gle/tu-formulario" target="_blank">Quiero esta</a>
-        </div>
+          <a class="btn" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero esta</a>
+        </article>
 
-        <div class="tie">
-          <img src="/img/corbatacita.jpg" alt="Corbata con frase célebre">
+        <article class="tie" role="listitem">
+          <img src="img/corbatacita.jpg" alt="Corbata con frase célebre" loading="lazy">
           <div class="body">
             <span class="tag">Frases</span>
             <div class="name">In dubio pro reo</div>
             <p class="desc">Frase minimal en diagonal; argumento final para cualquier outfit.</p>
           </div>
-          <a class="btn" href="https://forms.gle/tu-formulario" target="_blank">Quiero esta</a>
-        </div>
+          <a class="btn" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero esta</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Historia / Storytelling -->
+    <section id="historia" aria-labelledby="historia-h">
+      <h2 id="historia-h">El origen del caso</h2>
+      <div class="case">
+        <h3>Caso Nº 001: El café que faltaba</h3>
+        <p>
+          Pruebas: abogados con ojeras, estudiantes maratonistas del Código y expedientes eternos. Motivo:
+          crear un espacio donde la justicia y el buen café firmen un acuerdo histórico. Veredicto:
+          Café Judicial — un lugar para pensar, estudiar, debatir y, por qué no, reírse un rato.
+        </p>
+      </div>
+    </section>
+
+    <!-- Sala de prensa / Blog -->
+    <section id="prensa" aria-labelledby="prensa-h">
+      <h2 id="prensa-h">Sala de prensa</h2>
+      <p class="lead">Noticias, artículos y avances del proyecto. (Publicaremos quincenalmente)</p>
+      <div class="grid">
+        <article class="post">
+          <img src="img/post-diseno.jpg" alt="Mesa con tazas y bocetos" loading="lazy">
+          <div class="body">
+            <div class="meta">Agosto 2025 · Diseño</div>
+            <h3>Así imaginamos el primer Café Judicial</h3>
+            <p>Una mezcla de despacho clásico y cafetería moderna: madera oscura, lámparas de biblioteca y mesas con nombres de casos históricos.</p>
+          </div>
+        </article>
+        <article class="post">
+          <img src="img/post-corbatas.jpg" alt="Muestrario de corbatas" loading="lazy">
+          <div class="body">
+            <div class="meta">Agosto 2025 · Producto</div>
+            <h3>Corbatitas: de la idea al prototipo</h3>
+            <p>Exploramos telas, microtipografía y símbolos jurídicos para lograr diseños elegantes y con guiños para entendidos.</p>
+          </div>
+        </article>
+        <article class="post">
+          <img src="img/post-frit.jpg" alt="Spray FritHurra! y camisa" loading="lazy">
+          <div class="body">
+            <div class="meta">Agosto 2025 · Innovación</div>
+            <h3>FritHurra!: adiós olor a fritura</h3>
+            <p>Cómo funciona el spray textil y por qué puede ser el mejor aliado para volver a la sala o al tribunal impecable.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section aria-labelledby="testimonios-h">
+      <h2 id="testimonios-h">Lo que dice la barra</h2>
+      <div class="grid">
+        <div class="quote">“Si esta corbata fuera un alegato, ganaría el caso en cinco minutos.” — Abogado anónimo</div>
+        <div class="quote">“FritHurra! me salvó la chaqueta después de una lluvia de sopaipillas.” — Clienta feliz</div>
+        <div class="quote">“Por fin un café donde estudiar derecho no es un castigo.” — Estudiante de 4º año</div>
       </div>
     </section>
 
     <!-- Próximamente -->
-    <section>
-      <h2>Próximamente</h2>
-      <ul class="todo">
-        <li>☕ Apertura del café con charlas y eventos legales.</li>
+    <section aria-labelledby="proximamente-h">
+      <h2 id="proximamente-h">Próximamente</h2>
+      <ul class="lead">
+        <li>☕ Apertura del café con charlas, tutorías y eventos legales.</li>
         <li>🧵 Línea textil de edición limitada para profesionales.</li>
         <li>🌐 Tienda online con envíos a todo Chile.</li>
       </ul>
     </section>
 
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Preguntas frecuentes</h2>
+      <details>
+        <summary>¿Dónde estará el primer Café Judicial?</summary>
+        <p>Estamos evaluando ubicaciones en Santiago. Si quieres recibir la noticia primero, súmate como jurado fundador.</p>
+      </details>
+      <details>
+        <summary>¿Cuándo estarán a la venta las corbatitas?</summary>
+        <p>Estamos cerrando prototipos y proveedores. Abriremos preventa a quienes estén en la lista.</p>
+      </details>
+      <details>
+        <summary>¿Puedo proponer un diseño o colaborar?</summary>
+        <p>¡Sí! Escríbenos con tu idea y conversemos. Nos encanta co-crear con la comunidad legal.</p>
+      </details>
+    </section>
+
     <!-- CTA final -->
-    <section style="text-align:center">
-      <h2>Súmate como jurado fundador</h2>
+    <section id="contacto" class="center" aria-labelledby="cta-h">
+      <h2 id="cta-h">Súmate como jurado fundador</h2>
       <p class="lead">Recibe noticias, preventas y acceso a la inauguración.</p>
-      <a class="cta" href="https://forms.gle/tu-formulario" target="_blank">Quiero participar</a>
-      <p class="lead" style="margin-top:16px">o escríbenos a <a href="mailto:contacto@cafejudicial.cl" style="color:var(--accent)">contacto@cafejudicial.cl</a></p>
+      <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero participar</a>
+      <p class="lead" style="margin-top:16px">o escríbenos a <a href="mailto:contacto@cafejudicial.cl">contacto@cafejudicial.cl</a></p>
     </section>
   </main>
 
-  <footer>
+  <footer role="contentinfo">
     Café Judicial® — Donde la justicia se sirve en taza · Santiago, Chile
   </footer>
+
+  <!-- Mejora de rendimiento: lazy loading ya aplicado; si quieres, se puede añadir defer a scripts cuando existan -->
 </body>
 </html>
