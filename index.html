@@ -8,7 +8,7 @@
   <!-- SEO / Social -->
   <meta name="description" content="Café Judicial®: asesorías y servicios legales con cercanía, espacio académico y productos con identidad jurídica." />
   <meta property="og:title" content="Café Judicial® – Donde la justicia se sirve en taza" />
-  <meta property="og:description" content="Servicios judiciales y asesorías, espacio para estudiantes y productos con diseño. Justicia que se conversa." />
+  <meta property="og:description" content="Servicios judiciales y asesorías, cafetería y pastelería, simulaciones de juicios y productos con diseño." />
   <meta property="og:image" content="https://arturuou.github.io/CafeJudicial/IMG_7548.jpeg" />
   <meta property="og:type" content="website" />
   <link rel="icon" href="img/favicon.ico" />
@@ -58,9 +58,6 @@
     ul.clean{list-style:none;display:grid;gap:10px;padding-left:0;margin:0}
     ul.clean li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
 
-    /* GRID opcional para futuro */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-
     footer{padding:28px 0;text-align:center;color:#bdbfc8;font-style:italic}
     .center{text-align:center}
   </style>
@@ -73,9 +70,7 @@
       <a class="logo" href="#top">Café Judicial®</a>
       <nav class="links" aria-label="Secciones">
         <a href="#que-es">Qué es</a>
-        <a href="#servicios-legales">Servicios</a>
-        <a href="#estudiantes">Estudiantes</a>
-        <a href="#productos">Productos</a>
+        <a href="#oferta">Productos y servicios</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -102,49 +97,53 @@
       </p>
     </section>
 
-    <!-- SERVICIOS JUDICIALES Y ASESORÍAS -->
-    <section id="servicios-legales" aria-labelledby="servicios-legales-h">
-      <div class="kicker">Servicios</div>
-      <h2 id="servicios-legales-h">Servicios judiciales y asesorías</h2>
-      <ul class="clean lead">
-        <li>📚 <strong>Asesorías legales</strong> — Orientación clara, lenguaje humano y soluciones prácticas para personas, profesionales y empresas.</li>
-        <li>📝 <strong>Redacción de escritos y estrategia</strong> — Apoyo en documentos, recopilación de antecedentes y preparación de argumentos clave.</li>
-        <li>⚖️ <strong>Acompañamiento a audiencias</strong> — Preparación, simulación de preguntas y checklist de evidencias.</li>
-        <li>🏢 <strong>Convenios y compliance empresarial</strong> — Capacitaciones, políticas internas y diagnósticos de riesgo legal.</li>
-      </ul>
-      <p style="margin-top:14px">
-        <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Agendar una asesoría</a>
-      </p>
-    </section>
+    <!-- PRODUCTOS Y SERVICIOS (bloque unificado y narrativo) -->
+    <section id="oferta" aria-labelledby="oferta-h">
+      <div class="kicker">Nuestra oferta</div>
+      <h2 id="oferta-h">Productos y servicios</h2>
 
-    <!-- ESTUDIANTES & SIMULACIONES -->
-    <section id="estudiantes" aria-labelledby="estudiantes-h">
-      <div class="kicker">Académico</div>
-      <h2 id="estudiantes-h">Espacio para estudiantes & simulaciones de juicios</h2>
-      <ul class="clean lead">
-        <li>🎯 <strong>Moot Court</strong> — Simulaciones de juicios con roles asignados, reglas claras y feedback inmediato.</li>
-        <li>📚 <strong>Salas de estudio reservables</strong> — Mesas para grupos, pizarras y ambiente óptimo para preparación académica.</li>
-        <li>🎤 <strong>Tutorías y preparación de cátedras</strong> — Técnicas de argumentación, repaso de materias y análisis de casos.</li>
-        <li>🗣️ <strong>Club de debate y charlas</strong> — Encuentros con docentes y profesionales para discutir ética y tendencias.</li>
-      </ul>
-      <p style="margin-top:14px">
-        <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Reservar simulación o sala</a>
+      <p class="lead">
+        En Café Judicial® cada visita tiene su propio capítulo. Si buscas orientación legal, contamos con
+        <strong>asesorías jurídicas personalizadas</strong>, <strong>redacción de escritos y contratos</strong>,
+        <strong>diseño de estrategia</strong> y <strong>acompañamiento a audiencias</strong>. Para equipos, ofrecemos
+        <strong>convenios y compliance empresarial</strong>: capacitaciones, políticas internas y diagnósticos de riesgo legal.
       </p>
-    </section>
 
-    <!-- PRODUCTOS Y MARCA -->
-    <section id="productos" aria-labelledby="productos-h">
-      <div class="kicker">Productos</div>
-      <h2 id="productos-h">Productos y marca</h2>
-      <ul class="clean lead">
-        <li>👔 <strong>Corbatitas temáticas</strong> — Diseños inspirados en leyes, balanzas y frases célebres.</li>
-        <li>🧴 <strong>FritHurra!</strong> — Spray textil que elimina el olor a fritura (próximamente).</li>
-        <li>💊 <strong>Kits “Almuerzo con Actuario”</strong> — Resaquit® y esenciales para jornadas intensas.</li>
-        <li>🎙️ <strong>Eventos y charlas</strong> — Actividades para la comunidad legal.</li>
-        <li>🛍️ <strong>Merch y souvenirs</strong> — Tazas, libretas, café en grano y artículos de edición limitada.</li>
+      <p class="lead">
+        Si necesitas una pausa, nuestra <strong>cafetería y pastelería</strong> te espera con café de especialidad, infusiones y dulces,
+        en un ambiente temático y acogedor — el lugar ideal para conversar, leer o preparar tu siguiente alegato.
+      </p>
+
+      <p class="lead">
+        ¿Estudiando? Tenemos <strong>simulaciones de juicios (Moot Court)</strong>, <strong>salas de estudio</strong>,
+        <strong>tutorías</strong> y <strong>preparación de cátedras</strong>, además de un <strong>club de debate</strong> para entrenar
+        tu argumentación con feedback real.
+      </p>
+
+      <p class="lead">
+        Y si vienes por algo único, llévate nuestras <strong>corbatitas temáticas</strong>, el spray <strong>FritHurra!</strong> (próximamente),
+        <strong>kits “Almuerzo con Actuario”</strong>, <strong>merchandising</strong>, <strong>tazas</strong>, <strong>libretas</strong> y
+        <strong>café en grano</strong> con sello jurídico.
+      </p>
+
+      <p class="lead">
+        También organizamos <strong>eventos y charlas</strong> que mantienen viva la conversación sobre derecho, ética y sociedad.
+      </p>
+
+      <!-- Mini índice escaneable -->
+      <ul class="clean lead" style="margin-top:12px">
+        <li>📚 <strong>Asesorías legales</strong> · Escritos y contratos · Estrategia · Audiencias</li>
+        <li>🏢 <strong>Empresas</strong> · Convenios · Compliance · Capacitaciones</li>
+        <li>☕ <strong>Cafetería y pastelería</strong> · Café de especialidad · Infusiones · Dulces</li>
+        <li>🎯 <strong>Estudiantes</strong> · Simulaciones de juicios · Salas de estudio · Tutorías · Debate</li>
+        <li>🛍️ <strong>Productos</strong> · Corbatitas · FritHurra! · Kits · Merch · Café en grano</li>
+        <li>🎙️ <strong>Comunidad</strong> · Eventos y charlas</li>
       </ul>
-      <p style="margin-top:14px">
-        <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Avísenme de preventas</a>
+
+      <!-- CTAs -->
+      <p style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
+        <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Agendar asesoría</a>
+        <a class="cta" href="mailto:contacto@cafejudicial.cl">Escribir por detalles</a>
       </p>
     </section>
 
