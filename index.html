@@ -53,11 +53,15 @@
 
     /* DETAILS (acordeones) */
     details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
-    summary{cursor:pointer;font-weight:700;list-style:none;display:flex;align-items:center;gap:10px}
+    summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px}
     summary::marker{display:none}
     .twist{display:inline-flex;width:1.1em;height:1.1em;border-radius:4px;border:1px solid #3a3d55;align-items:center;justify-content:center;font-size:.8em}
     details[open] .twist{transform:rotate(90deg)}
     .content{margin-top:12px}
+    /* Texto dinámico abrir/cerrar sin JS */
+    summary .when-open{display:none}
+    details[open] summary .when-open{display:inline}
+    details[open] summary .when-closed{display:none}
 
     /* GRID / CARDS */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
@@ -75,7 +79,27 @@
 
     footer{padding:28px 0;text-align:center;color:#bdbfc8;font-style:italic}
     .center{text-align:center}
-  </style>
+ /* Animación suave para abrir/cerrar */
+details .content{
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height .45s ease, opacity .35s ease;
+}
+details[open] .content{
+  max-height: 1200px; /* ajusta si tu contenido es más alto */
+  opacity: 1;
+}
+
+/* Giro suave del triángulo */
+.twist{ transition: transform .35s ease; }
+
+/* Accesibilidad: reduce animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce){
+  details .content{ transition: none; }
+  .twist{ transition: none; }
+}
+</style>
 </head>
 <body>
 
@@ -97,7 +121,7 @@
     </div>
   </header>
 
-  <!-- HERO (visible) -->
+  <!-- HERO -->
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <h1>Café Judicial®</h1>
@@ -107,11 +131,15 @@
   </section>
 
   <main class="wrap" role="main">
-    <!-- QUÉ ES (ABIERTO) -->
+    <!-- QUÉ ES -->
     <section id="que-es" aria-labelledby="que-es-h">
       <h2 id="que-es-h">¿Qué es Café Judicial?</h2>
-      <details open>
-        <summary><span class="twist">▶</span> Ocultar / Mostrar</summary>
+      <details>
+        <summary>
+          <span class="twist">▶</span>
+          <span class="when-closed">⚖️ Abrir caso</span>
+          <span class="when-open">🔒 Cerrar caso</span>
+        </summary>
         <div class="content">
           <p class="lead">
             Un ecosistema creativo que mezcla el mundo legal con café de especialidad, productos con diseño y contenidos cercanos.
@@ -121,11 +149,15 @@
       </details>
     </section>
 
-    <!-- SERVICIOS (oculto) -->
+    <!-- SERVICIOS (GENERALES) -->
     <section id="servicios" aria-labelledby="servicios-h">
       <h2 id="servicios-h">Productos y servicios</h2>
       <details>
-        <summary><span class="twist">▶</span> Mostrar</summary>
+        <summary>
+          <span class="twist">▶</span>
+          <span class="when-closed">⚖️ Abrir caso</span>
+          <span class="when-open">🔒 Cerrar caso</span>
+        </summary>
         <div class="content grid">
           <article class="card">
             <img src="IMG_7548.jpeg" alt="Corbatitas temáticas" loading="lazy">
@@ -180,13 +212,17 @@
       </details>
     </section>
 
-    <!-- SERVICIOS LEGALES (oculto) -->
+    <!-- SERVICIOS LEGALES & ASESORÍAS -->
     <section id="servicios-legales" aria-labelledby="servicios-legales-h">
       <h2 id="servicios-legales-h">Servicios judiciales y asesorías</h2>
       <details>
-        <summary><span class="twist">▶</span> Mostrar</summary>
+        <summary>
+          <span class="twist">▶</span>
+          <span class="when-closed">⚖️ Abrir caso</span>
+          <span class="when-open">🔒 Cerrar caso</span>
+        </summary>
         <div class="content">
-          <p class="lead">Asesoría clara y humana para personas, profesionales y empresas.</p>
+          <p class="lead">Asesoría clara y humana para personas, profesionales y empresas. Te ayudamos a entender tu caso, definir estrategia y tomar decisiones informadas.</p>
           <div class="grid">
             <article class="card">
               <img src="IMG_7548.jpeg" alt="Orientación inicial" loading="lazy">
@@ -229,15 +265,19 @@
       </details>
     </section>
 
-    <!-- ESTUDIANTES & SIMULACIONES (oculto) -->
+    <!-- ESTUDIANTES & SIMULACIONES -->
     <section id="estudiantes" aria-labelledby="estudiantes-h">
       <h2 id="estudiantes-h">Espacio para estudiantes & simulaciones de juicios</h2>
       <details>
-        <summary><span class="twist">▶</span> Mostrar</summary>
+        <summary>
+          <span class="twist">▶</span>
+          <span class="when-closed">⚖️ Abrir caso</span>
+          <span class="when-open">🔒 Cerrar caso</span>
+        </summary>
         <div class="content feature">
           <div class="copy">
             <h3>Simulaciones de juicios (Moot Court)</h3>
-            <p>Practica alegatos, objeciones y examen de testigos en un entorno controlado.</p>
+            <p>Practica alegatos, objeciones y examen de testigos en un entorno controlado. Roles asignados, reglas claras y feedback inmediato.</p>
             <a class="btn" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Reservar simulación</a>
           </div>
           <figure class="figure">
@@ -274,14 +314,18 @@
       </details>
     </section>
 
-    <!-- CORBATITAS (oculto) -->
+    <!-- CORBATITAS -->
     <section id="corbatitas" aria-labelledby="corbatitas-h">
       <h2 id="corbatitas-h">Corbatitas Judiciales</h2>
       <details>
-        <summary><span class="twist">▶</span> Mostrar</summary>
+        <summary>
+          <span class="twist">▶</span>
+          <span class="when-closed">⚖️ Abrir caso</span>
+          <span class="when-open">🔒 Cerrar caso</span>
+        </summary>
         <div class="content feature">
           <div class="copy">
-            <p class="lead">Estilo con sentencia firme para audiencias, cátedras o la oficina.</p>
+            <p class="lead">Estilo con sentencia firme: artículos, símbolos y frases que sientan precedente.</p>
             <a class="btn" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Avísenme cuando estén</a>
           </div>
           <figure class="figure">
@@ -321,11 +365,15 @@
       </details>
     </section>
 
-    <!-- HISTORIA (oculto) -->
+    <!-- HISTORIA -->
     <section id="historia" aria-labelledby="historia-h">
       <h2 id="historia-h">El origen del caso</h2>
       <details>
-        <summary><span class="twist">▶</span> Mostrar</summary>
+        <summary>
+          <span class="twist">▶</span>
+          <span class="when-closed">⚖️ Abrir caso</span>
+          <span class="when-open">🔒 Cerrar caso</span>
+        </summary>
         <div class="content">
           <div class="card">
             <img src="IMG_7548.jpeg" alt="Ambiente Café Judicial" loading="lazy">
@@ -338,11 +386,15 @@
       </details>
     </section>
 
-    <!-- PRENSA (oculto) -->
+    <!-- PRENSA -->
     <section id="prensa" aria-labelledby="prensa-h">
       <h2 id="prensa-h">Sala de prensa</h2>
       <details>
-        <summary><span class="twist">▶</span> Mostrar</summary>
+        <summary>
+          <span class="twist">▶</span>
+          <span class="when-closed">⚖️ Abrir caso</span>
+          <span class="when-open">🔒 Cerrar caso</span>
+        </summary>
         <div class="content grid">
           <article class="post card">
             <img src="IMG_7548.jpeg" alt="Mesa con tazas y bocetos" loading="lazy">
@@ -372,11 +424,15 @@
       </details>
     </section>
 
-    <!-- TESTIMONIOS (oculto) -->
+    <!-- TESTIMONIOS -->
     <section aria-labelledby="testimonios-h">
       <h2 id="testimonios-h">Lo que dice la barra</h2>
       <details>
-        <summary><span class="twist">▶</span> Mostrar</summary>
+        <summary>
+          <span class="twist">▶</span>
+          <span class="when-closed">⚖️ Abrir caso</span>
+          <span class="when-open">🔒 Cerrar caso</span>
+        </summary>
         <div class="content grid">
           <div class="card"><div class="body">“Si esta corbata fuera un alegato, ganaría el caso en cinco minutos.” — Abogado anónimo</div></div>
           <div class="card"><div class="body">“FritHurra! me salvó la chaqueta después de una lluvia de sopaipillas.” — Clienta feliz</div></div>
@@ -385,11 +441,15 @@
       </details>
     </section>
 
-    <!-- PRÓXIMAMENTE (oculto) -->
+    <!-- PRÓXIMAMENTE -->
     <section aria-labelledby="proximamente-h">
       <h2 id="proximamente-h">Próximamente</h2>
       <details>
-        <summary><span class="twist">▶</span> Mostrar</summary>
+        <summary>
+          <span class="twist">▶</span>
+          <span class="when-closed">⚖️ Abrir caso</span>
+          <span class="when-open">🔒 Cerrar caso</span>
+        </summary>
         <div class="content">
           <ul class="lead">
             <li>☕ Apertura del café con charlas, tutorías y eventos legales.</li>
@@ -400,11 +460,15 @@
       </details>
     </section>
 
-    <!-- FAQ (oculto) -->
+    <!-- FAQ -->
     <section id="faq" aria-labelledby="faq-h">
       <h2 id="faq-h">Preguntas frecuentes</h2>
       <details>
-        <summary><span class="twist">▶</span> Mostrar</summary>
+        <summary>
+          <span class="twist">▶</span>
+          <span class="when-closed">⚖️ Abrir caso</span>
+          <span class="when-open">🔒 Cerrar caso</span>
+        </summary>
         <div class="content">
           <details>
             <summary>¿Dónde estará el primer Café Judicial?</summary>
@@ -422,11 +486,15 @@
       </details>
     </section>
 
-    <!-- CONTACTO (ABIERTO) -->
+    <!-- CONTACTO -->
     <section id="contacto" class="center" aria-labelledby="cta-h">
       <h2 id="cta-h">Contacto</h2>
-      <details open>
-        <summary><span class="twist">▶</span> Ocultar / Mostrar</summary>
+      <details>
+        <summary>
+          <span class="twist">▶</span>
+          <span class="when-closed">⚖️ Abrir caso</span>
+          <span class="when-open">🔒 Cerrar caso</span>
+        </summary>
         <div class="content">
           <p class="lead">Súmate como jurado fundador: recibe noticias, preventas y acceso a la inauguración.</p>
           <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero participar</a>
