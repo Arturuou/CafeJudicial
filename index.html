@@ -49,7 +49,7 @@
     .cta:hover{transform:translateY(-1px);filter:brightness(1.05)}
 
     /* HERO más compacto en móvil */
-    @media (max-width: 520px){
+    @media (max-width:520px){
       .hero{min-height:52vh}
       .hero .inner{padding:64px 16px}
       .sub{margin-bottom:16px}
@@ -61,7 +61,7 @@
     .lead{color:var(--muted);margin:0 0 16px}
     .kicker{color:#e9e3d7;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.9}
 
-    /* Tarjetas desplegables (acordeones) */
+    /* TARJETAS DESPLEGABLES (acordeones grandes) */
     details.cardx{
       background:var(--panel);
       border:1px solid var(--line);
@@ -93,9 +93,43 @@
       max-height:0; opacity:0; overflow:hidden;
       transition:max-height .4s ease, opacity .3s ease;
     }
-    details[open].cardx .contentx{max-height:800px; opacity:1}
+    details[open].cardx .contentx{max-height:900px; opacity:1}
 
-    /* CTAs de #oferta */
+    /* SUB-ACORDEONES (minis) */
+    details.mini{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:12px;
+      margin:8px 0;
+      overflow:hidden;
+    }
+    details.mini summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:10px 12px;
+      font-weight:600;
+      color:#e9e3d7;
+    }
+    details.mini summary::marker{display:none}
+    .mini .chev{transition:transform .25s ease}
+    details[open].mini .chev{transform:rotate(90deg)}
+    .mini .cmini{
+      padding:0 12px 12px;
+      color:var(--muted);
+      max-height:0; opacity:0; overflow:hidden;
+      transition:max-height .35s ease, opacity .28s ease;
+    }
+    details[open].mini .cmini{max-height:700px; opacity:1}
+
+    /* listas compactas en minis */
+    .list-compact{margin:8px 0 0 16px}
+    .list-compact li{margin:4px 0}
+
+    /* CTAs en oferta */
     #oferta .cta{margin-top:10px}
     #oferta .cta + .cta{margin-left:8px}
     @media (max-width:520px){
@@ -131,7 +165,7 @@
   </section>
 
   <main class="wrap" role="main">
-    <!-- QUÉ ES (sobrio, sin desplegable) -->
+    <!-- QUÉ ES -->
     <section id="que-es" aria-labelledby="que-es-h">
       <div class="kicker">Presentación</div>
       <h2 id="que-es-h">Qué es Café Judicial</h2>
@@ -140,13 +174,20 @@
         Un espacio pensado para abogados, estudiantes y amantes del mundo jurídico que buscan un ambiente distinto: cercano, creativo y con atención a los detalles.
         Aquí, la justicia se sirve en taza, se conversa con calma y se acompaña con productos y servicios diseñados para quienes viven —y disfrutan— la profesión.
       </p>
+      <!-- RESUMEN / HISTORIA -->
+      <p class="lead" style="margin-top:8px">
+        Imagina un lugar donde un abogado prepara su alegato con un café perfecto, una estudiante ensaya su primer moot court
+        y una persona que necesita orientación encuentra una respuesta clara. Ese lugar es Café Judicial®: asesorías serias cuando
+        toca, estudio y simulación cuando hace falta, y una pausa bien servida para seguir pensando mejor.
+      </p>
     </section>
 
-    <!-- PRODUCTOS Y SERVICIOS (acordeones) -->
+    <!-- PRODUCTOS Y SERVICIOS (acordeones con sub-acordeones) -->
     <section id="oferta" aria-labelledby="oferta-h">
       <div class="kicker">Nuestra oferta</div>
       <h2 id="oferta-h">Productos y servicios</h2>
 
+      <!-- ASESORÍAS -->
       <details class="cardx">
         <summary>
           <span class="icon">📚</span>
@@ -154,12 +195,30 @@
           <span class="chev">▶</span>
         </summary>
         <div class="contentx lead">
-          Te ayudamos a entender y resolver tu caso sin lenguaje complicado. Desde la redacción de escritos y contratos
-          hasta la preparación de tu estrategia y el acompañamiento a audiencias, con orientación clara y realista para
-          personas, profesionales y empresas.
+          Te ayudamos a entender y resolver tu caso sin lenguaje complicado.
+          <details class="mini">
+            <summary>📝 Tipos de escritos <span class="chev">▶</span></summary>
+            <div class="cmini">
+              <ul class="list-compact">
+                <li>Demanda, contestación, réplica/dúplica.</li>
+                <li>Recursos (apelación, protección, reposición).</li>
+                <li>Contratos civiles y laborales; minutas y anexos.</li>
+                <li>Oficios, presentaciones y solicitudes.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="mini">
+            <summary>🎯 Estrategia y preparación <span class="chev">▶</span></summary>
+            <div class="cmini">Mapa del caso, teoría del asunto, cronología probatoria y evaluación de riesgos/costos.</div>
+          </details>
+          <details class="mini">
+            <summary>⚖️ Audiencias y acompañamiento <span class="chev">▶</span></summary>
+            <div class="cmini">Simulación de preguntas, checklist de evidencia y coaching de declaración/alegatos.</div>
+          </details>
         </div>
       </details>
 
+      <!-- EMPRESAS -->
       <details class="cardx">
         <summary>
           <span class="icon">🏢</span>
@@ -167,11 +226,19 @@
           <span class="chev">▶</span>
         </summary>
         <div class="contentx lead">
-          Diseñamos soluciones legales a la medida: convenios, políticas internas, compliance, capacitaciones y diagnósticos
-          de riesgo legal. Enfoque preventivo para que tu equipo trabaje con tranquilidad.
+          Soluciones legales a la medida de tu negocio.
+          <details class="mini">
+            <summary>🤝 Contratos y convenios <span class="chev">▶</span></summary>
+            <div class="cmini">Comerciales, laborales, NDA, Términos &amp; Condiciones, políticas de datos.</div>
+          </details>
+          <details class="mini">
+            <summary>🛡️ Compliance &amp; capacitaciones <span class="chev">▶</span></summary>
+            <div class="cmini">Diagnóstico de riesgo, protocolos internos y formación a equipos y directivos.</div>
+          </details>
         </div>
       </details>
 
+      <!-- CAFETERÍA -->
       <details class="cardx">
         <summary>
           <span class="icon">☕</span>
@@ -179,11 +246,19 @@
           <span class="chev">▶</span>
         </summary>
         <div class="contentx lead">
-          Café de especialidad, infusiones y pastelería artesanal en un ambiente temático y acogedor. Un rincón para conversar,
-          leer, estudiar o preparar tu próximo alegato con pausa y buen sabor.
+          Café de especialidad, infusiones y pastelería artesanal en un ambiente temático y acogedor.
+          <details class="mini">
+            <summary>📜 Carta (referencial) <span class="chev">▶</span></summary>
+            <div class="cmini">Espresso, americano, latte, filtrados; té/infusiones; brownies, tartaletas y rollitos.</div>
+          </details>
+          <details class="mini">
+            <summary>🏛️ Experiencia en sala <span class="chev">▶</span></summary>
+            <div class="cmini">Wi‑Fi, enchufes, mesas amplias y “zona silencio” para estudio y reuniones.</div>
+          </details>
         </div>
       </details>
 
+      <!-- ESTUDIANTES -->
       <details class="cardx">
         <summary>
           <span class="icon">🎯</span>
@@ -191,11 +266,19 @@
           <span class="chev">▶</span>
         </summary>
         <div class="contentx lead">
-          Simulaciones de juicios (Moot Court), salas de estudio, tutorías y preparación de cátedras. Entrena tu
-          argumentación con feedback de profesionales y llega seguro a exámenes y audiencias.
+          Entrena con feedback real.
+          <details class="mini">
+            <summary>⚖️ Simulaciones de juicios (Moot Court) <span class="chev">▶</span></summary>
+            <div class="cmini">Roles, reglas, guion básico y retroalimentación inmediata.</div>
+          </details>
+          <details class="mini">
+            <summary>📚 Salas &amp; tutorías <span class="chev">▶</span></summary>
+            <div class="cmini">Reserva de salas, preparación de cátedras y técnicas de argumentación.</div>
+          </details>
         </div>
       </details>
 
+      <!-- PRODUCTOS -->
       <details class="cardx">
         <summary>
           <span class="icon">🛍️</span>
@@ -203,11 +286,27 @@
           <span class="chev">▶</span>
         </summary>
         <div class="contentx lead">
-          Corbatitas con diseño jurídico, spray <strong>FritHurra!</strong> (próximamente), kits “Almuerzo con Actuario”,
-          merchandising, tazas, libretas y café en grano con identidad propia.
+          Diseño con sello jurídico.
+          <details class="mini">
+            <summary>👔 Corbatitas temáticas <span class="chev">▶</span></summary>
+            <div class="cmini">Símbolos, microtexto legal y frases célebres; ediciones limitadas.</div>
+          </details>
+          <details class="mini">
+            <summary>🧴 ¿Qué es FritHurra!? <span class="chev">▶</span></summary>
+            <div class="cmini">Spray textil para eliminar olor a fritura. Ideal para volver a audiencias/reuniones impecable. <em>Próximamente: preventa.</em></div>
+          </details>
+          <details class="mini">
+            <summary>💊 Kits “Almuerzo con Actuario” <span class="chev">▶</span></summary>
+            <div class="cmini">Resaquit®, toallitas, menta y esenciales para jornadas largas (contenido variable).</div>
+          </details>
+          <details class="mini">
+            <summary>🎁 Merch &amp; café en grano <span class="chev">▶</span></summary>
+            <div class="cmini">Tazas, libretas, stickers y café en grano de origen para casa u oficina.</div>
+          </details>
         </div>
       </details>
 
+      <!-- COMUNIDAD -->
       <details class="cardx">
         <summary>
           <span class="icon">🎙️</span>
@@ -215,7 +314,14 @@
           <span class="chev">▶</span>
         </summary>
         <div class="contentx lead">
-          Eventos y charlas para discutir derecho, ética y sociedad. Un espacio para compartir ideas, aprender y conectar.
+          <details class="mini">
+            <summary>🗣️ Eventos y charlas <span class="chev">▶</span></summary>
+            <div class="cmini">Encuentros sobre derecho, ética y actualidad. Abierto a propuestas.</div>
+          </details>
+          <details class="mini">
+            <summary>💡 Proponer tema/ponente <span class="chev">▶</span></summary>
+            <div class="cmini">Escríbenos: <a href="mailto:contacto@cafejudicial.cl">contacto@cafejudicial.cl</a></div>
+          </details>
         </div>
       </details>
 
@@ -241,7 +347,7 @@
     Café Judicial® — Donde la justicia se sirve en taza · Santiago, Chile
   </footer>
 
-  <!-- Solo una tarjeta abierta a la vez -->
+  <!-- Solo una tarjeta grande abierta a la vez -->
   <script>
   document.querySelectorAll("details.cardx").forEach((det) => {
     det.addEventListener("toggle", function() {
