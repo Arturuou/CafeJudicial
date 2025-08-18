@@ -6,182 +6,94 @@
   <title>Café Judicial® – Donde la justicia se sirve en taza</title>
 
   <!-- SEO / Social -->
-  <meta name="description" content="Café Judicial®: asesorías y servicios legales con cercanía, cafetería y pastelería, simulaciones y productos con identidad jurídica." />
+  <meta name="description" content="Café Judicial®: asesorías y servicios legales con cercanía, cafetería y pastelería, simulaciones de juicios y productos con identidad jurídica." />
   <meta property="og:title" content="Café Judicial® – Donde la justicia se sirve en taza" />
   <meta property="og:description" content="Servicios judiciales y asesorías, cafetería y pastelería, simulaciones y productos con diseño. Justicia que se conversa." />
   <meta property="og:image" content="https://arturuou.github.io/CafeJudicial/IMG_8339.jpeg" />
   <meta property="og:type" content="website" />
   <link rel="icon" href="img/favicon.ico" />
-  <meta name="theme-color" content="#0e0f12">
 
   <!-- Tipografías -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Paleta sobria con mayor legibilidad */
-      --bg:#0e0f12;          /* fondo carbón */
-      --panel:#14161f;       /* panel oscuro */
-      --card:#151722;        /* tarjetas */
-      --ink:#F5F7FA;         /* texto principal (más claro) */
-      --muted:#D5DAE1;       /* texto secundario (más claro) */
-      --line:#343A46;        /* bordes/separadores más visibles */
-      --accent:#D0B06E;      /* dorado con mejor contraste */
-      --accent-ink:#1f1a12;  /* texto sobre acento */
-      --accent-soft:#F3E6C7; /* acento claro (hover/gradiente) */
+      --bg:#0f0f13; --panel:#14161f; --ink:#f4f4f6; --muted:#c8c9d1;
+      --accent:#ffdd57; --accent-ink:#201a00; --line:#24283b; --card:#161826;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     :target{scroll-margin-top:88px}
     img{max-width:100%;display:block;height:auto}
-
     body{
-      color:var(--ink);
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      line-height:1.6;
+      color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;
+      /* Fondo con profundidad sutil */
       background:
-        radial-gradient(1200px 800px at 8% -10%, rgba(208,176,110,.06), transparent 60%),
-        radial-gradient(1200px 800px at 110% 10%, rgba(106,122,148,.05), transparent 60%),
+        radial-gradient(1200px 800px at 10% -10%, rgba(255,221,87,.06), transparent 60%),
+        radial-gradient(1200px 800px at 110% 10%, rgba(214,177,126,.05), transparent 60%),
         var(--bg);
     }
-
-    /* Links en texto: color visible y subrayado sutil al hover */
-    a{
-      color:var(--accent);
-      text-decoration:none;
-      border-bottom:1px solid transparent;
-      transition:border-color .15s ease, color .15s ease;
-    }
-    main p a,
-    .section-testimonials a{
-      color:#E7C884; /* un poco más claro que el accent */
-    }
-    main p a:hover,
-    .section-testimonials a:hover{
-      border-bottom-color:#E7C884;
-    }
-
+    a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
     /* NAV */
-    header.site{
-      position:sticky;top:0;z-index:10;
-      background:rgba(14,15,18,.78);
-      backdrop-filter:saturate(120%) blur(8px);
-      border-bottom:1px solid var(--line)
-    }
+    header.site{position:sticky;top:0;z-index:10;background:rgba(15,15,19,.75);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--line)}
     .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
-    .nav a.logo{
-      font-family:"Playfair Display",serif;font-weight:700;text-decoration:none;color:var(--ink);font-size:20px;border-bottom:0
-    }
+    .nav a.logo{font-family:"Playfair Display",serif;font-weight:700;text-decoration:none;color:var(--ink);font-size:20px}
     .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-    .nav .links a{color:var(--muted);text-decoration:none;font-size:14px;border-bottom:0}
-    .nav .links a:hover{color:#FFFFFF}
+    .nav .links a{color:var(--muted);text-decoration:none;font-size:14px}
+    .nav .links a:hover{color:var(--ink)}
+    /* NUEVO: versión compacta del botón para el header */
     .cta--nav{padding:10px 12px;border-radius:10px;font-size:14px;box-shadow:0 6px 16px rgba(0,0,0,.25)}
 
     /* HERO */
     .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:center;overflow:hidden}
-    .hero::before{
-      content:"";position:absolute;inset:0;
-      background:url('IMG_8339.jpeg') center/cover no-repeat;
-      filter:brightness(.40) saturate(.85) /* más oscura para que el texto destaque */
-    }
-    .hero::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(to bottom, rgba(14,15,18,.58) 0%, var(--bg) 100%)
-    }
+    .hero::before{content:"";position:absolute;inset:0;background:url('IMG_8339.jpeg') center/cover no-repeat;filter:brightness(.6)}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(15,16,23,.35) 0%, var(--bg) 100%)}
     .hero .inner{position:relative;z-index:1;padding:88px 20px}
-    h1{
-      font-family:"Playfair Display",serif;font-weight:700;
-      font-size:clamp(34px,6vw,56px);line-height:1.1;margin:8px 0 6px;letter-spacing:.2px;
-      text-shadow:0 8px 28px rgba(0,0,0,.45), 0 2px 6px rgba(0,0,0,.35)
-    }
-    .sub{font-size:clamp(15px,2.2vw,18px);color:#E8ECF2;font-style:italic;margin-bottom:26px;opacity:1}
-
-    .cta{
-      display:inline-flex;gap:10px;align-items:center;justify-content:center;
-      background:linear-gradient(180deg,var(--accent-soft),var(--accent));
-      color:var(--accent-ink);
-      font-weight:700;text-decoration:none;padding:12px 16px;border-radius:12px;
-      border:1px solid #B3925A;
-      box-shadow:0 6px 16px rgba(0,0,0,.35);
-      transition:.18s ease;
-      border-bottom:0; /* evita subrayado heredado */
-    }
-    .cta:hover{transform:translateY(-1px);filter:brightness(1.06)}
+    h1{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(34px,6vw,56px);line-height:1.1;margin:8px 0 6px;letter-spacing:.2px;text-shadow:0 8px 28px rgba(0,0,0,.45), 0 2px 6px rgba(0,0,0,.35)}
+    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);font-style:italic;margin-bottom:26px;opacity:.9}
+    .cta{display:inline-flex;gap:10px;align-items:center;justify-content:center;background:linear-gradient(180deg,#fff2a1,var(--accent));color:var(--accent-ink);
+         font-weight:700;text-decoration:none;padding:12px 16px;border-radius:12px;border:1px solid #bba341;box-shadow:0 6px 16px rgba(0,0,0,.35);transition:.2s}
+    .cta:hover{transform:translateY(-1px);filter:brightness(1.05)}
     @media (max-width:520px){.hero{min-height:52vh}.hero .inner{padding:64px 16px}.sub{margin-bottom:16px}}
 
     /* SECCIONES */
     main section{padding:48px 0;border-top:1px solid var(--line)}
-    h2{
-      font-family:"Playfair Display",serif;font-weight:700;
-      font-size:clamp(24px,3.6vw,34px);margin:0 0 12px;position:relative;padding-bottom:6px
-    }
-    h2::after{
-      content:"";position:absolute;left:0;bottom:0;width:84px;height:2px;border-radius:2px;
-      background:linear-gradient(90deg,var(--accent),rgba(208,176,110,0))
-    }
+    h2{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(24px,3.6vw,34px);margin:0 0 12px;position:relative;padding-bottom:6px}
+    h2::after{content:"";position:absolute;left:0;bottom:0;width:84px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--accent),rgba(255,221,87,0))}
     .lead{color:var(--muted);margin:0 0 16px}
-    .kicker{color:#EDE6D6;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.95}
+    .kicker{color:#e9e3d7;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.9}
 
-    /* Chips resumen (más legibles) */
+    /* Chips resumen */
     .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-    .pillx{
-      font-size:12px;font-weight:600;letter-spacing:.2px;color:#3B2E12;
-      background:linear-gradient(180deg,#F6ECD3,var(--accent-soft));
-      border:1px solid rgba(197,165,114,.75);
-      border-radius:999px;padding:6px 10px;
-      box-shadow:0 3px 10px rgba(0,0,0,.22)
-    }
+    .pillx{font-size:12px;font-weight:600;letter-spacing:.2px;color:#1d1606;background:linear-gradient(180deg,#fff6c6,#ffdd57);
+      border:1px solid #bba341;border-radius:999px;padding:6px 10px;box-shadow:0 3px 10px rgba(0,0,0,.25)}
 
     /* ACORDEONES GRANDES */
     details.cardx{
       background:linear-gradient(180deg,#151924,#14161f);
-      border:1px solid var(--line);border-radius:16px;margin:12px 0;overflow:hidden;
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.02), 0 10px 24px rgba(0,0,0,.25);
-      transition:transform .18s ease
+      border:1px solid #2a2f46;border-radius:16px;margin:12px 0;overflow:hidden;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.03), 0 10px 24px rgba(0,0,0,.25);transition:transform .18s ease
     }
     details.cardx:hover{transform:translateY(-1px)}
-    details.cardx summary{
-      cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:14px 16px;
-      font-weight:700;color:#F2F4F7;border-radius:16px
-    }
+    details.cardx summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:14px 16px;font-weight:700;color:#e9e3d7;border-radius:16px}
     details.cardx summary::marker{display:none}
-    .cardx .icon{
-      width:28px;height:28px;display:inline-grid;place-items:center;
-      background:#1b1f2b;border:1px solid #2a2f46;border-radius:8px;font-size:16px;
-      backdrop-filter:saturate(120%) blur(2px);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.04); color:#F2F4F7
-    }
+    .cardx .icon{width:28px;height:28px;display:inline-grid;place-items:center;background:#1d2030;border:1px solid #2a2e45;border-radius:8px;font-size:16px;
+      backdrop-filter:saturate(120%) blur(2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
     .cardx .title{flex:1;display:flex;align-items:center;gap:10px}
-    .cardx .chev{
-      width:26px;height:26px;border-radius:6px;display:grid;place-items:center;
-      background:#1c2131;border:1px solid #30364e;font-size:12px;color:#F2F4F7;transition:transform .25s ease
-    }
+    .cardx .chev{width:26px;height:26px;border-radius:6px;display:grid;place-items:center;background:#1e2234;border:1px solid #2c3150;font-size:12px;color:#e9e3d7;transition:transform .25s ease}
     details[open].cardx .chev{transform:rotate(90deg)}
-    .cardx .contentx{
-      padding:0 16px 14px;color:var(--muted);max-height:0;opacity:0;overflow:hidden;
-      transition:max-height .4s ease, opacity .3s ease
-    }
+    .cardx .contentx{padding:0 16px 14px;color:var(--muted);max-height:0;opacity:0;overflow:hidden;transition:max-height .4s ease, opacity .3s ease}
     details[open].cardx .contentx{max-height:900px;opacity:1}
 
     /* SUB-ACORDEONES */
-    details.mini{
-      background:linear-gradient(180deg,#161826,#14161f);
-      border:1px solid #2a2e45;border-radius:12px;margin:8px 0;overflow:hidden
-    }
-    details.mini summary{
-      cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;
-      padding:10px 12px;font-weight:600;color:#F2F4F7
-    }
+    details.mini{background:linear-gradient(180deg,#161826,#14161f);border:1px solid #2a2e45;border-radius:12px;margin:8px 0;overflow:hidden}
+    details.mini summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;font-weight:600;color:#e9e3d7}
     details.mini summary::marker{display:none}
     .mini .chev{transition:transform .25s ease}
     details[open].mini .chev{transform:rotate(90deg)}
-    .mini .cmini{
-      padding:0 12px 12px;color:var(--muted);max-height:0;opacity:0;overflow:hidden;
-      transition:max-height .35s ease, opacity .28s ease
-    }
+    .mini .cmini{padding:0 12px 12px;color:var(--muted);max-height:0;opacity:0;overflow:hidden;transition:max-height .35s ease, opacity .28s ease}
     details[open].mini .cmini{max-height:700px;opacity:1}
     .list-compact{margin:8px 0 0 16px}
     .list-compact li{margin:4px 0}
@@ -198,58 +110,44 @@
       body{padding-bottom:76px}
     }
 
-    footer{padding:28px 0;text-align:center;color:#D0D5DD;font-style:italic}
+    footer{padding:28px 0;text-align:center;color:#bdbfc8;font-style:italic}
     .center{text-align:center}
 
     /* ========================= */
-    /* TESTIMONIOS */
+    /* NUEVO: Testimonios */
     /* ========================= */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--card)}
     .ts-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
     .ts-head h2{margin:0 0 6px;font-size:clamp(24px,3.4vw,32px)}
     .ts-head p{margin:0 0 22px;color:var(--muted)}
     .ts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .ts-card{background:rgba(12,13,18,.55);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;gap:14px}
+    .ts-card{background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;gap:14px}
     .ts-avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 auto}
     .ts-name{font-weight:700}
     .ts-role{color:var(--muted);font-weight:400;margin-left:.35rem}
-    .ts-stars{color:var(--accent);letter-spacing:.08em}
+    .ts-stars{color:#f6c348;letter-spacing:.08em}
     blockquote{margin:8px 0 0;color:var(--ink)}
     @media (max-width:900px){ .ts-grid{grid-template-columns:1fr 1fr} }
     @media (max-width:600px){ .ts-grid{grid-template-columns:1fr} }
 
     /* ========================= */
-    /* Botón WhatsApp FAB */
+    /* NUEVO: Botón WhatsApp FAB */
     /* ========================= */
     .whatsapp-fab{
       position:fixed; right:18px; bottom:18px; width:56px; height:56px;
       border-radius:50%; background:#25D366; display:grid; place-items:center;
-      color:#fff; box-shadow:0 10px 30px rgba(37,211,102,.35);
+      color:#fff; box-shadow:0 10px 30px rgba(37,211,102,.45);
       z-index:1100; transition:transform .15s ease;
     }
     .whatsapp-fab:hover{ transform: translateY(-2px) }
     .whatsapp-fab::after{
       content:""; position:absolute; inset:-6px; border-radius:50%;
-      box-shadow:0 0 0 0 rgba(37,211,102,.28); animation:wa-pulse 3s infinite;
+      box-shadow:0 0 0 0 rgba(37,211,102,.35); animation:wa-pulse 2.2s infinite;
     }
     @keyframes wa-pulse{
-      0%{box-shadow:0 0 0 0 rgba(37,211,102,.28)}
+      0%{box-shadow:0 0 0 0 rgba(37,211,102,.35)}
       70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}
       100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
-    }
-
-    /* Accesibilidad: foco visible al navegar con teclado */
-    :where(a, button, summary, .cta, .nav .links a):focus-visible{
-      outline:2px solid var(--accent);
-      outline-offset:3px;
-      border-radius:10px;
-    }
-
-    /* Respeta reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      .whatsapp-fab::after{animation:none}
-      .cta, .nav .links a, a{transition:none}
     }
   </style>
 </head>
@@ -262,8 +160,9 @@
       <nav class="links" aria-label="Secciones">
         <a href="#que-es">Qué es</a>
         <a href="#oferta">Productos y servicios</a>
-        <a href="#testimonios">Testimonios</a>
+        <a href="#testimonios">Testimonios</a> <!-- NUEVO -->
         <a href="#contacto">Contacto</a>
+        <!-- NUEVO: CTA en el header -->
         <a class="cta cta--nav" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Agendar asesoría</a>
       </nav>
     </div>
@@ -288,11 +187,13 @@
         Un espacio pensado para abogados, estudiantes y amantes del mundo jurídico que buscan un ambiente distinto: cercano, creativo y con atención a los detalles.
         Aquí, la justicia se sirve en taza, se conversa con calma y se acompaña con productos y servicios diseñados para quienes viven y disfrutan la profesión.
       </p>
+      <!-- RESUMEN / HISTORIA -->
       <p class="lead" style="margin-top:8px">
         Imagina un lugar donde un abogado prepara su alegato con un café perfecto, una estudiante ensaya su primer moot court
         y una persona que necesita orientación encuentra una respuesta clara. Ese lugar es Café Judicial®: asesorías serias cuando
         toca, estudio y simulación cuando hace falta, y una pausa bien servida para pensar mejor.
       </p>
+      <!-- Chips resumen -->
       <div class="pills">
         <span class="pillx">Asesorías claras</span>
         <span class="pillx">Cafetería &amp; pastelería</span>
@@ -452,7 +353,9 @@
       </p>
     </section>
 
-    <!-- TESTIMONIOS -->
+    <!-- ========================= -->
+    <!-- NUEVO: TESTIMONIOS -->
+    <!-- ========================= -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
       <div class="ts-wrap">
         <div class="kicker">Prueba social</div>
@@ -513,7 +416,7 @@
     Café Judicial® — Donde la justicia se sirve en taza · Santiago, Chile
   </footer>
 
-  <!-- Botón flotante de WhatsApp -->
+  <!-- NUEVO: Botón flotante de WhatsApp -->
   <a class="whatsapp-fab" 
      href="https://wa.me/56900000000?text=Hola%20Caf%C3%A9%20Judicial,%20quiero%20agendar%20una%20asesor%C3%ADa."
      target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp">
