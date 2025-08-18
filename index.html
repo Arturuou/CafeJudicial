@@ -21,18 +21,24 @@
       /* ====== Paleta coherente con el logo ====== */
       --bg: #F3E3C6;          /* crema/parchment del fondo del logo */
       --panel: #FFF7E9;       /* panel claro */
-      --card: #FFF3E1;        /* tarjetas (un tono más cálido) */
+      --card: #FFF3E1;        /* tarjetas */
       --ink: #3A2415;         /* espresso (texto principal) */
       --muted: #6E4F3D;       /* texto secundario */
       --line: #E3C8A6;        /* bordes cálidos */
       --accent: #C9923A;      /* dorado/bronce del logo */
-      --accent-ink:#2A1A0E;   /* texto sobre acento */
-      --accent-soft:#F2D49B;  /* acento claro para degradés */
+      --accent-ink:#2A1A0E;
+      --accent-soft:#F2D49B;
 
-      /* Tamaño del logo en el héroe */
+      /* Tamaños del logo en el héroe */
       --logo-hero-min: 200px;
       --logo-hero-ideal: 28vw;
       --logo-hero-max: 360px;
+
+      /* Visibilidad de la foto del héroe */
+      --hero-veil-top: .10;     /* menos velo arriba */
+      --hero-veil-bottom: .24;  /* menos velo abajo */
+      --hero-card-alpha: .78;   /* tarjeta más translúcida */
+      --hero-blur: 6px;         /* blur para efecto vidrio */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -55,7 +61,7 @@
     /* NAV (claro, translúcido) */
     header.site{
       position:sticky;top:0;z-index:10;
-      background:rgba(255,247,233,.75);
+      background:rgba(255,247,233,.72);
       backdrop-filter:saturate(120%) blur(8px);
       border-bottom:1px solid var(--line)
     }
@@ -68,24 +74,29 @@
     .nav .links a:hover{color:var(--ink)}
     .cta--nav{padding:10px 12px;border-radius:10px;font-size:14px;box-shadow:0 6px 16px rgba(58,36,21,.15)}
 
-    /* HERO (foto visible + tarjeta vidrio clara) */
+    /* HERO (foto visible + tarjeta vidrio) */
     .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:center;overflow:hidden}
     .hero::before{
       content:"";position:absolute;inset:0;
-      background:url('IMG_8339.jpeg') center/cover no-repeat;
-      filter:contrast(1.05) saturate(1) brightness(.85)
+      background:url('IMG_8339.jpeg') center 35%/cover no-repeat; /* mueve un poco el encuadre */
+      filter:contrast(1.06) saturate(1.05) brightness(.95);      /* más clara que antes */
     }
     .hero::after{
       content:"";position:absolute;inset:0;
-      background:linear-gradient(to bottom, rgba(58,36,21,.20) 0%, rgba(58,36,21,.45) 100%)
+      background:linear-gradient(
+        to bottom,
+        rgba(58,36,21,var(--hero-veil-top)) 0%,
+        rgba(58,36,21,var(--hero-veil-bottom)) 100%
+      );
     }
     .hero .inner{
       position:relative;z-index:1;
       max-width:760px;padding:32px 28px;
-      background:rgba(255,247,233,.92);
-      border:1px solid var(--line);
-      border-radius:14px;
-      box-shadow:0 24px 60px rgba(58,36,21,.25)
+      background:rgba(255,247,233,var(--hero-card-alpha));  /* más translúcida */
+      border:1px solid rgba(227,200,166,.8);
+      border-radius:16px;
+      box-shadow:0 24px 60px rgba(58,36,21,.18);
+      backdrop-filter:saturate(115%) blur(var(--hero-blur));
     }
     .brand-hero{
       width:clamp(var(--logo-hero-min), var(--logo-hero-ideal), var(--logo-hero-max));
@@ -96,7 +107,7 @@
       font-family:"Playfair Display",serif;font-weight:700;
       font-size:clamp(34px,6vw,56px);line-height:1.1;margin:8px 0 6px;letter-spacing:.2px
     }
-    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);font-style:italic;margin-bottom:26px;opacity:.95}
+    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);font-style:italic;margin-bottom:26px}
 
     .cta{
       display:inline-flex;gap:10px;align-items:center;justify-content:center;
@@ -112,12 +123,10 @@
     @media (max-width:520px){
       .hero{min-height:52vh}
       .hero .inner{padding:20px 16px}
+      /* un poquito más de velo y opacidad en móvil para legibilidad */
+      :root{ --hero-veil-top:.16; --hero-veil-bottom:.32; --hero-card-alpha:.85; }
       .sub{margin-bottom:16px}
-      /* logo un poco más contenido en móvil */
-      :root{
-        --logo-hero-min: 170px;
-        --logo-hero-max: 280px;
-      }
+      :root{ --logo-hero-min: 170px; --logo-hero-max: 300px; }
     }
 
     /* SECCIONES */
@@ -246,7 +255,7 @@
 
   <!-- NAV -->
   <header class="site">
-    <div class="wrap nav">
+   <div class="wrap nav">
       <a class="logo" href="#top">Café Judicial®</a>
       <nav class="links" aria-label="Secciones">
         <a href="#que-es">Qué es</a>
