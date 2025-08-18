@@ -18,16 +18,16 @@
 
   <style>
     :root{
-      /* ====== Paleta coherente con el logo ====== */
-      --bg: #F3E3C6;          /* crema/parchment del fondo del logo */
-      --panel: #FFF7E9;       /* panel claro */
-      --card: #FFF3E1;        /* tarjetas (un tono más cálido) */
-      --ink: #3A2415;         /* espresso (texto principal) */
-      --muted: #6E4F3D;       /* texto secundario */
-      --line: #E3C8A6;        /* bordes cálidos */
-      --accent: #C9923A;      /* dorado/bronce del logo */
-      --accent-ink:#2A1A0E;   /* texto sobre acento */
-      --accent-soft:#F2D49B;  /* acento claro para degradés */
+      /* Paleta del logo */
+      --bg:#F3E3C6;        /* crema */
+      --panel:#FFF7E9;     /* claro */
+      --card:#FFF3E1;      /* tarjetas */
+      --ink:#3A2415;       /* espresso */
+      --muted:#6E4F3D;     /* secundario */
+      --line:#E3C8A6;      /* borde cálido */
+      --accent:#C9923A;    /* dorado */
+      --accent-ink:#2A1A0E;
+      --accent-soft:#F2D49B;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -47,7 +47,7 @@
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* NAV (claro, translúcido) */
+    /* NAV */
     header.site{
       position:sticky;top:0;z-index:10;
       background:rgba(255,247,233,.75);
@@ -63,26 +63,31 @@
     .nav .links a:hover{color:var(--ink)}
     .cta--nav{padding:10px 12px;border-radius:10px;font-size:14px;box-shadow:0 6px 16px rgba(58,36,21,.15)}
 
-    /* HERO (foto visible + tarjeta vidrio clara) */
+    /* HERO – foto más visible */
     .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:center;overflow:hidden}
     .hero::before{
       content:"";position:absolute;inset:0;
       background:url('IMG_8339.jpeg') center/cover no-repeat;
-      filter:contrast(1.05) saturate(1) brightness(.85)
+      /* subimos brillo y contraste para que se vea más */
+      filter:brightness(.98) contrast(1.06) saturate(1.05);
     }
     .hero::after{
       content:"";position:absolute;inset:0;
-      /* velo cálido espresso para mejorar legibilidad y coherencia */
-      background:linear-gradient(to bottom, rgba(58,36,21,.20) 0%, rgba(58,36,21,.45) 100%)
+      /* velo más ligero para mejorar la lectura sin tapar la foto */
+      background:linear-gradient(to bottom,
+                  rgba(58,36,21,.08) 0%,
+                  rgba(58,36,21,.18) 70%,
+                  rgba(58,36,21,.24) 100%);
     }
-    /* “tarjeta” sobre la foto: no hace falta tocar el HTML */
+    /* tarjeta translúcida (más foto) */
     .hero .inner{
       position:relative;z-index:1;
-      max-width:760px;padding:28px 24px;
-      background:rgba(255,247,233,.92);
-      border:1px solid var(--line);
+      max-width:760px;padding:24px 22px;
+      background:rgba(255,247,233,.70);          /* antes .92 */
+      backdrop-filter:blur(2px) saturate(110%);
+      border:1px solid rgba(227,200,166,.7);
       border-radius:14px;
-      box-shadow:0 24px 60px rgba(58,36,21,.25)
+      box-shadow:0 18px 48px rgba(58,36,21,.20);
     }
     .brand-hero{width:140px;margin:0 auto 8px auto}
 
@@ -90,7 +95,7 @@
       font-family:"Playfair Display",serif;font-weight:700;
       font-size:clamp(34px,6vw,56px);line-height:1.1;margin:8px 0 6px;letter-spacing:.2px
     }
-    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);font-style:italic;margin-bottom:26px;opacity:.95}
+    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);font-style:italic;margin-bottom:22px}
 
     .cta{
       display:inline-flex;gap:10px;align-items:center;justify-content:center;
@@ -102,7 +107,7 @@
       transition:.18s ease
     }
     .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
-    @media (max-width:520px){.hero{min-height:52vh}.hero .inner{padding:20px 16px}.sub{margin-bottom:16px}}
+    @media (max-width:520px){.hero{min-height:52vh}.hero .inner{padding:18px 14px}.sub{margin-bottom:16px}}
 
     /* SECCIONES */
     main section{padding:48px 0;border-top:1px solid var(--line)}
@@ -127,7 +132,7 @@
       box-shadow:0 3px 10px rgba(58,36,21,.08)
     }
 
-    /* ACORDEONES (claros) */
+    /* ACORDEONES */
     details.cardx{
       background:linear-gradient(180deg,var(--card),#FFEFD9);
       border:1px solid var(--line);border-radius:16px;margin:12px 0;overflow:hidden;
@@ -207,7 +212,7 @@
     @media (max-width:900px){ .ts-grid{grid-template-columns:1fr 1fr} }
     @media (max-width:600px){ .ts-grid{grid-template-columns:1fr} }
 
-    /* Botón WhatsApp FAB (igual) */
+    /* WhatsApp FAB */
     .whatsapp-fab{
       position:fixed; right:18px; bottom:18px; width:56px; height:56px;
       border-radius:50%; background:#25D366; display:grid; place-items:center;
@@ -245,7 +250,6 @@
   <!-- HERO -->
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
-      <!-- Logo grande (puedes borrar esta línea si prefieres solo texto) -->
       <img class="brand-hero" src="IMG_8349.jpeg" alt="Logo Café Judicial">
       <h1>Café Judicial®</h1>
       <p class="sub">Donde la justicia se sirve en taza — y se conversa con calma.</p>
@@ -282,7 +286,6 @@
       <div class="kicker">Nuestra oferta</div>
       <h2 id="oferta-h">Productos y servicios</h2>
 
-      <!-- ASESORÍAS -->
       <details class="cardx">
         <summary>
           <span class="icon">📚</span>
@@ -313,7 +316,6 @@
         </div>
       </details>
 
-      <!-- EMPRESAS -->
       <details class="cardx">
         <summary>
           <span class="icon">🏢</span>
@@ -333,7 +335,6 @@
         </div>
       </details>
 
-      <!-- CAFETERÍA -->
       <details class="cardx">
         <summary>
           <span class="icon">☕</span>
@@ -353,7 +354,6 @@
         </div>
       </details>
 
-      <!-- ESTUDIANTES -->
       <details class="cardx">
         <summary>
           <span class="icon">🎯</span>
@@ -373,7 +373,6 @@
         </div>
       </details>
 
-      <!-- PRODUCTOS -->
       <details class="cardx">
         <summary>
           <span class="icon">🛍️</span>
@@ -401,7 +400,6 @@
         </div>
       </details>
 
-      <!-- COMUNIDAD -->
       <details class="cardx">
         <summary>
           <span class="icon">🎙️</span>
@@ -420,7 +418,6 @@
         </div>
       </details>
 
-      <!-- CTAs -->
       <p style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
         <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Agendar asesoría</a>
         <a class="cta" href="mailto:contacto@cafejudicial.cl">Escribir por detalles</a>
