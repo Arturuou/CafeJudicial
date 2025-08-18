@@ -16,7 +16,7 @@
   <meta name="apple-mobile-web-app-title" content="Café Judicial®" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="img/favicon.ico" />
-  <meta name="theme-color" content="#F3E5C8">
+  <meta name="theme-color" content="#F3E5C8" />
 
   <!-- Tipografías -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -40,7 +40,6 @@
     :target{scroll-margin-top:88px}
     img{max-width:100%;display:block;height:auto}
 
-    /* Accesibilidad del símbolo ® */
     .sr-only{
       position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
       overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
@@ -66,34 +65,30 @@
     main p a:hover{border-bottom-color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* NAV */
+    /* NAV (sin logo imagen) */
     header.site{
       position:sticky;top:0;z-index:10;
-      background:rgba(255,246,229,.88);
+      background:rgba(255,246,229,.92);
       backdrop-filter:saturate(120%) blur(8px);
       border-bottom:1px solid var(--line)
     }
     .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
     .nav a.logo{
-      display:flex; align-items:center; gap:10px;
-      font-family:"Playfair Display",serif;font-weight:700;color:var(--ink);font-size:20px;border-bottom:0
+      font-family:"Playfair Display",serif;font-weight:700;
+      color:var(--ink);font-size:20px;letter-spacing:.2px;border-bottom:0
     }
-    .logo-img{width:28px;height:auto;border-radius:4px}
     .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
     .nav .links a{color:var(--ink);opacity:.85;font-size:14px;border-bottom:0}
     .nav .links a:hover{opacity:1}
     .cta--nav{padding:10px 12px;border-radius:10px;font-size:14px;box-shadow:0 6px 16px rgba(0,0,0,.12)}
 
-    /* HERO (mantiene la foto IMG_8339.jpeg) + logo grande encima */
-    .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:center;overflow:hidden}
-    .hero::before{
-      content:"";position:absolute;inset:0;
-      background:url('IMG_8339.jpeg') center/cover no-repeat;
-      filter:brightness(.9) saturate(.95) contrast(.95);
-    }
-    .hero::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(to bottom, rgba(243,229,200,.90) 0%, rgba(243,229,200,.86) 45%, rgba(243,229,200,.92) 100%);
+    /* HERO (limpio, sin foto de fondo) */
+    .hero{
+      position:relative;min-height:64vh;display:grid;place-items:center;text-align:center;overflow:hidden;
+      background:
+        radial-gradient(1200px 800px at 10% -10%, rgba(201,154,61,.10), transparent 60%),
+        radial-gradient(1200px 800px at 110% 10%, rgba(121,92,63,.08), transparent 60%),
+        var(--bg);
     }
     .hero .inner{position:relative;z-index:1;padding:88px 20px}
     .brand-hero{width:min(520px,72vw); margin:0 auto 14px; filter:drop-shadow(0 6px 18px rgba(74,42,26,.18))}
@@ -113,7 +108,12 @@
       transition:.18s ease; border-bottom:0;
     }
     .cta:hover{transform:translateY(-1px);filter:brightness(1.04)}
-    @media (max-width:520px){.hero{min-height:52vh}.hero .inner{padding:64px 16px}.sub{margin-bottom:16px}}
+    @media (max-width:520px){
+      .hero{min-height:52vh}
+      .hero .inner{padding:64px 16px}
+      .brand-hero{max-width:72vw}
+      .sub{margin-bottom:16px}
+    }
 
     /* SECCIONES */
     main section{padding:48px 0;border-top:1px solid var(--line)}
@@ -133,8 +133,7 @@
     .pillx{
       font-size:12px;font-weight:600;letter-spacing:.2px;color:#2E1C10;
       background:linear-gradient(180deg,#FFF2D9,var(--accent-soft));
-      border:1px solid #E6D1A8;
-      border-radius:999px;padding:6px 10px;
+      border:1px solid #E6D1A8;border-radius:999px;padding:6px 10px;
       box-shadow:0 2px 8px rgba(121,92,63,.12)
     }
 
@@ -187,21 +186,21 @@
     .list-compact{margin:8px 0 0 16px}
     .list-compact li{margin:4px 0}
 
-    /* CTAs en oferta */
-    #oferta .cta{margin-top:10px}
-    #oferta .cta + .cta{margin-left:8px}
-    @media (max-width:520px){#oferta .cta{width:100%;text-align:center}#oferta .cta + .cta{margin-left:0}}
-
-    /* CTA fijo en móvil */
-    @media (max-width:540px){
-      .sticky-cta{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:flex;gap:10px}
-      .sticky-cta .cta{flex:1}
-      body{padding-bottom:76px}
+    /* FRANJA FOTO “AMBIENTE” */
+    .band-photo{ position:relative; padding:96px 0; overflow:hidden; }
+    .band-photo::before{
+      content:""; position:absolute; inset:0;
+      background:url('IMG_8339.jpeg') center/cover no-repeat;
+      background-attachment:fixed;
+      filter:brightness(.95) saturate(.98);
     }
-
-    footer{padding:28px 0;text-align:center;color:#7A6555;font-style:italic}
-    .center{text-align:center}
-    .legal-note{ font-size:12px; color:#8A7666; margin-top:6px }
+    .band-photo::after{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(to bottom, rgba(243,229,200,.35), rgba(243,229,200,.55));
+    }
+    .band-inner{ position:relative; z-index:1 }
+    .band-inner h2{ color:#3A2416 }
+    .band-inner p{ max-width:720px }
 
     /* TESTIMONIOS */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:linear-gradient(180deg,#FFF7E8,#FFF2DD)}
@@ -251,16 +250,14 @@
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- NAV (sin logo imagen) -->
   <header class="site">
     <div class="wrap nav">
-      <a class="logo brand-mark" href="#top">
-        <img class="logo-img" src="IMG_8349.jpeg" alt="Logotipo Café Judicial" />
-        Café Judicial<sup aria-hidden="true">®</sup><span class="sr-only"> marca registrada</span>
-      </a>
+      <a class="logo" href="#top">Café Judicial<sup aria-hidden="true">®</sup><span class="sr-only"> marca registrada</span></a>
       <nav class="links" aria-label="Secciones">
         <a href="#que-es">Qué es</a>
         <a href="#oferta">Productos y servicios</a>
+        <a href="#ambiente">Ambiente</a>
         <a href="#testimonios">Testimonios</a>
         <a href="#contacto">Contacto</a>
         <a class="cta cta--nav" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Agendar asesoría</a>
@@ -268,10 +265,10 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO (limpio, sin foto) -->
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
-      <img class="brand-hero" src="IMG_8349.jpeg" alt="Café Judicial — Donde la justicia se sirve en taza" />
+      <img class="brand-hero" src="IMG_8349.jpeg" alt="Café Judicial — Logotipo" />
       <h1 class="brand-mark">Café Judicial<sup aria-hidden="true">®</sup><span class="sr-only"> marca registrada</span></h1>
       <p class="sub">Donde la justicia se sirve en taza — y se conversa con calma.</p>
       <a class="cta" href="#contacto">Quiero ser jurado fundador</a>
@@ -286,12 +283,9 @@
       <p class="lead">
         Café Judicial® es un punto de encuentro donde el derecho se combina con el aroma del buen café y el diseño con carácter.
         Un espacio pensado para abogados, estudiantes y amantes del mundo jurídico que buscan un ambiente distinto: cercano, creativo y con atención a los detalles.
-        Aquí, la justicia se sirve en taza, se conversa con calma y se acompaña con productos y servicios diseñados para quienes viven y disfrutan la profesión.
       </p>
       <p class="lead" style="margin-top:8px">
-        Imagina un lugar donde un abogado prepara su alegato con un café perfecto, una estudiante ensaya su primer moot court
-        y una persona que necesita orientación encuentra una respuesta clara. Ese lugar es Café Judicial®: asesorías serias cuando
-        toca, estudio y simulación cuando hace falta, y una pausa bien servida para pensar mejor.
+        Aquí, la justicia se sirve en taza, se conversa con calma y se acompaña con productos y servicios diseñados para quienes viven y disfrutan la profesión.
       </p>
       <div class="pills">
         <span class="pillx">Asesorías claras</span>
@@ -301,8 +295,18 @@
         <span class="pillx">Eventos &amp; comunidad</span>
       </div>
     </section>
+  </main>
 
-    <!-- PRODUCTOS Y SERVICIOS -->
+  <!-- FRANJA AMBIENTE con la foto -->
+  <section id="ambiente" class="band-photo" aria-label="Ambiente Café Judicial">
+    <div class="wrap band-inner">
+      <h2>Ambiente</h2>
+      <p class="lead">Wi-Fi, enchufes, mesas amplias y una zona de silencio para estudiar o preparar audiencias. Café de especialidad y pastelería artesanal.</p>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS Y SERVICIOS -->
+  <main class="wrap" role="main">
     <section id="oferta" aria-labelledby="oferta-h">
       <div class="kicker">Nuestra oferta</div>
       <h2 id="oferta-h">Productos y servicios</h2>
@@ -466,16 +470,6 @@
         </div>
       </div>
     </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto" class="center" aria-labelledby="cta-h">
-      <div class="kicker">Contacto</div>
-      <h2 id="cta-h">Conversemos</h2>
-      <p class="lead">Escríbenos y te respondemos a la brevedad.</p>
-      <p><a class="cta" href="mailto:contacto@cafejudicial.cl">contacto@cafejudicial.cl</a></p>
-      <p class="lead" style="margin-top:12px">o súmate como jurado fundador:</p>
-      <p><a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero participar</a></p>
-    </section>
   </main>
 
   <!-- CTA fijo en móvil -->
@@ -499,7 +493,7 @@
     </svg>
   </a>
 
-  <!-- Cierre acordeones mutuos -->
+  <!-- Cierra otros acordeones al abrir uno -->
   <script>
   document.querySelectorAll("details.cardx").forEach((det) => {
     det.addEventListener("toggle", function() {
