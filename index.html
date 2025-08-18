@@ -11,28 +11,23 @@
   <meta property="og:description" content="Servicios judiciales y asesorías, cafetería y pastelería, simulaciones y productos con diseño. Justicia que se conversa." />
   <meta property="og:image" content="IMG_8349.jpeg" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Café Judicial®" />
-  <meta name="application-name" content="Café Judicial®" />
-  <meta name="apple-mobile-web-app-title" content="Café Judicial®" />
-  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="img/favicon.ico" />
-  <meta name="theme-color" content="#F3E5C8" />
 
   <!-- Tipografías -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Paleta del logo */
-      --bg:#F3E5C8;          /* crema */
-      --panel:#FFF6E5;       /* nav claro */
-      --card:#FFF9EF;        /* tarjetas */
-      --ink:#3A2416;         /* espresso (texto) */
-      --muted:#6B584A;       /* cacao (secundario) */
-      --line:#E6D9C4;        /* líneas suaves */
-      --accent:#C99A3D;      /* dorado balanza */
-      --accent-soft:#EED8A4; /* dorado claro */
-      --accent-ink:#1F1408;  /* texto sobre dorado */
+      /* ====== Paleta coherente con el logo ====== */
+      --bg: #F3E3C6;          /* crema/parchment del fondo del logo */
+      --panel: #FFF7E9;       /* panel claro */
+      --card: #FFF3E1;        /* tarjetas (un tono más cálido) */
+      --ink: #3A2415;         /* espresso (texto principal) */
+      --muted: #6E4F3D;       /* texto secundario */
+      --line: #E3C8A6;        /* bordes cálidos */
+      --accent: #C9923A;      /* dorado/bronce del logo */
+      --accent-ink:#2A1A0E;   /* texto sobre acento */
+      --accent-soft:#F2D49B;  /* acento claro para degradés */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -40,108 +35,103 @@
     :target{scroll-margin-top:88px}
     img{max-width:100%;display:block;height:auto}
 
-    .sr-only{
-      position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
-      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
-    }
-    .brand-mark sup{ font-size:.65em; vertical-align:super; line-height:0 }
-
     body{
       color:var(--ink);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       line-height:1.6;
       background:
-        radial-gradient(1200px 800px at 8% -10%, rgba(201,154,61,.08), transparent 60%),
-        radial-gradient(1200px 800px at 110% 10%, rgba(121,92,63,.06), transparent 60%),
+        radial-gradient(1200px 800px at 8% -10%, rgba(201,146,58,.06), transparent 60%),
+        radial-gradient(1200px 800px at 110% 10%, rgba(117,92,70,.05), transparent 60%),
         var(--bg);
     }
-
-    a{
-      color:var(--accent);
-      text-decoration:none;
-      border-bottom:1px solid transparent;
-      transition:border-color .15s ease, color .15s ease;
-    }
-    main p a:hover{border-bottom-color:var(--accent)}
+    a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* NAV (sin logo imagen) */
+    /* NAV (claro, translúcido) */
     header.site{
       position:sticky;top:0;z-index:10;
-      background:rgba(255,246,229,.92);
+      background:rgba(255,247,233,.75);
       backdrop-filter:saturate(120%) blur(8px);
       border-bottom:1px solid var(--line)
     }
     .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
     .nav a.logo{
-      font-family:"Playfair Display",serif;font-weight:700;
-      color:var(--ink);font-size:20px;letter-spacing:.2px;border-bottom:0
+      font-family:"Playfair Display",serif;font-weight:700;text-decoration:none;color:var(--ink);font-size:20px
     }
     .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-    .nav .links a{color:var(--ink);opacity:.85;font-size:14px;border-bottom:0}
-    .nav .links a:hover{opacity:1}
-    .cta--nav{padding:10px 12px;border-radius:10px;font-size:14px;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+    .nav .links a{color:var(--muted);text-decoration:none;font-size:14px}
+    .nav .links a:hover{color:var(--ink)}
+    .cta--nav{padding:10px 12px;border-radius:10px;font-size:14px;box-shadow:0 6px 16px rgba(58,36,21,.15)}
 
-    /* HERO (limpio, sin foto de fondo) */
-    .hero{
-      position:relative;min-height:64vh;display:grid;place-items:center;text-align:center;overflow:hidden;
-      background:
-        radial-gradient(1200px 800px at 10% -10%, rgba(201,154,61,.10), transparent 60%),
-        radial-gradient(1200px 800px at 110% 10%, rgba(121,92,63,.08), transparent 60%),
-        var(--bg);
+    /* HERO (foto visible + tarjeta vidrio clara) */
+    .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:center;overflow:hidden}
+    .hero::before{
+      content:"";position:absolute;inset:0;
+      background:url('IMG_8339.jpeg') center/cover no-repeat;
+      filter:contrast(1.05) saturate(1) brightness(.85)
     }
-    .hero .inner{position:relative;z-index:1;padding:88px 20px}
-    .brand-hero{width:min(520px,72vw); margin:0 auto 14px; filter:drop-shadow(0 6px 18px rgba(74,42,26,.18))}
+    .hero::after{
+      content:"";position:absolute;inset:0;
+      /* velo cálido espresso para mejorar legibilidad y coherencia */
+      background:linear-gradient(to bottom, rgba(58,36,21,.20) 0%, rgba(58,36,21,.45) 100%)
+    }
+    /* “tarjeta” sobre la foto: no hace falta tocar el HTML */
+    .hero .inner{
+      position:relative;z-index:1;
+      max-width:760px;padding:28px 24px;
+      background:rgba(255,247,233,.92);
+      border:1px solid var(--line);
+      border-radius:14px;
+      box-shadow:0 24px 60px rgba(58,36,21,.25)
+    }
+    .brand-hero{width:140px;margin:0 auto 8px auto}
+
     h1{
       font-family:"Playfair Display",serif;font-weight:700;
-      font-size:clamp(32px,5.6vw,52px);line-height:1.12;margin:8px 0 6px;letter-spacing:.2px;
+      font-size:clamp(34px,6vw,56px);line-height:1.1;margin:8px 0 6px;letter-spacing:.2px
     }
-    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);font-style:italic;margin-bottom:26px}
+    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);font-style:italic;margin-bottom:26px;opacity:.95}
 
     .cta{
       display:inline-flex;gap:10px;align-items:center;justify-content:center;
       background:linear-gradient(180deg,var(--accent-soft),var(--accent));
       color:var(--accent-ink);
-      font-weight:700;padding:12px 16px;border-radius:12px;
-      border:1px solid rgba(121,92,63,.35);
-      box-shadow:0 6px 14px rgba(121,92,63,.20);
-      transition:.18s ease; border-bottom:0;
+      font-weight:700;text-decoration:none;padding:12px 16px;border-radius:12px;
+      border:1px solid rgba(201,146,58,.55);
+      box-shadow:0 6px 16px rgba(58,36,21,.18);
+      transition:.18s ease
     }
-    .cta:hover{transform:translateY(-1px);filter:brightness(1.04)}
-    @media (max-width:520px){
-      .hero{min-height:52vh}
-      .hero .inner{padding:64px 16px}
-      .brand-hero{max-width:72vw}
-      .sub{margin-bottom:16px}
-    }
+    .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
+    @media (max-width:520px){.hero{min-height:52vh}.hero .inner{padding:20px 16px}.sub{margin-bottom:16px}}
 
     /* SECCIONES */
     main section{padding:48px 0;border-top:1px solid var(--line)}
     h2{
       font-family:"Playfair Display",serif;font-weight:700;
-      font-size:clamp(24px,3.6vw,34px);margin:0 0 12px;position:relative;padding-bottom:6px;color:var(--ink)
+      font-size:clamp(24px,3.6vw,34px);margin:0 0 12px;position:relative;padding-bottom:6px
     }
     h2::after{
       content:"";position:absolute;left:0;bottom:0;width:84px;height:2px;border-radius:2px;
-      background:linear-gradient(90deg,var(--accent),rgba(201,154,61,0))
+      background:linear-gradient(90deg,var(--accent),rgba(201,146,58,0))
     }
     .lead{color:var(--muted);margin:0 0 16px}
-    .kicker{color:#5A3E21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.9}
+    .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
 
     /* Chips */
     .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
     .pillx{
-      font-size:12px;font-weight:600;letter-spacing:.2px;color:#2E1C10;
-      background:linear-gradient(180deg,#FFF2D9,var(--accent-soft));
-      border:1px solid #E6D1A8;border-radius:999px;padding:6px 10px;
-      box-shadow:0 2px 8px rgba(121,92,63,.12)
+      font-size:12px;font-weight:600;letter-spacing:.2px;color:#4d3426;
+      background:linear-gradient(180deg,#fff3d9,var(--accent-soft));
+      border:1px solid rgba(201,146,58,.45);
+      border-radius:999px;padding:6px 10px;
+      box-shadow:0 3px 10px rgba(58,36,21,.08)
     }
 
-    /* ACORDEONES */
+    /* ACORDEONES (claros) */
     details.cardx{
-      background:linear-gradient(180deg,var(--card),#FFF5E6);
+      background:linear-gradient(180deg,var(--card),#FFEFD9);
       border:1px solid var(--line);border-radius:16px;margin:12px 0;overflow:hidden;
-      box-shadow:0 8px 20px rgba(121,92,63,.12);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 10px 24px rgba(58,36,21,.08);
       transition:transform .18s ease
     }
     details.cardx:hover{transform:translateY(-1px)}
@@ -152,12 +142,13 @@
     details.cardx summary::marker{display:none}
     .cardx .icon{
       width:28px;height:28px;display:inline-grid;place-items:center;
-      background:#FAEED2;border:1px solid #E6D1A8;border-radius:8px;font-size:16px;color:#5A3E21
+      background:#F3E3C6;border:1px solid var(--line);border-radius:8px;font-size:16px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.6); color:var(--ink)
     }
     .cardx .title{flex:1;display:flex;align-items:center;gap:10px}
     .cardx .chev{
       width:26px;height:26px;border-radius:6px;display:grid;place-items:center;
-      background:#F2E4C6;border:1px solid #E6D1A8;font-size:12px;color:#5A3E21;transition:transform .25s ease
+      background:#FFF7E9;border:1px solid var(--line);font-size:12px;color:var(--ink);transition:transform .25s ease
     }
     details[open].cardx .chev{transform:rotate(90deg)}
     .cardx .contentx{
@@ -168,12 +159,12 @@
 
     /* SUB-ACORDEONES */
     details.mini{
-      background:linear-gradient(180deg,#FFF9EF,#FFF3E0);
-      border:1px solid #E6D1A8;border-radius:12px;margin:8px 0;overflow:hidden
+      background:linear-gradient(180deg,#FFF9ED,#FFF4E3);
+      border:1px solid var(--line);border-radius:12px;margin:8px 0;overflow:hidden
     }
     details.mini summary{
       cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;
-      padding:10px 12px;font-weight:600;color:#4A2A1A
+      padding:10px 12px;font-weight:600;color:var(--ink)
     }
     details.mini summary::marker{display:none}
     .mini .chev{transition:transform .25s ease}
@@ -186,38 +177,37 @@
     .list-compact{margin:8px 0 0 16px}
     .list-compact li{margin:4px 0}
 
-    /* FRANJA FOTO “AMBIENTE” */
-    .band-photo{ position:relative; padding:96px 0; overflow:hidden; }
-    .band-photo::before{
-      content:""; position:absolute; inset:0;
-      background:url('IMG_8339.jpeg') center/cover no-repeat;
-      background-attachment:fixed;
-      filter:brightness(.95) saturate(.98);
+    /* CTAs en oferta */
+    #oferta .cta{margin-top:10px}
+    #oferta .cta + .cta{margin-left:8px}
+    @media (max-width:520px){#oferta .cta{width:100%;text-align:center}#oferta .cta + .cta{margin-left:0}}
+
+    /* CTA fijo en móvil */
+    @media (max-width:540px){
+      .sticky-cta{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:flex;gap:10px}
+      .sticky-cta .cta{flex:1}
+      body{padding-bottom:76px}
     }
-    .band-photo::after{
-      content:""; position:absolute; inset:0;
-      background:linear-gradient(to bottom, rgba(243,229,200,.35), rgba(243,229,200,.55));
-    }
-    .band-inner{ position:relative; z-index:1 }
-    .band-inner h2{ color:#3A2416 }
-    .band-inner p{ max-width:720px }
+
+    footer{padding:28px 0;text-align:center;color:#7a5a46;font-style:italic}
+    .center{text-align:center}
 
     /* TESTIMONIOS */
-    .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:linear-gradient(180deg,#FFF7E8,#FFF2DD)}
+    .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
     .ts-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
     .ts-head h2{margin:0 0 6px;font-size:clamp(24px,3.4vw,32px)}
     .ts-head p{margin:0 0 22px;color:var(--muted)}
     .ts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .ts-card{background:#FFFFFF;border:1px solid #ECDDC5;border-radius:16px;padding:18px;display:flex;gap:14px;box-shadow:0 8px 18px rgba(121,92,63,.10)}
+    .ts-card{background:#FFFDF7;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;gap:14px}
     .ts-avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 auto}
-    .ts-name{font-weight:700;color:#402716}
+    .ts-name{font-weight:700}
     .ts-role{color:var(--muted);font-weight:400;margin-left:.35rem}
     .ts-stars{color:var(--accent);letter-spacing:.08em}
     blockquote{margin:8px 0 0;color:var(--ink)}
     @media (max-width:900px){ .ts-grid{grid-template-columns:1fr 1fr} }
     @media (max-width:600px){ .ts-grid{grid-template-columns:1fr} }
 
-    /* WhatsApp FAB */
+    /* Botón WhatsApp FAB (igual) */
     .whatsapp-fab{
       position:fixed; right:18px; bottom:18px; width:56px; height:56px;
       border-radius:50%; background:#25D366; display:grid; place-items:center;
@@ -227,37 +217,24 @@
     .whatsapp-fab:hover{ transform: translateY(-2px) }
     .whatsapp-fab::after{
       content:""; position:absolute; inset:-6px; border-radius:50%;
-      box-shadow:0 0 0 0 rgba(37,211,102,.22); animation:wa-pulse 3s infinite;
+      box-shadow:0 0 0 0 rgba(37,211,102,.22); animation:wa-pulse 2.2s infinite;
     }
     @keyframes wa-pulse{
       0%{box-shadow:0 0 0 0 rgba(37,211,102,.22)}
       70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}
       100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
     }
-
-    /* Foco visible */
-    :where(a, button, summary, .cta, .nav .links a):focus-visible{
-      outline:2px solid var(--accent);
-      outline-offset:3px;
-      border-radius:10px;
-    }
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      .whatsapp-fab::after{animation:none}
-      .cta, .nav .links a, a{transition:none}
-    }
   </style>
 </head>
 <body>
 
-  <!-- NAV (sin logo imagen) -->
+  <!-- NAV -->
   <header class="site">
     <div class="wrap nav">
-      <a class="logo" href="#top">Café Judicial<sup aria-hidden="true">®</sup><span class="sr-only"> marca registrada</span></a>
+      <a class="logo" href="#top">Café Judicial®</a>
       <nav class="links" aria-label="Secciones">
         <a href="#que-es">Qué es</a>
         <a href="#oferta">Productos y servicios</a>
-        <a href="#ambiente">Ambiente</a>
         <a href="#testimonios">Testimonios</a>
         <a href="#contacto">Contacto</a>
         <a class="cta cta--nav" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Agendar asesoría</a>
@@ -265,11 +242,12 @@
     </div>
   </header>
 
-  <!-- HERO (limpio, sin foto) -->
+  <!-- HERO -->
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
-      <img class="brand-hero" src="IMG_8349.jpeg" alt="Café Judicial — Logotipo" />
-      <h1 class="brand-mark">Café Judicial<sup aria-hidden="true">®</sup><span class="sr-only"> marca registrada</span></h1>
+      <!-- Logo grande (puedes borrar esta línea si prefieres solo texto) -->
+      <img class="brand-hero" src="IMG_8349.jpeg" alt="Logo Café Judicial">
+      <h1>Café Judicial®</h1>
       <p class="sub">Donde la justicia se sirve en taza — y se conversa con calma.</p>
       <a class="cta" href="#contacto">Quiero ser jurado fundador</a>
     </div>
@@ -283,9 +261,12 @@
       <p class="lead">
         Café Judicial® es un punto de encuentro donde el derecho se combina con el aroma del buen café y el diseño con carácter.
         Un espacio pensado para abogados, estudiantes y amantes del mundo jurídico que buscan un ambiente distinto: cercano, creativo y con atención a los detalles.
+        Aquí, la justicia se sirve en taza, se conversa con calma y se acompaña con productos y servicios diseñados para quienes viven y disfrutan la profesión.
       </p>
       <p class="lead" style="margin-top:8px">
-        Aquí, la justicia se sirve en taza, se conversa con calma y se acompaña con productos y servicios diseñados para quienes viven y disfrutan la profesión.
+        Imagina un lugar donde un abogado prepara su alegato con un café perfecto, una estudiante ensaya su primer moot court
+        y una persona que necesita orientación encuentra una respuesta clara. Ese lugar es Café Judicial®: asesorías serias cuando
+        toca, estudio y simulación cuando hace falta, y una pausa bien servida para pensar mejor.
       </p>
       <div class="pills">
         <span class="pillx">Asesorías claras</span>
@@ -295,22 +276,13 @@
         <span class="pillx">Eventos &amp; comunidad</span>
       </div>
     </section>
-  </main>
 
-  <!-- FRANJA AMBIENTE con la foto -->
-  <section id="ambiente" class="band-photo" aria-label="Ambiente Café Judicial">
-    <div class="wrap band-inner">
-      <h2>Ambiente</h2>
-      <p class="lead">Wi-Fi, enchufes, mesas amplias y una zona de silencio para estudiar o preparar audiencias. Café de especialidad y pastelería artesanal.</p>
-    </div>
-  </section>
-
-  <!-- PRODUCTOS Y SERVICIOS -->
-  <main class="wrap" role="main">
+    <!-- PRODUCTOS Y SERVICIOS -->
     <section id="oferta" aria-labelledby="oferta-h">
       <div class="kicker">Nuestra oferta</div>
       <h2 id="oferta-h">Productos y servicios</h2>
 
+      <!-- ASESORÍAS -->
       <details class="cardx">
         <summary>
           <span class="icon">📚</span>
@@ -341,6 +313,7 @@
         </div>
       </details>
 
+      <!-- EMPRESAS -->
       <details class="cardx">
         <summary>
           <span class="icon">🏢</span>
@@ -360,6 +333,7 @@
         </div>
       </details>
 
+      <!-- CAFETERÍA -->
       <details class="cardx">
         <summary>
           <span class="icon">☕</span>
@@ -379,6 +353,7 @@
         </div>
       </details>
 
+      <!-- ESTUDIANTES -->
       <details class="cardx">
         <summary>
           <span class="icon">🎯</span>
@@ -398,6 +373,7 @@
         </div>
       </details>
 
+      <!-- PRODUCTOS -->
       <details class="cardx">
         <summary>
           <span class="icon">🛍️</span>
@@ -425,6 +401,26 @@
         </div>
       </details>
 
+      <!-- COMUNIDAD -->
+      <details class="cardx">
+        <summary>
+          <span class="icon">🎙️</span>
+          <span class="title">Comunidad</span>
+          <span class="chev">▶</span>
+        </summary>
+        <div class="contentx lead">
+          <details class="mini">
+            <summary>🗣️ Eventos y charlas <span class="chev">▶</span></summary>
+            <div class="cmini">Encuentros sobre derecho, ética y actualidad. Abierto a propuestas.</div>
+          </details>
+          <details class="mini">
+            <summary>💡 Proponer tema/ponente <span class="chev">▶</span></summary>
+            <div class="cmini">Escríbenos: <a href="mailto:contacto@cafejudicial.cl">contacto@cafejudicial.cl</a></div>
+          </details>
+        </div>
+      </details>
+
+      <!-- CTAs -->
       <p style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
         <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Agendar asesoría</a>
         <a class="cta" href="mailto:contacto@cafejudicial.cl">Escribir por detalles</a>
@@ -470,6 +466,16 @@
         </div>
       </div>
     </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="center" aria-labelledby="cta-h">
+      <div class="kicker">Contacto</div>
+      <h2 id="cta-h">Conversemos</h2>
+      <p class="lead">Escríbenos y te respondemos a la brevedad.</p>
+      <p><a class="cta" href="mailto:contacto@cafejudicial.cl">contacto@cafejudicial.cl</a></p>
+      <p class="lead" style="margin-top:12px">o súmate como jurado fundador:</p>
+      <p><a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero participar</a></p>
+    </section>
   </main>
 
   <!-- CTA fijo en móvil -->
@@ -478,13 +484,12 @@
     <a class="cta" href="mailto:contacto@cafejudicial.cl">Escribir</a>
   </div>
 
-  <footer role="contentinfo" class="center">
-    Café Judicial<sup aria-hidden="true">®</sup><span class="sr-only"> marca registrada</span> — Donde la justicia se sirve en taza · Santiago, Chile
-    <div class="legal-note">“Café Judicial®” es marca registrada. © 2025 Titular. Todos los derechos reservados.</div>
+  <footer role="contentinfo">
+    Café Judicial® — Donde la justicia se sirve en taza · Santiago, Chile
   </footer>
 
   <!-- WhatsApp -->
-  <a class="whatsapp-fab" 
+  <a class="whatsapp-fab"
      href="https://wa.me/56900000000?text=Hola%20Caf%C3%A9%20Judicial,%20quiero%20agendar%20una%20asesor%C3%ADa."
      target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp">
     <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
@@ -493,7 +498,7 @@
     </svg>
   </a>
 
-  <!-- Cierra otros acordeones al abrir uno -->
+  <!-- Un solo acordeón abierto a la vez -->
   <script>
   document.querySelectorAll("details.cardx").forEach((det) => {
     det.addEventListener("toggle", function() {
