@@ -8,7 +8,7 @@
   <!-- Meta básicas -->
   <meta name="description" content="Te invitamos tu café y resolvemos en línea: asesorías claras o entrega de escrituras y contratos. Derecho en simple, con buen café." />
   <meta property="og:title" content="Café Judicial® — Tu café favorito. Tu escrito listo." />
-  <meta property="og:description" content="Asesorías y escrituras online con trato humano. Te invitamos tu café favorito." />
+  $1  <meta property="og:image" content="IMG_7548.jpeg" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#F3E3C6" />
   <link rel="icon" href="img/favicon.ico" />
@@ -103,6 +103,23 @@
       .cards{grid-template-columns:1fr}
       .ts-grid{grid-template-columns:1fr}
     }
+  
+    /* Hero sin foto de fondo: gradientes sutiles */
+    .hero{background:
+      radial-gradient(1200px 800px at 8% -10%, rgba(201,146,58,.08), transparent 60%),
+      radial-gradient(1200px 800px at 110% 10%, rgba(117,92,70,.07), transparent 60%),
+      var(--bg);
+    }
+    /* Sello con la foto del café (reutilización) */
+    .photo-chip{display:inline-flex;flex-direction:column;align-items:center;gap:6px;margin-top:10px}
+    .photo-chip img{width:140px;height:140px;object-fit:cover;border-radius:14px;border:1px solid var(--line);box-shadow:0 12px 28px rgba(58,36,21,.12);transform:rotate(-2deg);transition:transform .18s ease}
+    .photo-chip img:hover{transform:rotate(0deg) scale(1.02)}
+    .photo-chip figcaption{font-size:12px;color:var(--muted)}
+    @media (min-width:720px){
+      .hero .glass{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+      .glass .logo-hero,.glass .display,.glass .sub,.glass .cta-row,.glass .note{grid-column:1/2}
+      .glass .photo-chip{grid-column:2/3;align-self:center}
+    }
   </style>
 </head>
 <body>
@@ -125,14 +142,7 @@
 
   <!-- HERO -->
   <section class="hero" id="inicio" aria-label="Portada">
-    <div class="hero-bg" aria-hidden="true">
-      <!-- Si subes hero-desktop.webp/hero-mobile.webp, cambia las rutas abajo -->
-      <picture>
-        <source srcset="hero-desktop.webp" media="(min-width: 541px)" type="image/webp">
-        <source srcset="hero-mobile.webp" media="(max-width: 540px)" type="image/webp">
-        <img src="IMG_8339.jpeg" alt="Mesa de trabajo con café y Código Civil abierto" />
-      </picture>
-    </div>
+    <!-- hero background image removed; using gradient-only hero -->
 
     <div class="glass wrap">
       <img class="logo-hero" src="IMG_8349.jpeg" alt="Café Judicial, logotipo" />
@@ -140,10 +150,11 @@
         A través del café <span class="stack"><b>te asesoramos online</b><b>entregamos tu escritura</b><b>dejamos lo legal en simple</b></span>
       </h1>
       <p class="sub">Te invitamos tu café favorito y resolvemos en línea: videollamada clara o entrega de documento (escrituras, contratos y más).</p>
-      <div class="cta-row">
-        <a class="btn" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero mi café + asesoría</a>
-        <a class="btn ghost" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Solicitar escritura/contrato</a>
-      </div>
+      $1
+      <figure class="photo-chip">
+        <img src="IMG_7548.jpeg" alt="Café con símbolo judicial" width="140" height="140" loading="lazy" decoding="async" />
+        <figcaption>Café invitado ☕️</figcaption>
+      </figure>
       <p class="note">El e‑gift del café se envía después de contratar. Aplica solo para servicios online. </p>
     </div>
   </section>
