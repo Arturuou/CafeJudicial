@@ -3,270 +3,530 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Café Judicial® — Tu café favorito. Tu escrito listo.</title>
+  <title>Café Judicial® – Donde la justicia se sirve en taza</title>
 
-  <!-- Meta básicas -->
-  <meta name="description" content="Te invitamos tu café y resolvemos en línea: asesorías claras o entrega de escrituras y contratos. Derecho en simple, con buen café." />
-  <meta property="og:title" content="Café Judicial® — Tu café favorito. Tu escrito listo." />
-  $1  <meta property="og:image" content="IMG_7548.jpeg" />
+  <!-- SEO / Social -->
+  <meta name="description" content="Café Judicial®: asesorías y servicios legales con cercanía, cafetería y pastelería, simulaciones y productos con identidad jurídica." />
+  <meta property="og:title" content="Café Judicial® – Donde la justicia se sirve en taza" />
+  <meta property="og:description" content="Servicios judiciales y asesorías, cafetería y pastelería, simulaciones y productos con diseño. Justicia que se conversa." />
+  <meta property="og:image" content="IMG_8349.jpeg" />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#F3E3C6" />
   <link rel="icon" href="img/favicon.ico" />
 
   <!-- Tipografías -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Paleta cálida */
-      --bg:#F3E3C6; --panel:#FFF7E9; --card:#FFF3E1;
-      --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
-      --accent:#C9923A; --accent-soft:#F2D49B; --dark:#1e130b;
+      /* ====== Paleta coherente con el logo ====== */
+      --bg: #F3E3C6;          /* crema/parchment del fondo del logo */
+      --panel: #FFF7E9;       /* panel claro */
+      --card: #FFF3E1;        /* tarjetas */
+      --ink: #3A2415;         /* espresso (texto principal) */
+      --muted: #6E4F3D;       /* texto secundario */
+      --line: #E3C8A6;        /* bordes cálidos */
+      --accent: #C9923A;      /* dorado/bronce del logo */
+      --accent-ink:#2A1A0E;
+      --accent-soft:#F2D49B;
 
-      /* Hero */
-      --hero-veil-top:.16; --hero-veil-bottom:.32; --hero-blur:6px;
-      --logo-hero-min:180px; --logo-hero-ideal:26vw; --logo-hero-max:320px;
+      /* Tamaños del logo en el héroe */
+      --logo-hero-min: 200px;
+      --logo-hero-ideal: 28vw;
+      --logo-hero-max: 360px;
+
+      /* Héroe “vidrio” */
+      --hero-veil-top: .10;
+      --hero-veil-bottom: .24;
+      --hero-card-alpha: .78;
+      --hero-blur: 6px;
     }
+
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;color:var(--ink);background:var(--bg)}
-    a{color:var(--accent);text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
+    :target{scroll-margin-top:88px}
+    img{max-width:100%;display:block;height:auto}
+
+    body{
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.6;
+      background:
+        radial-gradient(1200px 800px at 8% -10%, rgba(201,146,58,.06), transparent 60%),
+        radial-gradient(1200px 800px at 110% 10%, rgba(117,92,70,.05), transparent 60%),
+        var(--bg);
+    }
+    a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* Header minimal */
-    header.site{position:sticky;top:0;z-index:10;background:rgba(255,247,233,.8);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--ink)}
-    .brand img{width:32px;height:32px;border-radius:6px;border:1px solid var(--line)}
-    .menu{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:12px;background:linear-gradient(180deg,var(--accent-soft),var(--accent));color:#2A1A0E;font-weight:700;border:1px solid rgba(201,146,58,.55);box-shadow:0 6px 16px rgba(58,36,21,.18)}
-    .btn.ghost{background:#fff7e9;border:1px solid var(--line);box-shadow:none;color:var(--ink)}
-
-    /* HERO */
-    .hero{position:relative;min-height:86vh;display:grid;place-items:center;overflow:hidden}
-    .hero-bg{position:absolute;inset:0}
-    .hero-bg picture, .hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(58,36,21,var(--hero-veil-top)) 0%, rgba(58,36,21,var(--hero-veil-bottom)) 100%)}
-    .hero .glass{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:28px 22px;border-radius:18px;background:rgba(255,247,233,.8);backdrop-filter:saturate(115%) blur(var(--hero-blur));border:1px solid rgba(227,200,166,.8);box-shadow:0 24px 60px rgba(58,36,21,.16)}
-
-    .logo-hero{width:clamp(var(--logo-hero-min), var(--logo-hero-ideal), var(--logo-hero-max));margin:0 auto 10px}
-
-    h1.display{font-family:"Playfair Display",serif;font-weight:700;line-height:1.05;font-size:clamp(38px,6vw,72px);letter-spacing:.2px;margin:8px 0 6px;color:var(--dark)}
-
-    /* Headline rotatorio */
-    .stack{display:inline-grid;position:relative}
-    .stack > b{grid-area:1/1;opacity:0;transform:translateY(8px);animation:swap 12s infinite}
-    .stack > b:nth-child(1){animation-delay:0s}
-    .stack > b:nth-child(2){animation-delay:4s}
-    .stack > b:nth-child(3){animation-delay:8s}
-    @keyframes swap{0%{opacity:0;transform:translateY(8px)} 5%{opacity:1;transform:translateY(0)} 30%{opacity:1} 35%{opacity:0;transform:translateY(-8px)} 100%{opacity:0}}
-
-    .sub{font-size:clamp(16px,2.2vw,20px);color:var(--muted);margin:10px 0 18px}
-    .cta-row{display:flex;gap:10px;flex-wrap:wrap}
-
-    .note{margin-top:8px;font-size:12px;color:var(--muted)}
-
-    /* Cómo funciona */
-    section{padding:48px 0;border-top:1px solid var(--line)}
-    .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.9}
-    h2{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(24px,3.4vw,34px);margin:0 0 12px;position:relative;padding-bottom:6px}
-    h2::after{content:"";position:absolute;left:0;bottom:0;width:84px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--accent),rgba(201,146,58,0))}
-
-    .steps{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
-    .step{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
-    .step h3{font-size:18px;margin-bottom:6px}
-    .lead{color:var(--muted)}
-
-    /* Servicios (sin precios) */
-    .cards{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
-    .card h3{margin-bottom:6px}
-
-    /* Testimonios */
-    .ts{background:var(--panel)}
-    .ts-grid{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
-    .ts-card{background:#FFFDF7;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;gap:14px}
-    .ts-avatar{width:56px;height:56px;border-radius:50%;object-fit:cover}
-    .ts-name{font-weight:700}
-    .ts-role{color:var(--muted);margin-left:.35rem}
-    .ts-stars{color:var(--accent);letter-spacing:.08em}
-
-    /* Próximamente */
-    .badge{display:inline-block;margin-left:.5rem;padding:.15rem .45rem;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--line);background:#FFF8EA;color:var(--muted)}
-    .is-disabled{opacity:.6;filter:grayscale(.08)}
-
-    /* Sticky CTA móvil */
-    @media (max-width:540px){
-      .hero{min-height:78vh}
-      .steps{grid-template-columns:1fr}
-      .cards{grid-template-columns:1fr}
-      .ts-grid{grid-template-columns:1fr}
+    /* NAV (claro, translúcido) */
+    header.site{
+      position:sticky;top:0;z-index:10;
+      background:rgba(255,247,233,.72);
+      backdrop-filter:saturate(120%) blur(8px);
+      border-bottom:1px solid var(--line)
     }
-  
-    /* Hero sin foto de fondo: gradientes sutiles */
-    .hero{background:
-      radial-gradient(1200px 800px at 8% -10%, rgba(201,146,58,.08), transparent 60%),
-      radial-gradient(1200px 800px at 110% 10%, rgba(117,92,70,.07), transparent 60%),
-      var(--bg);
+    .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
+    .nav a.logo{
+      font-family:"Playfair Display",serif;font-weight:700;text-decoration:none;color:var(--ink);font-size:20px
     }
-    /* Sello con la foto del café (reutilización) */
-    .photo-chip{display:inline-flex;flex-direction:column;align-items:center;gap:6px;margin-top:10px}
-    .photo-chip img{width:140px;height:140px;object-fit:cover;border-radius:14px;border:1px solid var(--line);box-shadow:0 12px 28px rgba(58,36,21,.12);transform:rotate(-2deg);transition:transform .18s ease}
-    .photo-chip img:hover{transform:rotate(0deg) scale(1.02)}
+    .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .nav .links a{color:var(--muted);text-decoration:none;font-size:14px}
+    .nav .links a:hover{color:var(--ink)}
+    .cta--nav{padding:10px 12px;border-radius:10px;font-size:14px;box-shadow:0 6px 16px rgba(58,36,21,.15)}
+
+    /* HERO (sin foto de fondo; tarjeta vidrio + sello) */
+    .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:center;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;background:none;filter:none;}
+    .hero::after{content:"";position:absolute;inset:0;background:none;}
+    .hero .inner{
+      position:relative;z-index:1;
+      max-width:820px;padding:32px 28px;
+      background:rgba(255,247,233,var(--hero-card-alpha));
+      border:1px solid rgba(227,200,166,.8);
+      border-radius:16px;
+      box-shadow:0 24px 60px rgba(58,36,21,.18);
+      backdrop-filter:saturate(115%) blur(var(--hero-blur));
+    }
+    .brand-hero{
+      width:clamp(var(--logo-hero-min), var(--logo-hero-ideal), var(--logo-hero-max));
+      margin:0 auto 12px;
+    }
+    h1{
+      font-family:"Playfair Display",serif;font-weight:700;
+      font-size:clamp(34px,6vw,56px);line-height:1.1;margin:8px 0 6px;letter-spacing:.2px
+    }
+    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);margin-bottom:18px}
+
+    .cta{
+      display:inline-flex;gap:10px;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,var(--accent-soft),var(--accent));
+      color:var(--accent-ink);
+      font-weight:700;text-decoration:none;padding:12px 16px;border-radius:12px;
+      border:1px solid rgba(201,146,58,.55);
+      box-shadow:0 6px 16px rgba(58,36,21,.18);
+      transition:.18s ease
+    }
+    .cta + .cta{margin-left:8px}
+    .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
+
+    /* Sello con la foto café+judicial (usamos la MISMA IMG_8339.jpeg) */
+    .photo-chip{
+      margin:14px auto 0;
+      display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+    }
+    .photo-chip img{
+      width:140px;height:140px;object-fit:cover;
+      border-radius:14px;border:1px solid var(--line);
+      box-shadow:0 12px 28px rgba(58,36,21,.12);
+    }
     .photo-chip figcaption{font-size:12px;color:var(--muted)}
-    @media (min-width:720px){
-      .hero .glass{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
-      .glass .logo-hero,.glass .display,.glass .sub,.glass .cta-row,.glass .note{grid-column:1/2}
-      .glass .photo-chip{grid-column:2/3;align-self:center}
+
+    @media (max-width:520px){
+      .hero{min-height:52vh}
+      .hero .inner{padding:20px 16px}
+      .sub{margin-bottom:14px}
+      :root{ --logo-hero-min: 170px; --logo-hero-max: 300px; }
+      .cta{width:100%;margin:6px 0 0}
+      .cta + .cta{margin-left:0}
+    }
+
+    /* SECCIONES */
+    main section{padding:48px 0;border-top:1px solid var(--line)}
+    h2{
+      font-family:"Playfair Display",serif;font-weight:700;
+      font-size:clamp(24px,3.6vw,34px);margin:0 0 12px;position:relative;padding-bottom:6px
+    }
+    h2::after{
+      content:"";position:absolute;left:0;bottom:0;width:84px;height:2px;border-radius:2px;
+      background:linear-gradient(90deg,var(--accent),rgba(201,146,58,0))
+    }
+    .lead{color:var(--muted);margin:0 0 16px}
+    .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
+
+    /* Chips */
+    .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .pillx{
+      font-size:12px;font-weight:600;letter-spacing:.2px;color:#4d3426;
+      background:linear-gradient(180deg,#fff3d9,var(--accent-soft));
+      border:1px solid rgba(201,146,58,.45);
+      border-radius:999px;padding:6px 10px;
+      box-shadow:0 3px 10px rgba(58,36,21,.08)
+    }
+
+    /* ACORDEONES (claros) */
+    details.cardx{
+      background:linear-gradient(180deg,var(--card),#FFEFD9);
+      border:1px solid var(--line);border-radius:16px;margin:12px 0;overflow:hidden;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 10px 24px rgba(58,36,21,.08);
+      transition:transform .18s ease
+    }
+    details.cardx:hover{transform:translateY(-1px)}
+    details.cardx summary{
+      cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:14px 16px;
+      font-weight:700;color:var(--ink);border-radius:16px
+    }
+    details.cardx summary::marker{display:none}
+    .cardx .icon{
+      width:28px;height:28px;display:inline-grid;place-items:center;
+      background:#F3E3C6;border:1px solid var(--line);border-radius:8px;font-size:16px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.6); color:var(--ink)
+    }
+    .cardx .title{flex:1;display:flex;align-items:center;gap:10px}
+    .cardx .chev{
+      width:26px;height:26px;border-radius:6px;display:grid;place-items:center;
+      background:#FFF7E9;border:1px solid var(--line);font-size:12px;color:var(--ink);transition:transform .25s ease
+    }
+    details[open].cardx .chev{transform:rotate(90deg)}
+    .cardx .contentx{
+      padding:0 16px 14px;color:var(--muted);max-height:0;opacity:0;overflow:hidden;
+      transition:max-height .4s ease, opacity .3s ease
+    }
+    details[open].cardx .contentx{max-height:900px;opacity:1}
+
+    /* SUB-ACORDEONES */
+    details.mini{
+      background:linear-gradient(180deg,#FFF9ED,#FFF4E3);
+      border:1px solid var(--line);border-radius:12px;margin:8px 0;overflow:hidden
+    }
+    details.mini summary{
+      cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding:10px 12px;font-weight:600;color:var(--ink)
+    }
+    details.mini summary::marker{display:none}
+    .mini .chev{transition:transform .25s ease}
+    details[open].mini .chev{transform:rotate(90deg)}
+    .mini .cmini{
+      padding:0 12px 12px;color:var(--muted);max-height:0;opacity:0;overflow:hidden;
+      transition:max-height .35s ease, opacity .28s ease
+    }
+    details[open].mini .cmini{max-height:700px;opacity:1}
+    .list-compact{margin:8px 0 0 16px}
+    .list-compact li{margin:4px 0}
+
+    /* TESTIMONIOS */
+    .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
+    .ts-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+    .ts-head h2{margin:0 0 6px;font-size:clamp(24px,3.4vw,32px)}
+    .ts-head p{margin:0 0 22px;color:var(--muted)}
+    .ts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .ts-card{background:#FFFDF7;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;gap:14px}
+    .ts-avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+    .ts-name{font-weight:700}
+    .ts-role{color:{--muted};font-weight:400;margin-left:.35rem}
+    .ts-stars{color:var(--accent);letter-spacing:.08em}
+    blockquote{margin:8px 0 0;color:var(--ink)}
+    @media (max-width:900px){ .ts-grid{grid-template-columns:1fr 1fr} }
+    @media (max-width:600px){ .ts-grid{grid-template-columns:1fr} }
+
+    /* Botón WhatsApp FAB */
+    .whatsapp-fab{
+      position:fixed; right:18px; bottom:18px; width:56px; height:56px;
+      border-radius:50%; background:#25D366; display:grid; place-items:center;
+      color:#fff; box-shadow:0 10px 30px rgba(37,211,102,.25);
+      z-index:1100; transition:transform .15s ease;
+    }
+    .whatsapp-fab:hover{ transform: translateY(-2px) }
+    .whatsapp-fab::after{
+      content:""; position:absolute; inset:-6px; border-radius:50%;
+      box-shadow:0 0 0 0 rgba(37,211,102,.22); animation:wa-pulse 2.2s infinite;
+    }
+    @keyframes wa-pulse{
+      0%{box-shadow:0 0 0 0 rgba(37,211,102,.22)}
+      70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}
+      100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- NAV -->
   <header class="site">
-    <div class="wrap nav">
-      <div class="brand">
-        <img src="IMG_8349.jpeg" alt="Logo Café Judicial" />
-        <span>Café Judicial®</span>
-      </div>
-      <nav class="menu" aria-label="Principal">
-        <a href="#como">Cómo funciona</a>
-        <a href="#servicios">Servicios en línea</a>
+   <div class="wrap nav">
+      <a class="logo" href="#top">Café Judicial®</a>
+      <nav class="links" aria-label="Secciones">
+        <a href="#que-es">Qué es</a>
+        <a href="#oferta">Productos y servicios</a>
         <a href="#testimonios">Testimonios</a>
-        <a class="btn" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero mi café + asesoría</a>
+        <a href="#contacto">Contacto</a>
+        <a class="cta cta--nav" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Agendar asesoría</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero" id="inicio" aria-label="Portada">
-    <!-- hero background image removed; using gradient-only hero -->
+  <section id="top" class="hero" aria-label="Portada">
+    <div class="inner wrap">
+      <img class="brand-hero" src="IMG_8349.jpeg" alt="Logo Café Judicial">
+      <h1>A través del café te asesoramos online — o entregamos tu escritura.</h1>
+      <p class="sub">Te invitamos tu café favorito y resolvemos en línea, sin tecnicismos.</p>
 
-    <div class="glass wrap">
-      <img class="logo-hero" src="IMG_8349.jpeg" alt="Café Judicial, logotipo" />
-      <h1 class="display">
-        A través del café <span class="stack"><b>te asesoramos online</b><b>entregamos tu escritura</b><b>dejamos lo legal en simple</b></span>
-      </h1>
-      <p class="sub">Te invitamos tu café favorito y resolvemos en línea: videollamada clara o entrega de documento (escrituras, contratos y más).</p>
-      $1
+      <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero mi café + asesoría</a>
+      <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Solicitar escritura</a>
+
+      <!-- Reutilizamos tu MISMA foto del antiguo héroe -->
       <figure class="photo-chip">
-        <img src="IMG_7548.jpeg" alt="Café con símbolo judicial" width="140" height="140" loading="lazy" decoding="async" />
+        <img src="IMG_8339.jpeg" alt="Café con guiño judicial">
         <figcaption>Café invitado ☕️</figcaption>
       </figure>
-      <p class="note">El e‑gift del café se envía después de contratar. Aplica solo para servicios online. </p>
     </div>
   </section>
 
-  <!-- Cómo funciona -->
-  <section id="como" class="wrap">
-    <div class="kicker">Fácil y claro</div>
-    <h2>Cómo funciona</h2>
-    <div class="steps">
-      <div class="step">
-        <h3>1) Pide tu café + servicio</h3>
-        <p class="lead">Completa el formulario y elige: asesoría por videollamada o entrega de documento.</p>
+  <main class="wrap" role="main">
+    <!-- QUÉ ES -->
+    <section id="que-es" aria-labelledby="que-es-h">
+      <div class="kicker">Presentación</div>
+      <h2 id="que-es-h">Qué es Café Judicial</h2>
+      <p class="lead">
+        Café Judicial® es un punto de encuentro donde el derecho se combina con el aroma del buen café y el diseño con carácter.
+        Un espacio pensado para abogados, estudiantes y amantes del mundo jurídico que buscan un ambiente distinto: cercano, creativo y con atención a los detalles.
+        Aquí, la justicia se sirve en taza, se conversa con calma y se acompaña con productos y servicios diseñados para quienes viven y disfrutan la profesión.
+      </p>
+      <p class="lead" style="margin-top:8px">
+        Imagina un lugar donde un abogado prepara su alegato con un café perfecto, una estudiante ensaya su primer moot court
+        y una persona que necesita orientación encuentra una respuesta clara. Ese lugar es Café Judicial®: asesorías serias cuando
+        toca, estudio y simulación cuando hace falta, y una pausa bien servida para pensar mejor.
+      </p>
+      <div class="pills">
+        <span class="pillx">Asesorías claras</span>
+        <span class="pillx">Cafetería &amp; pastelería</span>
+        <span class="pillx">Simulaciones de juicios</span>
+        <span class="pillx">Productos con diseño</span>
+        <span class="pillx">Eventos &amp; comunidad</span>
       </div>
-      <div class="step">
-        <h3>2) Nos conectamos</h3>
-        <p class="lead">Coordinamos por email/WhatsApp la videollamada o los detalles del documento.</p>
+    </section>
+
+    <!-- PRODUCTOS Y SERVICIOS -->
+    <section id="oferta" aria-labelledby="oferta-h">
+      <div class="kicker">Nuestra oferta</div>
+      <h2 id="oferta-h">Productos y servicios</h2>
+
+      <!-- ASESORÍAS -->
+      <details class="cardx">
+        <summary>
+          <span class="icon">📚</span>
+          <span class="title">Asesorías legales</span>
+          <span class="chev">▶</span>
+        </summary>
+        <div class="contentx lead">
+          Te ayudamos a entender y resolver tu caso sin lenguaje complicado.
+          <details class="mini">
+            <summary>📝 Tipos de escritos <span class="chev">▶</span></summary>
+            <div class="cmini">
+              <ul class="list-compact">
+                <li>Demanda, contestación, réplica/dúplica.</li>
+                <li>Recursos: apelación, protección, reposición.</li>
+                <li>Contratos civiles y laborales; minutas y anexos.</li>
+                <li>Oficios, presentaciones y solicitudes.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="mini">
+            <summary>🎯 Estrategia y preparación <span class="chev">▶</span></summary>
+            <div class="cmini">Mapa del caso, teoría del asunto, cronología probatoria y evaluación de riesgos/costos.</div>
+          </details>
+          <details class="mini">
+            <summary>⚖️ Audiencias y acompañamiento <span class="chev">▶</span></summary>
+            <div class="cmini">Simulación de preguntas, checklist de evidencia y coaching de declaración/alegatos.</div>
+          </details>
+        </div>
+      </details>
+
+      <!-- EMPRESAS -->
+      <details class="cardx">
+        <summary>
+          <span class="icon">🏢</span>
+          <span class="title">Empresas</span>
+          <span class="chev">▶</span>
+        </summary>
+        <div class="contentx lead">
+          Soluciones legales a la medida de tu negocio.
+          <details class="mini">
+            <summary>🤝 Contratos y convenios <span class="chev">▶</span></summary>
+            <div class="cmini">Comerciales, laborales, NDA, T&amp;C, políticas de datos y privacidad.</div>
+          </details>
+          <details class="mini">
+            <summary>🛡️ Compliance &amp; capacitaciones <span class="chev">▶</span></summary>
+            <div class="cmini">Diagnóstico de riesgo, protocolos internos y formación a equipos y directivos.</div>
+          </details>
+        </div>
+      </details>
+
+      <!-- CAFETERÍA -->
+      <details class="cardx">
+        <summary>
+          <span class="icon">☕</span>
+          <span class="title">Cafetería y pastelería</span>
+          <span class="chev">▶</span>
+        </summary>
+        <div class="contentx lead">
+          Café de especialidad, infusiones y pastelería artesanal en un ambiente temático y acogedor.
+          <details class="mini">
+            <summary>📜 Carta (referencial) <span class="chev">▶</span></summary>
+            <div class="cmini">Espresso, americano, latte, filtrados; té/infusiones; brownies, tartaletas y rollitos.</div>
+          </details>
+          <details class="mini">
+            <summary>🏛️ Experiencia en sala <span class="chev">▶</span></summary>
+            <div class="cmini">Wi-Fi, enchufes, mesas amplias y “zona silencio” para estudio y reuniones.</div>
+          </details>
+        </div>
+      </details>
+
+      <!-- ESTUDIANTES -->
+      <details class="cardx">
+        <summary>
+          <span class="icon">🎯</span>
+          <span class="title">Estudiantes</span>
+          <span class="chev">▶</span>
+        </summary>
+        <div class="contentx lead">
+          Entrena con feedback real.
+          <details class="mini">
+            <summary>⚖️ Simulaciones de juicios (Moot Court) <span class="chev">▶</span></summary>
+            <div class="cmini">Roles, reglas, guion básico y retroalimentación inmediata.</div>
+          </details>
+          <details class="mini">
+            <summary>📚 Salas &amp; tutorías <span class="chev">▶</span></summary>
+            <div class="cmini">Reserva de salas, preparación de cátedras y técnicas de argumentación.</div>
+          </details>
+        </div>
+      </details>
+
+      <!-- PRODUCTOS -->
+      <details class="cardx">
+        <summary>
+          <span class="icon">🛍️</span>
+          <span class="title">Productos</span>
+          <span class="chev">▶</span>
+        </summary>
+        <div class="contentx lead">
+          Diseño con sello jurídico.
+          <details class="mini">
+            <summary>👔 Corbatitas temáticas <span class="chev">▶</span></summary>
+            <div class="cmini">Símbolos, microtexto legal y frases célebres; ediciones limitadas.</div>
+          </details>
+          <details class="mini">
+            <summary>🧴 ¿Qué es FritHurra!? <span class="chev">▶</span></summary>
+            <div class="cmini">Spray textil para eliminar olor a fritura. Ideal para volver a audiencias/reuniones impecable. <em>Próximamente: preventa.</em></div>
+          </details>
+          <details class="mini">
+            <summary>💊 Kits “Almuerzo con Actuario” <span class="chev">▶</span></summary>
+            <div class="cmini">Resaquit®, toallitas, menta y esenciales para jornadas largas (contenido variable).</div>
+          </details>
+          <details class="mini">
+            <summary>🎁 Merch &amp; café en grano <span class="chev">▶</span></summary>
+            <div class="cmini">Tazas, libretas, stickers y café en grano de origen para casa u oficina.</div>
+          </details>
+        </div>
+      </details>
+
+      <!-- COMUNIDAD -->
+      <details class="cardx">
+        <summary>
+          <span class="icon">🎙️</span>
+          <span class="title">Comunidad</span>
+          <span class="chev">▶</span>
+        </summary>
+        <div class="contentx lead">
+          <details class="mini">
+            <summary>🗣️ Eventos y charlas <span class="chev">▶</span></summary>
+            <div class="cmini">Encuentros sobre derecho, ética y actualidad. Abierto a propuestas.</div>
+          </details>
+          <details class="mini">
+            <summary>💡 Proponer tema/ponente <span class="chev">▶</span></summary>
+            <div class="cmini">Escríbenos: <a href="mailto:contacto@cafejudicial.cl">contacto@cafejudicial.cl</a></div>
+          </details>
+        </div>
+      </details>
+
+      <!-- CTAs -->
+      <p style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
+        <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Agendar asesoría</a>
+        <a class="cta" href="mailto:contacto@cafejudicial.cl">Escribir por detalles</a>
+      </p>
+    </section>
+
+    <!-- TESTIMONIOS (ajustados a tu frase) -->
+    <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
+      <div class="ts-wrap">
+        <div class="kicker">Prueba social</div>
+        <header class="ts-head">
+          <h2 id="testimonios-h">Lo que dicen quienes nos visitan</h2>
+          <p>Reseñas de clientes, estudiantes y equipos jurídicos.</p>
+        </header>
+
+        <div class="ts-grid">
+          <figure class="ts-card">
+            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format" alt="Retrato de Carolina V." class="ts-avatar">
+            <figcaption>
+              <div class="ts-name">Carolina V. <span class="ts-role">Emprendedora</span></div>
+              <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
+              <blockquote>“Pude tomar mi café favorito y me entregaron el documento el mismo día. Todo online.”</blockquote>
+            </figcaption>
+          </figure>
+
+          <figure class="ts-card">
+            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format" alt="Retrato de Andrés M." class="ts-avatar">
+            <figcaption>
+              <div class="ts-name">Andrés M. <span class="ts-role">Abogado junior</span></div>
+              <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
+              <blockquote>“Me invitaron por mi café y solucionaron el problema en una videollamada. Clarísimo.”</blockquote>
+            </figcaption>
+          </figure>
+
+          <figure class="ts-card">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format" alt="Retrato de Paula R." class="ts-avatar">
+            <figcaption>
+              <div class="ts-name">Paula R. <span class="ts-role">Dueña de PYME</span></div>
+              <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
+              <blockquote>“Mientras disfrutaba el café revisaron mi contrato y me enviaron los cambios. Cero vuelta.”</blockquote>
+            </figcaption>
+          </figure>
+        </div>
       </div>
-      <div class="step">
-        <h3>3) Listo</h3>
-        <p class="lead">Recibes tu e‑gift del café y la asesoría o el archivo final, con seguimiento simple.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Servicios en línea (sin precios) -->
-  <section id="servicios" class="wrap">
-    <div class="kicker">Contrata online</div>
-    <h2>Servicios en línea</h2>
-    <div class="cards">
-      <article class="card">
-        <h3>Asesoría online</h3>
-        <p class="lead">Resolvemos dudas y definimos pasos claros. Incluye resumen por correo.</p>
-        <p><a class="btn" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero mi café + asesoría</a></p>
-      </article>
-      <article class="card">
-        <h3>Revisión de contrato</h3>
-        <p class="lead">Marcamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
-        <p><a class="btn" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Solicitar revisión</a></p>
-      </article>
-      <article class="card">
-        <h3>Escritura o documento</h3>
-        <p class="lead">Redacción en simple y a medida. Una iteración incluida para ajustar.</p>
-        <p><a class="btn" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Encargar documento</a></p>
-      </article>
-    </div>
-  </section>
+    <!-- CONTACTO -->
+    <section id="contacto" class="center" aria-labelledby="cta-h">
+      <div class="kicker">Contacto</div>
+      <h2 id="cta-h">Conversemos</h2>
+      <p class="lead">Escríbenos y te respondemos a la brevedad.</p>
+      <p><a class="cta" href="mailto:contacto@cafejudicial.cl">contacto@cafejudicial.cl</a></p>
+      <p class="lead" style="margin-top:12px">o súmate como jurado fundador:</p>
+      <p><a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero participar</a></p>
+    </section>
+  </main>
 
-  <!-- Testimonios centrados en el café -->
-  <section id="testimonios" class="ts">
-    <div class="wrap">
-      <div class="kicker">Prueba social</div>
-      <h2>Lo que dicen</h2>
-      <div class="ts-grid">
-        <figure class="ts-card">
-          <img class="ts-avatar" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format" alt="Retrato de Carolina V.">
-          <figcaption>
-            <div><span class="ts-name">Carolina V.</span> <span class="ts-role">Emprendedora</span></div>
-            <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
-            <blockquote>“Pude tomar mi café favorito y, mientras tanto, revisaron mi contrato por videollamada. Los cambios llegaron el mismo día.”</blockquote>
-          </figcaption>
-        </figure>
-        <figure class="ts-card">
-          <img class="ts-avatar" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format" alt="Retrato de Andrés M.">
-          <figcaption>
-            <div><span class="ts-name">Andrés M.</span> <span class="ts-role">Abogado junior</span></div>
-            <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
-            <blockquote>“Me invitaron mi café y sacamos el escrito en simple. Todo online, sin enredo ni tecnicismos.”</blockquote>
-          </figcaption>
-        </figure>
-        <figure class="ts-card">
-          <img class="ts-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format" alt="Retrato de Paula R.">
-          <figcaption>
-            <div><span class="ts-name">Paula R.</span> <span class="ts-role">Dueña de PYME</span></div>
-            <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
-            <blockquote>“Después de contratar me llegó el e‑gift del café y al día siguiente tenía mi documento listo. Cero vuelta.”</blockquote>
-          </figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
+  <!-- CTA fijo en móvil -->
+  <div class="sticky-cta">
+    <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Agendar asesoría</a>
+    <a class="cta" href="mailto:contacto@cafejudicial.cl">Escribir</a>
+  </div>
 
-  <!-- Próximamente -->
-  <section class="wrap" id="proximamente">
-    <div class="kicker">En el mapa</div>
-    <h2>Lo que viene</h2>
-    <div class="cards">
-      <article class="card is-disabled">
-        <h3>Cafetería física <span class="badge">Próximamente</span></h3>
-        <p class="lead">El punto de encuentro para estudiar y conversar con calma.</p>
-      </article>
-      <article class="card is-disabled">
-        <h3>Simulaciones y tutorías <span class="badge">Próximamente</span></h3>
-        <p class="lead">Moot court y acompañamiento para estudiantes y equipos.</p>
-      </article>
-      <article class="card is-disabled">
-        <h3>Productos con sello jurídico <span class="badge">Próximamente</span></h3>
-        <p class="lead">FritHurra!, corbatitas y más diseño con carácter.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section class="wrap" id="contacto">
-    <div class="kicker">Contacto</div>
-    <h2>Conversemos</h2>
-    <p class="lead">Escríbenos y te respondemos a la brevedad.</p>
-    <p><a class="btn" href="mailto:contacto@cafejudicial.cl">contacto@cafejudicial.cl</a></p>
-    <p class="lead" style="margin-top:10px">¿Eres abogada/o? Súmate al 70/30: clientes por nuestra cuenta, tú te enfocas en el caso. <a href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Postular</a>.</p>
-  </section>
-
-  <footer style="text-align:center;padding:28px 0;color:#7a5a46;border-top:1px solid var(--line)">
-    Café Judicial® — Derecho en simple, con buen café · Santiago, Chile
+  <footer role="contentinfo">
+    Café Judicial® — Donde la justicia se sirve en taza · Santiago, Chile
   </footer>
+
+  <!-- WhatsApp -->
+  <a class="whatsapp-fab"
+     href="https://wa.me/56900000000?text=Hola%20Caf%C3%A9%20Judicial,%20quiero%20agendar%20una%20asesor%C3%ADa."
+     target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path fill="white" d="M19.11 17.64c-.27-.14-1.6-.78-1.85-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46h-.53c-.18 0-.48.07-.74.34-.25.27-.98.96-.98 2.33 0 1.37 1 2.69 1.14 2.87.14.18 1.97 3 4.77 4.2.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.6-.65 1.83-1.27.23-.62.23-1.15.16-1.27-.07-.12-.25-.18-.52-.32z"/>
+      <path fill="#25D366" d="M27.6 4.4C24.7 1.5 20.9 0 17 0 8.1 0 .9 7.2.9 16.1c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.7c2.4 1.3 5.1 2 7.8 2h.1c8.9 0 16.1-7.2 16.1-16.1 0-3.9-1.5-7.7-4.3-10.8z"/>
+    </svg>
+  </a>
+
+  <!-- Un solo acordeón abierto a la vez -->
+  <script>
+  document.querySelectorAll("details.cardx").forEach((det) => {
+    det.addEventListener("toggle", function() {
+      if (this.open) {
+        document.querySelectorAll("details.cardx").forEach((other) => {
+          if (other !== this) other.removeAttribute("open");
+        });
+      }
+    });
+  });
+  </script>
 </body>
 </html>
