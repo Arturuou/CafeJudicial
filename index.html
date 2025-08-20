@@ -35,10 +35,10 @@
       --logo-hero-max: 360px;
 
       /* Visibilidad de la foto del héroe */
-      --hero-veil-top: .10;     /* menos velo arriba */
-      --hero-veil-bottom: .24;  /* menos velo abajo */
-      --hero-card-alpha: .78;   /* tarjeta más translúcida */
-      --hero-blur: 6px;         /* blur para efecto vidrio */
+      --hero-veil-top: .10;
+      --hero-veil-bottom: .24;
+      --hero-card-alpha: .78;
+      --hero-blur: 6px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -78,8 +78,8 @@
     .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:center;overflow:hidden}
     .hero::before{
       content:"";position:absolute;inset:0;
-      background:url('IMG_8339.jpeg') center 35%/cover no-repeat; /* mueve un poco el encuadre */
-      filter:contrast(1.06) saturate(1.05) brightness(.95);      /* más clara que antes */
+      background:url('IMG_8339.jpeg') center 35%/cover no-repeat;
+      filter:contrast(1.06) saturate(1.05) brightness(.95);
     }
     .hero::after{
       content:"";position:absolute;inset:0;
@@ -92,7 +92,7 @@
     .hero .inner{
       position:relative;z-index:1;
       max-width:760px;padding:32px 28px;
-      background:rgba(255,247,233,var(--hero-card-alpha));  /* más translúcida */
+      background:rgba(255,247,233,var(--hero-card-alpha));
       border:1px solid rgba(227,200,166,.8);
       border-radius:16px;
       box-shadow:0 24px 60px rgba(58,36,21,.18);
@@ -123,7 +123,6 @@
     @media (max-width:520px){
       .hero{min-height:52vh}
       .hero .inner{padding:20px 16px}
-      /* un poquito más de velo y opacidad en móvil para legibilidad */
       :root{ --hero-veil-top:.16; --hero-veil-bottom:.32; --hero-card-alpha:.85; }
       .sub{margin-bottom:16px}
       :root{ --logo-hero-min: 170px; --logo-hero-max: 300px; }
@@ -249,6 +248,15 @@
       70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}
       100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
     }
+
+    /* === Próximamente (Opción B) === */
+    .badge{
+      display:inline-block;margin-left:.5rem;padding:.15rem .45rem;border-radius:999px;
+      font-size:11px;font-weight:700;letter-spacing:.02em;border:1px solid var(--line);
+      background:#FFF8EA;color:var(--muted)
+    }
+    .soon{opacity:.95}
+    .is-disabled{opacity:.6;filter:grayscale(.08)}
   </style>
 </head>
 <body>
@@ -271,9 +279,16 @@
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <img class="brand-hero" src="IMG_8349.jpeg" alt="Logo Café Judicial">
-      <h1>Café Judicial®</h1>
-      <p class="sub">Donde la justicia se sirve en taza — y se conversa con calma.</p>
-      <a class="cta" href="#contacto">Quiero ser jurado fundador</a>
+      <h1>Te invitamos tu café. Lo legal, lo resolvemos online.</h1>
+      <p class="sub">Asesorías y escrituras a distancia, con lenguaje simple y trato humano.</p>
+
+      <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">
+        Quiero mi café + asesoría
+      </a>
+
+      <p class="lead" style="margin-top:8px;font-size:12px;opacity:.8">
+        Promoción válida para servicios online pagados. Tope $3.500, 1 por RUT, e-gift se entrega tras el pago. Ver bases.
+      </p>
     </div>
   </section>
 
@@ -306,7 +321,7 @@
       <div class="kicker">Nuestra oferta</div>
       <h2 id="oferta-h">Productos y servicios</h2>
 
-      <!-- ASESORÍAS -->
+      <!-- ASESORÍAS (ACTIVO) -->
       <details class="cardx">
         <summary>
           <span class="icon">📚</span>
@@ -337,7 +352,7 @@
         </div>
       </details>
 
-      <!-- EMPRESAS -->
+      <!-- EMPRESAS (ACTIVO) -->
       <details class="cardx">
         <summary>
           <span class="icon">🏢</span>
@@ -357,90 +372,55 @@
         </div>
       </details>
 
-      <!-- CAFETERÍA -->
-      <details class="cardx">
+      <!-- CAFETERÍA (PRÓXIMAMENTE) -->
+      <details class="cardx is-disabled">
         <summary>
           <span class="icon">☕</span>
-          <span class="title">Cafetería y pastelería</span>
+          <span class="title">Cafetería y pastelería <span class="badge soon">Próximamente</span></span>
           <span class="chev">▶</span>
         </summary>
         <div class="contentx lead">
-          Café de especialidad, infusiones y pastelería artesanal en un ambiente temático y acogedor.
-          <details class="mini">
-            <summary>📜 Carta (referencial) <span class="chev">▶</span></summary>
-            <div class="cmini">Espresso, americano, latte, filtrados; té/infusiones; brownies, tartaletas y rollitos.</div>
-          </details>
-          <details class="mini">
-            <summary>🏛️ Experiencia en sala <span class="chev">▶</span></summary>
-            <div class="cmini">Wi-Fi, enchufes, mesas amplias y “zona silencio” para estudio y reuniones.</div>
-          </details>
+          Aún no disponible. ¿Te avisamos cuando lancemos?
+          <a href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Déjame tu correo</a>.
         </div>
       </details>
 
-      <!-- ESTUDIANTES -->
-      <details class="cardx">
+      <!-- ESTUDIANTES (PRÓXIMAMENTE) -->
+      <details class="cardx is-disabled">
         <summary>
           <span class="icon">🎯</span>
-          <span class="title">Estudiantes</span>
+          <span class="title">Estudiantes <span class="badge soon">Próximamente</span></span>
           <span class="chev">▶</span>
         </summary>
         <div class="contentx lead">
-          Entrena con feedback real.
-          <details class="mini">
-            <summary>⚖️ Simulaciones de juicios (Moot Court) <span class="chev">▶</span></summary>
-            <div class="cmini">Roles, reglas, guion básico y retroalimentación inmediata.</div>
-          </details>
-          <details class="mini">
-            <summary>📚 Salas &amp; tutorías <span class="chev">▶</span></summary>
-            <div class="cmini">Reserva de salas, preparación de cátedras y técnicas de argumentación.</div>
-          </details>
+          Simulaciones y tutorías volverán en formato online. ¿Te avisamos?
+          <a href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Anótame</a>.
         </div>
       </details>
 
-      <!-- PRODUCTOS -->
-      <details class="cardx">
+      <!-- PRODUCTOS (PRÓXIMAMENTE) -->
+      <details class="cardx is-disabled">
         <summary>
           <span class="icon">🛍️</span>
-          <span class="title">Productos</span>
+          <span class="title">Productos <span class="badge soon">Próximamente</span></span>
           <span class="chev">▶</span>
         </summary>
         <div class="contentx lead">
-          Diseño con sello jurídico.
-          <details class="mini">
-            <summary>👔 Corbatitas temáticas <span class="chev">▶</span></summary>
-            <div class="cmini">Símbolos, microtexto legal y frases célebres; ediciones limitadas.</div>
-          </details>
-          <details class="mini">
-            <summary>🧴 ¿Qué es FritHurra!? <span class="chev">▶</span></summary>
-            <div class="cmini">Spray textil para eliminar olor a fritura. Ideal para volver a audiencias/reuniones impecable. <em>Próximamente: preventa.</em></div>
-          </details>
-          <details class="mini">
-            <summary>💊 Kits “Almuerzo con Actuario” <span class="chev">▶</span></summary>
-            <div class="cmini">Resaquit®, toallitas, menta y esenciales para jornadas largas (contenido variable).</div>
-          </details>
-          <details class="mini">
-            <summary>🎁 Merch &amp; café en grano <span class="chev">▶</span></summary>
-            <div class="cmini">Tazas, libretas, stickers y café en grano de origen para casa u oficina.</div>
-          </details>
+          FritHurra!, corbatitas y merch estarán disponibles más adelante.
+          <a href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Avísenme cuando lancen</a>.
         </div>
       </details>
 
-      <!-- COMUNIDAD -->
-      <details class="cardx">
+      <!-- COMUNIDAD (PRÓXIMAMENTE) -->
+      <details class="cardx is-disabled">
         <summary>
           <span class="icon">🎙️</span>
-          <span class="title">Comunidad</span>
+          <span class="title">Comunidad <span class="badge soon">Próximamente</span></span>
           <span class="chev">▶</span>
         </summary>
         <div class="contentx lead">
-          <details class="mini">
-            <summary>🗣️ Eventos y charlas <span class="chev">▶</span></summary>
-            <div class="cmini">Encuentros sobre derecho, ética y actualidad. Abierto a propuestas.</div>
-          </details>
-          <details class="mini">
-            <summary>💡 Proponer tema/ponente <span class="chev">▶</span></summary>
-            <div class="cmini">Escríbenos: <a href="mailto:contacto@cafejudicial.cl">contacto@cafejudicial.cl</a></div>
-          </details>
+          Eventos y charlas volverán pronto. ¿Te sumas a la primera convocatoria?
+          <a href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero novedades</a>.
         </div>
       </details>
 
@@ -451,40 +431,43 @@
       </p>
     </section>
 
-    <!-- TESTIMONIOS -->
+    <!-- TESTIMONIOS (NUEVOS) -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
       <div class="ts-wrap">
         <div class="kicker">Prueba social</div>
         <header class="ts-head">
-          <h2 id="testimonios-h">Lo que dicen quienes nos visitan</h2>
-          <p>Reseñas de clientes, estudiantes y equipos jurídicos.</p>
+          <h2 id="testimonios-h">Lo que dicen</h2>
+          <p>Clientes que recibieron su e-gift de café y resolvieron en línea.</p>
         </header>
 
         <div class="ts-grid">
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format" alt="Retrato de María P." class="ts-avatar">
+            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format"
+                 alt="Retrato de Carolina V." class="ts-avatar" width="56" height="56" loading="lazy" decoding="async">
             <figcaption>
-              <div class="ts-name">Mario P. <span class="ts-role">Abogado litigante</span></div>
+              <div class="ts-name">Carolina V. <span class="ts-role">Emprendedora</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
-              <blockquote>“Ensayé mi alegato con feedback claro y aterrizado. El café ayuda, pero la metodología ayuda más.”</blockquote>
+              <blockquote>“Pude tomar mi café favorito y, mientras tanto, revisaron mi contrato por videollamada. Me enviaron los cambios ese mismo día.”</blockquote>
             </figcaption>
           </figure>
 
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format" alt="Retrato de Felipe G." class="ts-avatar">
+            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format"
+                 alt="Retrato de Andrés M." class="ts-avatar" width="56" height="56" loading="lazy" decoding="async">
             <figcaption>
-              <div class="ts-name">Felipe G. <span class="ts-role">Estudiante de derecho</span></div>
+              <div class="ts-name">Andrés M. <span class="ts-role">Abogado junior</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
-              <blockquote>“Preparé mi moot court con estructura y tiempos. Salí con mucha más seguridad.”</blockquote>
+              <blockquote>“Me invitaron mi café y sacamos el escrito en simple. Todo online, sin enredo ni tecnicismos.”</blockquote>
             </figcaption>
           </figure>
 
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format" alt="Retrato de Constanza R." class="ts-avatar">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format"
+                 alt="Retrato de Paula R." class="ts-avatar" width="56" height="56" loading="lazy" decoding="async">
             <figcaption>
-              <div class="ts-name">Constanza R. <span class="ts-role">RR.HH. PYME</span></div>
+              <div class="ts-name">Paula R. <span class="ts-role">Dueña de PYME</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
-              <blockquote>“La asesoría express nos ahorró vueltas y lenguaje enredado. Directo al grano.”</blockquote>
+              <blockquote>“Después de pagar me llegó el e-gift del café y al día siguiente tenía mi documento listo. Cero vuelta.”</blockquote>
             </figcaption>
           </figure>
         </div>
