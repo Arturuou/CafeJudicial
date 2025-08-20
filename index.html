@@ -6,9 +6,9 @@
   <title>Café Judicial® – Donde la justicia se sirve en taza</title>
 
   <!-- SEO / Social -->
-  <meta name="description" content="Te invitamos tu café favorito y resolvemos en línea: asesorías claras o entrega de documentos legales en simple." />
+  <meta name="description" content="Café invitado. Lo legal, resuelto. Asesoría o documento en línea, explicado en simple." />
   <meta property="og:title" content="Café Judicial® – Donde la justicia se sirve en taza" />
-  <meta property="og:description" content="A través del café te asesoramos online o entregamos tu escritura. Derecho en simple." />
+  <meta property="og:description" content="Café invitado. Lo legal, resuelto. Asesoría o documento en línea, explicado en simple." />
   <meta property="og:image" content="IMG_8349.jpeg" />
   <meta property="og:type" content="website" />
   <link rel="icon" href="img/favicon.ico" />
@@ -23,8 +23,7 @@
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
 
       --logo-hero-min:200px; --logo-hero-ideal:28vw; --logo-hero-max:360px;
-
-      --hero-card-alpha:.85; --hero-blur:6px;
+      --hero-card-alpha:.86; --hero-blur:6px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -44,7 +43,7 @@
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* NAV (más opaco para que no se vea el texto detrás) */
+    /* NAV más opaco para evitar superposición visual */
     header.site{
       position:sticky;top:0;z-index:10;
       background:rgba(255,247,233,.96);
@@ -58,7 +57,7 @@
     .nav .links a:hover{color:var(--ink)}
     .cta--nav{padding:10px 12px;border-radius:10px;font-size:14px;box-shadow:0 6px 16px rgba(58,36,21,.15);background:linear-gradient(180deg,var(--accent-soft),var(--accent));color:var(--accent-ink);font-weight:700;border:1px solid rgba(201,146,58,.55)}
 
-    /* HERO (sin foto de fondo; layout 2 columnas en desktop) */
+    /* HERO sin foto de fondo; dos columnas en desktop */
     .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:left;overflow:hidden;padding:28px 0}
     .hero .inner{
       position:relative;z-index:1;
@@ -90,7 +89,7 @@
     .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
     .cta.ghost{background:#FFF7E9;color:var(--ink);box-shadow:none}
 
-    /* Sello foto (reutilizamos IMG_8339.jpeg) */
+    /* Sello foto (reutiliza IMG_8339.jpeg) */
     .photo-chip{justify-self:center}
     .photo-chip img{
       width:280px;height:210px;object-fit:cover;border-radius:16px;border:1px solid var(--line);
@@ -136,7 +135,7 @@
     .ts-stars{color:var(--accent);letter-spacing:.08em}
     blockquote{margin:8px 0 0;color:var(--ink)}
 
-    /* Botón WhatsApp FAB */
+    /* WhatsApp FAB */
     .whatsapp-fab{
       position:fixed; right:18px; bottom:18px; width:56px; height:56px;
       border-radius:50%; background:#25D366; display:grid; place-items:center;
@@ -178,9 +177,8 @@
     <div class="inner wrap">
       <div class="headline">
         <img class="brand-hero" src="IMG_8349.jpeg" alt="Logo Café Judicial">
-        <h1>Tu café favorito.
-          ¡Tu asesoria o documento sin vueltas!. .</h1>
-        <p class="sub"> Escrituras, contratos y dudas legales, todo con un buen café.</p>
+        <h1>Café invitado. Lo legal, resuelto.</h1>
+        <p class="sub">Asesoría o documento en línea, explicado en simple.</p>
         <div class="cta-row">
           <a class="cta" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Quiero mi café + asesoría</a>
           <a class="cta ghost" href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Solicitar escritura/contrato</a>
@@ -194,7 +192,7 @@
   </section>
 
   <main class="wrap" role="main">
-    <!-- QUÉ ES (adaptado a oferta actual) -->
+    <!-- QUÉ ES -->
     <section id="que-es" aria-labelledby="que-es-h">
       <div class="kicker">Presentación</div>
       <h2 id="que-es-h">Qué es Café Judicial (hoy)</h2>
@@ -285,17 +283,16 @@
       </div>
     </section>
 
-    <!-- CONTACTO -->
+    <!-- CONTACTO (sin 70/30) -->
     <section id="contacto" class="center" aria-labelledby="cta-h">
       <div class="kicker">Contacto</div>
       <h2 id="cta-h">Conversemos</h2>
       <p class="lead">Escríbenos y te respondemos a la brevedad.</p>
       <p><a class="cta" href="mailto:contacto@cafejudicial.cl">contacto@cafejudicial.cl</a></p>
-      <p class="lead" style="margin-top:12px">¿Eres abogada/o? Súmate al 70/30: clientes por nuestra cuenta, tú te enfocas en el caso. <a href="https://forms.gle/tu-formulario" target="_blank" rel="noopener">Postular</a>.</p>
     </section>
   </main>
 
-  <!-- CTA fijo en móvil -->
+  <!-- WhatsApp -->
   <a class="whatsapp-fab"
      href="https://wa.me/56900000000?text=Hola%20Caf%C3%A9%20Judicial,%20quiero%20agendar%20una%20asesor%C3%ADa."
      target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp">
