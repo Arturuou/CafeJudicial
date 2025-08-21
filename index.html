@@ -14,15 +14,15 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:type" content="website" />
 
-  <!-- Favicons / Apple Touch (usando tus archivos en raíz) -->
+  <!-- Iconos -->
   <link rel="icon" type="image/png" sizes="256x256" href="logo-symbol-256.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="logo-symbol-256.png" />
 
-  <!-- Theme color (soporte light/dark en móviles) -->
+  <!-- Theme color (light/dark en móviles) -->
   <meta name="theme-color" content="#F3E3C6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#1C1713" media="(prefers-color-scheme: dark)">
 
-  <!-- Tipografías (carga rápida) -->
+  <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -62,9 +62,7 @@
       border-bottom:1px solid var(--line)
     }
     .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
-    .nav a.logo{
-      display:flex;align-items:center;gap:10px;text-decoration:none
-    }
+    .nav a.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
     header .logo .brand-mark{ height:40px; width:auto; display:block; }
     header .logo .brand-text{
       font-family:"Playfair Display",serif; font-weight:700;
@@ -139,7 +137,7 @@
     main h2::before{
       content:"";
       width:26px; height:26px; flex:0 0 26px;
-      background:center/contain no-repeat url("logo-symbol-256.png");
+      background:center/contain no-repeat url("logo-symbol-256-transp.png");
       transform:translateY(1px);
     }
     @media (max-width:520px){
@@ -163,7 +161,6 @@
     @media (min-width:860px){ .ts-grid{grid-template-columns:repeat(3,1fr)} }
     .ts-card{background:#FFFDF7;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;gap:14px}
     .ts-avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 auto}
-
     .ts-name{font-weight:700}
     .ts-role{color:var(--muted);font-weight:400;margin-left:.35rem}
     .ts-stars{color:var(--accent);letter-spacing:.08em}
@@ -191,21 +188,28 @@
     footer{padding:28px 0;text-align:center;color:#7a5a46;font-style:italic; position:relative; padding-left:34px; }
     footer::before{
       content:""; position:absolute; left:0; top:50%; transform:translateY(-50%);
-      width:24px; height:24px; background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
+      width:24px; height:24px; background:center/contain no-repeat url("logo-symbol-256-transp.png"); opacity:.9;
     }
 
-    /* Dark mode */
+    /* MODO OSCURO: colores cálidos y buen contraste */
     @media (prefers-color-scheme: dark){
       :root{
-        --bg:#1C1713; --panel:#211912; --card:#291E16;
+        --bg:#1C1713; --panel:#211912; --card:#2A1E16;
         --ink:#F7EEE5; --muted:#D2BDAA; --line:#3A2B20;
         --accent:#D6A451; --accent-ink:#1A120C; --accent-soft:#9C6D2F;
         --hero-card-alpha:.22; --hero-blur:8px;
       }
       header.site{ background:rgba(33,25,18,.92); border-bottom-color:var(--line); }
-      .section-testimonials{ background:var(--panel) }
-      .cta.ghost{ background:#2B2018; color:var(--ink); border-color:var(--line) }
-      .photo-chip img{ border-color:var(--line) }
+      .nav .links a{ color: var(--muted); }
+      .kicker{ color:var(--muted); opacity:.95; }
+
+      .card{ background:#2A1E16; border-color:var(--line); color:var(--ink); }
+      .section-testimonials{ background:var(--panel); }
+      .ts-card{ background:#312318; border-color:var(--line); color:var(--ink); }
+      .ts-card blockquote{ color:var(--ink); }
+      .ts-name{ color:var(--ink); }
+      .ts-role{ color:var(--muted); }
+      .ts-stars{ color:var(--accent); }
       footer{ color:#E7D9CB }
     }
   </style>
@@ -215,9 +219,9 @@
   <!-- NAV -->
   <header class="site">
    <div class="wrap nav">
-      <!-- Símbolo + texto -->
+      <!-- Símbolo (transparente) + texto -->
       <a class="logo" href="#top" aria-label="Café Judicial, inicio">
-        <img class="brand-mark" src="logo-symbol-256.png" alt="">
+        <img class="brand-mark" src="logo-symbol-256-transp.png" alt="">
         <span class="brand-text">Café Judicial®</span>
       </a>
       <nav class="links" aria-label="Secciones">
