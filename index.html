@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Café Judicial® – Donde la justicia se sirve en taza</title>
+
+  <!-- Canonical & Robots -->
+  <link rel="canonical" href="https://arturuou.github.io/CafeJudicial/" />
+  <meta name="robots" content="index,follow" />
 
   <!-- SEO / Social -->
   <meta name="description" content="Te invitamos a tu café favorito. Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y sin jerga. Asesoría y documentos en simple." />
@@ -13,6 +17,8 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CL" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="256x256" href="logo-symbol-256.png" />
@@ -22,6 +28,9 @@
   <meta name="theme-color" content="#FFFFFF">
   <meta name="color-scheme" content="light">
   <meta name="supported-color-schemes" content="light">
+
+  <!-- Preload hero logo para mejorar LCP -->
+  <link rel="preload" as="image" href="logo-nav-640.png" imagesizes="(max-width:560px) 96vw, 58vw" imagesrcset="logo-hero-640.webp 640w, logo-nav-640.png 640w" />
 
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,8 +85,8 @@
     }
     @media (max-width:520px){ header .logo .brand-text{ display:none; } }
     .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-    .nav .links a{color:var(--muted);text-decoration:none;font-size:14px}
-    .nav .links a:hover{color:var(--ink)}
+    .nav .links a{color:var(--muted);text-decoration:none;font-size:14px;padding:6px 6px;border-radius:8px}
+    .nav .links a[aria-current="true"]{color:var(--ink);box-shadow:0 0 0 1px var(--line) inset}
     .cta--nav{
       padding:10px 12px;border-radius:10px;font-size:14px;
       box-shadow:0 6px 16px rgba(58,36,21,.15);
@@ -96,8 +105,6 @@
       backdrop-filter:saturate(115%) blur(var(--hero-blur));
       display:grid;gap:18px;
     }
-    /* Eliminar halo extra */
-    .hero .inner::before{ content:none; }
     @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center} }
 
     /* LOGO HERO centrado y protagonista */
@@ -126,7 +133,7 @@
     .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
     .cta.ghost{background:#FFF;color:var(--ink);box-shadow:none}
 
-    /* Foto: completa, sin recorte */
+    /* Foto: completa, sin recorte + ratio para evitar CLS */
     .photo-chip{justify-self:center}
     .photo-chip img{
       display:block;
@@ -135,6 +142,7 @@
       border-radius:16px;border:1px solid var(--line);
       box-shadow:0 12px 28px rgba(58,36,21,.12);
       margin:0 auto;
+      aspect-ratio: 4 / 3;
     }
     @media (max-width:899px){ .photo-chip img{ width:100%; height:auto; } }
     .photo-chip figcaption{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
@@ -206,6 +214,15 @@
       content:""; position:absolute; left:0; top:50%; transform:translateY(-50%);
       width:24px; height:24px; background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
     }
+
+    /* CTA móvil inferior (discreta y blanca) */
+    .mobile-cta{
+      position:fixed; left:0; right:0; bottom:0; z-index:1000;
+      background:#FFFFFF; border-top:1px solid var(--line);
+      padding:10px 16px; display:none; gap:10px; align-items:center; justify-content:center;
+    }
+    .mobile-cta .cta{box-shadow:none}
+    @media (max-width:640px){ .mobile-cta{ display:flex; } }
   </style>
 </head>
 <body>
@@ -214,7 +231,7 @@
   <header class="site">
    <div class="wrap nav">
       <a class="logo" href="#top" aria-label="Café Judicial, inicio">
-        <img class="brand-mark" src="logo-symbol-256.png" alt="">
+        <img class="brand-mark" src="logo-symbol-256.png" alt="Isotipo Café Judicial (balanza minimal)" width="40" height="40">
         <span class="brand-text">Café Judicial®</span>
       </a>
       <nav class="links" aria-label="Secciones">
@@ -235,20 +252,20 @@
           <source srcset="logo-hero-640.webp" type="image/webp">
           <img class="brand-hero"
                src="logo-nav-640.png"
-               alt="Café Judicial — logo principal"
-               fetchpriority="high" decoding="async">
+               alt="Café Judicial — logo principal, tipografía serif y símbolo de balanza"
+               fetchpriority="high" decoding="async" width="640" height="300">
         </picture>
 
         <h1>Te invitamos a tu café favorito.</h1>
         <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y sin jerga.</p>
         <div class="cta-row">
-          <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
-          <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
+          <a class="cta" data-track="cta-presencial" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
+          <a class="cta ghost" data-track="cta-online" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
         </div>
       </div>
 
       <figure class="photo-chip">
-        <img src="IMG_8339.jpeg" loading="lazy" alt="Reunión presencial en café, mesa tranquila">
+        <img src="IMG_8339.jpeg" loading="lazy" alt="Asesoría legal en mesa de café, ambiente tranquilo" width="1200" height="900">
         <figcaption>Café invitado ☕️</figcaption>
       </figure>
     </div>
@@ -279,8 +296,8 @@
           <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
           <p class="mini">Presencial: café invitado ☕️ · Online: te acompañamos con tu café en casa.</p>
           <p class="cta-row">
-            <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
-            <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
+            <a class="cta" data-track="serv-asesoria-pres" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
+            <a class="cta ghost" data-track="serv-asesoria-online" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
           </p>
         </article>
 
@@ -288,14 +305,14 @@
           <h3>Escritura o documento</h3>
           <p class="lead">Redacción a medida en lenguaje claro. Una iteración incluida para ajustar.</p>
           <p class="mini">Puedes solicitarla tras la asesoría (presencial/online) o directamente.</p>
-          <p><a class="cta" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
+          <p><a class="cta" data-track="serv-documento" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
         </article>
 
         <article class="card">
           <h3>Revisión de contrato</h3>
           <p class="lead">Detectamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
           <p class="mini">Disponible presencial u online, según te acomode.</p>
-          <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
+          <p><a class="cta" data-track="serv-revision" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
         </article>
       </div>
     </section>
@@ -307,7 +324,7 @@
         <h2 id="testimonios-h">Lo que dicen</h2>
         <div class="ts-grid">
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format" loading="lazy" alt="Retrato de Carolina V." class="ts-avatar">
+            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format" loading="lazy" alt="Retrato de Carolina V., emprendedora" class="ts-avatar" width="56" height="56">
             <figcaption>
               <div><span class="ts-name">Carolina V.</span> <span class="ts-role">Emprendedora</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
@@ -315,7 +332,7 @@
             </figcaption>
           </figure>
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format" loading="lazy" alt="Retrato de Andrés M." class="ts-avatar">
+            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format" loading="lazy" alt="Retrato de Andrés M., abogado junior" class="ts-avatar" width="56" height="56">
             <figcaption>
               <div><span class="ts-name">Andrés M.</span> <span class="ts-role">Abogado junior</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
@@ -323,7 +340,7 @@
             </figcaption>
           </figure>
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format" loading="lazy" alt="Retrato de Paula R." class="ts-avatar">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format" loading="lazy" alt="Retrato de Paula R., dueña de PYME" class="ts-avatar" width="56" height="56">
             <figcaption>
               <div><span class="ts-name">Paula R.</span> <span class="ts-role">Dueña de PYME</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
@@ -359,13 +376,22 @@
       <div class="kicker">Contacto</div>
       <h2 id="cta-h">Conversemos</h2>
       <p class="lead">Escríbenos y te respondemos a la brevedad.</p>
-      <p><a class="cta" href="mailto:contacto@cafejudicial.cl">contacto@cafejudicial.cl</a></p>
+      <p>
+        <a class="cta" href="mailto:contacto@cafejudicial.cl" id="mail-link">contacto@cafejudicial.cl</a>
+        <button class="cta ghost" id="copy-mail" type="button" aria-label="Copiar correo">Copiar correo</button>
+      </p>
     </section>
   </main>
 
+  <!-- CTA móvil fija y blanca -->
+  <div class="mobile-cta" role="region" aria-label="Acción rápida">
+    <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
+    <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Online</a>
+  </div>
+
   <!-- WhatsApp -->
   <a class="whatsapp-fab"
-     href="https://wa.me/569XXXXXXXX?text=Hola%20Caf%C3%A9%20Judicial%2C%20quiero%20agendar%20asesor%C3%ADa%20presencial%20u%20online."
+     href="https://wa.me/569XXXXXXXX?text=Hola%20Caf%C3%A9%20Judicial%2C%20quiero%20agendar%20asesor%C3%ADa%20(presencial%20u%20online)."
      target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp">
     <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
       <path fill="white" d="M19.11 17.64c-.27-.14-1.6-.78-1.85-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46h-.53c-.18 0-.48.07-.74.34-.25.27-.98.96-.98 2.33 0 1.37 1 2.69 1.14 2.87.14.18 1.97 3 4.77 4.2.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.6-.65 1.83-1.27.23-.62.23-1.15.16-1.27-.07-.12-.25-.18-.52-.32z"/>
@@ -377,5 +403,63 @@
     Café Judicial® — Donde la justicia se sirve en taza · Santiago, Chile
   </footer>
 
+  <!-- JSON-LD: Legal Service -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LegalService",
+    "name":"Café Judicial",
+    "url":"https://arturuou.github.io/CafeJudicial/",
+    "image":"https://arturuou.github.io/CafeJudicial/og-cafe-judicial-1200x630.jpg",
+    "email":"contacto@cafejudicial.cl",
+    "areaServed":"CL",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Santiago",
+      "addressCountry":"CL"
+    }
+  }
+  </script>
+
+  <!-- JS mínimo: nav activo, copiar correo, trackeo básico -->
+  <script>
+    // Marcar link activo según sección visible
+    const sections = [...document.querySelectorAll('main section, #top')];
+    const links = [...document.querySelectorAll('nav.links a[href^="#"]')];
+    const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
+
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const id = e.target.id || 'top';
+          links.forEach(l => l.setAttribute('aria-current','false'));
+          (map[id]||map['top']).setAttribute('aria-current','true');
+        }
+      });
+    }, {rootMargin:'-40% 0px -55% 0px', threshold:0.01});
+    sections.forEach(s => io.observe(s));
+
+    // Copiar correo
+    const btnCopy = document.getElementById('copy-mail');
+    btnCopy?.addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText('contacto@cafejudicial.cl');
+        btnCopy.textContent = 'Copiado ✅';
+        setTimeout(()=>btnCopy.textContent='Copiar correo', 1500);
+      }catch(e){ btnCopy.textContent='Error'; }
+    });
+
+    // Trackeo ultra simple con sendBeacon (puedes mirar en la consola)
+    function track(ev, label){
+      try{
+        const data = new Blob([JSON.stringify({ev,label,ts:Date.now()})], {type:'application/json'});
+        navigator.sendBeacon?.('/track', data);
+        console.log('[track]', ev, label);
+      }catch(e){}
+    }
+    document.querySelectorAll('[data-track]').forEach(el=>{
+      el.addEventListener('click', ()=>track('click', el.dataset.track));
+    });
+  </script>
 </body>
 </html>
