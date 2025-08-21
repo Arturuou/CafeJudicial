@@ -12,7 +12,7 @@
   <meta property="og:image" content="og-cafe-judicial-1200x630.jpg" />
   <meta property="og:type" content="website" />
 
-  <!-- Iconos -->
+  <!-- Iconos nuevos -->
   <link rel="apple-touch-icon" href="logo-symbol-256.png" />
   <link rel="icon" type="image/png" href="logo-symbol-256.png" />
 
@@ -64,12 +64,10 @@
     /* HERO */
     .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:left;overflow:hidden;padding:28px 0}
     .hero .inner{
-      position:relative;z-index:1;
-      max-width:980px;padding:26px 24px;
+      position:relative;z-index:1;max-width:980px;padding:26px 24px;
       background:rgba(255,247,233,var(--hero-card-alpha));
       border:1px solid rgba(227,200,166,.85);
-      border-radius:16px;
-      box-shadow:0 24px 60px rgba(58,36,21,.14);
+      border-radius:16px;box-shadow:0 24px 60px rgba(58,36,21,.14);
       backdrop-filter:saturate(115%) blur(var(--hero-blur));
       display:grid;gap:18px;
     }
@@ -77,6 +75,7 @@
       .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center}
     }
     .brand-hero{width:clamp(var(--logo-hero-min), var(--logo-hero-ideal), var(--logo-hero-max));margin:0 0 6px}
+
     .headline > h1{
       font-family:"Playfair Display",serif;font-weight:700;
       font-size:clamp(28px,4.2vw,48px);line-height:1.08;margin:6px 0 8px;letter-spacing:.2px
@@ -93,7 +92,7 @@
     .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
     .cta.ghost{background:#FFF7E9;color:var(--ink);box-shadow:none}
 
-    /* Foto */
+    /* Foto lateral del héroe (se mantiene) */
     .photo-chip{justify-self:center}
     .photo-chip img{
       width:280px;height:210px;object-fit:cover;border-radius:16px;border:1px solid var(--line);
@@ -121,14 +120,19 @@
     .lead{color:var(--muted);margin:0 0 16px}
     .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
 
-    /* Tarjetas con imagen */
+    /* Tarjetas */
     .cards{display:grid;gap:14px}
     @media (min-width:860px){ .cards{grid-template-columns:repeat(3,1fr)} }
-    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-    .card .body{padding:16px}
-    .card-media img{width:100%;height:150px;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
     .card h3{margin-bottom:6px}
     .card .mini{font-size:12px;color:var(--muted);margin-top:6px}
+
+    /* Thumbs de servicios solo con assets nuevos */
+    .thumb{
+      width:100%;height:160px;object-fit:cover;border-radius:12px;
+      border:1px solid var(--line);box-shadow:0 8px 18px rgba(58,36,21,.10);margin-bottom:10px;
+      background:#fff;
+    }
 
     /* Testimonios */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
@@ -165,7 +169,7 @@
 </head>
 <body>
 
-  <!-- NAV con logo nuevo -->
+  <!-- NAV -->
   <header class="site">
    <div class="wrap nav">
       <a class="logo" href="#top" aria-label="Café Judicial, inicio">
@@ -184,14 +188,12 @@
     </div>
   </header>
 
-  <!-- HERO con logo-hero webp (fallback jpeg) y foto principal intacta -->
+  <!-- HERO -->
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <div class="headline">
-        <picture>
-          <source srcset="logo-hero-640.webp" type="image/webp">
-          <img class="brand-hero" src="IMG_8349.jpeg" alt="Café Judicial — logotipo">
-        </picture>
+        <!-- Marca grande con asset nuevo -->
+        <img class="brand-hero" src="logo-hero-640.webp" alt="Café Judicial — marca">
         <h1>Te invitamos a tu café favorito.</h1>
         <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online, claro, rápido y sin jerga.</p>
         <div class="cta-row">
@@ -200,6 +202,7 @@
         </div>
       </div>
       <figure class="photo-chip">
+        <!-- Foto principal: se mantiene -->
         <img src="IMG_8339.jpeg" alt="Reunión presencial en café, mesa tranquila">
         <figcaption>Café invitado ☕️</figcaption>
       </figure>
@@ -221,55 +224,41 @@
       </p>
     </section>
 
-    <!-- SERVICIOS (se mantienen tus fotos; no hay galería) -->
+    <!-- SERVICIOS (solo con assets nuevos) -->
     <section id="servicios" aria-labelledby="servicios-h">
       <div class="kicker">Contrata como prefieras</div>
       <h2 id="servicios-h">Servicios</h2>
       <div class="cards">
-
         <article class="card">
-          <figure class="card-media">
-            <img src="IMG_3987.jpeg" alt="Asesoría con café y cuaderno" loading="lazy">
-          </figure>
-          <div class="body">
-            <h3>Asesoría 45’ (presencial u online)</h3>
-            <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
-            <p class="mini">Presencial: café invitado ☕️ · Online: te acompañamos con tu café en casa.</p>
-            <p class="cta-row">
-              <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
-              <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
-            </p>
-          </div>
+          <img class="thumb" src="logo-hero-640.webp" alt="Ilustración asesoría Café Judicial">
+          <h3>Asesoría 45’ (presencial u online)</h3>
+          <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
+          <p class="mini">Presencial: café invitado ☕️ · Online: te acompañamos con tu café en casa.</p>
+          <p class="cta-row">
+            <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
+            <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
+          </p>
         </article>
 
         <article class="card">
-          <figure class="card-media">
-            <img src="IMG_3999.jpeg" alt="Escrituras y contrato sobre mesa" loading="lazy">
-          </figure>
-          <div class="body">
-            <h3>Escritura o documento</h3>
-            <p class="lead">Redacción a medida en lenguaje claro. Una iteración incluida para ajustar.</p>
-            <p class="mini">Puedes solicitarla tras la asesoría (presencial/online) o directamente.</p>
-            <p><a class="cta" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
-          </div>
+          <img class="thumb" src="og-cafe-judicial-1200x630.jpg" alt="Ilustración documento Café Judicial">
+          <h3>Escritura o documento</h3>
+          <p class="lead">Redacción a medida en lenguaje claro. Una iteración incluida para ajustar.</p>
+          <p class="mini">Puedes solicitarla tras la asesoría (presencial/online) o directamente.</p>
+          <p><a class="cta" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
         </article>
 
         <article class="card">
-          <figure class="card-media">
-            <img src="IMG_7548.jpeg" alt="Revisión de contrato con café" loading="lazy">
-          </figure>
-          <div class="body">
-            <h3>Revisión de contrato</h3>
-            <p class="lead">Detectamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
-            <p class="mini">Disponible presencial u online, según te acomode.</p>
-            <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
-          </div>
+          <img class="thumb" src="logo-symbol-256.png" alt="Ícono revisión de contrato">
+          <h3>Revisión de contrato</h3>
+          <p class="lead">Detectamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
+          <p class="mini">Disponible presencial u online, según te acomode.</p>
+          <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
         </article>
-
       </div>
     </section>
 
-    <!-- TESTIMONIOS (con fotos de personas, sin cambios) -->
+    <!-- TESTIMONIOS (con personas; se mantienen) -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
       <div class="ts-wrap">
         <div class="kicker">Prueba social</div>
@@ -308,18 +297,18 @@
       <div class="kicker">Lo que viene</div>
       <h2 id="prox-h">Próximos proyectos</h2>
       <div class="cards">
-        <article class="card"><div class="body">
+        <article class="card">
           <h3>Cafetería física</h3>
           <p class="lead">Un espacio para estudiar, reunirse y conversar con calma.</p>
-        </div></article>
-        <article class="card"><div class="body">
+        </article>
+        <article class="card">
           <h3>Moot court & tutorías</h3>
           <p class="lead">Simulaciones de juicio y acompañamiento a estudiantes y equipos.</p>
-        </div></article>
-        <article class="card"><div class="body">
+        </article>
+        <article class="card">
           <h3>Comunidad & productos</h3>
           <p class="lead">Charlas, merch con sello jurídico y FritHurra! (spray textil) — en preparación.</p>
-        </div></article>
+        </article>
       </div>
     </section>
 
