@@ -9,8 +9,9 @@
   <meta name="description" content="Te invitamos a tu café favorito. Mientras lo disfrutas, resolvemos lo legal en persona u online—claro, rápido y sin jerga. Asesoría y documentos en simple." />
   <meta property="og:title" content="Café Judicial® – Donde la justicia se sirve en taza" />
   <meta property="og:description" content="Te invitamos a tu café favorito. Mientras lo disfrutas, resolvemos lo legal en persona u online—claro, rápido y sin jerga. Asesoría y documentos en simple." />
-  <meta property="og:image" content="IMG_8349.jpeg" />
+  <meta property="og:image" content="og-cafe-judicial-1200x630.jpg" />
   <meta property="og:type" content="website" />
+  <link rel="apple-touch-icon" href="logo-symbol-256.png" />
   <link rel="icon" href="img/favicon.ico" />
 
   <!-- Tipografías -->
@@ -51,7 +52,8 @@
       border-bottom:1px solid var(--line)
     }
     .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
-    .nav a.logo{font-family:"Playfair Display",serif;font-weight:700;text-decoration:none;color:var(--ink);font-size:20px}
+    .nav a.logo{display:flex;align-items:center}
+    header .logo img{max-height:56px;width:auto}
     .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
     .nav .links a{color:var(--muted);text-decoration:none;font-size:14px}
     .nav .links a:hover{color:var(--ink)}
@@ -124,6 +126,11 @@
     .card h3{margin-bottom:6px}
     .card .mini{font-size:12px;color:var(--muted);margin-top:6px}
 
+    /* Galería */
+    .gallery{display:grid;gap:12px}
+    @media (min-width:860px){ .gallery{grid-template-columns:repeat(3,1fr)} }
+    .gallery img{width:100%;height:220px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+
     /* Testimonios */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
     .ts-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
@@ -162,10 +169,16 @@
   <!-- NAV -->
   <header class="site">
    <div class="wrap nav">
-      <a class="logo" href="#top">Café Judicial®</a>
+      <a class="logo" href="#top" aria-label="Café Judicial, inicio">
+        <picture>
+          <source srcset="logo-nav-320.webp 1x, logo-nav-640.webp 2x" type="image/webp">
+          <img src="logo-nav-320.png" srcset="logo-nav-320.png 1x, logo-nav-640.png 2x" alt="Café Judicial">
+        </picture>
+      </a>
       <nav class="links" aria-label="Secciones">
         <a href="#que-es">Qué es</a>
         <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
         <a href="#testimonios">Testimonios</a>
         <a href="#contacto">Contacto</a>
         <a class="cta--nav" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
@@ -177,16 +190,19 @@
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <div class="headline">
-        <img class="brand-hero" src="IMG_8349.jpeg" alt="Logo Café Judicial">
+        <picture>
+          <source srcset="logo-hero-640.webp" type="image/webp">
+          <img class="brand-hero" src="IMG_8349.jpeg" alt="Café Judicial — logotipo" width="640" height="auto">
+        </picture>
         <h1>Te invitamos a tu café favorito.</h1>
-        <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online, claro, rápido y sin jerga.</p>
+        <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online—claro, rápido y sin jerga.</p>
         <div class="cta-row">
           <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
           <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
         </div>
       </div>
       <figure class="photo-chip">
-        <img src="IMG_8339.jpeg" alt="Reunión presencial en café, mesa tranquila">
+        <img src="IMG_8339.jpeg" alt="Reunión presencial en café, mesa tranquila" loading="lazy" width="280" height="210">
         <figcaption>Café invitado ☕️</figcaption>
       </figure>
     </div>
@@ -238,6 +254,17 @@
       </div>
     </section>
 
+    <!-- GALERÍA (tus fotos subidas) -->
+    <section id="galeria" aria-labelledby="galeria-h">
+      <div class="kicker">Momentos Café Judicial</div>
+      <h2 id="galeria-h">Galería</h2>
+      <div class="gallery">
+        <img src="IMG_3987.jpeg" alt="Taza de café junto a material de estudio legal" loading="lazy">
+        <img src="IMG_3999.jpeg" alt="Café y cuaderno en mesa de cafetería" loading="lazy">
+        <img src="IMG_7548.jpeg" alt="Detalle de café con ambiente tranquilo para reunirse" loading="lazy">
+      </div>
+    </section>
+
     <!-- TESTIMONIOS -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
       <div class="ts-wrap">
@@ -245,7 +272,7 @@
         <h2 id="testimonios-h">Lo que dicen</h2>
         <div class="ts-grid">
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format" alt="Retrato de Carolina V." class="ts-avatar">
+            <img src="logo-symbol-256.png" alt="Símbolo Café Judicial" class="ts-avatar" loading="lazy">
             <figcaption>
               <div><span class="ts-name">Carolina V.</span> <span class="ts-role">Emprendedora</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
@@ -253,7 +280,7 @@
             </figcaption>
           </figure>
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format" alt="Retrato de Andrés M." class="ts-avatar">
+            <img src="logo-symbol-256.png" alt="Símbolo Café Judicial" class="ts-avatar" loading="lazy">
             <figcaption>
               <div><span class="ts-name">Andrés M.</span> <span class="ts-role">Abogado junior</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
@@ -261,7 +288,7 @@
             </figcaption>
           </figure>
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format" alt="Retrato de Paula R." class="ts-avatar">
+            <img src="logo-symbol-256.png" alt="Símbolo Café Judicial" class="ts-avatar" loading="lazy">
             <figcaption>
               <div><span class="ts-name">Paula R.</span> <span class="ts-role">Dueña de PYME</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
