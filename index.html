@@ -14,13 +14,12 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:type" content="website" />
 
-  <!-- Iconos -->
+  <!-- Favicons / Apple Touch -->
   <link rel="icon" type="image/png" sizes="256x256" href="logo-symbol-256.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="logo-symbol-256.png" />
 
-  <!-- Theme color (light/dark en móviles) -->
-  <meta name="theme-color" content="#F3E3C6" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#1C1713" media="(prefers-color-scheme: dark)">
+  <!-- Tema fijo claro para móviles -->
+  <meta name="theme-color" content="#F3E3C6">
 
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +37,7 @@
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth; color-scheme: light dark;}
+    html{scroll-behavior:smooth; color-scheme: light;} /* solo claro */
     :target{scroll-margin-top:88px}
     img{max-width:100%;display:block;height:auto}
 
@@ -63,33 +62,34 @@
     }
     .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
     .nav a.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-    header .logo .brand-mark{ height:40px; width:auto; display:block; }
+    header .logo .brand-mark{height:40px;width:auto;display:block}
     header .logo .brand-text{
-      font-family:"Playfair Display",serif; font-weight:700;
-      font-size:20px; line-height:1; color:var(--ink); letter-spacing:.3px;
+      font-family:"Playfair Display",serif;font-weight:700;
+      font-size:20px;line-height:1;color:var(--ink);letter-spacing:.3px
     }
     @media (max-width:520px){ header .logo .brand-text{ display:none; } }
 
     .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
     .nav .links a{color:var(--muted);text-decoration:none;font-size:14px}
     .nav .links a:hover{color:var(--ink)}
-    .cta--nav{padding:10px 12px;border-radius:10px;font-size:14px;box-shadow:0 6px 16px rgba(58,36,21,.15);background:linear-gradient(180deg,var(--accent-soft),var(--accent));color:var(--accent-ink);font-weight:700;border:1px solid rgba(201,146,58,.55)}
+    .cta--nav{
+      padding:10px 12px;border-radius:10px;font-size:14px;
+      box-shadow:0 6px 16px rgba(58,36,21,.15);
+      background:linear-gradient(180deg,var(--accent-soft),var(--accent));
+      color:var(--accent-ink);font-weight:700;border:1px solid rgba(201,146,58,.55)
+    }
 
     /* HERO */
     .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:left;overflow:hidden;padding:28px 0}
     .hero .inner{
-      position:relative;z-index:1;
-      max-width:980px;padding:26px 24px;
+      position:relative;z-index:1;max-width:980px;padding:26px 24px;
       background:rgba(255,247,233,var(--hero-card-alpha));
       border:1px solid rgba(227,200,166,.85);
-      border-radius:16px;
-      box-shadow:0 24px 60px rgba(58,36,21,.14);
+      border-radius:16px;box-shadow:0 24px 60px rgba(58,36,21,.14);
       backdrop-filter:saturate(115%) blur(var(--hero-blur));
       display:grid;gap:18px;
     }
-    @media (min-width:900px){
-      .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center}
-    }
+    @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center} }
     .brand-hero{width:clamp(var(--logo-hero-min), var(--logo-hero-ideal), var(--logo-hero-max));margin:0 0 6px}
     .headline > h1{
       font-family:"Playfair Display",serif;font-weight:700;
@@ -135,14 +135,11 @@
     }
     /* Icono del logo antes de cada H2 */
     main h2::before{
-      content:"";
-      width:26px; height:26px; flex:0 0 26px;
-      background:center/contain no-repeat url("logo-symbol-256-transp.png");
+      content:"";width:26px;height:26px;flex:0 0 26px;
+      background:center/contain no-repeat url("logo-symbol-256.png");
       transform:translateY(1px);
     }
-    @media (max-width:520px){
-      main h2::before{ width:22px; height:22px; }
-    }
+    @media (max-width:520px){ main h2::before{ width:22px; height:22px; } }
 
     .lead{color:var(--muted);margin:0 0 16px}
     .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
@@ -185,32 +182,13 @@
     }
 
     /* Footer con símbolo */
-    footer{padding:28px 0;text-align:center;color:#7a5a46;font-style:italic; position:relative; padding-left:34px; }
+    footer{
+      padding:28px 0;text-align:center;color:#7a5a46;font-style:italic;
+      position:relative;padding-left:34px;
+    }
     footer::before{
       content:""; position:absolute; left:0; top:50%; transform:translateY(-50%);
-      width:24px; height:24px; background:center/contain no-repeat url("logo-symbol-256-transp.png"); opacity:.9;
-    }
-
-    /* MODO OSCURO: colores cálidos y buen contraste */
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#1C1713; --panel:#211912; --card:#2A1E16;
-        --ink:#F7EEE5; --muted:#D2BDAA; --line:#3A2B20;
-        --accent:#D6A451; --accent-ink:#1A120C; --accent-soft:#9C6D2F;
-        --hero-card-alpha:.22; --hero-blur:8px;
-      }
-      header.site{ background:rgba(33,25,18,.92); border-bottom-color:var(--line); }
-      .nav .links a{ color: var(--muted); }
-      .kicker{ color:var(--muted); opacity:.95; }
-
-      .card{ background:#2A1E16; border-color:var(--line); color:var(--ink); }
-      .section-testimonials{ background:var(--panel); }
-      .ts-card{ background:#312318; border-color:var(--line); color:var(--ink); }
-      .ts-card blockquote{ color:var(--ink); }
-      .ts-name{ color:var(--ink); }
-      .ts-role{ color:var(--muted); }
-      .ts-stars{ color:var(--accent); }
-      footer{ color:#E7D9CB }
+      width:24px; height:24px; background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
     }
   </style>
 </head>
@@ -219,9 +197,9 @@
   <!-- NAV -->
   <header class="site">
    <div class="wrap nav">
-      <!-- Símbolo (transparente) + texto -->
+      <!-- Símbolo + texto -->
       <a class="logo" href="#top" aria-label="Café Judicial, inicio">
-        <img class="brand-mark" src="logo-symbol-256-transp.png" alt="">
+        <img class="brand-mark" src="logo-symbol-256.png" alt="">
         <span class="brand-text">Café Judicial®</span>
       </a>
       <nav class="links" aria-label="Secciones">
@@ -238,7 +216,6 @@
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <div class="headline">
-        <!-- Mantengo tu imagen del comienzo -->
         <img class="brand-hero" src="IMG_8349.jpeg" alt="Logo Café Judicial">
         <h1>Te invitamos a tu café favorito.</h1>
         <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y sin jerga.</p>
