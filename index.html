@@ -34,7 +34,8 @@
       --ink:#3A2415; --muted:#6E4F3D; --line:#E9E5DE;
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
 
-      --logo-hero-min:200px; --logo-hero-ideal:28vw; --logo-hero-max:420px; /* un pelín más grande */
+      /* 👇 más grande */
+      --logo-hero-min:240px; --logo-hero-ideal:36vw; --logo-hero-max:560px;
       --hero-card-alpha:1; --hero-blur:6px;
     }
 
@@ -88,13 +89,19 @@
       display:grid;gap:18px;
     }
     @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center} }
-    .brand-hero{width:clamp(var(--logo-hero-min), var(--logo-hero-ideal), var(--logo-hero-max));margin:0 0 6px}
+
+    .headline{ text-align:center; }              /* 👉 centrado */
+    .brand-hero{                                  /* 👉 grande y centrado */
+      width:clamp(var(--logo-hero-min), var(--logo-hero-ideal), var(--logo-hero-max));
+      margin:0 auto 8px;
+    }
     .headline > h1{
       font-family:"Playfair Display",serif;font-weight:700;
-      font-size:clamp(28px,4.2vw,48px);line-height:1.08;margin:6px 0 8px;letter-spacing:.2px
+      font-size:clamp(28px,4.2vw,52px);line-height:1.08;margin:6px 0 8px;letter-spacing:.2px
     }
     .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);margin-bottom:14px}
     .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+    .headline .cta-row{ justify-content:center; } /* 👉 sólo en el hero */
     .cta{
       display:inline-flex;gap:10px;align-items:center;justify-content:center;
       background:linear-gradient(180deg,var(--accent-soft),var(--accent));
@@ -210,16 +217,16 @@
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <div class="headline">
-        <!-- Logo HERO con WebP + PNG fallback -->
+        <!-- Logo HERO con WebP + PNG fallback, tamaños mayores -->
         <picture>
           <source
             type="image/webp"
             srcset="logo-hero-640.webp 640w, logo-nav-320.webp 320w"
-            sizes="(min-width: 900px) 360px, 60vw" />
+            sizes="(min-width: 900px) 520px, 80vw" />
           <source
             type="image/png"
             srcset="logo-nav-640.png 640w, logo-nav-320.png 320w"
-            sizes="(min-width: 900px) 360px, 60vw" />
+            sizes="(min-width: 900px) 520px, 80vw" />
           <img
             class="brand-hero"
             src="logo-nav-640.png"
