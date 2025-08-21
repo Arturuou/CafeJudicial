@@ -42,14 +42,13 @@
       --bg:#FFFFFF; --panel:#FFFFFF; --card:#FFFFFF;
       --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
-
       --hero-card-alpha:1; --hero-blur:6px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth; color-scheme: light !important;}
     /* Header alto (logo+menú): deja espacio al hacer anchor */
-    :target{scroll-margin-top:190px}
+    :target{scroll-margin-top:220px}
     img{max-width:100%;display:block;height:auto}
 
     body{
@@ -61,20 +60,16 @@
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* ===== HEADER: logo grande + menú debajo (ambos fijos) ===== */
+    /* ===== HEADER: logo grande + menú debajo (fijos) ===== */
     header.site{
       position:sticky; top:0; z-index:10; background:#FFFFFF;
       backdrop-filter:saturate(120%) blur(8px);
     }
     .header-stack{ display:flex; flex-direction:column; align-items:center; gap:6px; }
 
-    /* Logo grande */
+    /* Logo grande (tamaño constante) */
     .brand-lockup{
-      height:clamp(120px, 26vw, 180px); width:auto; display:block;
-      margin-top:6px; transition:height .18s ease, transform .18s ease;
-    }
-    header.site.compact .brand-lockup{
-      height:clamp(92px, 20vw, 140px); transform:translateY(-2px);
+      height:clamp(150px, 34vw, 240px); width:auto; display:block; margin-top:6px;
     }
 
     /* Menú pegado al logo (con líneas arriba y abajo) */
@@ -175,7 +170,7 @@
     .ts-stars{color:var(--accent);letter-spacing:.08em}
     blockquote{margin:8px 0 0;color:var(--ink)}
 
-    /* WhatsApp FAB */
+    /* WhatsApp FAB (se queda solo) */
     .whatsapp-fab{
       position:fixed; right:18px; bottom:18px; width:56px; height:56px;
       border-radius:50%; background:#25D366; display:grid; place-items:center;
@@ -202,15 +197,6 @@
       content:""; position:absolute; left:0; top:50%; transform:translateY(-50%);
       width:24px; height:24px; background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
     }
-
-    /* CTA móvil inferior */
-    .mobile-cta{
-      position:fixed; left:0; right:0; bottom:0; z-index:1000;
-      background:#FFFFFF; border-top:1px solid var(--line);
-      padding:10px 16px; display:none; gap:10px; align-items:center; justify-content:center;
-    }
-    .mobile-cta .cta{box-shadow:none}
-    @media (max-width:640px){ .mobile-cta{ display:flex } }
   </style>
 </head>
 <body>
@@ -370,11 +356,7 @@
     </section>
   </main>
 
-  <!-- CTA móvil fija y blanca -->
-  <div class="mobile-cta" role="region" aria-label="Acción rápida">
-    <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
-    <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Online</a>
-  </div>
+  <!-- (Eliminados los botones fijos inferiores) -->
 
   <!-- WhatsApp -->
   <a class="whatsapp-fab"
@@ -408,14 +390,8 @@
   }
   </script>
 
-  <!-- JS: header compacto + nav activo + utilidades -->
+  <!-- JS: nav activo + utilidades -->
   <script>
-    // Compactar header al hacer scroll
-    const headerEl = document.querySelector('header.site');
-    function compactHeader(){ headerEl.classList.toggle('compact', window.scrollY > 40); }
-    window.addEventListener('scroll', compactHeader, {passive:true});
-    compactHeader();
-
     // Marcar link activo (menú del header)
     const sections = [...document.querySelectorAll('main section, #top')];
     const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
@@ -439,18 +415,6 @@
         btnCopy.textContent = 'Copiado ✅';
         setTimeout(()=>btnCopy.textContent='Copiar correo', 1500);
       }catch(e){ btnCopy.textContent='Error'; }
-    });
-
-    // Trackeo ultra simple con sendBeacon (consola)
-    function track(ev, label){
-      try{
-        const data = new Blob([JSON.stringify({ev,label,ts:Date.now()})], {type:'application/json'});
-        navigator.sendBeacon?.('/track', data);
-        console.log('[track]', ev, label);
-      }catch(e){}
-    }
-    document.querySelectorAll('[data-track]').forEach(el=>{
-      el.addEventListener('click', ()=>track('click', el.dataset.track));
     });
   </script>
 </body>
