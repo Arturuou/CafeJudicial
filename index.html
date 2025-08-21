@@ -39,13 +39,10 @@
 
   <style>
     :root{
-      /* FONDO 100% BLANCO */
       --bg:#FFFFFF; --panel:#FFFFFF; --card:#FFFFFF;
-
       --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
 
-      /* Tamaños del logo hero */
       --logo-hero-min:220px;
       --logo-hero-ideal:58vw;
       --logo-hero-max:700px;
@@ -62,43 +59,30 @@
       color:var(--ink);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       line-height:1.6;
-      /* FONDO 100% BLANCO (sin degradados) */
       background:#FFFFFF;
     }
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* NAV */
+    /* ===== HEADER (solo logo arriba) ===== */
     header.site{
-      position:sticky;top:0;z-index:10;
-      /* HEADER BLANCO */
+      position:sticky; top:0; z-index:10;
       background:#FFFFFF;
       backdrop-filter:saturate(120%) blur(8px);
-      border-bottom:1px solid var(--line)
+      border-bottom:1px solid var(--line);
     }
-    .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
-    .nav a.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-    header .logo .brand-mark{height:40px;width:auto;display:block}
-    header .logo .brand-text{
-      font-family:"Playfair Display",serif;font-weight:700;
-      font-size:20px;line-height:1;color:var(--ink);letter-spacing:.3px
+    .brand-top{display:flex; align-items:center; justify-content:flex-start; gap:10px; padding:12px 0}
+    .brand-top .brand-mark{height:40px; width:auto}
+    .brand-top .brand-text{
+      font-family:"Playfair Display",serif; font-weight:700;
+      font-size:20px; line-height:1; color:var(--ink); letter-spacing:.3px
     }
-    @media (max-width:520px){ header .logo .brand-text{ display:none; } }
-    .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-    .nav .links a{color:var(--muted);text-decoration:none;font-size:14px;padding:6px 6px;border-radius:8px}
-    .nav .links a[aria-current="true"]{color:var(--ink);box-shadow:0 0 0 1px var(--line) inset}
-    .cta--nav{
-      padding:10px 12px;border-radius:10px;font-size:14px;
-      box-shadow:0 6px 16px rgba(58,36,21,.15);
-      background:linear-gradient(180deg,var(--accent-soft),var(--accent));
-      color:var(--accent-ink);font-weight:700;border:1px solid rgba(201,146,58,.55)
-    }
+    @media (max-width:520px){ .brand-top .brand-text{ display:none } }
 
-    /* HERO */
+    /* ===== HERO ===== */
     .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:left;overflow:hidden;padding:28px 0}
     .hero .inner{
       position:relative;z-index:1;max-width:980px;padding:26px 24px;
-      /* CARD BLANCA */
       background:#FFFFFF;
       border:1px solid rgba(227,200,166,.85);
       border-radius:16px;box-shadow:0 24px 60px rgba(58,36,21,.14);
@@ -107,15 +91,11 @@
     }
     @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center} }
 
-    /* LOGO HERO centrado y protagonista */
     .brand-hero{
       width:clamp(var(--logo-hero-min), var(--logo-hero-ideal), var(--logo-hero-max));
       margin:0 auto 20px; display:block;
     }
-    /* En móviles: que ocupe casi todo el ancho del card */
-    @media (max-width:560px){
-      .brand-hero{ width:min(96vw, 700px); }
-    }
+    @media (max-width:560px){ .brand-hero{ width:min(96vw, 700px) } }
 
     .headline > h1{
       font-family:"Playfair Display",serif;font-weight:700;
@@ -136,16 +116,30 @@
     /* Foto: completa, sin recorte + ratio para evitar CLS */
     .photo-chip{justify-self:center}
     .photo-chip img{
-      display:block;
-      width:min(100%, 720px);
-      height:auto;
+      width:min(100%, 720px); height:auto;
       border-radius:16px;border:1px solid var(--line);
       box-shadow:0 12px 28px rgba(58,36,21,.12);
-      margin:0 auto;
-      aspect-ratio: 4 / 3;
+      margin:0 auto; aspect-ratio:4/3;
     }
-    @media (max-width:899px){ .photo-chip img{ width:100%; height:auto; } }
+    @media (max-width:899px){ .photo-chip img{ width:100% } }
     .photo-chip figcaption{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
+
+    /* ===== MENÚ DEBAJO DEL HERO ===== */
+    .nav-below{ background:#FFFFFF; border-top:1px solid var(--line); border-bottom:1px solid var(--line) }
+    .nav-below .links{
+      display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:center;
+      padding:10px 0;
+    }
+    .nav-below .links a{
+      color:var(--muted); text-decoration:none; font-size:14px; padding:6px 6px; border-radius:8px
+    }
+    .nav-below .links a[aria-current="true"]{ color:var(--ink); box-shadow:0 0 0 1px var(--line) inset }
+    .nav-below .cta--nav{
+      padding:10px 12px;border-radius:10px;font-size:14px;
+      box-shadow:0 6px 16px rgba(58,36,21,.15);
+      background:linear-gradient(180deg,var(--accent-soft),var(--accent));
+      color:var(--accent-ink);font-weight:700;border:1px solid rgba(201,146,58,.55)
+    }
 
     /* SECCIONES */
     main section{padding:48px 0;border-top:1px solid var(--line)}
@@ -163,7 +157,7 @@
       background:center/contain no-repeat url("logo-symbol-256.png");
       transform:translateY(1px);
     }
-    @media (max-width:520px){ main h2::before{ width:22px; height:22px; } }
+    @media (max-width:520px){ main h2::before{ width:22px; height:22px } }
 
     .lead{color:var(--muted);margin:0 0 16px}
     .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
@@ -222,29 +216,22 @@
       padding:10px 16px; display:none; gap:10px; align-items:center; justify-content:center;
     }
     .mobile-cta .cta{box-shadow:none}
-    @media (max-width:640px){ .mobile-cta{ display:flex; } }
+    @media (max-width:640px){ .mobile-cta{ display:flex } }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- ===== HEADER (solo logo) ===== -->
   <header class="site">
-   <div class="wrap nav">
+    <div class="wrap brand-top">
       <a class="logo" href="#top" aria-label="Café Judicial, inicio">
         <img class="brand-mark" src="logo-symbol-256.png" alt="Isotipo Café Judicial (balanza minimal)" width="40" height="40">
         <span class="brand-text">Café Judicial®</span>
       </a>
-      <nav class="links" aria-label="Secciones">
-        <a href="#que-es">Qué es</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#testimonios">Testimonios</a>
-        <a href="#contacto">Contacto</a>
-        <a class="cta--nav" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
-      </nav>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ===== HERO ===== -->
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <div class="headline">
@@ -270,6 +257,19 @@
       </figure>
     </div>
   </section>
+
+  <!-- ===== MENÚ DEBAJO DEL HERO ===== -->
+  <div class="nav-below">
+    <div class="wrap">
+      <nav class="links links-below" aria-label="Secciones">
+        <a href="#que-es">Qué es</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+        <a class="cta--nav" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
+      </nav>
+    </div>
+  </div>
 
   <main class="wrap" role="main">
     <!-- QUÉ ES -->
@@ -423,9 +423,9 @@
 
   <!-- JS mínimo: nav activo, copiar correo, trackeo básico -->
   <script>
-    // Marcar link activo según sección visible
+    // Marcar link activo según sección visible (usa el menú de abajo)
     const sections = [...document.querySelectorAll('main section, #top')];
-    const links = [...document.querySelectorAll('nav.links a[href^="#"]')];
+    const links = [...document.querySelectorAll('.links-below a[href^="#"]')];
     const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
 
     const io = new IntersectionObserver((entries)=>{
