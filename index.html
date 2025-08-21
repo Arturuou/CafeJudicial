@@ -55,49 +55,36 @@
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth; color-scheme: light !important;}
-    /* Más margen por header de dos filas */
-    :target{scroll-margin-top:120px}
+    :target{scroll-margin-top:88px}
     img{max-width:100%;display:block;height:auto}
 
     body{
       color:var(--ink);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       line-height:1.6;
-      background:#FFFFFF; /* FONDO BLANCO */
+      /* FONDO 100% BLANCO (sin degradados) */
+      background:#FFFFFF;
     }
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* ===== HEADER: logo completo arriba + menú fijo debajo ===== */
+    /* NAV */
     header.site{
-      position:sticky; top:0; z-index:10; background:#FFFFFF;
-      backdrop-filter:saturate(120%) blur(8px);
-      /* sin bordes aquí para evitar doble línea */
-      border:none;
-    }
-
-    /* Fila 1: barra de marca (logo completo centrado) */
-    .brand-bar{
+      position:sticky;top:0;z-index:10;
+      /* HEADER BLANCO */
       background:#FFFFFF;
-      display:grid; place-items:center;
-      padding:8px 0;
-      transition:padding .18s ease;
+      backdrop-filter:saturate(120%) blur(8px);
+      border-bottom:1px solid var(--line)
     }
-    .brand-lockup{
-      height:64px; width:auto; display:block;
-      transition:height .18s ease, transform .18s ease;
+    .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
+    .nav a.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    header .logo .brand-mark{height:40px;width:auto;display:block}
+    header .logo .brand-text{
+      font-family:"Playfair Display",serif;font-weight:700;
+      font-size:20px;line-height:1;color:var(--ink);letter-spacing:.3px
     }
-    @media (min-width:768px){ .brand-lockup{ height:80px } }
-    /* Header compacto al hacer scroll */
-    header.site.compact .brand-bar{ padding:4px 0 }
-    header.site.compact .brand-lockup{ height:48px }
-
-    /* Fila 2: MENÚ (con la única línea separadora) */
-    .nav{
-      display:flex; gap:18px; align-items:center; justify-content:center;
-      padding:10px 0; border-bottom:1px solid var(--line); background:#FFFFFF;
-    }
-    .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
+    @media (max-width:520px){ header .logo .brand-text{ display:none; } }
+    .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
     .nav .links a{color:var(--muted);text-decoration:none;font-size:14px;padding:6px 6px;border-radius:8px}
     .nav .links a[aria-current="true"]{color:var(--ink);box-shadow:0 0 0 1px var(--line) inset}
     .cta--nav{
@@ -107,11 +94,12 @@
       color:var(--accent-ink);font-weight:700;border:1px solid rgba(201,146,58,.55)
     }
 
-    /* ===== HERO ===== */
+    /* HERO */
     .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:left;overflow:hidden;padding:28px 0}
     .hero .inner{
       position:relative;z-index:1;max-width:980px;padding:26px 24px;
-      background:#FFFFFF; /* CARD BLANCA */
+      /* CARD BLANCA */
+      background:#FFFFFF;
       border:1px solid rgba(227,200,166,.85);
       border-radius:16px;box-shadow:0 24px 60px rgba(58,36,21,.14);
       backdrop-filter:saturate(115%) blur(var(--hero-blur));
@@ -119,11 +107,15 @@
     }
     @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center} }
 
+    /* LOGO HERO centrado y protagonista */
     .brand-hero{
       width:clamp(var(--logo-hero-min), var(--logo-hero-ideal), var(--logo-hero-max));
       margin:0 auto 20px; display:block;
     }
-    @media (max-width:560px){ .brand-hero{ width:min(96vw, 700px); } }
+    /* En móviles: que ocupe casi todo el ancho del card */
+    @media (max-width:560px){
+      .brand-hero{ width:min(96vw, 700px); }
+    }
 
     .headline > h1{
       font-family:"Playfair Display",serif;font-weight:700;
@@ -235,23 +227,13 @@
 </head>
 <body>
 
-  <!-- ===== HEADER (dos filas) ===== -->
+  <!-- NAV -->
   <header class="site">
-    <!-- Fila 1: LOGO COMPLETO ARRIBA -->
-    <div class="brand-bar">
-      <a href="#top" aria-label="Café Judicial, inicio">
-        <picture>
-          <source srcset="logo-hero-640.webp" type="image/webp">
-          <!-- usa tu archivo del logo completo (el mismo del hero) -->
-          <img class="brand-lockup" src="logo-nav-640.png"
-               alt="Café Judicial — logotipo completo"
-               width="640" height="422">
-        </picture>
+   <div class="wrap nav">
+      <a class="logo" href="#top" aria-label="Café Judicial, inicio">
+        <img class="brand-mark" src="logo-symbol-256.png" alt="Isotipo Café Judicial (balanza minimal)" width="40" height="40">
+        <span class="brand-text">Café Judicial®</span>
       </a>
-    </div>
-
-    <!-- Fila 2: MENÚ (con única línea inferior) -->
-    <div class="wrap nav">
       <nav class="links" aria-label="Secciones">
         <a href="#que-es">Qué es</a>
         <a href="#servicios">Servicios</a>
@@ -262,7 +244,7 @@
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
+  <!-- HERO -->
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <div class="headline">
@@ -439,7 +421,7 @@
   }
   </script>
 
-  <!-- JS mínimo: nav activo, copiar correo, trackeo básico + header compacto -->
+  <!-- JS mínimo: nav activo, copiar correo, trackeo básico -->
   <script>
     // Marcar link activo según sección visible
     const sections = [...document.querySelectorAll('main section, #top')];
@@ -467,7 +449,7 @@
       }catch(e){ btnCopy.textContent='Error'; }
     });
 
-    // Trackeo ultra simple con sendBeacon
+    // Trackeo ultra simple con sendBeacon (puedes mirar en la consola)
     function track(ev, label){
       try{
         const data = new Blob([JSON.stringify({ev,label,ts:Date.now()})], {type:'application/json'});
@@ -478,12 +460,6 @@
     document.querySelectorAll('[data-track]').forEach(el=>{
       el.addEventListener('click', ()=>track('click', el.dataset.track));
     });
-
-    // Compactar header al hacer scroll
-    const headerEl = document.querySelector('header.site');
-    function compactHeader(){ headerEl.classList.toggle('compact', window.scrollY > 40); }
-    window.addEventListener('scroll', compactHeader, {passive:true});
-    compactHeader();
   </script>
 </body>
 </html>
