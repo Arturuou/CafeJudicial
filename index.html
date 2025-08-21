@@ -9,12 +9,15 @@
   <meta name="description" content="Te invitamos a tu café favorito. Mientras lo disfrutas, resolvemos lo legal en persona u online—claro, rápido y sin jerga. Asesoría y documentos en simple." />
   <meta property="og:title" content="Café Judicial® – Donde la justicia se sirve en taza" />
   <meta property="og:description" content="Te invitamos a tu café favorito. Mientras lo disfrutas, resolvemos lo legal en persona u online—claro, rápido y sin jerga. Asesoría y documentos en simple." />
-  <meta property="og:image" content="og-cafe-judicial-1200x630.jpg" />
+  <!-- usa tu OG optimizada -->
+  <meta property="og:image" content="https://arturuou.github.io/CafeJudicial/og-cafe-judicial-1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:type" content="website" />
 
-  <!-- Iconos nuevos -->
-  <link rel="apple-touch-icon" href="logo-symbol-256.png" />
-  <link rel="icon" type="image/png" href="logo-symbol-256.png" />
+  <!-- Iconos (usando tus archivos existentes) -->
+  <link rel="icon" type="image/png" sizes="256x256" href="logo-symbol-256.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="logo-symbol-256.png" />
 
   <!-- Tipografías -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -54,8 +57,8 @@
       border-bottom:1px solid var(--line)
     }
     .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
-    .nav a.logo{display:flex;align-items:center}
-    header .logo img{max-height:56px;width:auto}
+    .nav a.logo{display:flex;align-items:center;text-decoration:none}
+    header .logo img{max-height:56px;width:auto} /* usa tu logo de nav */
     .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
     .nav .links a{color:var(--muted);text-decoration:none;font-size:14px}
     .nav .links a:hover{color:var(--ink)}
@@ -64,10 +67,12 @@
     /* HERO */
     .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:left;overflow:hidden;padding:28px 0}
     .hero .inner{
-      position:relative;z-index:1;max-width:980px;padding:26px 24px;
+      position:relative;z-index:1;
+      max-width:980px;padding:26px 24px;
       background:rgba(255,247,233,var(--hero-card-alpha));
       border:1px solid rgba(227,200,166,.85);
-      border-radius:16px;box-shadow:0 24px 60px rgba(58,36,21,.14);
+      border-radius:16px;
+      box-shadow:0 24px 60px rgba(58,36,21,.14);
       backdrop-filter:saturate(115%) blur(var(--hero-blur));
       display:grid;gap:18px;
     }
@@ -75,7 +80,6 @@
       .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center}
     }
     .brand-hero{width:clamp(var(--logo-hero-min), var(--logo-hero-ideal), var(--logo-hero-max));margin:0 0 6px}
-
     .headline > h1{
       font-family:"Playfair Display",serif;font-weight:700;
       font-size:clamp(28px,4.2vw,48px);line-height:1.08;margin:6px 0 8px;letter-spacing:.2px
@@ -92,7 +96,7 @@
     .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
     .cta.ghost{background:#FFF7E9;color:var(--ink);box-shadow:none}
 
-    /* Foto lateral del héroe (se mantiene) */
+    /* Foto */
     .photo-chip{justify-self:center}
     .photo-chip img{
       width:280px;height:210px;object-fit:cover;border-radius:16px;border:1px solid var(--line);
@@ -126,13 +130,6 @@
     .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
     .card h3{margin-bottom:6px}
     .card .mini{font-size:12px;color:var(--muted);margin-top:6px}
-
-    /* Thumbs de servicios solo con assets nuevos */
-    .thumb{
-      width:100%;height:160px;object-fit:cover;border-radius:12px;
-      border:1px solid var(--line);box-shadow:0 8px 18px rgba(58,36,21,.10);margin-bottom:10px;
-      background:#fff;
-    }
 
     /* Testimonios */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
@@ -174,8 +171,9 @@
    <div class="wrap nav">
       <a class="logo" href="#top" aria-label="Café Judicial, inicio">
         <picture>
-          <source srcset="logo-nav-320.webp 1x, logo-nav-640.webp 2x" type="image/webp">
-          <img src="logo-nav-320.png" srcset="logo-nav-320.png 1x, logo-nav-640.png 2x" alt="Café Judicial">
+          <!-- usa tus webp y fallback png -->
+          <source type="image/webp" srcset="logo-nav-320.webp 1x, logo-nav-640.webp 2x">
+          <img src="logo-nav-320.png" srcset="logo-nav-640.png 2x" alt="Café Judicial">
         </picture>
       </a>
       <nav class="links" aria-label="Secciones">
@@ -192,17 +190,16 @@
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <div class="headline">
-        <!-- Marca grande con asset nuevo -->
-        <img class="brand-hero" src="logo-hero-640.webp" alt="Café Judicial — marca">
+        <!-- Mantengo TU imagen de comienzo -->
+        <img class="brand-hero" src="IMG_8349.jpeg" alt="Logo Café Judicial">
         <h1>Te invitamos a tu café favorito.</h1>
-        <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online, claro, rápido y sin jerga.</p>
+        <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online&mdash;claro, rápido y sin jerga.</p>
         <div class="cta-row">
           <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
           <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
         </div>
       </div>
       <figure class="photo-chip">
-        <!-- Foto principal: se mantiene -->
         <img src="IMG_8339.jpeg" alt="Reunión presencial en café, mesa tranquila">
         <figcaption>Café invitado ☕️</figcaption>
       </figure>
@@ -213,7 +210,7 @@
     <!-- QUÉ ES -->
     <section id="que-es" aria-labelledby="que-es-h">
       <div class="kicker">Presentación</div>
-      <h2 id="que-es-h">¿Qué es Café Judicial?</h2>
+      <h2 id="que-es-h">Qué es Café Judicial (hoy)</h2>
       <p class="lead">
         Un servicio legal <strong>presencial u online</strong> con trato humano: te invitamos tu café favorito y, en esa instancia,
         te asesoramos <strong>en persona o por videollamada</strong> y trabajamos tu caso (escrituras, contratos, asesorías y más).
@@ -224,13 +221,12 @@
       </p>
     </section>
 
-    <!-- SERVICIOS (solo con assets nuevos) -->
+    <!-- SERVICIOS -->
     <section id="servicios" aria-labelledby="servicios-h">
       <div class="kicker">Contrata como prefieras</div>
       <h2 id="servicios-h">Servicios</h2>
       <div class="cards">
         <article class="card">
-          <img class="thumb" src="logo-hero-640.webp" alt="Ilustración asesoría Café Judicial">
           <h3>Asesoría 45’ (presencial u online)</h3>
           <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
           <p class="mini">Presencial: café invitado ☕️ · Online: te acompañamos con tu café en casa.</p>
@@ -241,7 +237,6 @@
         </article>
 
         <article class="card">
-          <img class="thumb" src="og-cafe-judicial-1200x630.jpg" alt="Ilustración documento Café Judicial">
           <h3>Escritura o documento</h3>
           <p class="lead">Redacción a medida en lenguaje claro. Una iteración incluida para ajustar.</p>
           <p class="mini">Puedes solicitarla tras la asesoría (presencial/online) o directamente.</p>
@@ -249,7 +244,6 @@
         </article>
 
         <article class="card">
-          <img class="thumb" src="logo-symbol-256.png" alt="Ícono revisión de contrato">
           <h3>Revisión de contrato</h3>
           <p class="lead">Detectamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
           <p class="mini">Disponible presencial u online, según te acomode.</p>
@@ -258,14 +252,14 @@
       </div>
     </section>
 
-    <!-- TESTIMONIOS (con personas; se mantienen) -->
+    <!-- TESTIMONIOS -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
       <div class="ts-wrap">
         <div class="kicker">Prueba social</div>
         <h2 id="testimonios-h">Lo que dicen</h2>
         <div class="ts-grid">
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format" alt="Retrato de Carolina V." class="ts-avatar" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format" alt="Retrato de Carolina V." class="ts-avatar">
             <figcaption>
               <div><span class="ts-name">Carolina V.</span> <span class="ts-role">Emprendedora</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
@@ -273,7 +267,7 @@
             </figcaption>
           </figure>
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format" alt="Retrato de Andrés M." class="ts-avatar" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format" alt="Retrato de Andrés M." class="ts-avatar">
             <figcaption>
               <div><span class="ts-name">Andrés M.</span> <span class="ts-role">Abogado junior</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
@@ -281,7 +275,7 @@
             </figcaption>
           </figure>
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format" alt="Retrato de Paula R." class="ts-avatar" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format" alt="Retrato de Paula R." class="ts-avatar">
             <figcaption>
               <div><span class="ts-name">Paula R.</span> <span class="ts-role">Dueña de PYME</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
