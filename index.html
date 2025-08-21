@@ -124,7 +124,9 @@
     /* Tarjetas */
     .cards{display:grid;gap:14px}
     @media (min-width:860px){ .cards{grid-template-columns:repeat(3,1fr)} }
-    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+    .card .body{padding:16px}
+    .card-media img{width:100%;height:150px;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
     .card h3{margin-bottom:6px}
     .card .mini{font-size:12px;color:var(--muted);margin-top:6px}
 
@@ -182,7 +184,7 @@
     </div>
   </header>
 
-  <!-- HERO (marca + foto principal sin cambios) -->
+  <!-- HERO (logo + foto principal sin cambios) -->
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <div class="headline">
@@ -198,7 +200,6 @@
         </div>
       </div>
       <figure class="photo-chip">
-        <!-- Foto principal que resaltaba: se mantiene -->
         <img src="IMG_8339.jpeg" alt="Reunión presencial en café, mesa tranquila">
         <figcaption>Café invitado ☕️</figcaption>
       </figure>
@@ -220,34 +221,51 @@
       </p>
     </section>
 
-    <!-- SERVICIOS -->
+    <!-- SERVICIOS (cada tarjeta con su foto objetivo) -->
     <section id="servicios" aria-labelledby="servicios-h">
       <div class="kicker">Contrata como prefieras</div>
       <h2 id="servicios-h">Servicios</h2>
       <div class="cards">
+
         <article class="card">
-          <h3>Asesoría 45’ (presencial u online)</h3>
-          <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
-          <p class="mini">Presencial: café invitado ☕️ · Online: te acompañamos con tu café en casa.</p>
-          <p class="cta-row">
-            <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
-            <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
-          </p>
+          <figure class="card-media">
+            <img src="IMG_3987.jpeg" alt="Café y cuaderno para asesoría" loading="lazy">
+          </figure>
+          <div class="body">
+            <h3>Asesoría 45’ (presencial u online)</h3>
+            <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
+            <p class="mini">Presencial: café invitado ☕️ · Online: te acompañamos con tu café en casa.</p>
+            <p class="cta-row">
+              <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
+              <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
+            </p>
+          </div>
         </article>
 
         <article class="card">
-          <h3>Escritura o documento</h3>
-          <p class="lead">Redacción a medida en lenguaje claro. Una iteración incluida para ajustar.</p>
-          <p class="mini">Puedes solicitarla tras la asesoría (presencial/online) o directamente.</p>
-          <p><a class="cta" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
+          <figure class="card-media">
+            <img src="IMG_3999.jpeg" alt="Escrituras y contrato sobre mesa" loading="lazy">
+          </figure>
+          <div class="body">
+            <h3>Escritura o documento</h3>
+            <p class="lead">Redacción a medida en lenguaje claro. Una iteración incluida para ajustar.</p>
+            <p class="mini">Puedes solicitarla tras la asesoría (presencial/online) o directamente.</p>
+            <p><a class="cta" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
+          </div>
         </article>
 
         <article class="card">
-          <h3>Revisión de contrato</h3>
-          <p class="lead">Detectamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
-          <p class="mini">Disponible presencial u online, según te acomode.</p>
-          <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
+          <figure class="card-media">
+            <img src="IMG_7548.jpeg" alt="Revisión de contrato con café" loading="lazy">
+          </figure>
+          <div class="body">
+            <h3>Revisión de contrato</h3>
+            <p class="lead">Detectamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
+            <p class="mini">Disponible presencial u online, según te acomode.</p>
+            <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
+          </div>
         </article>
+
       </div>
     </section>
 
@@ -291,16 +309,22 @@
       <h2 id="prox-h">Próximos proyectos</h2>
       <div class="cards">
         <article class="card">
-          <h3>Cafetería física</h3>
-          <p class="lead">Un espacio para estudiar, reunirse y conversar con calma.</p>
+          <div class="body">
+            <h3>Cafetería física</h3>
+            <p class="lead">Un espacio para estudiar, reunirse y conversar con calma.</p>
+          </div>
         </article>
         <article class="card">
-          <h3>Moot court & tutorías</h3>
-          <p class="lead">Simulaciones de juicio y acompañamiento a estudiantes y equipos.</p>
+          <div class="body">
+            <h3>Moot court & tutorías</h3>
+            <p class="lead">Simulaciones de juicio y acompañamiento a estudiantes y equipos.</p>
+          </div>
         </article>
         <article class="card">
-          <h3>Comunidad & productos</h3>
-          <p class="lead">Charlas, merch con sello jurídico y FritHurra! (spray textil) — en preparación.</p>
+          <div class="body">
+            <h3>Comunidad & productos</h3>
+            <p class="lead">Charlas, merch con sello jurídico y FritHurra! (spray textil) — en preparación.</p>
+          </div>
         </article>
       </div>
     </section>
