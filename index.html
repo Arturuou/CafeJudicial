@@ -121,7 +121,7 @@
     .lead{color:var(--muted);margin:0 0 16px}
     .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
 
-    /* Tarjetas */
+    /* Tarjetas con imagen */
     .cards{display:grid;gap:14px}
     @media (min-width:860px){ .cards{grid-template-columns:repeat(3,1fr)} }
     .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -165,7 +165,7 @@
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- NAV con logo nuevo -->
   <header class="site">
    <div class="wrap nav">
       <a class="logo" href="#top" aria-label="Café Judicial, inicio">
@@ -184,7 +184,7 @@
     </div>
   </header>
 
-  <!-- HERO (logo + foto principal sin cambios) -->
+  <!-- HERO con logo-hero webp (fallback jpeg) y foto principal intacta -->
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <div class="headline">
@@ -221,7 +221,7 @@
       </p>
     </section>
 
-    <!-- SERVICIOS (cada tarjeta con su foto objetivo) -->
+    <!-- SERVICIOS (se mantienen tus fotos; no hay galería) -->
     <section id="servicios" aria-labelledby="servicios-h">
       <div class="kicker">Contrata como prefieras</div>
       <h2 id="servicios-h">Servicios</h2>
@@ -229,7 +229,7 @@
 
         <article class="card">
           <figure class="card-media">
-            <img src="IMG_3987.jpeg" alt="Café y cuaderno para asesoría" loading="lazy">
+            <img src="IMG_3987.jpeg" alt="Asesoría con café y cuaderno" loading="lazy">
           </figure>
           <div class="body">
             <h3>Asesoría 45’ (presencial u online)</h3>
@@ -269,7 +269,7 @@
       </div>
     </section>
 
-    <!-- TESTIMONIOS (con fotos de personas) -->
+    <!-- TESTIMONIOS (con fotos de personas, sin cambios) -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
       <div class="ts-wrap">
         <div class="kicker">Prueba social</div>
@@ -308,24 +308,18 @@
       <div class="kicker">Lo que viene</div>
       <h2 id="prox-h">Próximos proyectos</h2>
       <div class="cards">
-        <article class="card">
-          <div class="body">
-            <h3>Cafetería física</h3>
-            <p class="lead">Un espacio para estudiar, reunirse y conversar con calma.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="body">
-            <h3>Moot court & tutorías</h3>
-            <p class="lead">Simulaciones de juicio y acompañamiento a estudiantes y equipos.</p>
-          </div>
-        </article>
-        <article class="card">
-          <div class="body">
-            <h3>Comunidad & productos</h3>
-            <p class="lead">Charlas, merch con sello jurídico y FritHurra! (spray textil) — en preparación.</p>
-          </div>
-        </article>
+        <article class="card"><div class="body">
+          <h3>Cafetería física</h3>
+          <p class="lead">Un espacio para estudiar, reunirse y conversar con calma.</p>
+        </div></article>
+        <article class="card"><div class="body">
+          <h3>Moot court & tutorías</h3>
+          <p class="lead">Simulaciones de juicio y acompañamiento a estudiantes y equipos.</p>
+        </div></article>
+        <article class="card"><div class="body">
+          <h3>Comunidad & productos</h3>
+          <p class="lead">Charlas, merch con sello jurídico y FritHurra! (spray textil) — en preparación.</p>
+        </div></article>
       </div>
     </section>
 
@@ -343,8 +337,8 @@
      href="https://wa.me/569XXXXXXXX?text=Hola%20Caf%C3%A9%20Judicial%2C%20quiero%20agendar%20asesor%C3%ADa%20presencial%20u%20online."
      target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp">
     <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-      <path fill="white" d="M19.11 17.64c-.27-.14-1.6-.78-1.85-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46h-.53c-.18 0 -.48 .07 -.74 .34 -.25 .27 -.98 .96 -.98 2.33 0 1.37 1 2.69 1.14 2.87 .14 .18 1.97 3 4.77 4.2 .67 .29 1.19 .46 1.6 .59 .67 .21 1.28 .18 1.76 .11 .54 -.08 1.6 -.65 1.83 -1.27 .23 -.62 .23 -1.15 .16 -1.27 -.07 -.12 -.25 -.18 -.52 -.32 z"/>
-      <path fill="#25D366" d="M27.6 4.4C24.7 1.5 20.9 0 17 0 8.1 0 .9 7.2 .9 16.1c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.7c2.4 1.3 5.1 2 7.8 2h.1c8.9 0 16.1-7.2 16.1-16.1 0-3.9-1.5-7.7-4.3-10.8z"/>
+      <path fill="white" d="M19.11 17.64c-.27-.14-1.6-.78-1.85-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46h-.53c-.18 0-.48.07-.74.34-.25.27-.98.96-.98 2.33 0 1.37 1 2.69 1.14 2.87.14.18 1.97 3 4.77 4.2.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.6-.65 1.83-1.27.23-.62.23-1.15.16-1.27-.07-.12-.25-.18-.52-.32z"/>
+      <path fill="#25D366" d="M27.6 4.4C24.7 1.5 20.9 0 17 0 8.1 0 .9 7.2.9 16.1c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.7c2.4 1.3 5.1 2 7.8 2h.1c8.9 0 16.1-7.2 16.1-16.1 0-3.9-1.5-7.7-4.3-10.8z"/>
     </svg>
   </a>
 
