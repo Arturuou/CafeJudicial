@@ -55,36 +55,43 @@
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth; color-scheme: light !important;}
-    :target{scroll-margin-top:88px}
+    /* Más margen por header de dos filas */
+    :target{scroll-margin-top:120px}
     img{max-width:100%;display:block;height:auto}
 
     body{
       color:var(--ink);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       line-height:1.6;
-      /* FONDO 100% BLANCO (sin degradados) */
-      background:#FFFFFF;
+      background:#FFFFFF; /* FONDO BLANCO */
     }
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* NAV */
+    /* HEADER: dos filas fijas (logo arriba + menú abajo) */
     header.site{
-      position:sticky;top:0;z-index:10;
-      /* HEADER BLANCO */
-      background:#FFFFFF;
+      position:sticky; top:0; z-index:10; background:#FFFFFF;
       backdrop-filter:saturate(120%) blur(8px);
-      border-bottom:1px solid var(--line)
+      border-bottom:1px solid var(--line);
     }
-    .nav{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 0}
-    .nav a.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-    header .logo .brand-mark{height:40px;width:auto;display:block}
-    header .logo .brand-text{
+    .brand-bar{
+      border-bottom:1px solid var(--line);
+      background:#FFFFFF;
+      display:grid; place-items:center;
+      padding:8px 0;
+      transition:padding .18s ease;
+    }
+    .brand-bar .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand-bar .brand-mark{height:44px;width:auto;display:block;transition:transform .18s ease}
+    .brand-bar .brand-text{
       font-family:"Playfair Display",serif;font-weight:700;
-      font-size:20px;line-height:1;color:var(--ink);letter-spacing:.3px
+      font-size:18px;line-height:1;color:var(--ink);letter-spacing:.3px
     }
-    @media (max-width:520px){ header .logo .brand-text{ display:none; } }
-    .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    @media (max-width:520px){ .brand-bar .brand-text{ display:none } }
+
+    /* Fila 2: menú centrado */
+    .nav{display:flex;gap:18px;align-items:center;justify-content:center;padding:10px 0}
+    .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
     .nav .links a{color:var(--muted);text-decoration:none;font-size:14px;padding:6px 6px;border-radius:8px}
     .nav .links a[aria-current="true"]{color:var(--ink);box-shadow:0 0 0 1px var(--line) inset}
     .cta--nav{
@@ -94,12 +101,15 @@
       color:var(--accent-ink);font-weight:700;border:1px solid rgba(201,146,58,.55)
     }
 
+    /* Header compacto al hacer scroll */
+    header.site.compact .brand-bar{ padding:4px 0 }
+    header.site.compact .brand-bar .brand-mark{ transform:scale(.86) }
+
     /* HERO */
     .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:left;overflow:hidden;padding:28px 0}
     .hero .inner{
       position:relative;z-index:1;max-width:980px;padding:26px 24px;
-      /* CARD BLANCA */
-      background:#FFFFFF;
+      background:#FFFFFF; /* CARD BLANCA */
       border:1px solid rgba(227,200,166,.85);
       border-radius:16px;box-shadow:0 24px 60px rgba(58,36,21,.14);
       backdrop-filter:saturate(115%) blur(var(--hero-blur));
@@ -107,15 +117,11 @@
     }
     @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center} }
 
-    /* LOGO HERO centrado y protagonista */
     .brand-hero{
       width:clamp(var(--logo-hero-min), var(--logo-hero-ideal), var(--logo-hero-max));
       margin:0 auto 20px; display:block;
     }
-    /* En móviles: que ocupe casi todo el ancho del card */
-    @media (max-width:560px){
-      .brand-hero{ width:min(96vw, 700px); }
-    }
+    @media (max-width:560px){ .brand-hero{ width:min(96vw, 700px); } }
 
     .headline > h1{
       font-family:"Playfair Display",serif;font-weight:700;
@@ -227,13 +233,17 @@
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- HEADER (dos filas) -->
   <header class="site">
-   <div class="wrap nav">
+    <!-- Fila 1: LOGO -->
+    <div class="brand-bar">
       <a class="logo" href="#top" aria-label="Café Judicial, inicio">
         <img class="brand-mark" src="logo-symbol-256.png" alt="Isotipo Café Judicial (balanza minimal)" width="40" height="40">
         <span class="brand-text">Café Judicial®</span>
       </a>
+    </div>
+    <!-- Fila 2: MENÚ -->
+    <div class="wrap nav">
       <nav class="links" aria-label="Secciones">
         <a href="#que-es">Qué es</a>
         <a href="#servicios">Servicios</a>
@@ -275,7 +285,7 @@
     <!-- QUÉ ES -->
     <section id="que-es" aria-labelledby="que-es-h">
       <div class="kicker">Presentación</div>
-      <h2 id="que-es-h">¿Qué es Café Judicial?</h2>
+      <h2 id="que-es-h">Qué es Café Judicial (hoy)</h2>
       <p class="lead">
         Un servicio legal <strong>presencial u online</strong> con trato humano: te invitamos tu café favorito y, en esa instancia,
         te asesoramos <strong>en persona o por videollamada</strong> y trabajamos tu caso (escrituras, contratos, asesorías y más).
@@ -326,7 +336,7 @@
           <figure class="ts-card">
             <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format" loading="lazy" alt="Retrato de Carolina V., emprendedora" class="ts-avatar" width="56" height="56">
             <figcaption>
-              <div><span class="ts-name">Miguel V.</span> <span class="ts-role">Emprendedora</span></div>
+              <div><span class="ts-name">Carolina V.</span> <span class="ts-role">Emprendedora</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
               <blockquote>“Tomamos café en mi barrio y me entregaron el documento al día siguiente.”</blockquote>
             </figcaption>
@@ -421,7 +431,7 @@
   }
   </script>
 
-  <!-- JS mínimo: nav activo, copiar correo, trackeo básico -->
+  <!-- JS mínimo: nav activo, copiar correo, trackeo básico + header compacto -->
   <script>
     // Marcar link activo según sección visible
     const sections = [...document.querySelectorAll('main section, #top')];
@@ -449,7 +459,7 @@
       }catch(e){ btnCopy.textContent='Error'; }
     });
 
-    // Trackeo ultra simple con sendBeacon (puedes mirar en la consola)
+    // Trackeo ultra simple con sendBeacon
     function track(ev, label){
       try{
         const data = new Blob([JSON.stringify({ev,label,ts:Date.now()})], {type:'application/json'});
@@ -460,6 +470,12 @@
     document.querySelectorAll('[data-track]').forEach(el=>{
       el.addEventListener('click', ()=>track('click', el.dataset.track));
     });
+
+    // Compactar header al hacer scroll
+    const headerEl = document.querySelector('header.site');
+    function compactHeader(){ headerEl.classList.toggle('compact', window.scrollY > 40); }
+    window.addEventListener('scroll', compactHeader, {passive:true});
+    compactHeader();
   </script>
 </body>
 </html>
