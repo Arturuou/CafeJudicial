@@ -68,29 +68,35 @@
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* HEADER: dos filas fijas (logo arriba + menú abajo) */
+    /* ===== HEADER: logo completo arriba + menú fijo debajo ===== */
     header.site{
       position:sticky; top:0; z-index:10; background:#FFFFFF;
       backdrop-filter:saturate(120%) blur(8px);
-      border-bottom:1px solid var(--line);
+      /* sin bordes aquí para evitar doble línea */
+      border:none;
     }
+
+    /* Fila 1: barra de marca (logo completo centrado) */
     .brand-bar{
-      border-bottom:1px solid var(--line);
       background:#FFFFFF;
       display:grid; place-items:center;
       padding:8px 0;
       transition:padding .18s ease;
     }
-    .brand-bar .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .brand-bar .brand-mark{height:44px;width:auto;display:block;transition:transform .18s ease}
-    .brand-bar .brand-text{
-      font-family:"Playfair Display",serif;font-weight:700;
-      font-size:18px;line-height:1;color:var(--ink);letter-spacing:.3px
+    .brand-lockup{
+      height:64px; width:auto; display:block;
+      transition:height .18s ease, transform .18s ease;
     }
-    @media (max-width:520px){ .brand-bar .brand-text{ display:none } }
+    @media (min-width:768px){ .brand-lockup{ height:80px } }
+    /* Header compacto al hacer scroll */
+    header.site.compact .brand-bar{ padding:4px 0 }
+    header.site.compact .brand-lockup{ height:48px }
 
-    /* Fila 2: menú centrado */
-    .nav{display:flex;gap:18px;align-items:center;justify-content:center;padding:10px 0}
+    /* Fila 2: MENÚ (con la única línea separadora) */
+    .nav{
+      display:flex; gap:18px; align-items:center; justify-content:center;
+      padding:10px 0; border-bottom:1px solid var(--line); background:#FFFFFF;
+    }
     .nav .links{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
     .nav .links a{color:var(--muted);text-decoration:none;font-size:14px;padding:6px 6px;border-radius:8px}
     .nav .links a[aria-current="true"]{color:var(--ink);box-shadow:0 0 0 1px var(--line) inset}
@@ -101,11 +107,7 @@
       color:var(--accent-ink);font-weight:700;border:1px solid rgba(201,146,58,.55)
     }
 
-    /* Header compacto al hacer scroll */
-    header.site.compact .brand-bar{ padding:4px 0 }
-    header.site.compact .brand-bar .brand-mark{ transform:scale(.86) }
-
-    /* HERO */
+    /* ===== HERO ===== */
     .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:left;overflow:hidden;padding:28px 0}
     .hero .inner{
       position:relative;z-index:1;max-width:980px;padding:26px 24px;
@@ -233,16 +235,22 @@
 </head>
 <body>
 
-  <!-- HEADER (dos filas) -->
+  <!-- ===== HEADER (dos filas) ===== -->
   <header class="site">
-    <!-- Fila 1: LOGO -->
+    <!-- Fila 1: LOGO COMPLETO ARRIBA -->
     <div class="brand-bar">
-      <a class="logo" href="#top" aria-label="Café Judicial, inicio">
-        <img class="brand-mark" src="logo-symbol-256.png" alt="Isotipo Café Judicial (balanza minimal)" width="40" height="40">
-        <span class="brand-text">Café Judicial®</span>
+      <a href="#top" aria-label="Café Judicial, inicio">
+        <picture>
+          <source srcset="logo-hero-640.webp" type="image/webp">
+          <!-- usa tu archivo del logo completo (el mismo del hero) -->
+          <img class="brand-lockup" src="logo-nav-640.png"
+               alt="Café Judicial — logotipo completo"
+               width="640" height="422">
+        </picture>
       </a>
     </div>
-    <!-- Fila 2: MENÚ -->
+
+    <!-- Fila 2: MENÚ (con única línea inferior) -->
     <div class="wrap nav">
       <nav class="links" aria-label="Secciones">
         <a href="#que-es">Qué es</a>
@@ -254,7 +262,7 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ===== HERO ===== -->
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <div class="headline">
