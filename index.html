@@ -29,8 +29,8 @@
   <meta name="color-scheme" content="light">
   <meta name="supported-color-schemes" content="light">
 
-  <!-- Preload hero logo para mejorar LCP -->
-  <link rel="preload" as="image" href="logo-nav-640.png" imagesizes="(max-width:560px) 96vw, 58vw" imagesrcset="logo-hero-640.webp 640w, logo-nav-640.png 640w" />
+  <!-- Preload logo para buen LCP -->
+  <link rel="preload" as="image" href="logo-nav-640.png" />
 
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,7 +52,8 @@
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth; color-scheme: light !important;}
-    :target{scroll-margin-top:88px}
+    /* Más offset porque el header tiene 2 filas (logo+menú) */
+    :target{scroll-margin-top:140px}
     img{max-width:100%;display:block;height:auto}
 
     body{
@@ -64,23 +65,47 @@
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* ===== HEADER (solo logo arriba) ===== */
+    /* ===== HEADER STICKY: LOGO GRANDE + MENÚ DEBAJO ===== */
     header.site{
-      position:sticky; top:0; z-index:10;
-      background:#FFFFFF;
+      position:sticky; top:0; z-index:10; background:#FFFFFF;
       backdrop-filter:saturate(120%) blur(8px);
-      border-bottom:1px solid var(--line);
     }
-    .brand-top{display:flex; align-items:center; justify-content:flex-start; gap:10px; padding:12px 0}
-    .brand-top .brand-mark{height:40px; width:auto}
-    .brand-top .brand-text{
-      font-family:"Playfair Display",serif; font-weight:700;
-      font-size:20px; line-height:1; color:var(--ink); letter-spacing:.3px
+    .header-stack{ display:flex; flex-direction:column; align-items:center; gap:6px; }
+    /* Fila 1: logo completo (imagen grande) */
+    .brand-lockup{
+      height:88px; width:auto; display:block;
+      transition:height .18s ease, transform .18s ease;
+      margin-top:6px;
     }
-    @media (max-width:520px){ .brand-top .brand-text{ display:none } }
+    @media (min-width:768px){ .brand-lockup{ height:100px } }
+    /* Al hacer scroll, comprimimos un poco el alto */
+    header.site.compact .brand-lockup{ height:62px; transform:translateY(-2px) }
 
-    /* ===== HERO ===== */
-    .hero{position:relative;min-height:68vh;display:grid;place-items:center;text-align:left;overflow:hidden;padding:28px 0}
+    /* Fila 2: menú inmediatamente debajo del logo */
+    .top-nav{
+      width:100%;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:#FFFFFF;
+    }
+    .top-nav .links{
+      display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:center;
+      padding:10px 0;
+    }
+    .top-nav .links a{
+      color:var(--muted); text-decoration:none; font-size:14px;
+      padding:6px 6px; border-radius:8px;
+    }
+    .top-nav .links a[aria-current="true"]{ color:var(--ink); box-shadow:0 0 0 1px var(--line) inset }
+    .cta--nav{
+      padding:10px 12px;border-radius:10px;font-size:14px;
+      box-shadow:0 6px 16px rgba(58,36,21,.15);
+      background:linear-gradient(180deg,var(--accent-soft),var(--accent));
+      color:var(--accent-ink);font-weight:700;border:1px solid rgba(201,146,58,.55)
+    }
+
+    /* ===== HERO (sin el logo grande dentro) ===== */
+    .hero{position:relative;min-height:58vh;display:grid;place-items:center;text-align:left;overflow:hidden;padding:28px 0}
     .hero .inner{
       position:relative;z-index:1;max-width:980px;padding:26px 24px;
       background:#FFFFFF;
@@ -90,12 +115,6 @@
       display:grid;gap:18px;
     }
     @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center} }
-
-    .brand-hero{
-      width:clamp(var(--logo-hero-min), var(--logo-hero-ideal), var(--logo-hero-max));
-      margin:0 auto 20px; display:block;
-    }
-    @media (max-width:560px){ .brand-hero{ width:min(96vw, 700px) } }
 
     .headline > h1{
       font-family:"Playfair Display",serif;font-weight:700;
@@ -113,7 +132,7 @@
     .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
     .cta.ghost{background:#FFF;color:var(--ink);box-shadow:none}
 
-    /* Foto: completa, sin recorte + ratio para evitar CLS */
+    /* Foto secundaria */
     .photo-chip{justify-self:center}
     .photo-chip img{
       width:min(100%, 720px); height:auto;
@@ -123,23 +142,6 @@
     }
     @media (max-width:899px){ .photo-chip img{ width:100% } }
     .photo-chip figcaption{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
-
-    /* ===== MENÚ DEBAJO DEL HERO ===== */
-    .nav-below{ background:#FFFFFF; border-top:1px solid var(--line); border-bottom:1px solid var(--line) }
-    .nav-below .links{
-      display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:center;
-      padding:10px 0;
-    }
-    .nav-below .links a{
-      color:var(--muted); text-decoration:none; font-size:14px; padding:6px 6px; border-radius:8px
-    }
-    .nav-below .links a[aria-current="true"]{ color:var(--ink); box-shadow:0 0 0 1px var(--line) inset }
-    .nav-below .cta--nav{
-      padding:10px 12px;border-radius:10px;font-size:14px;
-      box-shadow:0 6px 16px rgba(58,36,21,.15);
-      background:linear-gradient(180deg,var(--accent-soft),var(--accent));
-      color:var(--accent-ink);font-weight:700;border:1px solid rgba(201,146,58,.55)
-    }
 
     /* SECCIONES */
     main section{padding:48px 0;border-top:1px solid var(--line)}
@@ -161,13 +163,6 @@
 
     .lead{color:var(--muted);margin:0 0 16px}
     .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
-
-    /* Tarjetas */
-    .cards{display:grid;gap:14px}
-    @media (min-width:860px){ .cards{grid-template-columns:repeat(3,1fr)} }
-    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
-    .card h3{margin-bottom:6px}
-    .card .mini{font-size:12px;color:var(--muted);margin-top:6px}
 
     /* Testimonios */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
@@ -209,7 +204,7 @@
       width:24px; height:24px; background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
     }
 
-    /* CTA móvil inferior (discreta y blanca) */
+    /* CTA móvil inferior */
     .mobile-cta{
       position:fixed; left:0; right:0; bottom:0; z-index:1000;
       background:#FFFFFF; border-top:1px solid var(--line);
@@ -221,33 +216,36 @@
 </head>
 <body>
 
-  <!-- ===== HEADER (solo logo) ===== -->
+  <!-- ===== HEADER: LOGO GRANDE + MENÚ DEBAJO (fijos) ===== -->
   <header class="site">
-    <div class="wrap brand-top">
-      <a class="logo" href="#top" aria-label="Café Judicial, inicio">
-        <img class="brand-mark" src="logo-symbol-256.png" alt="Isotipo Café Judicial (balanza minimal)" width="40" height="40">
-        <span class="brand-text">Café Judicial®</span>
-      </a>
+    <div class="wrap header-stack">
+      <!-- Logo completo (la imagen que dice "Café Judicial") -->
+      <img class="brand-lockup"
+           src="logo-nav-640.png"
+           alt="Café Judicial — logotipo completo" width="640" height="300" fetchpriority="high" decoding="async">
+
+      <!-- Menú pegado a la imagen -->
+      <nav class="top-nav" aria-label="Secciones">
+        <div class="links wrap">
+          <a href="#que-es">Qué es</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#testimonios">Testimonios</a>
+          <a href="#contacto">Contacto</a>
+          <a class="cta--nav" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
+        </div>
+      </nav>
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
+  <!-- ===== HERO (SIN logo grande) ===== -->
   <section id="top" class="hero" aria-label="Portada">
     <div class="inner wrap">
       <div class="headline">
-        <picture>
-          <source srcset="logo-hero-640.webp" type="image/webp">
-          <img class="brand-hero"
-               src="logo-nav-640.png"
-               alt="Café Judicial — logo principal, tipografía serif y símbolo de balanza"
-               fetchpriority="high" decoding="async" width="640" height="300">
-        </picture>
-
         <h1>Te invitamos a tu café favorito.</h1>
         <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y sin jerga.</p>
         <div class="cta-row">
-          <a class="cta" data-track="cta-presencial" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
-          <a class="cta ghost" data-track="cta-online" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
+          <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
+          <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
         </div>
       </div>
 
@@ -257,19 +255,6 @@
       </figure>
     </div>
   </section>
-
-  <!-- ===== MENÚ DEBAJO DEL HERO ===== -->
-  <div class="nav-below">
-    <div class="wrap">
-      <nav class="links links-below" aria-label="Secciones">
-        <a href="#que-es">Qué es</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#testimonios">Testimonios</a>
-        <a href="#contacto">Contacto</a>
-        <a class="cta--nav" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
-      </nav>
-    </div>
-  </div>
 
   <main class="wrap" role="main">
     <!-- QUÉ ES -->
@@ -296,8 +281,8 @@
           <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
           <p class="mini">Presencial: café invitado ☕️ · Online: te acompañamos con tu café en casa.</p>
           <p class="cta-row">
-            <a class="cta" data-track="serv-asesoria-pres" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
-            <a class="cta ghost" data-track="serv-asesoria-online" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
+            <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
+            <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
           </p>
         </article>
 
@@ -305,14 +290,14 @@
           <h3>Escritura o documento</h3>
           <p class="lead">Redacción a medida en lenguaje claro. Una iteración incluida para ajustar.</p>
           <p class="mini">Puedes solicitarla tras la asesoría (presencial/online) o directamente.</p>
-          <p><a class="cta" data-track="serv-documento" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
+          <p><a class="cta" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
         </article>
 
         <article class="card">
           <h3>Revisión de contrato</h3>
           <p class="lead">Detectamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
           <p class="mini">Disponible presencial u online, según te acomode.</p>
-          <p><a class="cta" data-track="serv-revision" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
+          <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
         </article>
       </div>
     </section>
@@ -421,13 +406,18 @@
   }
   </script>
 
-  <!-- JS mínimo: nav activo, copiar correo, trackeo básico -->
+  <!-- JS: nav activo + compactar header al hacer scroll -->
   <script>
-    // Marcar link activo según sección visible (usa el menú de abajo)
-    const sections = [...document.querySelectorAll('main section, #top')];
-    const links = [...document.querySelectorAll('.links-below a[href^="#"]')];
-    const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
+    // Header compacto en scroll
+    const headerEl = document.querySelector('header.site');
+    function compactHeader(){ headerEl.classList.toggle('compact', window.scrollY > 40); }
+    window.addEventListener('scroll', compactHeader, {passive:true});
+    compactHeader();
 
+    // Marcar link activo según sección visible (menú del header)
+    const sections = [...document.querySelectorAll('main section, #top')];
+    const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
+    const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){
@@ -438,28 +428,6 @@
       });
     }, {rootMargin:'-40% 0px -55% 0px', threshold:0.01});
     sections.forEach(s => io.observe(s));
-
-    // Copiar correo
-    const btnCopy = document.getElementById('copy-mail');
-    btnCopy?.addEventListener('click', async ()=>{
-      try{
-        await navigator.clipboard.writeText('contacto@cafejudicial.cl');
-        btnCopy.textContent = 'Copiado ✅';
-        setTimeout(()=>btnCopy.textContent='Copiar correo', 1500);
-      }catch(e){ btnCopy.textContent='Error'; }
-    });
-
-    // Trackeo ultra simple con sendBeacon (puedes mirar en la consola)
-    function track(ev, label){
-      try{
-        const data = new Blob([JSON.stringify({ev,label,ts:Date.now()})], {type:'application/json'});
-        navigator.sendBeacon?.('/track', data);
-        console.log('[track]', ev, label);
-      }catch(e){}
-    }
-    document.querySelectorAll('[data-track]').forEach(el=>{
-      el.addEventListener('click', ()=>track('click', el.dataset.track));
-    });
   </script>
 </body>
 </html>
