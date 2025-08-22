@@ -75,7 +75,7 @@
 
     /* LOGO MUY GRANDE y constante */
     .brand-lockup{
-      height:clamp(260px, 52vw, 480px); /* <- más grande y no se achica */
+      height:clamp(260px, 52vw, 480px); /* <- grande y no se achica */
       width:auto; display:block;
     }
 
@@ -168,6 +168,21 @@
     .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:4px;font-size:14px;color:var(--muted)}
     .mini-list li strong{color:var(--ink)}
 
+    /* ===== TESTIMONIOS (nuevo layout estable) ===== */
+    .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
+    .ts-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+    .ts-grid{display:grid;gap:16px}
+    @media (min-width:860px){ .ts-grid{grid-template-columns:repeat(3,1fr)} }
+    .ts-card{
+      display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;
+      background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px
+    }
+    .ts-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover}
+    .ts-name{font-weight:700}
+    .ts-role{color:var(--muted);margin-left:.35rem}
+    .ts-stars{color:var(--accent);letter-spacing:.08em;margin:2px 0 6px}
+    .ts-card blockquote{margin:0;color:var(--ink)}
+
     /* WhatsApp FAB */
     .whatsapp-fab{
       position:fixed; right:18px; bottom:18px; width:56px; height:56px;
@@ -183,7 +198,7 @@
 
     /* Footer (más grande y con espacio para el FAB) */
     footer{
-      padding:32px 96px 100px 64px; /* + derecha e inferior para que no lo tape el WhatsApp */
+      padding:32px 96px 100px 64px;
       text-align:center;color:#7a5a46;font-style:italic;position:relative;background:#FFFFFF;
     }
     @media (min-width:600px){ footer{ padding-bottom:32px } }
@@ -285,30 +300,39 @@
       </div>
     </section>
 
-    <!-- TESTIMONIOS -->
+    <!-- TESTIMONIOS (Andrés primero) -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
       <div class="ts-wrap">
         <div class="kicker">Prueba social</div>
         <h2 id="testimonios-h">Lo que dicen</h2>
+
         <div class="ts-grid">
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format" loading="lazy" alt="Retrato de Carolina V., emprendedora" class="ts-avatar" width="56" height="56">
-            <figcaption>
-              <div><span class="ts-name">Carolina V.</span> <span class="ts-role">Emprendedora</span></div>
-              <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
-              <blockquote>“Tomamos café en mi barrio y me entregaron el documento al día siguiente.”</blockquote>
-            </figcaption>
-          </figure>
-          <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format" loading="lazy" alt="Retrato de Andrés M., abogado junior" class="ts-avatar" width="56" height="56">
+            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format"
+                 loading="lazy" alt="Retrato de Andrés M., abogado junior"
+                 class="ts-avatar" width="64" height="64">
             <figcaption>
               <div><span class="ts-name">Andrés M.</span> <span class="ts-role">Abogado junior</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
               <blockquote>“Online fue clarísimo. Salí con pasos concretos y un resumen útil.”</blockquote>
             </figcaption>
           </figure>
+
           <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format" loading="lazy" alt="Retrato de Paula R., dueña de PYME" class="ts-avatar" width="56" height="56">
+            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format"
+                 loading="lazy" alt="Retrato de Carolina V., emprendedora"
+                 class="ts-avatar" width="64" height="64">
+            <figcaption>
+              <div><span class="ts-name">Carolina V.</span> <span class="ts-role">Emprendedora</span></div>
+              <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
+              <blockquote>“Tomamos café en mi barrio y me entregaron el documento al día siguiente.”</blockquote>
+            </figcaption>
+          </figure>
+
+          <figure class="ts-card">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format"
+                 loading="lazy" alt="Retrato de Paula R., dueña de PYME"
+                 class="ts-avatar" width="64" height="64">
             <figcaption>
               <div><span class="ts-name">Paula R.</span> <span class="ts-role">Dueña de PYME</span></div>
               <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
