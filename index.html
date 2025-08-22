@@ -42,15 +42,19 @@
       --bg:#FFFFFF; --panel:#FFFFFF; --card:#FFFFFF;
       --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
-      --hero-card-alpha:1; --hero-blur:6px;
 
-      /* offset de anclas (se actualiza con JS al tamaño real del header) */
-      --header-h: 300px;
+      /* Altura dinámica del header (la ajusta JS) */
+      --headerH: 260px; /* fallback */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth; color-scheme: light !important;}
-    :target{scroll-margin-top:var(--header-h)}
+    html{
+      scroll-behavior:smooth;
+      color-scheme: light !important;
+      /* Offset global para anclajes, según la altura real del header */
+      scroll-padding-top: calc(var(--headerH) + 12px);
+    }
+    :target{scroll-margin-top: calc(var(--headerH) + 12px)}
     img{max-width:100%;display:block;height:auto}
 
     body{
@@ -67,13 +71,12 @@
       position:sticky; top:0; z-index:10; background:#FFFFFF;
       backdrop-filter:saturate(120%) blur(8px);
     }
-    .header-stack{ display:flex; flex-direction:column; align-items:center; gap:6px; }
+    .header-stack{ display:flex; flex-direction:column; align-items:center; gap:8px; padding-top:6px; }
 
-    /* Logo grande (más grande y responsive por ancho) */
+    /* Logo GRANDE y constante */
     .brand-lockup{
-      width:clamp(360px, 86vw, 980px);   /* ← Aumentado */
-      height:auto;
-      margin-top:6px;
+      height:clamp(190px, 42vw, 340px); /* más grande */
+      width:auto; display:block;
     }
 
     /* Menú pegado al logo (con líneas arriba y abajo) */
@@ -84,12 +87,12 @@
       background:#FFFFFF;
     }
     .top-nav .links{
-      display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:center;
+      display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:center;
       padding:10px 0;
     }
     .top-nav .links a{
-      color:var(--muted); text-decoration:none; font-size:14px;
-      padding:6px 6px; border-radius:8px;
+      color:var(--muted); text-decoration:none; font-size:15px;
+      padding:6px 8px; border-radius:8px;
     }
     .top-nav .links a[aria-current="true"]{
       color:var(--ink); box-shadow:0 0 0 1px var(--line) inset;
@@ -99,10 +102,8 @@
     .hero{position:relative;min-height:58vh;display:grid;place-items:center;text-align:left;overflow:hidden;padding:28px 0}
     .hero .inner{
       position:relative;z-index:1;max-width:980px;padding:26px 24px;
-      background:#FFFFFF;
-      border:1px solid rgba(227,200,166,.85);
+      background:#FFFFFF;border:1px solid rgba(227,200,166,.85);
       border-radius:16px;box-shadow:0 24px 60px rgba(58,36,21,.14);
-      backdrop-filter:saturate(115%) blur(var(--hero-blur));
       display:grid;gap:18px;
     }
     @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center} }
@@ -146,14 +147,21 @@
       background:linear-gradient(90deg,var(--accent),rgba(201,146,58,0))
     }
     main h2::before{
-      content:"";width:26px;height:26px;flex:0 0 26px;
+      content:"";width:28px;height:28px;flex:0 0 28px; /* un poco más grande */
       background:center/contain no-repeat url("logo-symbol-256.png");
       transform:translateY(1px);
     }
-    @media (max-width:520px){ main h2::before{ width:22px; height:22px } }
 
     .lead{color:var(--muted);margin:0 0 16px}
     .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
+
+    /* Tarjetas */
+    .cards{display:grid;gap:14px}
+    @media (min-width:860px){ .cards{grid-template-columns:repeat(3,1fr)} }
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+    .card h3{margin-bottom:6px}
+    .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:4px;font-size:14px;color:var(--muted)}
+    .mini-list li strong{color:var(--ink)}
 
     /* WhatsApp FAB */
     .whatsapp-fab{
@@ -176,15 +184,12 @@
     /* Footer (isotipo más grande) */
     footer{
       padding:28px 0;text-align:center;color:#7a5a46;font-style:italic;
-      position:relative;padding-left:58px;background:#FFFFFF;
+      position:relative;padding-left:56px;background:#FFFFFF;
     }
     footer::before{
-      content:""; position:absolute; left:16px; top:50%; transform:translateY(-50%);
-      width:44px; height:44px;                 /* ← Aumentado */
-      background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
+      content:""; position:absolute; left:8px; top:50%; transform:translateY(-50%);
+      width:40px; height:40px; background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
     }
-    /* Opcional: evitar que el FAB tape el texto del footer en móviles */
-    @media (max-width:640px){ footer{ padding-right:86px } }
   </style>
 </head>
 <body>
@@ -192,7 +197,6 @@
   <!-- ===== HEADER: LOGO GRANDE + MENÚ ===== -->
   <header class="site">
     <div class="wrap header-stack">
-      <!-- Logo grande arriba -->
       <picture>
         <source srcset="logo-hero-640.webp" type="image/webp">
         <img class="brand-lockup"
@@ -201,7 +205,6 @@
              fetchpriority="high" decoding="async">
       </picture>
 
-      <!-- Menú debajo (sin CTA) -->
       <nav class="top-nav" aria-label="Secciones">
         <div class="links wrap">
           <a href="#que-es">Qué es</a>
@@ -255,8 +258,11 @@
         <article class="card">
           <h3>Asesoría 45’ (presencial u online)</h3>
           <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
-          <p class="mini">Presencial: café invitado ☕️ · Online: te acompañamos con tu café en casa.</p>
-          <p class="cta-row">
+          <ul class="mini-list">
+            <li><strong>Presencial:</strong> te invitamos a un café ☕️</li>
+            <li><strong>Online:</strong> te acompañamos con tu café en casa</li>
+          </ul>
+          <p class="cta-row" style="margin-top:10px">
             <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
             <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
           </p>
@@ -376,17 +382,20 @@
   }
   </script>
 
-  <!-- JS: calcula offset del header y utilidades -->
+  <!-- JS: header dinámico, nav activo, copiar correo, anclaje con offset -->
   <script>
-    // Ajusta el offset de anclas al alto real del header (por si cambia el tamaño del logo)
+    // ===== Calcular y actualizar la altura real del header =====
+    const headerEl = document.querySelector('header.site');
     function setHeaderOffset(){
-      const h = document.querySelector('header.site')?.offsetHeight || 300;
-      document.documentElement.style.setProperty('--header-h', (h + 8) + 'px');
+      const h = headerEl.offsetHeight || 260;
+      document.documentElement.style.setProperty('--headerH', h + 'px');
     }
+    setHeaderOffset();
     window.addEventListener('load', setHeaderOffset);
-    window.addEventListener('resize', setHeaderOffset);
+    window.addEventListener('resize', setHeaderOffset, {passive:true});
+    window.addEventListener('orientationchange', setHeaderOffset);
 
-    // Marcar link activo (menú del header)
+    // ===== Navegación: destacar link activo =====
     const sections = [...document.querySelectorAll('main section, #top')];
     const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
     const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
@@ -400,6 +409,20 @@
       });
     }, {rootMargin:'-40% 0px -55% 0px', threshold:0.01});
     sections.forEach(s => io.observe(s));
+
+    // ===== Enlaces del menú con offset exacto del header (por si Safari ignora scroll-padding) =====
+    links.forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const id = a.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if(!target) return;
+        e.preventDefault();
+        const headerH = headerEl.offsetHeight || 0;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+        window.scrollTo({ top, behavior:'smooth' });
+        history.replaceState(null, '', '#' + id);
+      });
+    });
 
     // Copiar correo
     const btnCopy = document.getElementById('copy-mail');
