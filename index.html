@@ -43,12 +43,14 @@
       --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
       --hero-card-alpha:1; --hero-blur:6px;
+
+      /* offset de anclas (se actualiza con JS al tamaño real del header) */
+      --header-h: 260px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth; color-scheme: light !important;}
-    /* Header alto (logo+menú): deja espacio al hacer anchor */
-    :target{scroll-margin-top:220px}
+    :target{scroll-margin-top:var(--header-h)}
     img{max-width:100%;display:block;height:auto}
 
     body{
@@ -67,9 +69,10 @@
     }
     .header-stack{ display:flex; flex-direction:column; align-items:center; gap:6px; }
 
-    /* Logo grande (tamaño constante) */
+    /* Logo grande (tamaño aumentado) */
     .brand-lockup{
-      height:clamp(150px, 34vw, 240px); width:auto; display:block; margin-top:6px;
+      height:clamp(190px, 44vw, 360px); /* ↑ más grande en móvil y desktop */
+      width:auto; display:block; margin-top:6px;
     }
 
     /* Menú pegado al logo (con líneas arriba y abajo) */
@@ -151,13 +154,6 @@
     .lead{color:var(--muted);margin:0 0 16px}
     .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
 
-    /* Tarjetas */
-    .cards{display:grid;gap:14px}
-    @media (min-width:860px){ .cards{grid-template-columns:repeat(3,1fr)} }
-    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
-    .card h3{margin-bottom:6px}
-    .card .mini{font-size:12px;color:var(--muted);margin-top:6px}
-
     /* Testimonios */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
     .ts-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
@@ -170,7 +166,7 @@
     .ts-stars{color:var(--accent);letter-spacing:.08em}
     blockquote{margin:8px 0 0;color:var(--ink)}
 
-    /* WhatsApp FAB (se queda solo) */
+    /* WhatsApp FAB */
     .whatsapp-fab{
       position:fixed; right:18px; bottom:18px; width:56px; height:56px;
       border-radius:50%; background:#25D366; display:grid; place-items:center;
@@ -356,8 +352,6 @@
     </section>
   </main>
 
-  <!-- (Eliminados los botones fijos inferiores) -->
-
   <!-- WhatsApp -->
   <a class="whatsapp-fab"
      href="https://wa.me/569XXXXXXXX?text=Hola%20Caf%C3%A9%20Judicial%2C%20quiero%20agendar%20asesor%C3%ADa%20(presencial%20u%20online)."
@@ -392,6 +386,14 @@
 
   <!-- JS: nav activo + utilidades -->
   <script>
+    // Ajusta el offset de anclas al alto real del header (por si cambia el tamaño del logo)
+    function setHeaderOffset(){
+      const h = document.querySelector('header.site')?.offsetHeight || 260;
+      document.documentElement.style.setProperty('--header-h', (h + 8) + 'px');
+    }
+    window.addEventListener('load', setHeaderOffset);
+    window.addEventListener('resize', setHeaderOffset);
+
     // Marcar link activo (menú del header)
     const sections = [...document.querySelectorAll('main section, #top')];
     const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
