@@ -43,15 +43,15 @@
       --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
 
-      /* Altura dinámica del header (la ajusta JS) */
-      --headerH: 260px; /* fallback */
+      /* Altura del header (la calcula JS) */
+      --headerH: 300px; /* fallback */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{
       scroll-behavior:smooth;
       color-scheme: light !important;
-      /* Offset global para anclajes, según la altura real del header */
+      /* Offset global para anclajes según el alto real del header */
       scroll-padding-top: calc(var(--headerH) + 12px);
     }
     :target{scroll-margin-top: calc(var(--headerH) + 12px)}
@@ -73,13 +73,14 @@
     }
     .header-stack{ display:flex; flex-direction:column; align-items:center; gap:8px; padding-top:6px; }
 
-    /* Logo GRANDE y constante */
+    /* LOGO MUY GRANDE y constante */
     .brand-lockup{
-      height:clamp(190px, 42vw, 340px); /* más grande */
+      height:clamp(260px, 52vw, 480px); /* <- más grande y no se achica */
       width:auto; display:block;
     }
 
-    /* Menú pegado al logo (con líneas arriba y abajo) */
+    /* Menú pegado al logo (líneas arriba/abajo).
+       Forzamos 1 sola línea; si no cabe, permite scroll lateral suave. */
     .top-nav{
       width:100%;
       border-top:1px solid var(--line);
@@ -87,12 +88,16 @@
       background:#FFFFFF;
     }
     .top-nav .links{
-      display:flex; gap:16px; flex-wrap:wrap; align-items:center; justify-content:center;
-      padding:10px 0;
+      display:flex; align-items:center; justify-content:center;
+      gap:12px; padding:12px 8px;
+      flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
     }
+    .top-nav .links::-webkit-scrollbar{ display:none }
     .top-nav .links a{
-      color:var(--muted); text-decoration:none; font-size:15px;
-      padding:6px 8px; border-radius:8px;
+      color:var(--muted); text-decoration:none;
+      font-size:clamp(13px, 2.9vw, 15px);
+      padding:6px 8px; border-radius:8px; white-space:nowrap;
     }
     .top-nav .links a[aria-current="true"]{
       color:var(--ink); box-shadow:0 0 0 1px var(--line) inset;
@@ -147,7 +152,7 @@
       background:linear-gradient(90deg,var(--accent),rgba(201,146,58,0))
     }
     main h2::before{
-      content:"";width:28px;height:28px;flex:0 0 28px; /* un poco más grande */
+      content:"";width:32px;height:32px;flex:0 0 32px; /* isotipo más grande */
       background:center/contain no-repeat url("logo-symbol-256.png");
       transform:translateY(1px);
     }
@@ -175,20 +180,16 @@
       content:""; position:absolute; inset:-6px; border-radius:50%;
       box-shadow:0 0 0 0 rgba(37,211,102,.22); animation:wa-pulse 2.2s infinite;
     }
-    @keyframes wa-pulse{
-      0%{box-shadow:0 0 0 0 rgba(37,211,102,.22)}
-      70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}
-      100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
-    }
 
-    /* Footer (isotipo más grande) */
+    /* Footer (más grande y con espacio para el FAB) */
     footer{
-      padding:28px 0;text-align:center;color:#7a5a46;font-style:italic;
-      position:relative;padding-left:56px;background:#FFFFFF;
+      padding:32px 96px 100px 64px; /* + derecha e inferior para que no lo tape el WhatsApp */
+      text-align:center;color:#7a5a46;font-style:italic;position:relative;background:#FFFFFF;
     }
+    @media (min-width:600px){ footer{ padding-bottom:32px } }
     footer::before{
-      content:""; position:absolute; left:8px; top:50%; transform:translateY(-50%);
-      width:40px; height:40px; background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
+      content:""; position:absolute; left:12px; top:50%; transform:translateY(-50%);
+      width:44px; height:44px; background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
     }
   </style>
 </head>
@@ -382,20 +383,20 @@
   }
   </script>
 
-  <!-- JS: header dinámico, nav activo, copiar correo, anclaje con offset -->
+  <!-- JS: altura real del header + nav activo + anclaje con offset + copiar correo -->
   <script>
-    // ===== Calcular y actualizar la altura real del header =====
+    // 1) Altura real del header para anclajes y compensación
     const headerEl = document.querySelector('header.site');
     function setHeaderOffset(){
-      const h = headerEl.offsetHeight || 260;
+      const h = headerEl.getBoundingClientRect().height || 300;
       document.documentElement.style.setProperty('--headerH', h + 'px');
     }
     setHeaderOffset();
     window.addEventListener('load', setHeaderOffset);
     window.addEventListener('resize', setHeaderOffset, {passive:true});
-    window.addEventListener('orientationchange', setHeaderOffset);
+    window.addEventListener('orientationchange', ()=>setTimeout(setHeaderOffset, 250));
 
-    // ===== Navegación: destacar link activo =====
+    // 2) Menú: marcar link activo
     const sections = [...document.querySelectorAll('main section, #top')];
     const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
     const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
@@ -410,7 +411,7 @@
     }, {rootMargin:'-40% 0px -55% 0px', threshold:0.01});
     sections.forEach(s => io.observe(s));
 
-    // ===== Enlaces del menú con offset exacto del header (por si Safari ignora scroll-padding) =====
+    // 3) Click en el menú: scroll con offset exacto del header (por si Safari ignora scroll-padding)
     links.forEach(a=>{
       a.addEventListener('click', (e)=>{
         const id = a.getAttribute('href').slice(1);
@@ -424,7 +425,7 @@
       });
     });
 
-    // Copiar correo
+    // 4) Copiar correo
     const btnCopy = document.getElementById('copy-mail');
     btnCopy?.addEventListener('click', async ()=>{
       try{
