@@ -42,16 +42,16 @@
       --bg:#FFFFFF; --panel:#FFFFFF; --card:#FFFFFF;
       --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
-      --headerH: 300px; /* fallback para anclajes */
+      --headerH: 300px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{
       scroll-behavior:smooth;
       color-scheme: light !important;
-      scroll-padding-top: calc(var(--headerH) + 12px);
+      scroll-padding-top: calc(var(--headerH) + 8px);
     }
-    :target{scroll-margin-top: calc(var(--headerH) + 12px)}
+    :target{scroll-margin-top: calc(var(--headerH) + 8px)}
     img{max-width:100%;display:block;height:auto}
 
     body{
@@ -62,20 +62,20 @@
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* ===== HEADER: logo grande + menú debajo (fijos) ===== */
+    /* ===== HEADER ===== */
     header.site{
       position:sticky; top:0; z-index:10; background:#FFFFFF;
       backdrop-filter:saturate(120%) blur(8px);
     }
-    .header-stack{ display:flex; flex-direction:column; align-items:center; gap:4px; padding-top:4px; }
+    .header-stack{ display:flex; flex-direction:column; align-items:center; gap:2px; padding-top:2px; }
 
-    /* LOGO grande y constante */
+    /* LOGO: aún más grande */
     .brand-lockup{
-      height:clamp(260px, 52vw, 480px);
+      height:clamp(300px, 60vw, 560px);   /* ↑ más grande */
       width:auto; display:block;
     }
 
-    /* Menú pegado al logo (líneas arriba/abajo) */
+    /* Menú muy pegado al logo */
     .top-nav{
       width:100%;
       border-top:1px solid var(--line);
@@ -84,15 +84,15 @@
     }
     .top-nav .links{
       display:flex; align-items:center; justify-content:center;
-      gap:12px; padding:8px 8px;            /* ↓ menos alto */
+      gap:10px; padding:4px 6px;          /* ↓ más compacto */
       flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
       scrollbar-width:none;
     }
     .top-nav .links::-webkit-scrollbar{ display:none }
     .top-nav .links a{
       color:var(--muted); text-decoration:none;
-      font-size:clamp(13px, 2.9vw, 15px);
-      padding:6px 8px; border-radius:8px; white-space:nowrap;
+      font-size:clamp(13px, 2.8vw, 15px);
+      padding:4px 8px; border-radius:8px; white-space:nowrap;
     }
     .top-nav .links a[aria-current="true"]{
       color:var(--ink); box-shadow:0 0 0 1px var(--line) inset;
@@ -101,28 +101,28 @@
     /* ===== HERO ===== */
     .hero{
       position:relative;
-      min-height:58vh;
+      min-height:56vh;
       display:grid; place-items:center; text-align:left; overflow:hidden;
-      padding:12px 0 28px;                 /* ↑ MUCHO más cerca del header */
-    }
-    @media (max-width:600px){
-      .hero{ padding-top:8px }              /* aún más cerca en móviles */
+      padding:6px 0 24px;                 /* ↑ pegadísimo al menú */
     }
     .hero .inner{
-      position:relative; z-index:1; max-width:980px; padding:22px 20px; /* un pelín más compacto */
+      position:relative; z-index:1; max-width:980px; padding:20px 18px;
       background:#FFFFFF; border:1px solid rgba(227,200,166,.85);
       border-radius:16px; box-shadow:0 24px 60px rgba(58,36,21,.14);
-      display:grid; gap:18px;
+      display:grid; gap:16px;
     }
-    @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center} }
+    /* Columnas simétricas en desktop */
+    @media (min-width:900px){
+      .hero .inner{ grid-template-columns:1fr 1fr; align-items:center }
+    }
 
     .headline > h1{
       font-family:"Playfair Display",serif;font-weight:700;
       font-size:clamp(28px,4.2vw,48px);
-      line-height:1.08; margin:2px 0 8px;  /* margen superior más chico */
+      line-height:1.08; margin:0 0 8px;
       letter-spacing:.2px;
     }
-    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);margin-bottom:14px}
+    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);margin-bottom:12px}
     .cta-row{display:flex;gap:10px;flex-wrap:wrap}
     .cta{
       display:inline-flex;gap:10px;align-items:center;justify-content:center;
@@ -134,19 +134,17 @@
     .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
     .cta.ghost{background:#FFF;color:var(--ink);box-shadow:none}
 
-    /* Foto secundaria */
+    /* Foto: centrada y con proporción fija */
     .photo-chip{justify-self:center}
     .photo-chip img{
-      width:min(100%, 720px); height:auto;
+      width:100%; max-width:720px; height:auto;
       border-radius:16px;border:1px solid var(--line);
       box-shadow:0 12px 28px rgba(58,36,21,.12);
-      margin:0 auto; aspect-ratio:4/3;
+      margin:0 auto; aspect-ratio:4/3; object-fit:cover;
     }
-    @media (max-width:899px){ .photo-chip img{ width:100% } }
-    .photo-chip figcaption{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
 
     /* SECCIONES */
-    main section{padding:48px 0;border-top:1px solid var(--line)}
+    main section{padding:44px 0;border-top:1px solid var(--line)}
     h2{
       font-family:"Playfair Display",serif;font-weight:700;
       font-size:clamp(24px,3.6vw,34px);margin:0 0 12px;position:relative;padding-bottom:6px;
@@ -165,7 +163,6 @@
     .lead{color:var(--muted);margin:0 0 16px}
     .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
 
-    /* Tarjetas */
     .cards{display:grid;gap:14px}
     @media (min-width:860px){ .cards{grid-template-columns:repeat(3,1fr)} }
     .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
@@ -173,15 +170,12 @@
     .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:4px;font-size:14px;color:var(--muted)}
     .mini-list li strong{color:var(--ink)}
 
-    /* ===== TESTIMONIOS ===== */
+    /* TESTIMONIOS */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
     .ts-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
     .ts-grid{display:grid;gap:16px}
     @media (min-width:860px){ .ts-grid{grid-template-columns:repeat(3,1fr)} }
-    .ts-card{
-      display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;
-      background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px
-    }
+    .ts-card{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px}
     .ts-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover}
     .ts-name{font-weight:700}
     .ts-role{color:var(--muted);margin-left:.35rem}
@@ -201,7 +195,7 @@
       box-shadow:0 0 0 0 rgba(37,211,102,.22); animation:wa-pulse 2.2s infinite;
     }
 
-    /* Footer con espacio para el FAB */
+    /* Footer */
     footer{
       padding:32px 96px 100px 64px;
       text-align:center;color:#7a5a46;font-style:italic;position:relative;background:#FFFFFF;
@@ -251,7 +245,7 @@
 
       <figure class="photo-chip">
         <img src="IMG_8339.jpeg" loading="lazy" alt="Asesoría legal en mesa de café, ambiente tranquilo" width="1200" height="900">
-        <figcaption>Café invitado ☕️</figcaption>
+        <figcaption style="text-align:center;font-size:12px;color:#6E4F3D;margin-top:6px">Café invitado ☕️</figcaption>
       </figure>
     </div>
   </section>
@@ -394,27 +388,14 @@
     Café Judicial® — Donde la justicia se sirve en taza · Santiago, Chile
   </footer>
 
-  <!-- JSON-LD: Legal Service -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LegalService",
-    "name":"Café Judicial",
-    "url":"https://arturuou.github.io/CafeJudicial/",
-    "image":"https://arturuou.github.io/CafeJudicial/og-cafe-judicial-1200x630.jpg",
-    "email":"contacto@cafejudicial.cl",
-    "areaServed":"CL",
-    "address":{
-      "@type":"PostalAddress",
-      "addressLocality":"Santiago",
-      "addressCountry":"CL"
-    }
-  }
+  {"@context":"https://schema.org","@type":"LegalService","name":"Café Judicial","url":"https://arturuou.github.io/CafeJudicial/","image":"https://arturuou.github.io/CafeJudicial/og-cafe-judicial-1200x630.jpg","email":"contacto@cafejudicial.cl","areaServed":"CL","address":{"@type":"PostalAddress","addressLocality":"Santiago","addressCountry":"CL"}}
   </script>
 
   <!-- JS: altura real del header + nav activo + scroll con offset + copiar correo -->
   <script>
-    // 1) Altura real del header para anclajes y compensación
+    // Altura real del header para anclajes y compensación
     const headerEl = document.querySelector('header.site');
     function setHeaderOffset(){
       const h = headerEl.getBoundingClientRect().height || 300;
@@ -425,7 +406,7 @@
     window.addEventListener('resize', setHeaderOffset, {passive:true});
     window.addEventListener('orientationchange', ()=>setTimeout(setHeaderOffset, 250));
 
-    // 2) Menú: marcar link activo
+    // Menú: marcar link activo
     const sections = [...document.querySelectorAll('main section, #top')];
     const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
     const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
@@ -440,7 +421,7 @@
     }, {rootMargin:'-40% 0px -55% 0px', threshold:0.01});
     sections.forEach(s => io.observe(s));
 
-    // 3) Click en el menú: scroll con offset exacto del header (por si Safari ignora scroll-padding)
+    // Click en el menú: scroll con offset exacto del header
     links.forEach(a=>{
       a.addEventListener('click', (e)=>{
         const id = a.getAttribute('href').slice(1);
@@ -448,13 +429,13 @@
         if(!target) return;
         e.preventDefault();
         const headerH = headerEl.offsetHeight || 0;
-        const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 6;
         window.scrollTo({ top, behavior:'smooth' });
         history.replaceState(null, '', '#' + id);
       });
     });
 
-    // 4) Copiar correo
+    // Copiar correo
     const btnCopy = document.getElementById('copy-mail');
     btnCopy?.addEventListener('click', async ()=>{
       try{
