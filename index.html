@@ -42,16 +42,13 @@
       --bg:#FFFFFF; --panel:#FFFFFF; --card:#FFFFFF;
       --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
-
-      /* Altura del header (la calcula JS) */
-      --headerH: 300px; /* fallback */
+      --headerH: 300px; /* fallback para anclajes */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{
       scroll-behavior:smooth;
       color-scheme: light !important;
-      /* Offset global para anclajes según el alto real del header */
       scroll-padding-top: calc(var(--headerH) + 12px);
     }
     :target{scroll-margin-top: calc(var(--headerH) + 12px)}
@@ -60,8 +57,7 @@
     body{
       color:var(--ink);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      line-height:1.6;
-      background:#FFFFFF;
+      line-height:1.6; background:#FFFFFF;
     }
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
@@ -71,16 +67,15 @@
       position:sticky; top:0; z-index:10; background:#FFFFFF;
       backdrop-filter:saturate(120%) blur(8px);
     }
-    .header-stack{ display:flex; flex-direction:column; align-items:center; gap:8px; padding-top:6px; }
+    .header-stack{ display:flex; flex-direction:column; align-items:center; gap:4px; padding-top:4px; }
 
-    /* LOGO MUY GRANDE y constante */
+    /* LOGO grande y constante */
     .brand-lockup{
-      height:clamp(260px, 52vw, 480px); /* <- grande y no se achica */
+      height:clamp(260px, 52vw, 480px);
       width:auto; display:block;
     }
 
-    /* Menú pegado al logo (líneas arriba/abajo).
-       Forzamos 1 sola línea; si no cabe, permite scroll lateral suave. */
+    /* Menú pegado al logo (líneas arriba/abajo) */
     .top-nav{
       width:100%;
       border-top:1px solid var(--line);
@@ -89,7 +84,7 @@
     }
     .top-nav .links{
       display:flex; align-items:center; justify-content:center;
-      gap:12px; padding:12px 8px;
+      gap:12px; padding:8px 8px;            /* ↓ menos alto */
       flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
       scrollbar-width:none;
     }
@@ -104,18 +99,28 @@
     }
 
     /* ===== HERO ===== */
-    .hero{position:relative;min-height:58vh;display:grid;place-items:center;text-align:left;overflow:hidden;padding:28px 0}
+    .hero{
+      position:relative;
+      min-height:58vh;
+      display:grid; place-items:center; text-align:left; overflow:hidden;
+      padding:12px 0 28px;                 /* ↑ MUCHO más cerca del header */
+    }
+    @media (max-width:600px){
+      .hero{ padding-top:8px }              /* aún más cerca en móviles */
+    }
     .hero .inner{
-      position:relative;z-index:1;max-width:980px;padding:26px 24px;
-      background:#FFFFFF;border:1px solid rgba(227,200,166,.85);
-      border-radius:16px;box-shadow:0 24px 60px rgba(58,36,21,.14);
-      display:grid;gap:18px;
+      position:relative; z-index:1; max-width:980px; padding:22px 20px; /* un pelín más compacto */
+      background:#FFFFFF; border:1px solid rgba(227,200,166,.85);
+      border-radius:16px; box-shadow:0 24px 60px rgba(58,36,21,.14);
+      display:grid; gap:18px;
     }
     @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center} }
 
     .headline > h1{
       font-family:"Playfair Display",serif;font-weight:700;
-      font-size:clamp(28px,4.2vw,48px);line-height:1.08;margin:6px 0 8px;letter-spacing:.2px
+      font-size:clamp(28px,4.2vw,48px);
+      line-height:1.08; margin:2px 0 8px;  /* margen superior más chico */
+      letter-spacing:.2px;
     }
     .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);margin-bottom:14px}
     .cta-row{display:flex;gap:10px;flex-wrap:wrap}
@@ -152,7 +157,7 @@
       background:linear-gradient(90deg,var(--accent),rgba(201,146,58,0))
     }
     main h2::before{
-      content:"";width:32px;height:32px;flex:0 0 32px; /* isotipo más grande */
+      content:"";width:32px;height:32px;flex:0 0 32px;
       background:center/contain no-repeat url("logo-symbol-256.png");
       transform:translateY(1px);
     }
@@ -168,7 +173,7 @@
     .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:4px;font-size:14px;color:var(--muted)}
     .mini-list li strong{color:var(--ink)}
 
-    /* ===== TESTIMONIOS (nuevo layout estable) ===== */
+    /* ===== TESTIMONIOS ===== */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
     .ts-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
     .ts-grid{display:grid;gap:16px}
@@ -196,7 +201,7 @@
       box-shadow:0 0 0 0 rgba(37,211,102,.22); animation:wa-pulse 2.2s infinite;
     }
 
-    /* Footer (más grande y con espacio para el FAB) */
+    /* Footer con espacio para el FAB */
     footer{
       padding:32px 96px 100px 64px;
       text-align:center;color:#7a5a46;font-style:italic;position:relative;background:#FFFFFF;
@@ -407,7 +412,7 @@
   }
   </script>
 
-  <!-- JS: altura real del header + nav activo + anclaje con offset + copiar correo -->
+  <!-- JS: altura real del header + nav activo + scroll con offset + copiar correo -->
   <script>
     // 1) Altura real del header para anclajes y compensación
     const headerEl = document.querySelector('header.site');
