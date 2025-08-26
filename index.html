@@ -10,9 +10,9 @@
   <meta name="robots" content="index,follow" />
 
   <!-- SEO / Social -->
-  <meta name="description" content="Te invitamos a tu café favorito. Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y sin jerga. Asesoría y documentos en simple." />
+  <meta name="description" content="Te invitamos a tu café favorito. Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y en palabras simples. Asesoría y documentos en simple." />
   <meta property="og:title" content="Café Judicial® – Donde la justicia se sirve en taza" />
-  <meta property="og:description" content="Te invitamos a tu café favorito. Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y sin jerga. Asesoría y documentos en simple." />
+  <meta property="og:description" content="Te invitamos a tu café favorito. Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y en palabras simples." />
   <meta property="og:image" content="https://arturuou.github.io/CafeJudicial/og-cafe-judicial-1200x630.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -67,11 +67,11 @@
       position:sticky; top:0; z-index:10; background:#FFFFFF;
       backdrop-filter:saturate(120%) blur(8px);
     }
-    .header-stack{ display:flex; flex-direction:column; align-items:center; gap:4px; padding-top:4px; }
+    .header-stack{ display:flex; flex-direction:column; align-items:center; gap:2px; padding-top:4px; }
 
-    /* LOGO grande y constante */
+    /* LOGO más grande y constante */
     .brand-lockup{
-      height:clamp(260px, 52vw, 480px);
+      height:clamp(300px, 60vw, 560px);
       width:auto; display:block;
     }
 
@@ -84,7 +84,7 @@
     }
     .top-nav .links{
       display:flex; align-items:center; justify-content:center;
-      gap:12px; padding:8px 8px;            /* ↓ menos alto */
+      gap:12px; padding:4px 8px;
       flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
       scrollbar-width:none;
     }
@@ -101,25 +101,24 @@
     /* ===== HERO ===== */
     .hero{
       position:relative;
-      min-height:58vh;
+      min-height:52vh;
       display:grid; place-items:center; text-align:left; overflow:hidden;
-      padding:12px 0 28px;                 /* ↑ MUCHO más cerca del header */
-    }
-    @media (max-width:600px){
-      .hero{ padding-top:8px }              /* aún más cerca en móviles */
+      padding:4px 0 24px; /* pegado al header */
     }
     .hero .inner{
-      position:relative; z-index:1; max-width:980px; padding:22px 20px; /* un pelín más compacto */
+      position:relative; z-index:1; max-width:980px; padding:20px 18px;
       background:#FFFFFF; border:1px solid rgba(227,200,166,.85);
       border-radius:16px; box-shadow:0 24px 60px rgba(58,36,21,.14);
       display:grid; gap:18px;
     }
-    @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr;align-items:center} }
+    @media (min-width:900px){
+      .hero .inner{grid-template-columns:1fr 1fr; align-items:center} /* simétrico */
+    }
 
     .headline > h1{
       font-family:"Playfair Display",serif;font-weight:700;
       font-size:clamp(28px,4.2vw,48px);
-      line-height:1.08; margin:2px 0 8px;  /* margen superior más chico */
+      line-height:1.08; margin:2px 0 8px;
       letter-spacing:.2px;
     }
     .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);margin-bottom:14px}
@@ -146,7 +145,7 @@
     .photo-chip figcaption{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
 
     /* SECCIONES */
-    main section{padding:48px 0;border-top:1px solid var(--line)}
+    main section{padding:44px 0;border-top:1px solid var(--line)}
     h2{
       font-family:"Playfair Display",serif;font-weight:700;
       font-size:clamp(24px,3.6vw,34px);margin:0 0 12px;position:relative;padding-bottom:6px;
@@ -203,7 +202,7 @@
 
     /* Footer con espacio para el FAB */
     footer{
-      padding:32px 96px 100px 64px;
+      padding:28px 96px 96px 64px;
       text-align:center;color:#7a5a46;font-style:italic;position:relative;background:#FFFFFF;
     }
     @media (min-width:600px){ footer{ padding-bottom:32px } }
@@ -242,7 +241,7 @@
     <div class="inner wrap">
       <div class="headline">
         <h1>Te invitamos a tu café favorito.</h1>
-        <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y sin jerga.</p>
+        <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y <strong>en palabras simples</strong>.</p>
         <div class="cta-row">
           <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
           <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
@@ -267,8 +266,22 @@
       </p>
       <p class="lead">
         Nuestro gancho es simple: <strong>derecho en simple, con buen café</strong>. Nos enfocamos en claridad, pasos concretos y
-        entregables listos para usar. Sin letra chica ni jerga innecesaria.
+        entregables listos para usar.
       </p>
+    </section>
+
+    <!-- ÁREAS DE PRÁCTICA -->
+    <section id="areas" aria-labelledby="areas-h">
+      <div class="kicker">Especialidades</div>
+      <h2 id="areas-h">Áreas de práctica</h2>
+      <div class="cards">
+        <article class="card"><h3>Familia</h3><p class="lead">Pensión de alimentos, divorcio, tuición.</p></article>
+        <article class="card"><h3>Laboral</h3><p class="lead">Despidos, autodespido, demandas.</p></article>
+        <article class="card"><h3>Deudas</h3><p class="lead">Ley 20.720, renegociación, prescripción.</p></article>
+        <article class="card"><h3>Civil</h3><p class="lead">Contratos, responsabilidad, juicios.</p></article>
+        <article class="card"><h3>Penal</h3><p class="lead">Defensas y querellas.</p></article>
+        <article class="card"><h3>Documentos</h3><p class="lead">Escrituras, poderes, redacción clara.</p></article>
+      </div>
     </section>
 
     <!-- SERVICIOS -->
@@ -302,6 +315,18 @@
           <p class="mini">Disponible presencial u online, según te acomode.</p>
           <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
         </article>
+      </div>
+    </section>
+
+    <!-- PROCESO SIMPLE -->
+    <section id="proceso" aria-labelledby="proceso-h">
+      <div class="kicker">Cómo trabajamos</div>
+      <h2 id="proceso-h">Proceso simple</h2>
+      <div class="cards">
+        <article class="card"><h3>1) Consulta</h3><p class="lead">Conversemos tu caso (presencial u online).</p></article>
+        <article class="card"><h3>2) Evaluación</h3><p class="lead">Revisamos documentos y definimos riesgos.</p></article>
+        <article class="card"><h3>3) Estrategia</h3><p class="lead">Plan claro con tareas y entregables.</p></article>
+        <article class="card"><h3>4) Acción</h3><p class="lead">Redacción, presentación o gestión concreta.</p></article>
       </div>
     </section>
 
@@ -368,6 +393,17 @@
       </div>
     </section>
 
+    <!-- PREGUNTAS FRECUENTES -->
+    <section id="faq" aria-labelledby="faq-h">
+      <div class="kicker">Dudas comunes</div>
+      <h2 id="faq-h">Preguntas frecuentes</h2>
+      <div class="cards">
+        <article class="card"><h3>¿Qué significa “en palabras simples”?</h3><p class="lead">Te explicamos todo sin tecnicismos, con ejemplos y pasos accionables.</p></article>
+        <article class="card"><h3>¿Dónde atendemos?</h3><p class="lead">Santiago y online para todo Chile.</p></article>
+        <article class="card"><h3>¿Cómo agendo?</h3><p class="lead">Por WhatsApp o en los botones “Agendar”.</p></article>
+      </div>
+    </section>
+
     <!-- CONTACTO -->
     <section id="contacto" class="center" aria-labelledby="cta-h">
       <div class="kicker">Contacto</div>
@@ -409,6 +445,22 @@
       "addressLocality":"Santiago",
       "addressCountry":"CL"
     }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"¿Qué significa “en palabras simples”?",
+       "acceptedAnswer":{"@type":"Answer","text":"Explicamos todo sin tecnicismos, con ejemplos claros y pasos accionables."}},
+      {"@type":"Question","name":"¿Dónde atendemos?",
+       "acceptedAnswer":{"@type":"Answer","text":"Santiago y online para todo Chile."}},
+      {"@type":"Question","name":"¿Cómo agendo?",
+       "acceptedAnswer":{"@type":"Answer","text":"Por WhatsApp o en los botones “Agendar”."}}
+    ]
   }
   </script>
 
