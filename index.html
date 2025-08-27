@@ -85,16 +85,17 @@
     /* override del padding lateral de .wrap solo dentro del nav */
     .top-nav .wrap{ padding-left:8px; padding-right:8px; }
     .top-nav .links{
-      display:flex; align-items:center; justify-content:center;
-      gap:8px; padding:4px 4px;
+      display:flex; align-items:center; justify-content:flex-start; /* izquierda */
+      gap:8px; padding:4px 8px;
       flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
-      scrollbar-width:none;
+      scrollbar-width:none; scroll-snap-type:x proximity;
     }
     .top-nav .links::-webkit-scrollbar{ display:none }
     .top-nav .links a{
       color:var(--muted); text-decoration:none;
       font-size:clamp(13px, 2.9vw, 15px);
       padding:6px 8px; border-radius:8px; white-space:nowrap;
+      scroll-snap-align:start;
     }
     .top-nav .links a[aria-current="true"]{
       color:var(--ink); box-shadow:0 0 0 1px var(--line) inset;
@@ -593,6 +594,12 @@
         setTimeout(()=>btnCopy.textContent='Copiar correo', 1500);
       }catch(e){ btnCopy.textContent='Error'; }
     });
+
+    // 5) Menú: asegurar que arranque mostrando "Qué es"
+    const linksWrap = document.querySelector('.top-nav .links');
+    function resetNavScroll(){ if(linksWrap) linksWrap.scrollLeft = 0; }
+    window.addEventListener('load', resetNavScroll);
+    window.addEventListener('orientationchange', ()=>setTimeout(resetNavScroll, 200));
   </script>
 </body>
 </html>
