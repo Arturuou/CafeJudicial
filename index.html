@@ -82,9 +82,13 @@
       border-bottom:1px solid var(--line);
       background:#FFFFFF;
     }
+    /* override del padding lateral de .wrap solo dentro del nav
+       para que no se corte "Qué es" en móvil */
+    .top-nav .wrap{ padding-left:8px; padding-right:8px; }
+
     .top-nav .links{
       display:flex; align-items:center; justify-content:center;
-      gap:12px; padding:4px 8px;
+      gap:8px; padding:4px 4px;           /* <- antes 12px / 8px */
       flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
       scrollbar-width:none;
     }
@@ -112,7 +116,7 @@
       display:grid; gap:18px;
     }
     @media (min-width:900px){
-      .hero .inner{grid-template-columns:1fr 1fr; align-items:center} /* simétrico */
+      .hero .inner{grid-template-columns:1fr 1fr; align-items:center}
     }
 
     .headline > h1{
@@ -235,7 +239,7 @@
         <div class="links wrap">
           <a href="#que-es">Qué es</a>
           <a href="#servicios">Servicios</a>
-          <a href="#popup">Pop-Up</a>
+          <a href="#popup">Pop-Up Café Judicial®</a>
           <a href="#testimonios">Testimonios</a>
           <a href="#contacto">Contacto</a>
         </div>
@@ -252,7 +256,7 @@
 
         <!-- Aviso Pop-Up en HERO -->
         <p class="hero-note">
-          ✨ <strong>Nuevo:</strong> <a href="#popup">Pop-Up en cafeterías</a>
+          ✨ <strong>Nuevo:</strong> <a href="#popup">Pop-Up Café Judicial®</a>
           (Barrio Italia, Lastarria, Providencia). ¡Pronto fechas!
         </p>
 
