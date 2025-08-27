@@ -75,20 +75,18 @@
       width:auto; display:block;
     }
 
-    /* Menú pegado al logo (líneas arriba/abajo) */
+    /* Menú */
     .top-nav{
       width:100%;
       border-top:1px solid var(--line);
       border-bottom:1px solid var(--line);
       background:#FFFFFF;
     }
-    /* override del padding lateral de .wrap solo dentro del nav
-       para que no se corte "Qué es" en móvil */
+    /* override del padding lateral de .wrap solo dentro del nav */
     .top-nav .wrap{ padding-left:8px; padding-right:8px; }
-
     .top-nav .links{
       display:flex; align-items:center; justify-content:center;
-      gap:8px; padding:4px 4px;           /* <- antes 12px / 8px */
+      gap:8px; padding:4px 4px;
       flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
       scrollbar-width:none;
     }
@@ -107,7 +105,7 @@
       position:relative;
       min-height:52vh;
       display:grid; place-items:center; text-align:left; overflow:hidden;
-      padding:4px 0 24px; /* pegado al header */
+      padding:4px 0 24px;
     }
     .hero .inner{
       position:relative; z-index:1; max-width:980px; padding:20px 18px;
@@ -286,6 +284,10 @@
         Nuestro gancho es simple: <strong>derecho en simple, con buen café</strong>. Nos enfocamos en claridad, pasos concretos y
         entregables listos para usar.
       </p>
+      <p class="lead">
+        Además, contamos con la modalidad <strong>Pop-Up Café Judicial®</strong>: encuentros <em>itinerantes</em> en distintas
+        cafeterías de Santiago (Barrio Italia, Lastarria, Providencia y más) para acercar el derecho a tu propio barrio.
+      </p>
     </section>
 
     <!-- ÁREAS DE PRÁCTICA -->
@@ -337,46 +339,53 @@
     </section>
 
     <!-- POP-UP (NUEVO) -->
-<section id="popup" aria-labelledby="popup-h">
-  <div class="kicker">Piloto en cafeterías</div>
-  <h2 id="popup-h">Pop-Up Café Judicial®</h2>
-  <p class="lead">
-    Café Judicial® no se queda en un solo lugar: somos <strong>itinerantes</strong>.  
-    Vamos moviéndonos por <strong>distintos cafés y barrios de Santiago</strong>, para que más personas puedan vivir la experiencia de 
-    <em>asesoría legal clara + un buen café</em>.  
-    ✨ Hoy en Barrio Italia, mañana en Lastarria, después en Providencia… ¡y pronto en tu barrio también!
-  </p>
+    <section id="popup" aria-labelledby="popup-h">
+      <div class="kicker">Piloto en cafeterías</div>
+      <h2 id="popup-h">Pop-Up Café Judicial®</h2>
 
-  <div class="cards">
-    <article class="card">
-      <h3>¿Cómo funciona?</h3>
-      <ul class="mini-list">
-        <li><strong>1)</strong> Reservas un cupo de 45’</li>
-        <li><strong>2)</strong> Nos juntamos en la cafetería anfitriona</li>
-        <li><strong>3)</strong> Sales con pasos claros y, si quieres, documento encargado</li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <h3>Barrios visitados / próximos</h3>
-      <ul class="mini-list">
-        <li>Barrio Italia</li>
-        <li>Lastarria</li>
-        <li>Providencia</li>
-        <li>¡Pronto más!</li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <h3>Quiero sumarme</h3>
-      <p class="lead">¿Quieres enterarte de las próximas fechas o invitar el Pop-Up Café Judicial® a tu cafetería/barrio?</p>
-      <p class="cta-row" style="margin-top:10px">
-        <a class="cta" href="https://wa.me/569XXXXXXXX?text=Quiero%20postular%20mi%20cafeter%C3%ADa%20o%20barrio%20para%20el%20Pop-Up%20Caf%C3%A9%20Judicial" target="_blank" rel="noopener">Proponer café/barrio</a>
-        <a class="cta ghost" href="https://forms.gle/TU_LINK_INTERES" target="_blank" rel="noopener">Avisarme fechas</a>
+      <!-- Pitch breve -->
+      <p class="lead">
+        Muy pronto estaremos en <strong>cafeterías de Santiago</strong> (Barrio Italia, Lastarria y Providencia) con eventos especiales:
+        una taza de café + asesoría legal clara y cercana.
       </p>
-    </article>
-  </div>
-</section>
+
+      <!-- Itinerancia -->
+      <p class="lead">
+        Café Judicial® no se queda en un solo lugar: somos <strong>itinerantes</strong>. Vamos moviéndonos por
+        <strong>distintos cafés y barrios</strong> para que más personas vivan la experiencia de
+        <em>asesoría legal en palabras simples + un buen café</em>. ✨
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>¿Cómo funciona?</h3>
+          <ul class="mini-list">
+            <li><strong>1)</strong> Reservas un cupo de 45’</li>
+            <li><strong>2)</strong> Nos juntamos en la cafetería anfitriona</li>
+            <li><strong>3)</strong> Sales con pasos claros y, si quieres, documento encargado</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Barrios visitados / próximos</h3>
+          <ul class="mini-list">
+            <li>Barrio Italia</li>
+            <li>Lastarria</li>
+            <li>Providencia</li>
+            <li>¡Pronto más!</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Quiero sumarme</h3>
+          <p class="lead">¿Quieres enterarte de las próximas fechas o invitar el Pop-Up Café Judicial® a tu cafetería/barrio?</p>
+          <p class="cta-row" style="margin-top:10px">
+            <a class="cta" href="https://wa.me/569XXXXXXXX?text=Quiero%20postular%20mi%20cafeter%C3%ADa%20o%20barrio%20para%20el%20Pop-Up%20Caf%C3%A9%20Judicial" target="_blank" rel="noopener">Proponer café/barrio</a>
+            <a class="cta ghost" href="https://forms.gle/TU_LINK_INTERES" target="_blank" rel="noopener">Avisarme fechas</a>
+          </p>
+        </article>
+      </div>
+    </section>
 
     <!-- PROCESO SIMPLE -->
     <section id="proceso" aria-labelledby="proceso-h">
