@@ -82,10 +82,9 @@
       border-bottom:1px solid var(--line);
       background:#FFFFFF;
     }
-    /* override del padding lateral de .wrap solo dentro del nav */
     .top-nav .wrap{ padding-left:8px; padding-right:8px; }
     .top-nav .links{
-      display:flex; align-items:center; justify-content:flex-start; /* izquierda */
+      display:flex; align-items:center; justify-content:flex-start;
       gap:8px; padding:4px 8px;
       flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
       scrollbar-width:none; scroll-snap-type:x proximity;
@@ -181,6 +180,13 @@
     .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:4px;font-size:14px;color:var(--muted)}
     .mini-list li strong{color:var(--ink)}
 
+    /* ===== EQUIPO ===== */
+    .team-grid{display:grid;gap:16px}
+    @media (min-width:860px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
+    .team-card{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start;background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px}
+    .team-avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+    .tag{display:inline-block;font-size:12px;line-height:1;padding:6px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin-right:6px;margin-top:4px}
+
     /* ===== TESTIMONIOS ===== */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
     .ts-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
@@ -239,6 +245,7 @@
           <a href="#que-es">Qué es</a>
           <a href="#servicios">Servicios</a>
           <a href="#popup">Pop-Up Café Judicial®</a>
+          <a href="#equipo">Equipo</a>
           <a href="#testimonios">Testimonios</a>
           <a href="#contacto">Contacto</a>
         </div>
@@ -253,7 +260,6 @@
         <h1>Te invitamos a tu café favorito.</h1>
         <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y <strong>en palabras simples</strong>.</p>
 
-        <!-- Aviso Pop-Up en HERO -->
         <p class="hero-note">
           ✨ <strong>Nuevo:</strong> <a href="#popup">Pop-Up Café Judicial®</a>
           (Barrio Italia, Lastarria, Providencia). ¡Pronto fechas!
@@ -344,13 +350,11 @@
       <div class="kicker">Piloto en cafeterías</div>
       <h2 id="popup-h">Pop-Up Café Judicial®</h2>
 
-      <!-- Pitch breve -->
       <p class="lead">
         Muy pronto estaremos en <strong>cafeterías de Santiago</strong> (Barrio Italia, Lastarria y Providencia) con eventos especiales:
         una taza de café + asesoría legal clara y cercana.
       </p>
 
-      <!-- Itinerancia -->
       <p class="lead">
         Café Judicial® no se queda en un solo lugar: somos <strong>itinerantes</strong>. Vamos moviéndonos por
         <strong>distintos cafés y barrios</strong> para que más personas vivan la experiencia de
@@ -384,6 +388,48 @@
             <a class="cta" href="https://wa.me/569XXXXXXXX?text=Quiero%20postular%20mi%20cafeter%C3%ADa%20o%20barrio%20para%20el%20Pop-Up%20Caf%C3%A9%20Judicial" target="_blank" rel="noopener">Proponer café/barrio</a>
             <a class="cta ghost" href="https://forms.gle/TU_LINK_INTERES" target="_blank" rel="noopener">Avisarme fechas</a>
           </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section id="equipo" aria-labelledby="equipo-h">
+      <div class="kicker">Quiénes somos</div>
+      <h2 id="equipo-h">Equipo</h2>
+
+      <div class="team-grid">
+        <!-- Arturo -->
+        <article class="team-card">
+          <img class="team-avatar" src="IMG_8543.jpeg" alt="Arturo Morales — retrato" width="192" height="192" loading="lazy">
+          <div>
+            <h3>Arturo&nbsp;Morales</h3>
+            <p class="lead">Abogado y <strong>MBA</strong>. Enfoque en estrategia y gestión, con pasión por el <em>derecho en simple</em> y documentos claros.</p>
+            <div>
+              <span class="tag">MBA</span>
+              <span class="tag">Contratos & documentos</span>
+              <span class="tag">Estrategia</span>
+            </div>
+            <p style="margin-top:8px">
+              <a class="cta ghost" href="CV%20Arturo%20Morales%202025.pdf" target="_blank" rel="noopener">Ver CV (PDF)</a>
+            </p>
+          </div>
+        </article>
+
+        <!-- Emilio -->
+        <article class="team-card">
+          <img class="team-avatar" src="IMG_8542.jpeg" alt="Luis Emilio Bobadilla Cofré — retrato" width="192" height="192" loading="lazy">
+          <div>
+            <h3>Luis&nbsp;Emilio&nbsp;Bobadilla&nbsp;Cofré</h3>
+            <p class="lead"><strong>Abogado litigante</strong> con amplia experiencia práctica en tramitación y defensa de causas. Cercano y orientado a resultados.</p>
+            <div>
+              <span class="tag">Litigación</span>
+              <span class="tag">Familia · Civil · Laboral</span>
+              <span class="tag">Gestión de causas</span>
+            </div>
+            <p style="margin-top:8px">
+              <a class="cta ghost" href="CV%20Luis%20Emilio%20Bobadilla%20Cofr%C3%A9%202025.pdf" target="_blank" rel="noopener">Ver CV (PDF)</a>
+            </p>
+          </div>
         </article>
       </div>
     </section>
@@ -448,7 +494,6 @@
       <div class="kicker">Lo que viene</div>
       <h2 id="prox-h">Próximos proyectos</h2>
       <div class="cards">
-        <!-- Tarjeta Pop-Up dentro de Próximos (enlace a la sección) -->
         <article class="card">
           <h3>Pop-Up Café Judicial®</h3>
           <p class="lead">Eventos en cafeterías: café + asesoría legal de 45’ en tu barrio.</p>
@@ -543,7 +588,7 @@
   }
   </script>
 
-  <!-- JS: altura real del header + nav activo + scroll con offset + copiar correo -->
+  <!-- JS -->
   <script>
     // 1) Altura real del header para anclajes y compensación
     const headerEl = document.querySelector('header.site');
@@ -595,7 +640,7 @@
       }catch(e){ btnCopy.textContent='Error'; }
     });
 
-    // 5) Menú: asegurar que arranque mostrando "Qué es"
+    // 5) Menú: arrancar mostrando "Qué es"
     const linksWrap = document.querySelector('.top-nav .links');
     function resetNavScroll(){ if(linksWrap) linksWrap.scrollLeft = 0; }
     window.addEventListener('load', resetNavScroll);
