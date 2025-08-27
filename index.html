@@ -133,6 +133,12 @@
     .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
     .cta.ghost{background:#FFF;color:var(--ink);box-shadow:none}
 
+    /* Cinta aviso en HERO */
+    .hero-note{
+      background:#FFF;border:1px solid var(--line);border-radius:10px;
+      padding:10px 12px;margin-top:6px;display:inline-block
+    }
+
     /* Foto secundaria */
     .photo-chip{justify-self:center}
     .photo-chip img{
@@ -229,6 +235,7 @@
         <div class="links wrap">
           <a href="#que-es">Qué es</a>
           <a href="#servicios">Servicios</a>
+          <a href="#popup">Pop-Up</a>
           <a href="#testimonios">Testimonios</a>
           <a href="#contacto">Contacto</a>
         </div>
@@ -242,7 +249,14 @@
       <div class="headline">
         <h1>Te invitamos a tu café favorito.</h1>
         <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y <strong>en palabras simples</strong>.</p>
-        <div class="cta-row">
+
+        <!-- Aviso Pop-Up en HERO -->
+        <p class="hero-note">
+          ✨ <strong>Nuevo:</strong> <a href="#popup">Pop-Up en cafeterías</a>
+          (Barrio Italia, Lastarria, Providencia). ¡Pronto fechas!
+        </p>
+
+        <div class="cta-row" style="margin-top:6px">
           <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
           <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
         </div>
@@ -318,6 +332,46 @@
       </div>
     </section>
 
+    <!-- POP-UP (NUEVO) -->
+    <section id="popup" aria-labelledby="popup-h">
+      <div class="kicker">Piloto en cafeterías</div>
+      <h2 id="popup-h">Pop-Up Café Judicial®</h2>
+      <p class="lead">
+        Muy pronto estaremos en <strong>cafeterías de Santiago</strong>
+        (Barrio Italia, Lastarria y Providencia) con eventos especiales:
+        una taza de café + asesoría legal clara y cercana.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>¿Cómo funciona?</h3>
+          <ul class="mini-list">
+            <li><strong>1)</strong> Reservas un cupo de 45’</li>
+            <li><strong>2)</strong> Nos juntamos en la cafetería anfitriona</li>
+            <li><strong>3)</strong> Sales con pasos claros y, si quieres, documento encargado</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Barrios objetivo</h3>
+          <ul class="mini-list">
+            <li>Barrio Italia</li>
+            <li>Lastarria</li>
+            <li>Providencia</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Avísame fechas</h3>
+          <p class="lead">¿Quieres enterarte primero o invitar el Pop-Up a tu cafetería?</p>
+          <p class="cta-row" style="margin-top:10px">
+            <a class="cta" href="https://wa.me/569XXXXXXXX?text=Quiero%20enterarme%20del%20Pop-Up%20Caf%C3%A9%20Judicial" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="cta ghost" href="https://forms.gle/TU_LINK_INTERES" target="_blank" rel="noopener">Dejar mi correo</a>
+          </p>
+        </article>
+      </div>
+    </section>
+
     <!-- PROCESO SIMPLE -->
     <section id="proceso" aria-labelledby="proceso-h">
       <div class="kicker">Cómo trabajamos</div>
@@ -330,7 +384,7 @@
       </div>
     </section>
 
-    <!-- TESTIMONIOS (Andrés primero) -->
+    <!-- TESTIMONIOS -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
       <div class="ts-wrap">
         <div class="kicker">Prueba social</div>
@@ -378,6 +432,15 @@
       <div class="kicker">Lo que viene</div>
       <h2 id="prox-h">Próximos proyectos</h2>
       <div class="cards">
+        <!-- Tarjeta Pop-Up dentro de Próximos (enlace a la sección) -->
+        <article class="card">
+          <h3>Pop-Up Café Judicial®</h3>
+          <p class="lead">Eventos en cafeterías: café + asesoría legal de 45’ en tu barrio.</p>
+          <p class="cta-row" style="margin-top:10px">
+            <a class="cta" href="#popup">Ver más</a>
+          </p>
+        </article>
+
         <article class="card">
           <h3>Cafetería física</h3>
           <p class="lead">Un espacio para estudiar, reunirse y conversar con calma.</p>
