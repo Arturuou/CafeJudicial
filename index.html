@@ -42,7 +42,12 @@
       --bg:#FFFFFF; --panel:#FFFFFF; --card:#FFFFFF;
       --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
-      --headerH: 300px; /* fallback para anclajes (JS la actualiza) */
+      --headerH: 300px; /* fallback para anclajes */
+
+      /* ======= Ajustes de recorte del logo (puedes tunear) ======= */
+      --logo-crop-top: 22px;     /* recorte superior del PNG */
+      --logo-crop-bottom: 18px;  /* recorte inferior del PNG */
+      --logo-max-width: 520px;   /* ancho máx visual del logo */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -62,22 +67,41 @@
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* ===== HEADER: logo + menú (compacto) ===== */
+    /* ===== HEADER: logo grande + menú debajo (fijos) ===== */
     header.site{
       position:sticky; top:0; z-index:10; background:#FFFFFF;
       backdrop-filter:saturate(120%) blur(8px);
-      padding:0; /* nuevo: sin colchón extra */
-    }
-    .header-stack{
-      display:flex; flex-direction:column; align-items:center;
-      gap:0;           /* nuevo: sin espacio entre logo y menú */
-      padding-top:0;   /* nuevo: sin espacio arriba */
     }
 
-    /* Logo más bajo para quitar blanco arriba/abajo */
+    /* Menos aire en el stack del header */
+    .header-stack{
+      display:flex; flex-direction:column; align-items:center;
+      gap:0;               /* antes 2px */
+      padding-top:2px;     /* antes 4px */
+      padding-bottom:0;    /* reduce blanco bajo el logo */
+    }
+
+    /* Contenedor del logo para poder recortar */
+    .brand-wrap{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:0;           /* nada de aire adicional */
+    }
+
+    /* LOGO: recorte visual del PNG sin achicarlo */
     .brand-lockup{
-      height:clamp(120px, 22vw, 180px); /* antes: clamp(300px,60vw,560px) */
-      width:auto; display:block;
+      max-width: min(var(--logo-max-width), 70vw);
+      height:auto;
+      display:block;
+      margin:0 auto;
+
+      /* recorte superior/inferior (ajusta variables si quieres) */
+      clip-path: inset(var(--logo-crop-top) 0 var(--logo-crop-bottom) 0 round 0);
+
+      /* evita que se deforme si cambias tamaños */
+      image-rendering:auto;
     }
 
     /* Menú */
@@ -90,7 +114,7 @@
     .top-nav .wrap{ padding-left:8px; padding-right:8px; }
     .top-nav .links{
       display:flex; align-items:center; justify-content:flex-start;
-      gap:8px; padding:4px 8px;
+      gap:8px; padding:6px 8px;      /* un pelín más comprimido */
       flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
       scrollbar-width:none; scroll-snap-type:x proximity;
     }
@@ -234,16 +258,18 @@
 </head>
 <body>
 
-  <!-- ===== HEADER: LOGO + MENÚ ===== -->
+  <!-- ===== HEADER: LOGO GRANDE + MENÚ ===== -->
   <header class="site">
     <div class="wrap header-stack">
-      <picture>
-        <source srcset="logo-hero-640.webp" type="image/webp">
-        <img class="brand-lockup"
-             src="logo-nav-640.png"
-             alt="Café Judicial — logotipo completo" width="640" height="300"
-             fetchpriority="high" decoding="async">
-      </picture>
+      <div class="brand-wrap">
+        <picture>
+          <source srcset="logo-hero-640.webp" type="image/webp">
+          <img class="brand-lockup"
+               src="logo-nav-640.png"
+               alt="Café Judicial — logotipo completo" width="640" height="300"
+               fetchpriority="high" decoding="async">
+        </picture>
+      </div>
 
       <nav class="top-nav" aria-label="Secciones">
         <div class="links wrap">
@@ -398,53 +424,53 @@
     </section>
     
     <!-- ===== EQUIPO ===== -->
-<section id="equipo" aria-labelledby="equipo-h">
-  <div class="kicker">Quiénes somos</div>
-  <h2 id="equipo-h">Nuestro equipo</h2>
-  <p class="lead">
-    Café Judicial® nace de la unión entre el mundo legal y la gestión estratégica.  
-    Dos amigos que creen que las conversaciones difíciles pueden volverse más claras y cercanas… con un café al medio.
-  </p>
+    <section id="equipo" aria-labelledby="equipo-h">
+      <div class="kicker">Quiénes somos</div>
+      <h2 id="equipo-h">Nuestro equipo</h2>
+      <p class="lead">
+        Café Judicial® nace de la unión entre el mundo legal y la gestión estratégica.  
+        Dos amigos que creen que las conversaciones difíciles pueden volverse más claras y cercanas… con un café al medio.
+      </p>
 
-  <div class="cards">
-<!-- EMILIO -->
-<article class="card" style="text-align:center">
-  <img src="IMG_8542.jpeg" alt="Luis Emilio Bobadilla — fotografía"
-       style="width:160px;height:160px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;">
-  <h3 style="margin-bottom:4px">
-    Luis Emilio Bobadilla Cofré — Abogado, Pontificia Universidad Católica de Chile
-  </h3>
-  <span class="tag">Más de 15 años de experiencia en materias penales, civiles y de familia</span>
-  <ul class="mini-list" style="text-align:left;margin-top:10px">
-    <li><strong>Qué hace:</strong> Traduce lo complejo a pasos simples y accionables.</li>
-    <li><strong>Experiencia:</strong> Fiscalía Metropolitana Sur y Municipalidad de Macul; trabajo con equipos y comunidades.</li>
-    <li><strong>Sello:</strong> Explica con cercanía, empatía y enfoque práctico.</li>
-  </ul>
-  <p class="lead" style="font-style:italic;margin-top:10px">
-    “El derecho no tiene por qué ser enredado: mi foco es que salgas con claridad y tranquilidad.”
-  </p>
-</article>
+      <div class="cards">
+        <!-- EMILIO -->
+        <article class="card" style="text-align:center">
+          <img src="IMG_8542.jpeg" alt="Luis Emilio Bobadilla — fotografía"
+               style="width:160px;height:160px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;">
+          <h3 style="margin-bottom:4px">
+            Luis Emilio Bobadilla Cofré — Abogado, Pontificia Universidad Católica de Chile
+          </h3>
+          <span class="tag">Más de 15 años de experiencia en materias penales, civiles y de familia</span>
+          <ul class="mini-list" style="text-align:left;margin-top:10px">
+            <li><strong>Qué hace:</strong> Traduce lo complejo a pasos simples y accionables.</li>
+            <li><strong>Experiencia:</strong> Fiscalía Metropolitana Sur y Municipalidad de Macul; trabajo con equipos y comunidades.</li>
+            <li><strong>Sello:</strong> Explica con cercanía, empatía y enfoque práctico.</li>
+          </ul>
+          <p class="lead" style="font-style:italic;margin-top:10px">
+            “El derecho no tiene por qué ser enredado: mi foco es que salgas con claridad y tranquilidad.”
+          </p>
+        </article>
 
-<!-- ARTURO -->
-<article class="card" style="text-align:center">
-  <img src="IMG_8543.jpeg" alt="Arturo Morales — fotografía"
-       style="width:160px;height:160px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;">
-  <h3 style="margin-bottom:4px">
-    Arturo Morales Gutiérrez — Ingeniero Comercial, Magíster en Administración de Empresas (MBA)
-  </h3>
-  <span class="tag">Experiencia en gestión, operaciones y análisis de datos</span>
-  <ul class="mini-list" style="text-align:left;margin-top:10px">
-    <li><strong>Qué hace:</strong> Ordena procesos para que la experiencia sea cercana, clara y rápida.</li>
-    <li><strong>Experiencia:</strong> Jefe de Operaciones en estudio jurídico en Santiago, modernizando procesos y apoyando equipos legales.</li>
-    <li><strong>Sello:</strong> Une gestión y lo humano, simplificando trámites como una conversación con café.</li>
-  </ul>
-  <p class="lead" style="font-style:italic;margin-top:10px">
-    “Me gusta convertir trámites en experiencias simples — como conversar con un café.”
-  </p>
-</article>
-  </div>
-</section>
-<!-- ===== /EQUIPO ===== -->
+        <!-- ARTURO -->
+        <article class="card" style="text-align:center">
+          <img src="IMG_8543.jpeg" alt="Arturo Morales — fotografía"
+               style="width:160px;height:160px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;">
+          <h3 style="margin-bottom:4px">
+            Arturo Morales Gutiérrez — Ingeniero Comercial, Magíster en Administración de Empresas (MBA)
+          </h3>
+          <span class="tag">Experiencia en gestión, operaciones y análisis de datos</span>
+          <ul class="mini-list" style="text-align:left;margin-top:10px">
+            <li><strong>Qué hace:</strong> Ordena procesos para que la experiencia sea cercana, clara y rápida.</li>
+            <li><strong>Experiencia:</strong> Jefe de Operaciones en estudio jurídico en Santiago, modernizando procesos y apoyando equipos legales.</li>
+            <li><strong>Sello:</strong> Une gestión y lo humano, simplificando trámites como una conversación con café.</li>
+          </ul>
+          <p class="lead" style="font-style:italic;margin-top:10px">
+            “Me gusta convertir trámites en experiencias simples — como conversar con un café.”
+          </p>
+        </article>
+      </div>
+    </section>
+    <!-- ===== /EQUIPO ===== -->
 
     <!-- PROCESO SIMPLE -->
     <section id="proceso" aria-labelledby="proceso-h">
