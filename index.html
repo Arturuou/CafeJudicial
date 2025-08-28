@@ -45,8 +45,6 @@
       --headerH: 300px; /* fallback para anclajes */
 
       /* ======= RECORTE DEL LOGO ======= */
-      --logo-crop-top: 34px;     /* recorta blanco superior del PNG */
-      --logo-crop-bottom: 28px;  /* recorta blanco inferior del PNG */
       --logo-max-width: 800px;   /* tope en desktop */
     }
 
@@ -77,21 +75,29 @@
       gap:0; padding-top:2px; padding-bottom:0; /* menos aire */
     }
 
-    /* Contenedor del logo (para centrar y permitir recorte) */
+      /* Contenedor del logo (CENTRA y RECORTA) */
 .brand-wrap{
   width:100%;
-  display:flex; justify-content:center; align-items:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   padding:0;
-}
 
-/* LOGO recortado sin achicarlo */
+  /* recorte real */
+  overflow:hidden;      /* <- necesario para cortar */
+  height:180px;         /* iPhone */
+}
+@media (min-width:600px){ .brand-wrap{ height:200px } }    /* tablet */
+@media (min-width:1024px){ .brand-wrap{ height:220px } }   /* desktop */
+
+/* Imagen del logo */
 .brand-lockup{
-  width: clamp(320px, calc(100vw - 40px), var(--logo-max-width));
-  height:auto; display:block; margin:0 auto;
-  clip-path: inset(var(--logo-crop-top) 0 var(--logo-crop-bottom) 0 round 0);
+  width:auto;
+  height:100%;          /* llena el alto del contenedor */
+  object-fit:contain;   /* mantiene proporción */
+  clip-path: inset(34px 0 28px 0 round 0); /* recorte fijo arriba/abajo */
   image-rendering:auto;
 }
-
     /* Menú */
     .top-nav{
       width:100%;
