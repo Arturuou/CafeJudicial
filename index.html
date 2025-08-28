@@ -53,6 +53,24 @@
     }
     :target{scroll-margin-top: calc(var(--headerH) + 12px)}
     img{max-width:100%;display:block;height:auto}
+    /* Marco que recorta y centra el logo del header */
+.brand-frame{
+  height: clamp(240px, 42vw, 440px);  /* más compacto y responsivo */
+  display: grid; place-items: center;
+  overflow: hidden;                   /* recorta bordes sobrantes */
+}
+
+/* Zoom del logo sin tocar el archivo */
+.brand-zoom{
+  height: 100%; width: auto;
+  transform: scale(1.22);             /* ajusta el “acercamiento” */
+  transform-origin: center;
+}
+
+/* Un poco más de zoom en pantallas chicas (opcional) */
+@media (max-width: 520px){
+  .brand-zoom{ transform: scale(1.3); }
+}
 
     body{
       color:var(--ink);
@@ -231,14 +249,16 @@
 
   <!-- ===== HEADER: LOGO GRANDE + MENÚ ===== -->
   <header class="site">
-    <div class="wrap header-stack">
-      <picture>
-        <source srcset="logo-hero-640.webp" type="image/webp">
-        <img class="brand-lockup"
-             src="logo-nav-640.png"
-             alt="Café Judicial — logotipo completo" width="640" height="300"
-             fetchpriority="high" decoding="async">
-      </picture>
+    <div class="brand-frame">
+  <picture>
+    <source srcset="logo-hero-640.webp" type="image/webp">
+    <img class="brand-zoom"
+         src="logo-nav-640.png"
+         alt="Café Judicial — logotipo completo"
+         width="640" height="300"
+         fetchpriority="high" decoding="async">
+  </picture>
+</div>
 
       <nav class="top-nav" aria-label="Secciones">
         <div class="links wrap">
