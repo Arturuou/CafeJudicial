@@ -78,20 +78,19 @@
     }
 
     /* Contenedor del logo (para centrar y permitir recorte) */
-    .brand-wrap{
-      width:100%;
-      display:flex; justify-content:center; align-items:center;
-      padding:0;
-    }
+.brand-wrap{
+  width:100%;
+  display:flex; justify-content:center; align-items:center;
+  padding:0;
+}
 
-    /* LOGO recortado sin achicarlo */
-    .brand-lockup{
-      width: clamp(320px, calc(100vw - 40px), var(--logo-max-width));
-      height:auto; display:block; margin:0 auto;
-      /* recorte arriba/abajo para eliminar blanco del PNG */
-      clip-path: inset(var(--logo-crop-top) 0 var(--logo-crop-bottom) 0 round 0);
-      image-rendering:auto;
-    }
+/* LOGO recortado sin achicarlo */
+.brand-lockup{
+  width: clamp(320px, calc(100vw - 40px), var(--logo-max-width));
+  height:auto; display:block; margin:0 auto;
+  clip-path: inset(var(--logo-crop-top) 0 var(--logo-crop-bottom) 0 round 0);
+  image-rendering:auto;
+}
 
     /* Menú */
     .top-nav{
