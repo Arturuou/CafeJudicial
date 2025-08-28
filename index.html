@@ -42,7 +42,7 @@
       --bg:#FFFFFF; --panel:#FFFFFF; --card:#FFFFFF;
       --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
-      --headerH: 300px; /* fallback para anclajes */
+      --headerH: 300px; /* fallback para anclajes (JS la actualiza) */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -62,16 +62,21 @@
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* ===== HEADER: logo grande + menú debajo (fijos) ===== */
+    /* ===== HEADER: logo + menú (compacto) ===== */
     header.site{
       position:sticky; top:0; z-index:10; background:#FFFFFF;
       backdrop-filter:saturate(120%) blur(8px);
+      padding:0; /* nuevo: sin colchón extra */
     }
-    .header-stack{ display:flex; flex-direction:column; align-items:center; gap:2px; padding-top:4px; }
+    .header-stack{
+      display:flex; flex-direction:column; align-items:center;
+      gap:0;           /* nuevo: sin espacio entre logo y menú */
+      padding-top:0;   /* nuevo: sin espacio arriba */
+    }
 
-    /* LOGO más grande y constante */
+    /* Logo más bajo para quitar blanco arriba/abajo */
     .brand-lockup{
-      height:clamp(300px, 60vw, 560px);
+      height:clamp(120px, 22vw, 180px); /* antes: clamp(300px,60vw,560px) */
       width:auto; display:block;
     }
 
@@ -229,7 +234,7 @@
 </head>
 <body>
 
-  <!-- ===== HEADER: LOGO GRANDE + MENÚ ===== -->
+  <!-- ===== HEADER: LOGO + MENÚ ===== -->
   <header class="site">
     <div class="wrap header-stack">
       <picture>
