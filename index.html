@@ -58,8 +58,21 @@
   height: clamp(240px, 42vw, 440px);  /* más compacto y responsivo */
   display: grid; place-items: center;
   overflow: hidden;                   /* recorta bordes sobrantes */
+.brand-frame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
 }
 
+.brand-frame img.brand-zoom {
+  max-width: 340px;   /* ajusta: 300–400px según quieras */
+  height: auto;
+  object-fit: contain;
+
+}
+}
 /* Zoom del logo sin tocar el archivo */
 .brand-zoom{
   height: 100%; width: auto;
@@ -248,30 +261,32 @@
 <body>
 
   <!-- ===== HEADER: LOGO GRANDE + MENÚ ===== -->
-  <header class="site">
-    <div class="brand-frame">
-  <picture>
-    <source srcset="logo-hero-640.webp" type="image/webp">
-    <img class="brand-zoom"
-         src="logo-nav-640.png"
-         alt="Café Judicial — logotipo completo"
-         width="640" height="300"
-         fetchpriority="high" decoding="async">
-  </picture>
-</div>
+<header class="site">
+  <div class="wrap header-stack">
 
-      <nav class="top-nav" aria-label="Secciones">
-        <div class="links wrap">
-          <a href="#que-es">Qué es</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#popup">Pop-Up Café Judicial®</a>
-          <a href="#equipo">Equipo</a>
-          <a href="#testimonios">Testimonios</a>
-          <a href="#contacto">Contacto</a>
-        </div>
-      </nav>
+    <div class="brand-frame">
+      <picture>
+        <source srcset="logo-hero-640.webp" type="image/webp">
+        <img class="brand-zoom"
+             src="logo-nav-640.png"
+             alt="Café Judicial — logotipo completo"
+             width="640" height="300"
+             fetchpriority="high" decoding="async">
+      </picture>
     </div>
-  </header>
+
+    <nav class="top-nav" aria-label="Secciones">
+      <div class="links wrap">
+        <a href="#que-es">Qué es</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#popup">Pop-Up Café Judicial®</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
   <!-- ===== HERO ===== -->
   <section id="top" class="hero" aria-label="Portada">
