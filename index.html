@@ -256,6 +256,38 @@
       content:""; position:absolute; left:12px; top:50%; transform:translateY(-50%);
       width:44px; height:44px; background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
     }
+    /* --- Fix logo header (evita recorte en móvil) --- */
+.brand-lockup{ /* si aún usas esa clase */
+  height:auto !important;
+  width:auto;
+  max-width:92vw;
+  max-height:120px;        /* alto controlado en móvil */
+  object-fit:contain;
+  display:block;
+  margin-inline:auto;
+}
+
+.brand-frame{             /* si usas el bloque nuevo */
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:8px 0 6px;
+}
+.brand-frame img.brand-zoom{
+  max-width:92vw;
+  max-height:120px;       /* mismo límite de alto */
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  display:block;
+}
+@media (min-width:768px){
+  .brand-lockup,
+  .brand-frame img.brand-zoom{
+    max-height:160px;     /* más grande en escritorio */
+  }
+}
   </style>
 </head>
 <body>
