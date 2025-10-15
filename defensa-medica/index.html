@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Defensa Jurídica Médica – Café Judicial®</title>
+
+  <!-- Canonical & Robots -->
+  <link rel="canonical" href="https://arturuou.github.io/CafeJudicial/defensa-medica/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- SEO / Social -->
+  <meta name="description" content="Defendemos tu ejercicio profesional: sumarios sanitarios y hospitalarios, responsabilidad civil médica, defensa penal, seguros de RC y asesoría jurídico-tributaria. Claro, rápido y en palabras simples." />
+  <meta property="og:title" content="Defensa Jurídica Médica – Café Judicial®" />
+  <meta property="og:description" content="Sumarios sanitarios/hospitalarios, demandas por presunta negligencia, defensa penal y seguros de RC médica. Protegemos tu ejercicio profesional." />
+  <meta property="og:image" content="https://arturuou.github.io/CafeJudicial/og-cafe-judicial-1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CL" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="256x256" href="https://arturuou.github.io/CafeJudicial/logo-symbol-256.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://arturuou.github.io/CafeJudicial/logo-symbol-256.png" />
+
+  <!-- Tema fijo claro -->
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+
+  <!-- Preload del logo -->
+  <link rel="preload" as="image" href="https://arturuou.github.io/CafeJudicial/logo-hero-640.webp" />
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#FFFFFF; --panel:#FFFFFF; --card:#FFFFFF;
+      --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
+      --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
+      --headerH: 300px; --logo-max-width: 800px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{ scroll-behavior:smooth; color-scheme: light !important; scroll-padding-top: calc(var(--headerH) + 12px) }
+    :target{scroll-margin-top: calc(var(--headerH) + 12px)}
+    img{max-width:100%;display:block;height:auto}
+
+    body{ color:var(--ink); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6; background:#FFFFFF }
+    a{color:var(--accent)}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    /* ===== HEADER: logo + menú ===== */
+    header.site{ position:sticky; top:0; z-index:10; background:#FFFFFF; backdrop-filter:saturate(120%) blur(8px) }
+    .header-stack{ display:flex; flex-direction:column; align-items:center; gap:0; padding-top:2px; padding-bottom:0 }
+    .brand-wrap{ width:100%; display:flex; justify-content:center; align-items:center; padding:0; overflow:hidden; height:200px }
+    @media (min-width:600px){ .brand-wrap{ height:210px } }
+    @media (min-width:1024px){ .brand-wrap{ height:220px } }
+    .brand-lockup{ width:auto; height:100%; object-fit:contain; clip-path: inset(44px 0 38px 0 round 0); image-rendering:auto }
+
+    .top-nav{ width:100%; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:#FFFFFF }
+    .top-nav .wrap{ padding-left:8px; padding-right:8px }
+    .top-nav .links{
+      display:flex; align-items:center; justify-content:flex-start; gap:8px; padding:6px 8px;
+      flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; scroll-snap-type:x proximity
+    }
+    .top-nav .links::-webkit-scrollbar{ display:none }
+    .top-nav .links a{
+      color:var(--muted); text-decoration:none; font-size:clamp(13px, 2.9vw, 15px);
+      padding:6px 8px; border-radius:8px; white-space:nowrap; scroll-snap-align:start
+    }
+    .top-nav .links a[aria-current="true"]{ color:var(--ink); box-shadow:0 0 0 1px var(--line) inset }
+
+    /* ===== HERO ===== */
+    .hero{ position:relative; min-height:52vh; display:grid; place-items:center; text-align:left; overflow:hidden; padding:10px 0 28px }
+    .hero .inner{
+      position:relative; z-index:1; max-width:980px; padding:22px 20px;
+      background:#FFFFFF; border:1px solid rgba(227,200,166,.85); border-radius:16px; box-shadow:0 24px 60px rgba(58,36,21,.14);
+      display:grid; gap:18px
+    }
+    @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr; align-items:center} }
+    .headline > h1{
+      font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(28px,4.2vw,48px);
+      line-height:1.08; margin:2px 0 8px; letter-spacing:.2px
+    }
+    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);margin-bottom:10px}
+    .hero-note{ background:#FFF; border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin-top:6px; display:inline-block }
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+    .cta{
+      display:inline-flex;gap:10px;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,var(--accent-soft),var(--accent));
+      color:var(--accent-ink);font-weight:700;text-decoration:none;
+      padding:12px 16px;border-radius:12px;border:1px solid rgba(201,146,58,.55);
+      box-shadow:0 6px 16px rgba(58,36,21,.18);transition:.18s ease
+    }
+    .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
+    .cta.ghost{background:#FFF;color:var(--ink);box-shadow:none}
+
+    /* Foto secundaria opcional */
+    .photo-chip{justify-self:center}
+    .photo-chip img{ width:min(100%,720px); border-radius:16px; border:1px solid var(--line); box-shadow:0 12px 28px rgba(58,36,21,.12); margin:0 auto; aspect-ratio:4/3 }
+
+    /* SECCIONES */
+    main section{padding:44px 0;border-top:1px solid var(--line)}
+    h2{
+      font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(24px,3.6vw,34px);
+      margin:0 0 12px;position:relative;padding-bottom:6px;display:flex;align-items:center;gap:.5rem
+    }
+    h2::after{ content:"";position:absolute;left:0;bottom:0;width:84px;height:2px;border-radius:2px;
+      background:linear-gradient(90deg,var(--accent),rgba(201,146,58,0)) }
+    main h2::before{ content:"";width:32px;height:32px;flex:0 0 32px;background:center/contain no-repeat url("https://arturuou.github.io/CafeJudicial/logo-symbol-256.png"); transform:translateY(1px) }
+    .lead{color:var(--muted);margin:0 0 16px}
+    .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
+
+    /* Tarjetas / listas */
+    .cards{display:grid;gap:14px}
+    @media (min-width:860px){ .cards{grid-template-columns:repeat(3,1fr)} }
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+    .card h3{margin-bottom:6px}
+    .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:6px;font-size:14px;color:var(--muted)}
+    .mini-list li strong{color:var(--ink)}
+
+    /* Nota/Tip */
+    .tip{ margin-top:10px; font-size:14px; color:#5a3b21; background:#fff7ea; border:1px solid #f1d6a6; padding:10px 12px; border-radius:10px }
+
+    /* WhatsApp FAB */
+    .whatsapp-fab{
+      position:fixed; right:18px; bottom:18px; width:56px; height:56px;
+      border-radius:50%; background:#25D366; display:grid; place-items:center;
+      color:#fff; box-shadow:0 10px 30px rgba(37,211,102,.25); z-index:1100; transition:transform .15s ease
+    }
+    .whatsapp-fab:hover{ transform: translateY(-2px) }
+    .whatsapp-fab::after{
+      content:""; position:absolute; inset:-6px; border-radius:50%;
+      box-shadow:0 0 0 0 rgba(37,211,102,.22); animation:wa-pulse 2.2s infinite
+    }
+
+    /* Footer */
+    footer{ padding:28px 96px 96px 64px; text-align:center; color:#7a5a46; font-style:italic; position:relative; background:#FFFFFF }
+    @media (min-width:600px){ footer{ padding-bottom:32px } }
+    footer::before{
+      content:""; position:absolute; left:12px; top:50%; transform:translateY(-50%);
+      width:44px; height:44px; background:center/contain no-repeat url("https://arturuou.github.io/CafeJudicial/logo-symbol-256.png"); opacity:.9
+    }
+
+    @keyframes wa-pulse{ 0%{box-shadow:0 0 0 0 rgba(37,211,102,.22)} 70%{box-shadow:0 0 0 12px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
+    @media (prefers-reduced-motion: reduce){ .whatsapp-fab::after{ animation:none } html{ scroll-behavior:auto } }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site">
+    <div class="wrap header-stack">
+      <div class="brand-wrap">
+        <picture>
+          <source srcset="https://arturuou.github.io/CafeJudicial/logo-hero-640.webp" type="image/webp">
+          <img class="brand-lockup"
+               src="https://arturuou.github.io/CafeJudicial/logo-nav-640.png"
+               alt="Café Judicial — logotipo completo"
+               width="640" height="300"
+               fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+
+      <nav class="top-nav" aria-label="Secciones">
+        <div class="links wrap">
+          <a href="https://arturuou.github.io/CafeJudicial/">Inicio</a>
+          <a href="https://arturuou.github.io/CafeJudicial/#servicios">Servicios</a>
+          <a href="https://arturuou.github.io/CafeJudicial/#popup">Pop-Up</a>
+          <a href="https://arturuou.github.io/CafeJudicial/#equipo">Equipo</a>
+          <a href="https://arturuou.github.io/CafeJudicial/#contacto">Contacto</a>
+          <a href="https://arturuou.github.io/CafeJudicial/defensa-medica/" aria-current="true">Defensa Médica</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="top" class="hero" aria-label="Portada">
+    <div class="inner wrap">
+      <div class="headline">
+        <h1>Defensa Jurídica Médica</h1>
+        <p class="sub">Protegemos tu ejercicio profesional: sumarios sanitarios y hospitalarios, responsabilidad civil médica, defensa penal y seguros de RC.</p>
+
+        <p class="hero-note">💬 Atendemos con máxima reserva. Podemos reunirnos en tu centro asistencial o por videollamada.</p>
+
+        <div class="cta-row" style="margin-top:6px">
+          <a class="cta" href="https://forms.gle/TU_LINK_ASESORIA_MEDICA" target="_blank" rel="noopener">Agendar asesoría</a>
+          <a class="cta ghost" href="https://wa.me/569XXXXXXXX?text=Hola%2C%20quiero%20asesor%C3%ADa%20en%20Defensa%20Jur%C3%ADdica%20M%C3%A9dica" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        </div>
+      </div>
+
+      <figure class="photo-chip">
+        <img src="https://images.unsplash.com/photo-1584982751622-7125d439b683?q=80&w=1200&auto=format" loading="lazy" alt="Equipo médico en pasillo de clínica" width="1200" height="900">
+        <figcaption style="text-align:center;color:#6E4F3D;font-size:12px;margin-top:6px">Asesoría jurídica para profesionales y centros de salud</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <main class="wrap" role="main">
+    <!-- COBERTURA -->
+    <section id="cobertura" aria-labelledby="cobertura-h">
+      <div class="kicker">Qué cubrimos</div>
+      <h2 id="cobertura-h">Áreas de trabajo</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Sumarios sanitarios y hospitalarios</h3>
+          <ul class="mini-list">
+            <li><strong>Descargos y estrategia:</strong> diseño de defensa y acompañamiento en todo el proceso.</li>
+            <li><strong>Audiencias y diligencias:</strong> representación frente a comités y fiscalías.</li>
+            <li><strong>Medidas disciplinarias:</strong> impugnación, reposición y apelación.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Responsabilidad civil médica</h3>
+          <ul class="mini-list">
+            <li><strong>Demandas civiles:</strong> defensa técnica y gestión probatoria.</li>
+            <li><strong>Negociación y acuerdos:</strong> foco en solución y resguardo reputacional.</li>
+            <li><strong>Pericias:</strong> coordinación con especialistas.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Defensa penal & seguros</h3>
+          <ul class="mini-list">
+            <li><strong>Denuncias/querellas:</strong> defensa penal estratégica y reservada.</li>
+            <li><strong>Seguros RC médica:</strong> revisión de coberturas y apoyo en siniestros.</li>
+            <li><strong>Aspectos tributarios y contractuales:</strong> consultas propias del ejercicio médico.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="tip">💡 Si eres director(a) o jefe(a) de servicio, también apoyamos <strong>protocolos, manuales y gestión de riesgo</strong> para prevenir contingencias.</p>
+    </section>
+
+    <!-- PAQUETES -->
+    <section id="paquetes" aria-labelledby="paquetes-h">
+      <div class="kicker">Opciones claras</div>
+      <h2 id="paquetes-h">Paquetes sugeridos</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Evaluación Express 45’</h3>
+          <p class="lead">Revisión inicial de antecedentes + hoja de ruta y riesgos clave.</p>
+          <ul class="mini-list">
+            <li>Recomendado al recibir una notificación o reclamo.</li>
+            <li>Entrega de checklist y próximos pasos.</li>
+          </ul>
+          <p class="tip">Desde $____ • Modalidad presencial u online.</p>
+        </article>
+        <article class="card">
+          <h3>Defensa en Sumario</h3>
+          <p class="lead">Estrategia completa: descargos, audiencias y recursos.</p>
+          <ul class="mini-list">
+            <li>Incluye revisión documental y preparación de declaraciones.</li>
+            <li>Reportes de avance por hitos.</li>
+          </ul>
+          <p class="tip">Desde $____ • Posibilidad de honorarios por etapas.</p>
+        </article>
+        <article class="card">
+          <h3>Responsabilidad Civil / Penal</h3>
+          <p class="lead">Defensa en demandas civiles o causas penales vinculadas a la práctica médica.</p>
+          <ul class="mini-list">
+            <li>Estrategia probatoria y negociación.</li>
+            <li>Coordinación de peritajes y seguros.</li>
+          </ul>
+          <p class="tip">Desde $____ • Presupuesto a medida según complejidad.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso" aria-labelledby="proceso-h">
+      <div class="kicker">Cómo trabajamos</div>
+      <h2 id="proceso-h">Proceso simple</h2>
+      <div class="cards">
+        <article class="card"><h3>1) Consulta</h3><p class="lead">Conversemos tu caso (clínica o videollamada).</p></article>
+        <article class="card"><h3>2) Evaluación</h3><p class="lead">Revisamos antecedentes clínicos y administrativos.</p></article>
+        <article class="card"><h3>3) Estrategia</h3><p class="lead">Plan de defensa, plazos y responsables.</p></article>
+        <article class="card"><h3>4) Acción</h3><p class="lead">Presentaciones, audiencias y seguimiento continuo.</p></article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-h">
+      <div class="kicker">Dudas comunes</div>
+      <h2 id="faq-h">Preguntas frecuentes</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Me iniciaron un sumario, ¿qué hago?</h3>
+          <p class="lead">Agenda una evaluación express. El primer plazo suele ser breve: necesitamos ver la carpeta y definir descargos.</p>
+        </article>
+        <article class="card">
+          <h3>¿Trabajan con mi seguro RC?</h3>
+          <p class="lead">Sí. Revisamos la póliza, exclusiones y apoyo en la notificación del siniestro.</p>
+        </article>
+        <article class="card">
+          <h3>¿La asesoría es confidencial?</h3>
+          <p class="lead">Totalmente. Firmamos acuerdo de confidencialidad si lo requieres.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="contacto" aria-labelledby="cta-h">
+      <div class="kicker">Contacto</div>
+      <h2 id="cta-h">Conversemos</h2>
+      <p class="lead">Cuéntanos tu situación y te respondemos a la brevedad.</p>
+      <p class="cta-row">
+        <a class="cta" href="mailto:contacto@cafejudicial.cl">contacto@cafejudicial.cl</a>
+        <a class="cta ghost" href="https://wa.me/569XXXXXXXX?text=Hola%2C%20quiero%20agendar%20Defensa%20Jur%C3%ADdica%20M%C3%A9dica" target="_blank" rel="noopener">WhatsApp</a>
+      </p>
+      <p class="tip" style="margin-top:12px">Este sitio entrega <strong>asesoría legal</strong>. No constituye consejo médico.</p>
+    </section>
+  </main>
+
+  <!-- WhatsApp -->
+  <a class="whatsapp-fab"
+     href="https://wa.me/569XXXXXXXX?text=Hola%2C%20quiero%20asesor%C3%ADa%20en%20Defensa%20Jur%C3%ADdica%20M%C3%A9dica"
+     target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path fill="white" d="M19.11 17.64c-.27-.14-1.6-.78-1.85-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46h-.53c-.18 0-.48.07-.74 .34-.25 .27-.98 .96-.98 2.33 0 1.37 1 2.69 1.14 2.87 .14 .18 1.97 3 4.77 4.2 .67 .29 1.19 .46 1.6 .59 .67 .21 1.28 .18 1.76 .11 .54-.08 1.6-.65 1.83-1.27 .23-.62 .23-1.15 .16-1.27 -.07-.12-.25-.18-.52-.32z"/>
+      <path fill="#25D366" d="M27.6 4.4C24.7 1.5 20.9 0 17 0 8.1 0 .9 7.2 .9 16.1c0 2.8 .7 5.5 2.1 7.9L0 32l8.3-2.7c2.4 1.3 5.1 2 7.8 2h.1c8.9 0 16.1-7.2 16.1-16.1 0-3.9-1.5-7.7-4.3-10.8z"/>
+    </svg>
+  </a>
+
+  <footer role="contentinfo">
+    Café Judicial® — Donde la justicia se sirve en taza · Santiago, Chile
+  </footer>
+
+  <!-- JSON-LD: Legal Service (servicio específico) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LegalService",
+    "name":"Café Judicial — Defensa Jurídica Médica",
+    "url":"https://arturuou.github.io/CafeJudicial/defensa-medica/",
+    "image":"https://arturuou.github.io/CafeJudicial/og-cafe-judicial-1200x630.jpg",
+    "email":"contacto@cafejudicial.cl",
+    "areaServed":"CL",
+    "serviceType":"Defensa médica y responsabilidad profesional",
+    "provider":"Café Judicial"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Me iniciaron un sumario sanitario, ¿qué hago?",
+       "acceptedAnswer":{"@type":"Answer","text":"Agenda una evaluación inicial. Revisamos la carpeta, definimos descargos y un plan de defensa con plazos."}},
+      {"@type":"Question","name":"¿Trabajan con mi seguro de responsabilidad civil médica?",
+       "acceptedAnswer":{"@type":"Answer","text":"Sí. Revisamos la póliza, exclusiones y te apoyamos en la notificación y gestión del siniestro."}},
+      {"@type":"Question","name":"¿La asesoría es confidencial?",
+       "acceptedAnswer":{"@type":"Answer","text":"Totalmente. Podemos firmar un acuerdo de confidencialidad y atender en tu centro o por videollamada."}}
+    ]
+  }
+  </script>
+
+  <!-- JS (offset, nav activo, scroll y copiar si agregas botón) -->
+  <script>
+    const headerEl = document.querySelector('header.site');
+    function setHeaderOffset(){
+      const h = headerEl.getBoundingClientRect().height || 300;
+      document.documentElement.style.setProperty('--headerH', h + 'px');
+    }
+    setHeaderOffset();
+    window.addEventListener('load', setHeaderOffset);
+    window.addEventListener('resize', setHeaderOffset, {passive:true});
+    window.addEventListener('orientationchange', ()=>setTimeout(setHeaderOffset, 250));
+  </script>
+</body>
+</html>
