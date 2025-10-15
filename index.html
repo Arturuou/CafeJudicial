@@ -73,7 +73,7 @@
       gap:0; padding-top:2px; padding-bottom:0;
     }
 
-    /* Contenedor del logo (CENTRA y RECORTA) */
+    /* Contenedor del logo */
     .brand-wrap{
       width:100%;
       display:flex;
@@ -200,66 +200,11 @@
     .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:6px;font-size:14px;color:var(--muted)}
     .mini-list li strong{color:var(--ink)}
 
-    /* Tip / nota */
-    .tip{
-      margin-top:10px; font-size:14px; color:#5a3b21;
-      background:#fff7ea; border:1px solid #f1d6a6;
-      padding:10px 12px; border-radius:10px;
-    }
+    /* Listas con viñetas (para Áreas) */
+    .ul-bulleted{ list-style:disc; padding-left:1.2rem; margin:8px 0 0 }
+    .ul-bulleted li{ margin-bottom:8px }
 
-    <!-- ÁREAS DE PRÁCTICA (ACORDEÓN, REDACTADO FORMAL) -->
-<section id="areas" aria-labelledby="areas-h">
-  <div class="kicker">Especialidades</div>
-  <h2 id="areas-h">Áreas de práctica</h2>
-
-  <div class="accordion">
-    <!-- 1) Civil y Familia -->
-    <details class="area" id="area-civil">
-      <summary><span class="chev">›</span> Derecho Civil y de Familia</summary>
-      <div class="area-body">
-        <p class="lead">Asesoría y representación en asuntos personales y patrimoniales, con enfoque en soluciones claras y oportunas.</p>
-        <ul class="mini-list">
-          <li><strong>Cambio de nombre y rectificación de partidas:</strong> Patrocinio y tramitación judicial y/o administrativa para modificar nombres o apellidos por motivos de uso, identidad o error registral. Incluye revisión de antecedentes, presentación de la demanda o solicitud, seguimiento de notificaciones y gestión ante el Registro Civil para la inscripción definitiva.</li>
-          <li><strong>Posesión efectiva (testada e intestada):</strong> Gestión integral ante Registro Civil o tribunal competente, según corresponda. Comprende levantamiento de herederos, inventario básico, preparación y presentación de antecedentes, obtención de resolución y coordinación de inscripciones en Conservador de Bienes Raíces y otras entidades (bancos, AFP, compañías de seguros).</li>
-          <li><strong>Testamentos y asesoría sucesoria:</strong> Diagnóstico de la situación familiar y patrimonial; redacción y revisión de testamentos abiertos, cerrados o especiales; coordinación de firmas en notaría y orientación sobre custodia, revocación o modificaciones futuras.</li>
-          <li><strong>Partición de herencia y acuerdos entre herederos:</strong> Conducción de negociaciones para lograr una partición extrajudicial o, en su defecto, representación en juicio particional. Incluye propuesta de distribución, designación de partidor cuando resulte procedente y formalización e inscripción de adjudicaciones.</li>
-          <li><strong>Contratos civiles:</strong> Redacción y/o revisión de contratos de compraventa, promesa, arriendo, comodato, prestación de servicios y otros. Considera cláusulas de garantías, penalidades, mecanismos de terminación, acompañamiento en la firma y, cuando sea necesario, autorizaciones notariales.</li>
-        </ul>
-      </div>
-    </details>
-
-    <!-- 2) Administrativos y Sumarios -->
-    <details class="area" id="area-admin">
-      <summary><span class="chev">›</span> Procedimientos Administrativos y Sumarios</summary>
-      <div class="area-body">
-        <p class="lead">Defensa y acompañamiento de funcionarias/os públicos y municipales durante el ciclo completo del procedimiento administrativo.</p>
-        <ul class="mini-list">
-          <li><strong>Descargos y defensas en sumarios:</strong> Análisis del expediente, preparación de estrategias, asistencia a declaraciones, presentación de descargos fundados y solicitud de diligencias pertinentes, resguardando el debido proceso y la proporcionalidad de eventuales sanciones.</li>
-          <li><strong>Recursos administrativos:</strong> Interposición de recursos de reposición, jerárquicos o de apelación, según el estatuto aplicable. Se incluyen fundamentos de hecho y derecho, acompañamiento de antecedentes probatorios y control estricto de plazos y notificaciones.</li>
-          <li><strong>Presentaciones ante la Contraloría General de la República:</strong> Elaboración de reclamos y consultas de legalidad, informes en derecho y seguimiento del trámite hasta su resolución, incluyendo coordinación con el órgano requerido.</li>
-        </ul>
-      </div>
-    </details>
-
-    <!-- 3) Defensa Médica -->
-    <details class="area" id="area-medica">
-      <summary><span class="chev">›</span> Defensa Médica y Responsabilidad Profesional</summary>
-      <div class="area-body">
-        <p class="lead">Asistencia especializada a profesionales y entidades de salud en responsabilidad civil, administrativa y penal.</p>
-        <ul class="mini-list">
-          <li><strong>Sumarios administrativos sanitarios y hospitalarios:</strong> Defensa en investigaciones instruidas por servicios de salud u hospitales. Comprende descargos, solicitudes de diligencias, recursos y seguimiento hasta el cierre del procedimiento.</li>
-          <li><strong>Seguros de responsabilidad civil médica:</strong> Revisión de pólizas y cobertura, notificación oportuna de siniestros, coordinación con liquidadores y aseguradoras y alineamiento de la estrategia de defensa con los términos del seguro.</li>
-          <li><strong>Demandas civiles por presunta negligencia:</strong> Representación en juicios de responsabilidad civil médica: contestación de demanda, prueba pericial y documental, audiencias, negociación y celebración de eventuales transacciones.</li>
-          <li><strong>Defensa penal:</strong> Patrocinio en denuncias o querellas relacionadas con la práctica médica. Incluye asesoría previa a declaraciones, medidas cautelares, estrategias de litigación y protección de la información clínica.</li>
-          <li><strong>Consultoría jurídica y tributaria de la práctica médica:</strong> Contratación con clínicas y centros, cumplimiento regulatorio sanitario, protección de datos personales y estructura tributaria de sociedades o ejercicios individuales.</li>
-        </ul>
-        <p class="area-cta"><a class="cta ghost" href="defensa-medica/">Ver más sobre Defensa Jurídica Médica →</a></p>
-      </div>
-    </details>
-  </div>
-</section>
-
-    /* ===== EQUIPO / TESTIMONIOS / FOOTER ===== */
+    /* EQUIPO / TESTIMONIOS / FOOTER */
     .team-grid{display:grid;gap:16px}
     @media (min-width:860px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
     .team-card{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start;background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px}
@@ -336,10 +281,13 @@
           <a href="#que-es">Qué es</a>
           <a href="#areas">Áreas</a>
           <a href="#servicios">Servicios</a>
+          <a href="#proceso">Proceso</a>
           <a href="defensa-medica/">Defensa Médica</a>
           <a href="#popup">Pop-Up Café Judicial®</a>
           <a href="#equipo">Equipo</a>
-          <a href="#testimonios">Testimonios</a>
+          <a href="#testimonios">Lo que dicen</a>
+          <a href="#proximamente">Próximamente</a>
+          <a href="#faq">FAQ</a>
           <a href="#contacto">Contacto</a>
         </div>
       </nav>
@@ -390,53 +338,32 @@
       </p>
     </section>
 
-    <!-- ÁREAS DE PRÁCTICA (ACORDEÓN CON VIÑETAS) -->
-<section id="areas" aria-labelledby="areas-h">
-  <div class="kicker">Especialidades</div>
-  <h2 id="areas-h">Áreas de práctica</h2>
+    <!-- ÁREAS DE PRÁCTICA (sin acordeón, con viñetas) -->
+    <section id="areas" aria-labelledby="areas-h">
+      <div class="kicker">Especialidades</div>
+      <h2 id="areas-h">Áreas de práctica</h2>
 
-  <div class="accordion">
-    <!-- 1) Civil y Familia -->
-    <details class="area" id="area-civil">
-      <summary><span class="chev">▸</span> Derecho Civil y de Familia</summary>
-      <div class="area-body">
+      <article class="card" style="margin-bottom:14px">
+        <h3>Derecho Civil y de Familia</h3>
         <ul class="ul-bulleted">
           <li><strong>Cambio de nombre y rectificación de partidas:</strong> Tramitación judicial y/o administrativa para modificar nombres o apellidos por uso, identidad o error registral; incluye revisión de antecedentes, presentación y gestión ante el Registro Civil.</li>
           <li><strong>Posesión efectiva (testada e intestada):</strong> Gestión integral ante Registro Civil o tribunales, levantamiento de herederos, preparación de antecedentes y coordinación de inscripciones en Conservador de Bienes Raíces y otras entidades.</li>
           <li><strong>Testamentos y asesoría sucesoria:</strong> Diagnóstico patrimonial y familiar; redacción y revisión de testamentos abiertos, cerrados o especiales; coordinación de firmas en notaría y orientación sobre modificaciones futuras.</li>
-          <li><strong>Partición de herencia y acuerdos entre herederos:</strong> Conducción de negociaciones para partición extrajudicial o representación en juicio particional; formalización e inscripción de adjudicaciones.</li>
-          <li><strong>Contratos civiles:</strong> Redacción y/o revisión de compraventa, promesa, arriendo, comodato, prestación de servicios y otros, con cláusulas de garantías, penalidades y acompañamiento en la firma.</li>
+          <li><strong>Partición de herencia y acuerdos entre herederos:</strong> Negociación para partición extrajudicial o representación en juicio particional; formalización e inscripción de adjudicaciones.</li>
+          <li><strong>Contratos civiles:</strong> Redacción y/o revisión de compraventa, promesa, arriendo, comodato, prestación de servicios y otros; cláusulas de garantías, penalidades y acompañamiento en la firma.</li>
         </ul>
-      </div>
-    </details>
+      </article>
 
-    <!-- 2) Administrativos y Sumarios -->
-    <details class="area" id="area-admin">
-      <summary><span class="chev">▸</span> Procedimientos Administrativos y Sumarios</summary>
-      <div class="area-body">
+      <article class="card">
+        <h3>Procedimientos Administrativos y Sumarios</h3>
         <ul class="ul-bulleted">
-          <li><strong>Descargos y defensas en sumarios:</strong> Análisis del expediente, estrategia de defensa, asistencia a declaraciones, presentación de descargos y solicitud de diligencias, resguardando debido proceso y proporcionalidad.</li>
-          <li><strong>Recursos administrativos:</strong> Interposición de reposición, jerárquico o apelación según estatuto aplicable; fundamentos de hecho y derecho, acompañamiento probatorio y control de plazos.</li>
-          <li><strong>Presentaciones ante Contraloría General de la República:</strong> Reclamos y consultas de legalidad, elaboración de informes en derecho y seguimiento del trámite hasta su resolución.</li>
+          <li><strong>Descargos y defensas en sumarios:</strong> Análisis de expediente, estrategia, asistencia a declaraciones, descargos y solicitud de diligencias, resguardando debido proceso y proporcionalidad.</li>
+          <li><strong>Recursos administrativos:</strong> Reposición, jerárquico o apelación según estatuto aplicable; fundamentos de hecho y derecho, acompañamiento probatorio y control de plazos.</li>
+          <li><strong>Contraloría General de la República:</strong> Reclamos y consultas de legalidad, informes en derecho y seguimiento hasta su resolución.</li>
         </ul>
-      </div>
-    </details>
-
-    <!-- 3) Defensa Médica y Responsabilidad Profesional -->
-    <details class="area" id="defensa-medica">
-      <summary><span class="chev">▸</span> Defensa Médica y Responsabilidad Profesional</summary>
-      <div class="area-body">
-        <ul class="ul-bulleted">
-          <li><strong>Sumarios administrativos sanitarios y hospitalarios:</strong> Defensa en investigaciones de servicios de salud u hospitales, con descargos, recursos y seguimiento hasta cierre.</li>
-          <li><strong>Seguros de responsabilidad civil médica:</strong> Revisión de pólizas y coberturas, notificación de siniestros y coordinación con aseguradoras para alinear la estrategia de defensa.</li>
-          <li><strong>Demandas civiles por presunta negligencia:</strong> Representación en responsabilidad civil médica: contestación, prueba pericial/documental, audiencias y negociación de acuerdos.</li>
-          <li><strong>Defensa penal:</strong> Patrocinio en denuncias o querellas vinculadas al ejercicio profesional; asesoría previa a declaraciones, cautelares y estrategia de litigación.</li>
-          <li><strong>Consultoría jurídica y tributaria de la práctica médica:</strong> Contratación con clínicas, cumplimiento regulatorio sanitario, protección de datos y estructuras societarias/tributarias.</li>
-        </ul>
-      </div>
-    </details>
-  </div>
-</section>
+      </article>
+      <!-- Importante: Defensa Médica se mantiene solo como página independiente enlazada en el menú. -->
+    </section>
 
     <!-- SERVICIOS -->
     <section id="servicios" aria-labelledby="servicios-h">
@@ -469,7 +396,18 @@
           <p class="mini">Disponible presencial u online, según te acomode.</p>
           <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
         </article>
-        <!-- (Se eliminó la tarjeta duplicada de “Defensa Jurídica Médica”) -->
+      </div>
+    </section>
+
+    <!-- PROCESO SIMPLE -->
+    <section id="proceso" aria-labelledby="proceso-h">
+      <div class="kicker">Cómo trabajamos</div>
+      <h2 id="proceso-h">Proceso simple</h2>
+      <div class="cards">
+        <article class="card"><h3>1) Consulta</h3><p class="lead">Conversemos tu caso (presencial u online) con un buen café.</p></article>
+        <article class="card"><h3>2) Evaluación</h3><p class="lead">Revisamos documentos y definimos riesgos.</p></article>
+        <article class="card"><h3>3) Estrategia</h3><p class="lead">Plan claro con tareas y entregables.</p></article>
+        <article class="card"><h3>4) Acción</h3><p class="lead">Redacción, presentación o gestión concreta.</p></article>
       </div>
     </section>
 
@@ -556,19 +494,7 @@
       </div>
     </section>
 
-    <!-- PROCESO SIMPLE -->
-    <section id="proceso" aria-labelledby="proceso-h">
-      <div class="kicker">Cómo trabajamos</div>
-      <h2 id="proceso-h">Proceso simple</h2>
-      <div class="cards">
-        <article class="card"><h3>1) Consulta</h3><p class="lead">Conversemos tu caso (presencial u online) con un buen café.</p></article>
-        <article class="card"><h3>2) Evaluación</h3><p class="lead">Revisamos documentos y definimos riesgos.</p></article>
-        <article class="card"><h3>3) Estrategia</h3><p class="lead">Plan claro con tareas y entregables.</p></article>
-        <article class="card"><h3>4) Acción</h3><p class="lead">Redacción, presentación o gestión concreta.</p></article>
-      </div>
-    </section>
-
-    <!-- TESTIMONIOS -->
+    <!-- TESTIMONIOS (Lo que dicen) -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
       <div class="ts-wrap">
         <div class="kicker">Prueba social</div>
@@ -666,7 +592,7 @@
      href="https://wa.me/569XXXXXXXX?text=Hola%20Caf%C3%A9%20Judicial%2C%20quiero%20agendar%20asesor%C3%ADa%20(presencial%20u%20online)."
      target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp">
     <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-      <path fill="white" d="M19.11 17.64c-.27-.14-1.6-.78-1.85-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46h-.53c-.18 0 -.48 .07 -.74 .34 -.25 .27 -.98 .96 -.98 2.33 0 1.37 1 2.69 1.14 2.87 .14 .18 1.97 3 4.77 4.2 .67 .29 1.19 .46 1.6 .59 .67 .21 1.28 .18 1.76 .11 .54-.08 1.6-.65 1.83-1.27 .23-.62 .23-1.15 .16-1.27 -.07-.12-.25-.18-.52-.32z"/>
+      <path fill="white" d="M19.11 17.64c-.27-.14-1.6-.78-1.85-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46h-.53c-.18 0-.48 .07-.74 .34-.25 .27-.98 .96-.98 2.33 0 1.37 1 2.69 1.14 2.87 .14 .18 1.97 3 4.77 4.2 .67 .29 1.19 .46 1.6 .59 .67 .21 1.28 .18 1.76 .11 .54-.08 1.6-.65 1.83-1.27 .23-.62 .23-1.15 .16-1.27 -.07-.12-.25-.18-.52-.32z"/>
       <path fill="#25D366" d="M27.6 4.4C24.7 1.5 20.9 0 17 0 8.1 0 .9 7.2 .9 16.1c0 2.8 .7 5.5 2.1 7.9L0 32l8.3 -2.7c2.4 1.3 5.1 2 7.8 2h.1c8.9 0 16.1 -7.2 16.1 -16.1 0 -3.9 -1.5 -7.7 -4.3 -10.8z"/>
     </svg>
   </a>
@@ -722,7 +648,7 @@
     window.addEventListener('resize', setHeaderOffset, {passive:true});
     window.addEventListener('orientationchange', ()=>setTimeout(setHeaderOffset, 250));
 
-    // Menú activo por intersección
+    // Menú activo por intersección (solo enlaces con #)
     const sections = [...document.querySelectorAll('main section, #top')];
     const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
     const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
@@ -768,28 +694,6 @@
     function resetNavScroll(){ if(linksWrap) linksWrap.scrollLeft = 0; }
     window.addEventListener('load', resetNavScroll);
     window.addEventListener('orientationchange', ()=>setTimeout(resetNavScroll, 200));
-/* --- Acordeón + viñetas profesionales --- */
-.accordion .area summary{
-  font-size:clamp(18px,2.4vw,22px);
-  font-weight:700; padding:6px 0; display:flex; gap:.4rem;
-  cursor:pointer; list-style:none;
-}
-.accordion .area summary::-webkit-details-marker{ display:none }
-.accordion .area .chev{ transition:transform .2s ease }
-.accordion .area[open] .chev{ transform:rotate(90deg) }
-.accordion .area-body{ padding-top:10px }
-
-.ul-bulleted{ list-style:disc; padding-left:1.2rem; margin:8px 0 0 }
-.ul-bulleted li{ margin-bottom:8px }
-    // ===== Acordeón: permitir solo uno abierto =====
-    const detailsList = [...document.querySelectorAll('#areas details.area')];
-    detailsList.forEach(d=>{
-      d.addEventListener('toggle', ()=>{
-        if (d.open) {
-          detailsList.forEach(o=>{ if(o!==d) o.open = false; });
-        }
-      });
-    });
   </script>
 </body>
 </html>
