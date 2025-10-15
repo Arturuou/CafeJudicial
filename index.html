@@ -17,6 +17,7 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Café Judicial®" />
   <meta property="og:locale" content="es_CL" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -29,10 +30,9 @@
   <meta name="color-scheme" content="light">
   <meta name="supported-color-schemes" content="light">
 
-  <!-- Preload del logo grande del header -->
+  <!-- Preloads -->
   <link rel="preload" as="image" href="logo-hero-640.webp" />
-
-  <!-- Tipografías -->
+  <!-- tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -43,17 +43,19 @@
       --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
       --headerH: 300px;
-      --logo-max-width: 800px;
+      --logo-max-width: 880px;
+      --focus: 2px solid #2A1A0E;
+      --fadeW: 26px; /* ancho del fade lateral del menú */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
+    img{max-width:100%;display:block;height:auto}
     html{
       scroll-behavior:smooth;
       color-scheme: light !important;
       scroll-padding-top: calc(var(--headerH) + 12px);
     }
     :target{scroll-margin-top: calc(var(--headerH) + 12px)}
-    img{max-width:100%;display:block;height:auto}
 
     body{
       color:var(--ink);
@@ -62,6 +64,15 @@
     }
     a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    /* ===== Accesibilidad ===== */
+    .skip-link{
+      position:absolute; left:8px; top:-40px; z-index:9999;
+      background:#fff; border:1px solid var(--line); padding:8px 10px; border-radius:10px;
+      transition: top .15s ease; box-shadow:0 6px 20px rgba(0,0,0,.06);
+    }
+    .skip-link:focus{ top:8px; outline: var(--focus) }
+    :focus-visible{ outline: var(--focus); outline-offset: 2px }
 
     /* ===== HEADER: logo + menú (fijos) ===== */
     header.site{
@@ -86,12 +97,14 @@
     @media (min-width:600px){ .brand-wrap{ height:200px } }
     @media (min-width:1024px){ .brand-wrap{ height:220px } }
 
-    /* Imagen del logo */
+    /* Imagen del logo (centrado, sin recortes agresivos) */
     .brand-lockup{
-      width:auto;
       height:100%;
+      max-width:min(var(--logo-max-width), 95vw);
       object-fit:contain;
-      clip-path: inset(44px 0 38px 0 round 0);
+      margin-inline:auto;
+      /* quitar el recorte que lo hacía verse "aplastado" */
+      clip-path:none;
       image-rendering:auto;
     }
 
@@ -104,10 +117,14 @@
     }
     .top-nav .wrap{ padding-left:8px; padding-right:8px; }
     .top-nav .links{
+      position:relative;
       display:flex; align-items:center; justify-content:flex-start;
       gap:8px; padding:6px 8px;
       flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
       scrollbar-width:none; scroll-snap-type:x proximity;
+      /* máscara para "fade" lateral elegante en overflow */
+      -webkit-mask-image: linear-gradient(to right, transparent, black var(--fadeW), black calc(100% - var(--fadeW)), transparent);
+              mask-image: linear-gradient(to right, transparent, black var(--fadeW), black calc(100% - var(--fadeW)), transparent);
     }
     .top-nav .links::-webkit-scrollbar{ display:none }
     .top-nav .links a{
@@ -116,6 +133,7 @@
       padding:6px 8px; border-radius:8px; white-space:nowrap;
       scroll-snap-align:start;
     }
+    .top-nav .links a:hover{ background:#fff7ec }
     .top-nav .links a[aria-current="true"]{
       color:var(--ink); box-shadow:0 0 0 1px var(--line) inset;
     }
@@ -169,7 +187,6 @@
       box-shadow:0 12px 28px rgba(58,36,21,.12);
       margin:0 auto; aspect-ratio:4/3;
     }
-    @media (max-width:899px){ .photo-chip img{ width:100% } }
     .photo-chip figcaption{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
 
     /* SECCIONES */
@@ -199,18 +216,17 @@
     .card h3{margin-bottom:6px}
     .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:6px;font-size:14px;color:var(--muted)}
     .mini-list li strong{color:var(--ink)}
-
-    /* Listas con viñetas (para Áreas) */
     .ul-bulleted{ list-style:disc; padding-left:1.2rem; margin:8px 0 0 }
     .ul-bulleted li{ margin-bottom:8px }
 
-    /* EQUIPO / TESTIMONIOS / FOOTER */
+    /* EQUIPO */
     .team-grid{display:grid;gap:16px}
     @media (min-width:860px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
     .team-card{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start;background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px}
     .team-avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
     .tag{display:inline-block;font-size:12px;line-height:1;padding:6px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin-right:6px;margin-top:4px}
 
+    /* Testimonios */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
     .ts-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
     .ts-grid{display:grid;gap:16px}
@@ -258,9 +274,22 @@
       .whatsapp-fab::after{ animation: none; }
       html{ scroll-behavior: auto; }
     }
+
+    /* ===== Mejora equipo (Emilio más grande) ===== */
+    .avatar-xl{
+      width:min(92vw, 340px);
+      height:min(92vw, 340px);
+      border-radius:14px; object-fit:cover; border:1px solid var(--line);
+    }
+    .brand-uc{
+      height:120px; width:auto; opacity:.95;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Skip link -->
+  <a href="#que-es" class="skip-link">Saltar al contenido</a>
 
   <!-- ===== HEADER: LOGO + MENÚ ===== -->
   <header class="site">
@@ -313,7 +342,7 @@
       </div>
 
       <figure class="photo-chip">
-        <img src="IMG_8339.jpeg" loading="lazy" alt="Asesoría legal en mesa de café, ambiente tranquilo" width="1200" height="900">
+        <img src="IMG_8339.jpeg" loading="lazy" alt="Asesoría legal en mesa de café, ambiente tranquilo" width="1200" height="900" sizes="(min-width:900px) 50vw, 100vw">
         <figcaption>Café invitado ☕️</figcaption>
       </figure>
     </div>
@@ -338,7 +367,7 @@
       </p>
     </section>
 
-    <!-- ÁREAS DE PRÁCTICA (sin acordeón, con viñetas) -->
+    <!-- ÁREAS DE PRÁCTICA -->
     <section id="areas" aria-labelledby="areas-h">
       <div class="kicker">Especialidades</div>
       <h2 id="areas-h">Áreas de práctica</h2>
@@ -362,7 +391,6 @@
           <li><strong>Contraloría General de la República:</strong> Reclamos y consultas de legalidad, informes en derecho y seguimiento hasta su resolución.</li>
         </ul>
       </article>
-      <!-- Importante: Defensa Médica se mantiene solo como página independiente enlazada en el menú. -->
     </section>
 
     <!-- SERVICIOS -->
@@ -462,14 +490,12 @@
       <div class="cards">
         <!-- EMILIO -->
         <article class="card" style="text-align:center">
-          <img src="IMG_8542.jpeg" alt="Luis Emilio Bobadilla — fotografía"
-               style="width:280px;height:280px;object-fit:cover;margin:0 auto 16px;display:block;border-radius:12px;">
-          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:6px">
-            <h3 style="margin:0;line-height:1.3">
+          <img src="IMG_8542.jpeg" alt="Luis Emilio Bobadilla — fotografía" class="avatar-xl">
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:10px 0 6px">
+            <h3 style="margin:0;line-height:1.25">
               Luis Emilio Bobadilla Cofré — Abogado,<br>Pontificia Universidad Católica de Chile
             </h3>
-            <img src="IMG_8589.jpeg" alt="Logo Pontificia Universidad Católica de Chile"
-                 style="height:110px;width:auto;opacity:.95">
+            <img src="IMG_8589.jpeg" alt="Logo Pontificia Universidad Católica de Chile" class="brand-uc">
           </div>
           <span class="tag">Lidera la asesoría legal y la relación con los clientes</span>
           <p class="lead" style="margin-top:12px;text-align:left">Egresado y Licenciado en Derecho por la Pontificia Universidad Católica de Chile... (resumen tal como lo tenías).</p>
@@ -480,7 +506,7 @@
         <!-- ARTURO -->
         <article class="card" style="text-align:center">
           <img src="IMG_8543.jpeg" alt="Arturo Morales — fotografía"
-               style="width:160px;height:160px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;">
+               style="width:180px;height:180px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;border:1px solid var(--line);">
           <h3 style="margin-bottom:4px">
             Arturo Morales Gutiérrez — Ingeniero Comercial, Magíster en Administración de Empresas (MBA)
           </h3>
@@ -494,7 +520,7 @@
       </div>
     </section>
 
-    <!-- TESTIMONIOS (Lo que dicen) -->
+    <!-- TESTIMONIOS -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
       <div class="ts-wrap">
         <div class="kicker">Prueba social</div>
@@ -652,6 +678,10 @@
     const sections = [...document.querySelectorAll('main section, #top')];
     const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
     const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
+    // estado inicial para evitar "sin activo" al cargar arriba
+    links.forEach(l => l.setAttribute('aria-current','false'));
+    (map['top']||links[0])?.setAttribute('aria-current','true');
+
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){
@@ -667,7 +697,7 @@
     links.forEach(a=>{
       a.addEventListener('click', (e)=>{
         const href = a.getAttribute('href');
-        if(!href.startsWith('#')) return; // deja pasar enlaces externos
+        if(!href.startsWith('#')) return;
         const id = href.slice(1);
         const target = document.getElementById(id);
         if(!target) return;
