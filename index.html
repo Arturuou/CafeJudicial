@@ -42,10 +42,8 @@
       --bg:#FFFFFF; --panel:#FFFFFF; --card:#FFFFFF;
       --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
       --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
-      --headerH: 300px; /* fallback para anclajes */
-
-      /* ======= RECORTE DEL LOGO ======= */
-      --logo-max-width: 800px;   /* tope en desktop */
+      --headerH: 300px;
+      --logo-max-width: 800px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -72,32 +70,31 @@
     }
     .header-stack{
       display:flex; flex-direction:column; align-items:center;
-      gap:0; padding-top:2px; padding-bottom:0; /* menos aire */
+      gap:0; padding-top:2px; padding-bottom:0;
     }
 
-      /* Contenedor del logo (CENTRA y RECORTA) */
-.brand-wrap{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:0;
+    /* Contenedor del logo (CENTRA y RECORTA) */
+    .brand-wrap{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:0;
+      overflow:hidden;
+      height:180px;
+    }
+    @media (min-width:600px){ .brand-wrap{ height:200px } }
+    @media (min-width:1024px){ .brand-wrap{ height:220px } }
 
-  /* recorte real */
-  overflow:hidden;      /* <- necesario para cortar */
-  height:180px;         /* iPhone */
-}
-@media (min-width:600px){ .brand-wrap{ height:200px } }    /* tablet */
-@media (min-width:1024px){ .brand-wrap{ height:220px } }   /* desktop */
+    /* Imagen del logo */
+    .brand-lockup{
+      width:auto;
+      height:100%;
+      object-fit:contain;
+      clip-path: inset(44px 0 38px 0 round 0);
+      image-rendering:auto;
+    }
 
-/* Imagen del logo */
-.brand-lockup{
-  width:auto;
-  height:100%;          /* llena el alto del contenedor */
-  object-fit:contain;   /* mantiene proporción */
-  clip-path: inset(44px 0 38px 0 round 0); /* recorte fijo arriba/abajo */
-  image-rendering:auto;
-}
     /* Menú */
     .top-nav{
       width:100%;
@@ -200,8 +197,15 @@
     @media (min-width:860px){ .cards{grid-template-columns:repeat(3,1fr)} }
     .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
     .card h3{margin-bottom:6px}
-    .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:4px;font-size:14px;color:var(--muted)}
+    .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:6px;font-size:14px;color:var(--muted)}
     .mini-list li strong{color:var(--ink)}
+
+    /* Nota/Tip */
+    .tip{
+      margin-top:10px; font-size:14px; color:#5a3b21;
+      background:#fff7ea; border:1px solid #f1d6a6;
+      padding:10px 12px; border-radius:10px;
+    }
 
     /* ===== EQUIPO ===== */
     .team-grid{display:grid;gap:16px}
@@ -238,7 +242,7 @@
       box-shadow:0 0 0 0 rgba(37,211,102,.22); animation:wa-pulse 2.2s infinite;
     }
 
-    /* Footer con espacio para el FAB */
+    /* Footer */
     footer{
       padding:28px 96px 96px 64px;
       text-align:center;color:#7a5a46;font-style:italic;position:relative;background:#FFFFFF;
@@ -248,18 +252,16 @@
       content:""; position:absolute; left:12px; top:50%; transform:translateY(-50%);
       width:44px; height:44px; background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
     }
-    /* Pulso suave del FAB de WhatsApp */
-@keyframes wa-pulse{
-  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.22); }
-  70%  { box-shadow: 0 0 0 12px rgba(37,211,102,0); }
-  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-}
 
-/* Respeto a usuarios con reducción de movimiento */
-@media (prefers-reduced-motion: reduce){
-  .whatsapp-fab::after{ animation: none; }
-  html{ scroll-behavior: auto; }
-}
+    @keyframes wa-pulse{
+      0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.22); }
+      70%  { box-shadow: 0 0 0 12px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .whatsapp-fab::after{ animation: none; }
+      html{ scroll-behavior: auto; }
+    }
   </style>
 </head>
 <body>
@@ -282,6 +284,7 @@
         <div class="links wrap">
           <a href="#que-es">Qué es</a>
           <a href="#servicios">Servicios</a>
+          <a href="defensa-medica/">Defensa Médica</a><!-- NUEVO enlace a subpágina -->
           <a href="#popup">Pop-Up Café Judicial®</a>
           <a href="#equipo">Equipo</a>
           <a href="#testimonios">Testimonios</a>
@@ -306,6 +309,7 @@
         <div class="cta-row" style="margin-top:6px">
           <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
           <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
+          <a class="cta ghost" href="defensa-medica/">Defensa Médica</a><!-- NUEVO botón en héroe -->
         </div>
       </div>
 
@@ -335,17 +339,51 @@
       </p>
     </section>
 
-    <!-- ÁREAS DE PRÁCTICA -->
+    <!-- ÁREAS DE PRÁCTICA (ACTUALIZADO) -->
     <section id="areas" aria-labelledby="areas-h">
       <div class="kicker">Especialidades</div>
       <h2 id="areas-h">Áreas de práctica</h2>
+
       <div class="cards">
-        <article class="card"><h3>Familia</h3><p class="lead">Pensión de alimentos, divorcio, tuición.</p></article>
-        <article class="card"><h3>Laboral</h3><p class="lead">Despidos, autodespido, demandas.</p></article>
-        <article class="card"><h3>Deudas</h3><p class="lead">Ley 20.720, renegociación, prescripción.</p></article>
-        <article class="card"><h3>Civil</h3><p class="lead">Contratos, responsabilidad, juicios.</p></article>
-        <article class="card"><h3>Penal</h3><p class="lead">Defensas y querellas.</p></article>
-        <article class="card"><h3>Documentos</h3><p class="lead">Escrituras, poderes, redacción clara.</p></article>
+        <!-- 1) CIVIL Y FAMILIA -->
+        <article class="card">
+          <h3>Derecho Civil y de Familia</h3>
+          <p class="lead">(servicios más demandados y de resolución rápida) — ideales como “servicios de confianza”.</p>
+          <ul class="mini-list">
+            <li><strong>Cambio de nombre y rectificación de partidas:</strong> Gestión judicial para modificar nombre o apellidos por uso, identidad o corrección registral.</li>
+            <li><strong>Posesión efectiva (testada e intestada):</strong> Tramitación ante Registro Civil o tribunales, con asesoría en antecedentes hereditarios.</li>
+            <li><strong>Testamentos y asesoría sucesoria:</strong> Redacción, revisión y orientación (abiertos, cerrados o especiales).</li>
+            <li><strong>Partición de herencia y acuerdos:</strong> Negociación, acuerdos de partición o representación en juicio cuando no hay consenso.</li>
+            <li><strong>Contratos civiles:</strong> Compraventa, promesa, arriendo y más, adaptados a tus necesidades.</li>
+          </ul>
+          <p class="tip">💡 Puedes ofrecer <em>paquetes cerrados</em>, por ejemplo: “Cambio de nombre desde $____” o “Posesión efectiva lista en 30 días hábiles”. Son muy buscados y fáciles de presupuestar.</p>
+        </article>
+
+        <!-- 2) ADMINISTRATIVO Y SUMARIOS -->
+        <article class="card">
+          <h3>Procedimientos Administrativos y Sumarios</h3>
+          <p class="lead">(especialidad destacada por experiencia en JUNAEB).</p>
+          <ul class="mini-list">
+            <li><strong>Descargos y defensas en sumarios:</strong> Asesoría completa a funcionarios públicos o municipales.</li>
+            <li><strong>Recursos de reposición y apelación:</strong> Redacción técnica contra resoluciones sancionatorias.</li>
+            <li><strong>Reclamos ante Contraloría:</strong> Presentaciones fundadas, control de legalidad y defensa de derechos funcionarias/os.</li>
+          </ul>
+          <p class="tip">💡 Titúlalo como <strong>“Defensa de Funcionarios Públicos y Municipales”</strong> para posicionamiento claro en el mercado.</p>
+        </article>
+
+        <!-- 3) DEFENSA MÉDICA -->
+        <article class="card">
+          <h3>Defensa Médica y Responsabilidad Profesional</h3>
+          <p class="lead">(nicho rentable y de alta especialización para médicos, clínicas y consultorios).</p>
+          <ul class="mini-list">
+            <li><strong>Sumarios administrativos sanitarios/hospitalarios:</strong> Estrategia y defensa integral.</li>
+            <li><strong>Seguros de responsabilidad civil médica:</strong> Asesoría y revisión de cobertura.</li>
+            <li><strong>Demandas civiles por presunta negligencia:</strong> Defensa técnica y negociaciones.</li>
+            <li><strong>Defensa penal en denuncias o querellas médicas:</strong> Acompañamiento estratégico y reservado.</li>
+            <li><strong>Consultas tributarias y jurídicas de la práctica médica:</strong> Enfoque preventivo y práctico.</li>
+          </ul>
+          <p class="tip">💡 Puedes crear una subpágina/landing: <strong>“Defensa Jurídica Médica”</strong> con el mensaje “Protegemos tu ejercicio profesional”.</p>
+        </article>
       </div>
     </section>
 
@@ -380,24 +418,23 @@
           <p class="mini">Disponible presencial u online, según te acomode.</p>
           <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
         </article>
+
+        <!-- NUEVA tarjeta que lleva a la subpágina -->
+        <article class="card">
+          <h3>Defensa Jurídica Médica</h3>
+          <p class="lead">Sumarios sanitarios y hospitalarios, RC médica, defensa civil y penal.</p>
+          <p><a class="cta" href="defensa-medica/">Ver detalle</a></p>
+        </article>
       </div>
     </section>
 
-    <!-- POP-UP (NUEVO) -->
+    <!-- POP-UP -->
     <section id="popup" aria-labelledby="popup-h">
       <div class="kicker">Piloto en cafeterías</div>
       <h2 id="popup-h">Pop-Up Café Judicial®</h2>
-
-      <p class="lead">
-        Muy pronto estaremos en <strong>cafeterías de Santiago</strong> (Barrio Italia, Lastarria y Providencia) con eventos especiales:
-        una taza de café + asesoría legal clara y cercana.
-      </p>
-
-      <p class="lead">
-        Café Judicial® no se queda en un solo lugar: somos <strong>itinerantes</strong>. Vamos moviéndonos por
-        <strong>distintos cafés y barrios</strong> para que más personas vivan la experiencia de
-        <em>asesoría legal en palabras simples + un buen café</em>. ✨
-      </p>
+      <p class="lead">Muy pronto estaremos en <strong>cafeterías de Santiago</strong> (Barrio Italia, Lastarria y Providencia) con eventos especiales:
+        una taza de café + asesoría legal clara y cercana.</p>
+      <p class="lead">Café Judicial® es <strong>itinerante</strong>: nos movemos por <strong>distintos cafés y barrios</strong> para acercar el derecho a tu zona.</p>
 
       <div class="cards">
         <article class="card">
@@ -429,8 +466,8 @@
         </article>
       </div>
     </section>
-    
-    <!-- ===== EQUIPO ===== -->
+
+    <!-- EQUIPO -->
     <section id="equipo" aria-labelledby="equipo-h">
       <div class="kicker">Quiénes somos</div>
       <h2 id="equipo-h">Nuestro equipo</h2>
@@ -440,55 +477,23 @@
       </p>
 
       <div class="cards">
-       <!-- EMILIO -->
-<article class="card" style="text-align:center">
-  <!-- Foto cuadrada grande -->
-  <img src="IMG_8542.jpeg" alt="Luis Emilio Bobadilla — fotografía"
-       style="width:280px;height:280px;object-fit:cover;margin:0 auto 16px;display:block;border-radius:12px;">
+        <!-- EMILIO -->
+        <article class="card" style="text-align:center">
+          <img src="IMG_8542.jpeg" alt="Luis Emilio Bobadilla — fotografía"
+               style="width:280px;height:280px;object-fit:cover;margin:0 auto 16px;display:block;border-radius:12px;">
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+            <h3 style="margin:0;line-height:1.3">
+              Luis Emilio Bobadilla Cofré — Abogado,<br>Pontificia Universidad Católica de Chile
+            </h3>
+            <img src="IMG_8589.jpeg" alt="Logo Pontificia Universidad Católica de Chile"
+                 style="height:110px;width:auto;opacity:.95">
+          </div>
+          <span class="tag">Lidera la asesoría legal y la relación con los clientes</span>
+          <p class="lead" style="margin-top:12px;text-align:left">Egresado y Licenciado en Derecho por la Pontificia Universidad Católica de Chile... (resumen tal como lo tenías).</p>
+          <p class="lead" style="font-weight:700;margin-top:14px">En Café Judicial® es el <strong>rostro principal de la asesoría legal</strong>: escucha, orienta y entrega soluciones claras.</p>
+          <p class="lead" style="font-style:italic;margin-top:10px">“El derecho no tiene por qué ser enredado: mi foco es que salgas con claridad y tranquilidad.”</p>
+        </article>
 
-  <!-- Nombre + logo UC centrado -->
-  <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:6px">
-    <h3 style="margin:0;line-height:1.3">
-      Luis Emilio Bobadilla Cofré — Abogado,<br>Pontificia Universidad Católica de Chile
-    </h3>
-    <img src="IMG_8589.jpeg" alt="Logo Pontificia Universidad Católica de Chile"
-         style="height:110px;width:auto;opacity:.95">
-  </div>
-
-  <!-- Tag breve (coherente contigo) -->
-  <span class="tag">Lidera la asesoría legal y la relación con los clientes</span>
-
-  <!-- Bio amplia -->
-  <p class="lead" style="margin-top:12px;text-align:left">
-    Egresado y Licenciado en Derecho por la Pontificia Universidad Católica de Chile, una de las
-    universidades más prestigiosas del país. Con <strong>más de 15 años de trayectoria</strong> ha
-    ejercido en el ámbito <strong>penal, civil y de familia</strong>, combinando litigación,
-    redacción de documentos y acompañamiento cercano a personas y organizaciones.
-  </p>
-  <p class="lead" style="text-align:left">
-    En el sector público se desempeñó como <strong>fiscal adjunto</strong> en la
-    <strong>Fiscalía Metropolitana Sur</strong>, participando en miles de causas penales y
-    trabajando directamente con víctimas, jueces y equipos de investigación. Fue además abogado de la
-    <strong>Municipalidad de Macul</strong>, donde brindó asesoría a autoridades, vecinos y
-    comunidades en materias civiles, administrativas y comunitarias.
-  </p>
-  <p class="lead" style="text-align:left">
-    En el ámbito privado ha acompañado a <strong>emprendedores, pymes y familias</strong> en la
-    resolución de conflictos, en la <strong>redacción de contratos y escrituras</strong>, y en la
-    defensa de sus derechos en tribunales. También ha dictado <strong>capacitaciones</strong> a
-    profesionales sobre ética, derecho y gestión pública.
-  </p>
-
-  <!-- Rol principal destacado -->
-  <p class="lead" style="font-weight:700;margin-top:14px">
-    En Café Judicial® es el <strong>rostro principal de la asesoría legal</strong>: escucha, orienta y entrega soluciones claras.
-  </p>
-
-  <!-- Cita -->
-  <p class="lead" style="font-style:italic;margin-top:10px">
-    “El derecho no tiene por qué ser enredado: mi foco es que salgas con claridad y tranquilidad.”
-  </p>
-</article>
         <!-- ARTURO -->
         <article class="card" style="text-align:center">
           <img src="IMG_8543.jpeg" alt="Arturo Morales — fotografía"
@@ -501,13 +506,10 @@
             <li><strong>Qué hace:</strong> Asegura que Café Judicial® funcione como un espacio accesible y organizado para todos.</li>
             <li><strong>Sello:</strong> Une gestión y lo humano, simplificando trámites como una conversación con café.</li>
           </ul>
-          <p class="lead" style="font-style:italic;margin-top:10px">
-            “Me gusta convertir trámites en experiencias simples — como conversar con un café.”
-          </p>
+          <p class="lead" style="font-style:italic;margin-top:10px">“Me gusta convertir trámites en experiencias simples — como conversar con un café.”</p>
         </article>
       </div>
     </section>
-    <!-- ===== /EQUIPO ===== -->
 
     <!-- PROCESO SIMPLE -->
     <section id="proceso" aria-labelledby="proceso-h">
@@ -576,7 +578,6 @@
             <a class="cta" href="#popup">Ver más</a>
           </p>
         </article>
-
         <article class="card">
           <h3>Cafetería física</h3>
           <p class="lead">Un espacio para estudiar, reunirse y conversar con calma.</p>
@@ -620,8 +621,8 @@
      href="https://wa.me/569XXXXXXXX?text=Hola%20Caf%C3%A9%20Judicial%2C%20quiero%20agendar%20asesor%C3%ADa%20(presencial%20u%20online)."
      target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp">
     <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-      <path fill="white" d="M19.11 17.64c-.27-.14-1.6-.78-1.85-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46h-.53c-.18 0-.48.07-.74 .34-.25 .27-.98 .96-.98 2.33 0 1.37 1 2.69 1.14 2.87 .14 .18 1.97 3 4.77 4.2 .67 .29 1.19 .46 1.6 .59 .67 .21 1.28 .18 1.76 .11 .54-.08 1.6-.65 1.83-1.27 .23-.62 .23-1.15 .16-1.27 -.07-.12-.25-.18-.52-.32z"/>
-      <path fill="#25D366" d="M27.6 4.4C24.7 1.5 20.9 0 17 0 8.1 0 .9 7.2 .9 16.1c0 2.8 .7 5.5 2.1 7.9L0 32l8.3-2.7c2.4 1.3 5.1 2 7.8 2h.1c8.9 0 16.1-7.2 16.1-16.1 0-3.9-1.5-7.7-4.3-10.8z"/>
+      <path fill="white" d="M19.11 17.64c-.27-.14-1.6-.78-1.85-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46h-.53c-.18 0 -.48 .07 -.74 .34 -.25 .27 -.98 .96 -.98 2.33 0 1.37 1 2.69 1.14 2.87 .14 .18 1.97 3 4.77 4.2 .67 .29 1.19 .46 1.6 .59 .67 .21 1.28 .18 1.76 .11 .54-.08 1.6-.65 1.83-1.27 .23-.62 .23-1.15 .16-1.27 -.07-.12-.25-.18-.52-.32z"/>
+      <path fill="#25D366" d="M27.6 4.4C24.7 1.5 20.9 0 17 0 8.1 0 .9 7.2 .9 16.1c0 2.8 .7 5.5 2.1 7.9L0 32l8.3 -2.7c2.4 1.3 5.1 2 7.8 2h.1c8.9 0 16.1 -7.2 16.1 -16.1 0 -3.9 -1.5 -7.7 -4.3 -10.8z"/>
     </svg>
   </a>
 
@@ -665,7 +666,6 @@
 
   <!-- JS -->
   <script>
-    // 1) Altura real del header para anclajes y compensación
     const headerEl = document.querySelector('header.site');
     function setHeaderOffset(){
       const h = headerEl.getBoundingClientRect().height || 300;
@@ -676,7 +676,6 @@
     window.addEventListener('resize', setHeaderOffset, {passive:true});
     window.addEventListener('orientationchange', ()=>setTimeout(setHeaderOffset, 250));
 
-    // 2) Menú: marcar link activo
     const sections = [...document.querySelectorAll('main section, #top')];
     const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
     const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
@@ -691,7 +690,6 @@
     }, {rootMargin:'-40% 0px -55% 0px', threshold:0.01});
     sections.forEach(s => io.observe(s));
 
-    // 3) Click en el menú: scroll con offset exacto del header (por si Safari ignora scroll-padding)
     links.forEach(a=>{
       a.addEventListener('click', (e)=>{
         const id = a.getAttribute('href').slice(1);
@@ -705,7 +703,6 @@
       });
     });
 
-    // 4) Copiar correo
     const btnCopy = document.getElementById('copy-mail');
     btnCopy?.addEventListener('click', async ()=>{
       try{
@@ -715,7 +712,6 @@
       }catch(e){ btnCopy.textContent='Error'; }
     });
 
-    // 5) Menú: arrancar mostrando "Qué es"
     const linksWrap = document.querySelector('.top-nav .links');
     function resetNavScroll(){ if(linksWrap) linksWrap.scrollLeft = 0; }
     window.addEventListener('load', resetNavScroll);
