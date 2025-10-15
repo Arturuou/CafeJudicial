@@ -207,27 +207,57 @@
       padding:10px 12px; border-radius:10px;
     }
 
-    /* ====== ACORDEÓN (Áreas de práctica) ====== */
-    #areas .accordion{display:grid;gap:12px}
-    details.area{
-      background:var(--card); border:1px solid var(--line); border-radius:12px;
-      padding:0; overflow:hidden;
-    }
-    details.area[open]{box-shadow:0 8px 24px rgba(58,36,21,.10)}
-    details.area > summary{
-      list-style:none; cursor:pointer; user-select:none;
-      padding:14px 16px; display:flex; align-items:center; gap:10px;
-      font-weight:700;
-    }
-    details.area > summary::-webkit-details-marker{display:none}
-    .chev{
-      width:18px;height:18px;flex:0 0 18px;transition:.18s ease transform;
-      border:1px solid var(--line); border-radius:4px; display:grid; place-items:center; font-size:12px;
-    }
-    details.area[open] .chev{transform:rotate(90deg)}
-    .area-body{padding:0 16px 14px 16px; border-top:1px dashed var(--line)}
-    .area-body .tip{margin-top:12px}
-    .area-cta{margin-top:10px}
+    <!-- ÁREAS DE PRÁCTICA (ACORDEÓN, REDACTADO FORMAL) -->
+<section id="areas" aria-labelledby="areas-h">
+  <div class="kicker">Especialidades</div>
+  <h2 id="areas-h">Áreas de práctica</h2>
+
+  <div class="accordion">
+    <!-- 1) Civil y Familia -->
+    <details class="area" id="area-civil">
+      <summary><span class="chev">›</span> Derecho Civil y de Familia</summary>
+      <div class="area-body">
+        <p class="lead">Asesoría y representación en asuntos personales y patrimoniales, con enfoque en soluciones claras y oportunas.</p>
+        <ul class="mini-list">
+          <li><strong>Cambio de nombre y rectificación de partidas:</strong> Patrocinio y tramitación judicial y/o administrativa para modificar nombres o apellidos por motivos de uso, identidad o error registral. Incluye revisión de antecedentes, presentación de la demanda o solicitud, seguimiento de notificaciones y gestión ante el Registro Civil para la inscripción definitiva.</li>
+          <li><strong>Posesión efectiva (testada e intestada):</strong> Gestión integral ante Registro Civil o tribunal competente, según corresponda. Comprende levantamiento de herederos, inventario básico, preparación y presentación de antecedentes, obtención de resolución y coordinación de inscripciones en Conservador de Bienes Raíces y otras entidades (bancos, AFP, compañías de seguros).</li>
+          <li><strong>Testamentos y asesoría sucesoria:</strong> Diagnóstico de la situación familiar y patrimonial; redacción y revisión de testamentos abiertos, cerrados o especiales; coordinación de firmas en notaría y orientación sobre custodia, revocación o modificaciones futuras.</li>
+          <li><strong>Partición de herencia y acuerdos entre herederos:</strong> Conducción de negociaciones para lograr una partición extrajudicial o, en su defecto, representación en juicio particional. Incluye propuesta de distribución, designación de partidor cuando resulte procedente y formalización e inscripción de adjudicaciones.</li>
+          <li><strong>Contratos civiles:</strong> Redacción y/o revisión de contratos de compraventa, promesa, arriendo, comodato, prestación de servicios y otros. Considera cláusulas de garantías, penalidades, mecanismos de terminación, acompañamiento en la firma y, cuando sea necesario, autorizaciones notariales.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- 2) Administrativos y Sumarios -->
+    <details class="area" id="area-admin">
+      <summary><span class="chev">›</span> Procedimientos Administrativos y Sumarios</summary>
+      <div class="area-body">
+        <p class="lead">Defensa y acompañamiento de funcionarias/os públicos y municipales durante el ciclo completo del procedimiento administrativo.</p>
+        <ul class="mini-list">
+          <li><strong>Descargos y defensas en sumarios:</strong> Análisis del expediente, preparación de estrategias, asistencia a declaraciones, presentación de descargos fundados y solicitud de diligencias pertinentes, resguardando el debido proceso y la proporcionalidad de eventuales sanciones.</li>
+          <li><strong>Recursos administrativos:</strong> Interposición de recursos de reposición, jerárquicos o de apelación, según el estatuto aplicable. Se incluyen fundamentos de hecho y derecho, acompañamiento de antecedentes probatorios y control estricto de plazos y notificaciones.</li>
+          <li><strong>Presentaciones ante la Contraloría General de la República:</strong> Elaboración de reclamos y consultas de legalidad, informes en derecho y seguimiento del trámite hasta su resolución, incluyendo coordinación con el órgano requerido.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- 3) Defensa Médica -->
+    <details class="area" id="area-medica">
+      <summary><span class="chev">›</span> Defensa Médica y Responsabilidad Profesional</summary>
+      <div class="area-body">
+        <p class="lead">Asistencia especializada a profesionales y entidades de salud en responsabilidad civil, administrativa y penal.</p>
+        <ul class="mini-list">
+          <li><strong>Sumarios administrativos sanitarios y hospitalarios:</strong> Defensa en investigaciones instruidas por servicios de salud u hospitales. Comprende descargos, solicitudes de diligencias, recursos y seguimiento hasta el cierre del procedimiento.</li>
+          <li><strong>Seguros de responsabilidad civil médica:</strong> Revisión de pólizas y cobertura, notificación oportuna de siniestros, coordinación con liquidadores y aseguradoras y alineamiento de la estrategia de defensa con los términos del seguro.</li>
+          <li><strong>Demandas civiles por presunta negligencia:</strong> Representación en juicios de responsabilidad civil médica: contestación de demanda, prueba pericial y documental, audiencias, negociación y celebración de eventuales transacciones.</li>
+          <li><strong>Defensa penal:</strong> Patrocinio en denuncias o querellas relacionadas con la práctica médica. Incluye asesoría previa a declaraciones, medidas cautelares, estrategias de litigación y protección de la información clínica.</li>
+          <li><strong>Consultoría jurídica y tributaria de la práctica médica:</strong> Contratación con clínicas y centros, cumplimiento regulatorio sanitario, protección de datos personales y estructura tributaria de sociedades o ejercicios individuales.</li>
+        </ul>
+        <p class="area-cta"><a class="cta ghost" href="defensa-medica/">Ver más sobre Defensa Jurídica Médica →</a></p>
+      </div>
+    </details>
+  </div>
+</section>
 
     /* ===== EQUIPO / TESTIMONIOS / FOOTER ===== */
     .team-grid{display:grid;gap:16px}
