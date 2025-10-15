@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es-CL">
 <head>
   <meta charset="UTF-8" />
@@ -32,7 +32,7 @@
 
   <!-- Preloads -->
   <link rel="preload" as="image" href="logo-hero-640.webp" />
-  <!-- tipografías -->
+  <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -103,7 +103,6 @@
       max-width:min(var(--logo-max-width), 95vw);
       object-fit:contain;
       margin-inline:auto;
-      /* quitar el recorte que lo hacía verse "aplastado" */
       clip-path:none;
       image-rendering:auto;
     }
@@ -122,7 +121,6 @@
       gap:8px; padding:6px 8px;
       flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
       scrollbar-width:none; scroll-snap-type:x proximity;
-      /* máscara para "fade" lateral elegante en overflow */
       -webkit-mask-image: linear-gradient(to right, transparent, black var(--fadeW), black calc(100% - var(--fadeW)), transparent);
               mask-image: linear-gradient(to right, transparent, black var(--fadeW), black calc(100% - var(--fadeW)), transparent);
     }
@@ -219,7 +217,7 @@
     .ul-bulleted{ list-style:disc; padding-left:1.2rem; margin:8px 0 0 }
     .ul-bulleted li{ margin-bottom:8px }
 
-    /* EQUIPO */
+    /* EQUIPO extras */
     .team-grid{display:grid;gap:16px}
     @media (min-width:860px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
     .team-card{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start;background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px}
@@ -284,6 +282,18 @@
     .brand-uc{
       height:120px; width:auto; opacity:.95;
     }
+
+    /* ===== Acordeones / contenido colapsable ===== */
+    .discreet{ margin-left:.5rem; color:var(--muted); font-weight:600; font-size:.95rem }
+    details.card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 14px }
+    details.card + details.card{ margin-top:10px }
+    details.card summary{ list-style:none; cursor:pointer; font-weight:700; display:flex; align-items:center; justify-content:space-between; gap:10px }
+    details.card summary::-webkit-details-marker{ display:none }
+    details.card summary::after{ content:"+"; font-size:20px; line-height:1; color:var(--ink) }
+    details.card[open] summary::after{ content:"–" }
+    details.card .content{ margin-top:10px }
+    /* details internos más livianos dentro de .card */
+    .card details.card{ border-radius:10px; padding:10px 12px }
   </style>
 </head>
 <body>
@@ -307,19 +317,19 @@
 
       <nav class="top-nav" aria-label="Secciones">
         <div class="links wrap">
-  <a href="#top">Inicio</a>
-  <a href="#que-es">Qué es</a>
-  <a href="#areas">Áreas</a>
-  <a href="#servicios">Servicios</a>
-  <a href="#proceso">Proceso</a>
-  <a href="defensa-medica/">Defensa Médica</a>
-  <a href="#popup">Pop-Up Café Judicial®</a>
-  <a href="#equipo">Equipo</a>
-  <a href="#testimonios">Lo que dicen</a>
-  <a href="#proximamente">Próximamente</a>
-  <a href="#faq">FAQ</a>
-  <a href="#contacto">Contacto</a>
-</div>
+          <a href="#top">Inicio</a>
+          <a href="#que-es">Qué es</a>
+          <a href="#areas">Áreas</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#proceso">Proceso</a>
+          <a href="defensa-medica/">Defensa Médica</a>
+          <a href="#popup">Pop-Up Café Judicial®</a>
+          <a href="#equipo">Equipo</a>
+          <a href="#testimonios">Lo que dicen</a>
+          <a href="#proximamente">Próximamente</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacto">Contacto</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -350,7 +360,7 @@
   </section>
 
   <main class="wrap" role="main">
-    <!-- QUÉ ES -->
+    <!-- QUÉ ES (visible) -->
     <section id="que-es" aria-labelledby="que-es-h">
       <div class="kicker">Presentación</div>
       <h2 id="que-es-h">¿Qué es Café Judicial?</h2>
@@ -368,39 +378,48 @@
       </p>
     </section>
 
-    <!-- ÁREAS DE PRÁCTICA -->
+    <!-- ÁREAS (colapsado) -->
     <section id="areas" aria-labelledby="areas-h">
       <div class="kicker">Especialidades</div>
       <h2 id="areas-h">Áreas de práctica</h2>
 
-      <article class="card" style="margin-bottom:14px">
-        <h3>Derecho Civil y de Familia</h3>
-        <ul class="ul-bulleted">
-          <li><strong>Cambio de nombre y rectificación de partidas:</strong> Tramitación judicial y/o administrativa para modificar nombres o apellidos por uso, identidad o error registral; incluye revisión de antecedentes, presentación y gestión ante el Registro Civil.</li>
-          <li><strong>Posesión efectiva (testada e intestada):</strong> Gestión integral ante Registro Civil o tribunales, levantamiento de herederos, preparación de antecedentes y coordinación de inscripciones en Conservador de Bienes Raíces y otras entidades.</li>
-          <li><strong>Testamentos y asesoría sucesoria:</strong> Diagnóstico patrimonial y familiar; redacción y revisión de testamentos abiertos, cerrados o especiales; coordinación de firmas en notaría y orientación sobre modificaciones futuras.</li>
-          <li><strong>Partición de herencia y acuerdos entre herederos:</strong> Negociación para partición extrajudicial o representación en juicio particional; formalización e inscripción de adjudicaciones.</li>
-          <li><strong>Contratos civiles:</strong> Redacción y/o revisión de compraventa, promesa, arriendo, comodato, prestación de servicios y otros; cláusulas de garantías, penalidades y acompañamiento en la firma.</li>
-        </ul>
-      </article>
+      <details class="card">
+        <summary>Derecho Civil y de Familia
+          <span class="discreet">cambio de nombre, herencias, contratos…</span>
+        </summary>
+        <div class="content">
+          <ul class="ul-bulleted">
+            <li><strong>Cambio de nombre y rectificación de partidas:</strong> Tramitación judicial/administrativa para modificar nombres o apellidos por uso, identidad o error registral; incluye revisión de antecedentes, presentación y gestión ante el Registro Civil.</li>
+            <li><strong>Posesión efectiva (testada e intestada):</strong> Gestión integral ante Registro Civil o tribunales, levantamiento de herederos, preparación de antecedentes y coordinación de inscripciones en Conservador de Bienes Raíces y otras entidades.</li>
+            <li><strong>Testamentos y asesoría sucesoria:</strong> Diagnóstico patrimonial y familiar; redacción y revisión de testamentos abiertos, cerrados o especiales; coordinación de firmas en notaría y orientación sobre modificaciones futuras.</li>
+            <li><strong>Partición de herencia y acuerdos entre herederos:</strong> Negociación extrajudicial o representación en juicio particional; formalización e inscripción de adjudicaciones.</li>
+            <li><strong>Contratos civiles:</strong> Redacción y/o revisión de compraventa, promesa, arriendo, comodato, prestación de servicios y otros; cláusulas de garantías, penalidades y acompañamiento en la firma.</li>
+          </ul>
+        </div>
+      </details>
 
-      <article class="card">
-        <h3>Procedimientos Administrativos y Sumarios</h3>
-        <ul class="ul-bulleted">
-          <li><strong>Descargos y defensas en sumarios:</strong> Análisis de expediente, estrategia, asistencia a declaraciones, descargos y solicitud de diligencias, resguardando debido proceso y proporcionalidad.</li>
-          <li><strong>Recursos administrativos:</strong> Reposición, jerárquico o apelación según estatuto aplicable; fundamentos de hecho y derecho, acompañamiento probatorio y control de plazos.</li>
-          <li><strong>Contraloría General de la República:</strong> Reclamos y consultas de legalidad, informes en derecho y seguimiento hasta su resolución.</li>
-        </ul>
-      </article>
+      <details class="card">
+        <summary>Procedimientos Administrativos y Sumarios
+          <span class="discreet">descargos, recursos, Contraloría</span>
+        </summary>
+        <div class="content">
+          <ul class="ul-bulleted">
+            <li><strong>Descargos y defensas en sumarios:</strong> Análisis de expediente, estrategia, asistencia a declaraciones, descargos y solicitud de diligencias, resguardando debido proceso y proporcionalidad.</li>
+            <li><strong>Recursos administrativos:</strong> Reposición, jerárquico o apelación según estatuto aplicable; fundamentos de hecho y derecho, acompañamiento probatorio y control de plazos.</li>
+            <li><strong>Contraloría General de la República:</strong> Reclamos y consultas de legalidad, informes en derecho y seguimiento hasta su resolución.</li>
+          </ul>
+        </div>
+      </details>
     </section>
 
-    <!-- SERVICIOS -->
+    <!-- SERVICIOS (colapsado) -->
     <section id="servicios" aria-labelledby="servicios-h">
       <div class="kicker">Contrata como prefieras</div>
       <h2 id="servicios-h">Servicios</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Asesoría 45’ (presencial u online)</h3>
+
+      <details class="card">
+        <summary>Asesoría 45’ (presencial u online)</summary>
+        <div class="content">
           <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
           <ul class="mini-list">
             <li><strong>Presencial:</strong> te invitamos a un café ☕️</li>
@@ -410,37 +429,45 @@
             <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
             <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
           </p>
-        </article>
+        </div>
+      </details>
 
-        <article class="card">
-          <h3>Escritura o documento</h3>
+      <details class="card">
+        <summary>Escritura o documento</summary>
+        <div class="content">
           <p class="lead">Redacción a medida en lenguaje claro. Una iteración incluida para ajustar.</p>
-          <p class="mini">Puedes solicitarla tras la asesoría (presencial/online) o directamente.</p>
           <p><a class="cta" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
-        </article>
+        </div>
+      </details>
 
-        <article class="card">
-          <h3>Revisión de contrato</h3>
+      <details class="card">
+        <summary>Revisión de contrato</summary>
+        <div class="content">
           <p class="lead">Detectamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
-          <p class="mini">Disponible presencial u online, según te acomode.</p>
           <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
-        </article>
-      </div>
+        </div>
+      </details>
     </section>
 
-    <!-- PROCESO SIMPLE -->
+    <!-- PROCESO (colapsado) -->
     <section id="proceso" aria-labelledby="proceso-h">
       <div class="kicker">Cómo trabajamos</div>
       <h2 id="proceso-h">Proceso simple</h2>
-      <div class="cards">
-        <article class="card"><h3>1) Consulta</h3><p class="lead">Conversemos tu caso (presencial u online) con un buen café.</p></article>
-        <article class="card"><h3>2) Evaluación</h3><p class="lead">Revisamos documentos y definimos riesgos.</p></article>
-        <article class="card"><h3>3) Estrategia</h3><p class="lead">Plan claro con tareas y entregables.</p></article>
-        <article class="card"><h3>4) Acción</h3><p class="lead">Redacción, presentación o gestión concreta.</p></article>
-      </div>
+
+      <details class="card">
+        <summary>Ver pasos</summary>
+        <div class="content">
+          <div class="cards">
+            <article class="card"><h3>1) Consulta</h3><p class="lead">Conversemos tu caso (presencial u online) con un buen café.</p></article>
+            <article class="card"><h3>2) Evaluación</h3><p class="lead">Revisamos documentos y definimos riesgos.</p></article>
+            <article class="card"><h3>3) Estrategia</h3><p class="lead">Plan claro con tareas y entregables.</p></article>
+            <article class="card"><h3>4) Acción</h3><p class="lead">Redacción, presentación o gestión concreta.</p></article>
+          </div>
+        </div>
+      </details>
     </section>
 
-    <!-- POP-UP -->
+    <!-- POP-UP (visible: el gancho principal) -->
     <section id="popup" aria-labelledby="popup-h">
       <div class="kicker">Piloto en cafeterías</div>
       <h2 id="popup-h">Pop-Up Café Judicial®</h2>
@@ -479,13 +506,13 @@
       </div>
     </section>
 
-    <!-- EQUIPO -->
+    <!-- EQUIPO (resumen visible + perfil al abrir) -->
     <section id="equipo" aria-labelledby="equipo-h">
       <div class="kicker">Quiénes somos</div>
       <h2 id="equipo-h">Nuestro equipo</h2>
       <p class="lead">
-        Café Judicial® nace de la unión entre el mundo legal y la gestión estratégica.  
-        Dos amigos que creen que las conversaciones difíciles pueden volverse más claras y cercanas… con un café al medio.
+        Café Judicial® une el mundo legal y la gestión estratégica. Dos amigos que creen que las conversaciones difíciles
+        pueden volverse más claras y cercanas… con un café al medio.
       </p>
 
       <div class="cards">
@@ -499,9 +526,15 @@
             <img src="IMG_8589.jpeg" alt="Logo Pontificia Universidad Católica de Chile" class="brand-uc">
           </div>
           <span class="tag">Lidera la asesoría legal y la relación con los clientes</span>
-          <p class="lead" style="margin-top:12px;text-align:left">Egresado y Licenciado en Derecho por la Pontificia Universidad Católica de Chile... (resumen tal como lo tenías).</p>
-          <p class="lead" style="font-weight:700;margin-top:14px">En Café Judicial® es el <strong>rostro principal de la asesoría legal</strong>: escucha, orienta y entrega soluciones claras.</p>
-          <p class="lead" style="font-style:italic;margin-top:10px">“El derecho no tiene por qué ser enredado: mi foco es que salgas con claridad y tranquilidad.”</p>
+
+          <details class="card" style="margin-top:10px">
+            <summary>Ver perfil completo</summary>
+            <div class="content">
+              <p class="lead" style="text-align:left">Egresado y Licenciado en Derecho por la Pontificia Universidad Católica de Chile... (resumen tal como lo tenías).</p>
+              <p class="lead" style="font-weight:700">En Café Judicial® es el <strong>rostro principal de la asesoría legal</strong>: escucha, orienta y entrega soluciones claras.</p>
+              <p class="lead" style="font-style:italic">“El derecho no tiene por qué ser enredado: mi foco es que salgas con claridad y tranquilidad.”</p>
+            </div>
+          </details>
         </article>
 
         <!-- ARTURO -->
@@ -512,22 +545,29 @@
             Arturo Morales Gutiérrez — Ingeniero Comercial, Magíster en Administración de Empresas (MBA)
           </h3>
           <span class="tag">Impulsa la estrategia y la organización del proyecto</span>
-          <ul class="mini-list" style="text-align:left;margin-top:10px">
-            <li><strong>Qué hace:</strong> Asegura que Café Judicial® funcione como un espacio accesible y organizado para todos.</li>
-            <li><strong>Sello:</strong> Une gestión y lo humano, simplificando trámites como una conversación con café.</li>
-          </ul>
-          <p class="lead" style="font-style:italic;margin-top:10px">“Me gusta convertir trámites en experiencias simples — como conversar con un café.”</p>
+
+          <details class="card" style="margin-top:10px; text-align:left">
+            <summary>Ver perfil completo</summary>
+            <div class="content">
+              <ul class="mini-list">
+                <li><strong>Qué hace:</strong> Asegura que Café Judicial® funcione como un espacio accesible y organizado para todos.</li>
+                <li><strong>Sello:</strong> Une gestión y lo humano, simplificando trámites como una conversación con café.</li>
+              </ul>
+              <p class="lead" style="font-style:italic;margin-top:10px">“Me gusta convertir trámites en experiencias simples — como conversar con un café.”</p>
+            </div>
+          </details>
         </article>
       </div>
     </section>
 
-    <!-- TESTIMONIOS -->
+    <!-- TESTIMONIOS (1 visible + resto al abrir) -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
       <div class="ts-wrap">
         <div class="kicker">Prueba social</div>
         <h2 id="testimonios-h">Lo que dicen</h2>
 
-        <div class="ts-grid">
+        <!-- 1 destacado -->
+        <div class="ts-grid" style="margin-bottom:10px">
           <figure class="ts-card">
             <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format"
                  loading="lazy" alt="Retrato de Andrés M., abogado junior"
@@ -538,71 +578,91 @@
               <blockquote>“Online fue clarísimo. Salí con pasos concretos y un resumen útil.”</blockquote>
             </figcaption>
           </figure>
-
-          <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format"
-                 loading="lazy" alt="Retrato de Miguel V., emprendedor"
-                 class="ts-avatar" width="64" height="64">
-            <figcaption>
-              <div><span class="ts-name">Miguel V.</span> <span class="ts-role">Emprendedor</span></div>
-              <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
-              <blockquote>“Tomamos café en mi barrio y me entregaron el documento al día siguiente.”</blockquote>
-            </figcaption>
-          </figure>
-
-          <figure class="ts-card">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format"
-                 loading="lazy" alt="Retrato de Paula R., dueña de PYME"
-                 class="ts-avatar" width="64" height="64">
-            <figcaption>
-              <div><span class="ts-name">Paula R.</span> <span class="ts-role">Dueña de PYME</span></div>
-              <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
-              <blockquote>“Revisaron mi contrato y me enviaron los cambios el mismo día. Sin vueltas.”</blockquote>
-            </figcaption>
-          </figure>
         </div>
+
+        <!-- Más opiniones -->
+        <details class="card">
+          <summary>Ver más opiniones</summary>
+          <div class="content">
+            <div class="ts-grid">
+              <figure class="ts-card">
+                <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format"
+                     loading="lazy" alt="Retrato de Miguel V., emprendedor"
+                     class="ts-avatar" width="64" height="64">
+                <figcaption>
+                  <div><span class="ts-name">Miguel V.</span> <span class="ts-role">Emprendedor</span></div>
+                  <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
+                  <blockquote>“Tomamos café en mi barrio y me entregaron el documento al día siguiente.”</blockquote>
+                </figcaption>
+              </figure>
+
+              <figure class="ts-card">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format"
+                     loading="lazy" alt="Retrato de Paula R., dueña de PYME"
+                     class="ts-avatar" width="64" height="64">
+                <figcaption>
+                  <div><span class="ts-name">Paula R.</span> <span class="ts-role">Dueña de PYME</span></div>
+                  <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
+                  <blockquote>“Revisaron mi contrato y me enviaron los cambios el mismo día. Sin vueltas.”</blockquote>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </details>
       </div>
     </section>
 
-    <!-- PRÓXIMAMENTE -->
+    <!-- PRÓXIMAMENTE (colapsado) -->
     <section id="proximamente" aria-labelledby="prox-h">
       <div class="kicker">Lo que viene</div>
       <h2 id="prox-h">Próximos proyectos</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Pop-Up Café Judicial®</h3>
-          <p class="lead">Eventos en cafeterías: café + asesoría legal de 45’ en tu barrio.</p>
-          <p class="cta-row" style="margin-top:10px">
-            <a class="cta" href="#popup">Ver más</a>
-          </p>
-        </article>
-        <article class="card">
-          <h3>Cafetería física</h3>
-          <p class="lead">Un espacio para estudiar, reunirse y conversar con calma.</p>
-        </article>
-        <article class="card">
-          <h3>Moot court & tutorías</h3>
-          <p class="lead">Simulaciones de juicio y acompañamiento a estudiantes y equipos.</p>
-        </article>
-        <article class="card">
-          <h3>Comunidad & productos</h3>
-          <p class="lead">Charlas, merch con sello jurídico y FritHurra! (spray textil) — en preparación.</p>
-        </article>
-      </div>
+
+      <details class="card">
+        <summary>Ver próximos proyectos</summary>
+        <div class="content">
+          <div class="cards">
+            <article class="card">
+              <h3>Pop-Up Café Judicial®</h3>
+              <p class="lead">Eventos en cafeterías: café + asesoría legal de 45’ en tu barrio.</p>
+              <p class="cta-row" style="margin-top:10px">
+                <a class="cta" href="#popup">Ver más</a>
+              </p>
+            </article>
+            <article class="card">
+              <h3>Cafetería física</h3>
+              <p class="lead">Un espacio para estudiar, reunirse y conversar con calma.</p>
+            </article>
+            <article class="card">
+              <h3>Moot court & tutorías</h3>
+              <p class="lead">Simulaciones de juicio y acompañamiento a estudiantes y equipos.</p>
+            </article>
+            <article class="card">
+              <h3>Comunidad & productos</h3>
+              <p class="lead">Charlas, merch con sello jurídico y FritHurra! (spray textil) — en preparación.</p>
+            </article>
+          </div>
+        </div>
+      </details>
     </section>
 
-    <!-- PREGUNTAS FRECUENTES -->
+    <!-- FAQ (colapsado) -->
     <section id="faq" aria-labelledby="faq-h">
       <div class="kicker">Dudas comunes</div>
       <h2 id="faq-h">Preguntas frecuentes</h2>
-      <div class="cards">
-        <article class="card"><h3>¿Qué significa “en palabras simples”?</h3><p class="lead">Te explicamos todo sin tecnicismos, con ejemplos y pasos accionables.</p></article>
-        <article class="card"><h3>¿Dónde atendemos?</h3><p class="lead">Santiago y online para todo Chile.</p></article>
-        <article class="card"><h3>¿Cómo agendo?</h3><p class="lead">Por WhatsApp o en los botones “Agendar”.</p></article>
-      </div>
+
+      <details class="card">
+        <summary>Ver preguntas frecuentes</summary>
+        <div class="content">
+          <div class="cards">
+            <article class="card"><h3>¿Qué significa “en palabras simples”?</h3><p class="lead">Te explicamos todo sin tecnicismos, con ejemplos y pasos accionables.</p></article>
+            <article class="card"><h3>¿Dónde atendemos?</h3><p class="lead">Santiago y online para todo Chile.</p></article>
+            <article class="card"><h3>¿Cómo agendo?</h3><p class="lead">Por WhatsApp o en los botones “Agendar”.</p></article>
+          </div>
+        </div>
+      </details>
     </section>
 
-    <!-- CONTACTO -->
+    <!-- CONTACTO (visible para conversión) -->
     <section id="contacto" class="center" aria-labelledby="cta-h">
       <div class="kicker">Contacto</div>
       <h2 id="cta-h">Conversemos</h2>
@@ -679,7 +739,7 @@
     const sections = [...document.querySelectorAll('main section, #top')];
     const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
     const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
-    // estado inicial para evitar "sin activo" al cargar arriba
+    // estado inicial
     links.forEach(l => l.setAttribute('aria-current','false'));
     (map['top']||links[0])?.setAttribute('aria-current','true');
 
