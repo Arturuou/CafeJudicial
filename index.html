@@ -200,21 +200,42 @@
     .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:6px;font-size:14px;color:var(--muted)}
     .mini-list li strong{color:var(--ink)}
 
-    /* Nota/Tip */
+    /* Tip / nota */
     .tip{
       margin-top:10px; font-size:14px; color:#5a3b21;
       background:#fff7ea; border:1px solid #f1d6a6;
       padding:10px 12px; border-radius:10px;
     }
 
-    /* ===== EQUIPO ===== */
+    /* ====== ACORDEÓN (Áreas de práctica) ====== */
+    #areas .accordion{display:grid;gap:12px}
+    details.area{
+      background:var(--card); border:1px solid var(--line); border-radius:12px;
+      padding:0; overflow:hidden;
+    }
+    details.area[open]{box-shadow:0 8px 24px rgba(58,36,21,.10)}
+    details.area > summary{
+      list-style:none; cursor:pointer; user-select:none;
+      padding:14px 16px; display:flex; align-items:center; gap:10px;
+      font-weight:700;
+    }
+    details.area > summary::-webkit-details-marker{display:none}
+    .chev{
+      width:18px;height:18px;flex:0 0 18px;transition:.18s ease transform;
+      border:1px solid var(--line); border-radius:4px; display:grid; place-items:center; font-size:12px;
+    }
+    details.area[open] .chev{transform:rotate(90deg)}
+    .area-body{padding:0 16px 14px 16px; border-top:1px dashed var(--line)}
+    .area-body .tip{margin-top:12px}
+    .area-cta{margin-top:10px}
+
+    /* ===== EQUIPO / TESTIMONIOS / FOOTER ===== */
     .team-grid{display:grid;gap:16px}
     @media (min-width:860px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
     .team-card{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start;background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px}
     .team-avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
     .tag{display:inline-block;font-size:12px;line-height:1;padding:6px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin-right:6px;margin-top:4px}
 
-    /* ===== TESTIMONIOS ===== */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
     .ts-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
     .ts-grid{display:grid;gap:16px}
@@ -283,8 +304,9 @@
       <nav class="top-nav" aria-label="Secciones">
         <div class="links wrap">
           <a href="#que-es">Qué es</a>
+          <a href="#areas">Áreas</a>
           <a href="#servicios">Servicios</a>
-          <a href="defensa-medica/">Defensa Médica</a><!-- NUEVO enlace a subpágina -->
+          <a href="defensa-medica/">Defensa Médica</a>
           <a href="#popup">Pop-Up Café Judicial®</a>
           <a href="#equipo">Equipo</a>
           <a href="#testimonios">Testimonios</a>
@@ -309,7 +331,6 @@
         <div class="cta-row" style="margin-top:6px">
           <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
           <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
-          <a class="cta ghost" href="defensa-medica/">Defensa Médica</a><!-- NUEVO botón en héroe -->
         </div>
       </div>
 
@@ -339,51 +360,57 @@
       </p>
     </section>
 
-    <!-- ÁREAS DE PRÁCTICA (ACTUALIZADO) -->
+    <!-- ÁREAS DE PRÁCTICA (ACORDEÓN) -->
     <section id="areas" aria-labelledby="areas-h">
       <div class="kicker">Especialidades</div>
       <h2 id="areas-h">Áreas de práctica</h2>
 
-      <div class="cards">
-        <!-- 1) CIVIL Y FAMILIA -->
-        <article class="card">
-          <h3>Derecho Civil y de Familia</h3>
-          <p class="lead">(servicios más demandados y de resolución rápida) — ideales como “servicios de confianza”.</p>
-          <ul class="mini-list">
-            <li><strong>Cambio de nombre y rectificación de partidas:</strong> Gestión judicial para modificar nombre o apellidos por uso, identidad o corrección registral.</li>
-            <li><strong>Posesión efectiva (testada e intestada):</strong> Tramitación ante Registro Civil o tribunales, con asesoría en antecedentes hereditarios.</li>
-            <li><strong>Testamentos y asesoría sucesoria:</strong> Redacción, revisión y orientación (abiertos, cerrados o especiales).</li>
-            <li><strong>Partición de herencia y acuerdos:</strong> Negociación, acuerdos de partición o representación en juicio cuando no hay consenso.</li>
-            <li><strong>Contratos civiles:</strong> Compraventa, promesa, arriendo y más, adaptados a tus necesidades.</li>
-          </ul>
-          <p class="tip">💡 Puedes ofrecer <em>paquetes cerrados</em>, por ejemplo: “Cambio de nombre desde $____” o “Posesión efectiva lista en 30 días hábiles”. Son muy buscados y fáciles de presupuestar.</p>
-        </article>
+      <div class="accordion">
+        <!-- 1) Civil y Familia -->
+        <details class="area" id="area-civil">
+          <summary><span class="chev">›</span> Derecho Civil y de Familia</summary>
+          <div class="area-body">
+            <p class="lead">(Servicios más demandados y de resolución rápida — ideales como “servicios de confianza”.)</p>
+            <ul class="mini-list">
+              <li><strong>Cambio de nombre y rectificación de partidas:</strong> Gestión judicial para modificar nombre o apellidos por uso, identidad o corrección registral.</li>
+              <li><strong>Posesión efectiva (testada e intestada):</strong> Tramitación ante Registro Civil o tribunales, con asesoría en antecedentes hereditarios.</li>
+              <li><strong>Testamentos y asesoría sucesoria:</strong> Redacción, revisión y orientación (abiertos, cerrados o especiales).</li>
+              <li><strong>Partición de herencia y acuerdos:</strong> Negociación, acuerdos de partición o representación en juicio cuando no hay consenso.</li>
+              <li><strong>Contratos civiles:</strong> Compraventa, promesa, arriendo y más, adaptados a tus necesidades.</li>
+            </ul>
+            <p class="tip">💡 Ofrece <em>paquetes cerrados</em> (“Cambio de nombre desde $____” o “Posesión efectiva lista en 30 días hábiles”).</p>
+          </div>
+        </details>
 
-        <!-- 2) ADMINISTRATIVO Y SUMARIOS -->
-        <article class="card">
-          <h3>Procedimientos Administrativos y Sumarios</h3>
-          <p class="lead">(especialidad destacada por experiencia en JUNAEB).</p>
-          <ul class="mini-list">
-            <li><strong>Descargos y defensas en sumarios:</strong> Asesoría completa a funcionarios públicos o municipales.</li>
-            <li><strong>Recursos de reposición y apelación:</strong> Redacción técnica contra resoluciones sancionatorias.</li>
-            <li><strong>Reclamos ante Contraloría:</strong> Presentaciones fundadas, control de legalidad y defensa de derechos funcionarias/os.</li>
-          </ul>
-          <p class="tip">💡 Titúlalo como <strong>“Defensa de Funcionarios Públicos y Municipales”</strong> para posicionamiento claro en el mercado.</p>
-        </article>
+        <!-- 2) Administrativos y Sumarios -->
+        <details class="area" id="area-admin">
+          <summary><span class="chev">›</span> Procedimientos Administrativos y Sumarios</summary>
+          <div class="area-body">
+            <p class="lead">(Especialidad destacada por experiencia en JUNAEB.)</p>
+            <ul class="mini-list">
+              <li><strong>Descargos y defensas en sumarios:</strong> Asesoría completa a funcionarios públicos o municipales.</li>
+              <li><strong>Recursos de reposición y apelación:</strong> Redacción técnica contra resoluciones sancionatorias.</li>
+              <li><strong>Reclamos ante Contraloría:</strong> Presentaciones fundadas, control de legalidad y defensa de derechos funcionarias/os.</li>
+            </ul>
+            <p class="tip">💡 Preséntalo como <strong>“Defensa de Funcionarios Públicos y Municipales”</strong> para posicionarte claro.</p>
+          </div>
+        </details>
 
-        <!-- 3) DEFENSA MÉDICA -->
-        <article class="card">
-          <h3>Defensa Médica y Responsabilidad Profesional</h3>
-          <p class="lead">(nicho rentable y de alta especialización para médicos, clínicas y consultorios).</p>
-          <ul class="mini-list">
-            <li><strong>Sumarios administrativos sanitarios/hospitalarios:</strong> Estrategia y defensa integral.</li>
-            <li><strong>Seguros de responsabilidad civil médica:</strong> Asesoría y revisión de cobertura.</li>
-            <li><strong>Demandas civiles por presunta negligencia:</strong> Defensa técnica y negociaciones.</li>
-            <li><strong>Defensa penal en denuncias o querellas médicas:</strong> Acompañamiento estratégico y reservado.</li>
-            <li><strong>Consultas tributarias y jurídicas de la práctica médica:</strong> Enfoque preventivo y práctico.</li>
-          </ul>
-          <p class="tip">💡 Puedes crear una subpágina/landing: <strong>“Defensa Jurídica Médica”</strong> con el mensaje “Protegemos tu ejercicio profesional”.</p>
-        </article>
+        <!-- 3) Defensa Médica -->
+        <details class="area" id="area-medica">
+          <summary><span class="chev">›</span> Defensa Médica y Responsabilidad Profesional</summary>
+          <div class="area-body">
+            <p class="lead">(Nicho de alta especialización para médicos, clínicas y consultorios.)</p>
+            <ul class="mini-list">
+              <li><strong>Sumarios administrativos sanitarios/hospitalarios</strong></li>
+              <li><strong>Seguros de responsabilidad civil médica</strong></li>
+              <li><strong>Defensa en demandas civiles por presunta negligencia</strong></li>
+              <li><strong>Defensa penal en denuncias o querellas médicas</strong></li>
+              <li><strong>Consultas tributarias y jurídicas de la práctica médica</strong></li>
+            </ul>
+            <p class="area-cta"><a class="cta ghost" href="defensa-medica/">Ver Defensa Jurídica Médica →</a></p>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -418,13 +445,7 @@
           <p class="mini">Disponible presencial u online, según te acomode.</p>
           <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
         </article>
-
-        <!-- NUEVA tarjeta que lleva a la subpágina -->
-        <article class="card">
-          <h3>Defensa Jurídica Médica</h3>
-          <p class="lead">Sumarios sanitarios y hospitalarios, RC médica, defensa civil y penal.</p>
-          <p><a class="cta" href="defensa-medica/">Ver detalle</a></p>
-        </article>
+        <!-- (Se eliminó la tarjeta duplicada de “Defensa Jurídica Médica”) -->
       </div>
     </section>
 
@@ -666,6 +687,7 @@
 
   <!-- JS -->
   <script>
+    // Altura real del header
     const headerEl = document.querySelector('header.site');
     function setHeaderOffset(){
       const h = headerEl.getBoundingClientRect().height || 300;
@@ -676,6 +698,7 @@
     window.addEventListener('resize', setHeaderOffset, {passive:true});
     window.addEventListener('orientationchange', ()=>setTimeout(setHeaderOffset, 250));
 
+    // Menú activo por intersección
     const sections = [...document.querySelectorAll('main section, #top')];
     const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
     const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
@@ -690,9 +713,12 @@
     }, {rootMargin:'-40% 0px -55% 0px', threshold:0.01});
     sections.forEach(s => io.observe(s));
 
+    // Scroll con compensación
     links.forEach(a=>{
       a.addEventListener('click', (e)=>{
-        const id = a.getAttribute('href').slice(1);
+        const href = a.getAttribute('href');
+        if(!href.startsWith('#')) return; // deja pasar enlaces externos
+        const id = href.slice(1);
         const target = document.getElementById(id);
         if(!target) return;
         e.preventDefault();
@@ -703,6 +729,7 @@
       });
     });
 
+    // Copiar correo
     const btnCopy = document.getElementById('copy-mail');
     btnCopy?.addEventListener('click', async ()=>{
       try{
@@ -712,10 +739,21 @@
       }catch(e){ btnCopy.textContent='Error'; }
     });
 
+    // Menú: arrancar desde la izquierda
     const linksWrap = document.querySelector('.top-nav .links');
     function resetNavScroll(){ if(linksWrap) linksWrap.scrollLeft = 0; }
     window.addEventListener('load', resetNavScroll);
     window.addEventListener('orientationchange', ()=>setTimeout(resetNavScroll, 200));
+
+    // ===== Acordeón: permitir solo uno abierto =====
+    const detailsList = [...document.querySelectorAll('#areas details.area')];
+    detailsList.forEach(d=>{
+      d.addEventListener('toggle', ()=>{
+        if (d.open) {
+          detailsList.forEach(o=>{ if(o!==d) o.open = false; });
+        }
+      });
+    });
   </script>
 </body>
 </html>
