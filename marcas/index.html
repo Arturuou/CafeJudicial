@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registro de Marcas – Café Judicial®</title>
+
+  <!-- Canonical & Robots -->
+  <link rel="canonical" href="https://arturuou.github.io/CafeJudicial/marcas/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- SEO / Social -->
+  <meta name="description" content="Búsqueda y viabilidad, clases de Niza, solicitud ante INAPI, observaciones, oposiciones, contratos de licencia/cesión y renovaciones. Protegemos tu marca paso a paso." />
+  <meta property="og:title" content="Registro de Marcas – Café Judicial®" />
+  <meta property="og:description" content="Búsqueda y estrategia, solicitud ante INAPI, defensa de oposiciones y renovaciones. Tu marca, protegida." />
+  <meta property="og:image" content="https://arturuou.github.io/CafeJudicial/og-cafe-judicial-1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CL" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="256x256" href="https://arturuou.github.io/CafeJudicial/logo-symbol-256.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://arturuou.github.io/CafeJudicial/logo-symbol-256.png" />
+
+  <!-- Tema fijo claro -->
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+
+  <!-- Preload del logo -->
+  <link rel="preload" as="image" href="https://arturuou.github.io/CafeJudicial/logo-hero-640.webp" />
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#FFFFFF; --panel:#FFFFFF; --card:#FFFFFF;
+      --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
+      --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
+      --headerH: 300px; --logo-max-width: 800px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{ scroll-behavior:smooth; color-scheme: light !important; scroll-padding-top: calc(var(--headerH) + 12px) }
+    :target{scroll-margin-top: calc(var(--headerH) + 12px)}
+    img{max-width:100%;display:block;height:auto}
+
+    body{ color:var(--ink); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6; background:#FFFFFF }
+    a{color:var(--accent)}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    /* ===== HEADER: logo + menú ===== */
+    header.site{ position:sticky; top:0; z-index:10; background:#FFFFFF; backdrop-filter:saturate(120%) blur(8px) }
+    .header-stack{ display:flex; flex-direction:column; align-items:center; gap:0; padding-top:2px; padding-bottom:0 }
+    .brand-wrap{ width:100%; display:flex; justify-content:center; align-items:center; padding:0; overflow:hidden; height:200px }
+    @media (min-width:600px){ .brand-wrap{ height:210px } }
+    @media (min-width:1024px){ .brand-wrap{ height:220px } }
+    .brand-lockup{ width:auto; height:100%; object-fit:contain; clip-path: inset(44px 0 38px 0 round 0); image-rendering:auto }
+
+    .top-nav{ width:100%; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:#FFFFFF }
+    .top-nav .wrap{ padding-left:8px; padding-right:8px }
+    .top-nav .links{
+      display:flex; align-items:center; justify-content:flex-start; gap:8px; padding:6px 8px;
+      flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; scroll-snap-type:x proximity
+    }
+    .top-nav .links::-webkit-scrollbar{ display:none }
+    .top-nav .links a{
+      color:var(--muted); text-decoration:none; font-size:clamp(13px, 2.9vw, 15px);
+      padding:6px 8px; border-radius:8px; white-space:nowrap; scroll-snap-align:start
+    }
+    .top-nav .links a[aria-current="true"]{ color:var(--ink); box-shadow:0 0 0 1px var(--line) inset }
+
+    /* ===== HERO ===== */
+    .hero{ position:relative; min-height:52vh; display:grid; place-items:center; text-align:left; overflow:hidden; padding:10px 0 28px }
+    .hero .inner{
+      position:relative; z-index:1; max-width:980px; padding:22px 20px;
+      background:#FFFFFF; border:1px solid rgba(227,200,166,.85); border-radius:16px; box-shadow:0 24px 60px rgba(58,36,21,.14);
+      display:grid; gap:18px
+    }
+    @media (min-width:900px){ .hero .inner{grid-template-columns:1.15fr .85fr; align-items:center} }
+    .headline > h1{
+      font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(28px,4.2vw,48px);
+      line-height:1.08; margin:2px 0 8px; letter-spacing:.2px
+    }
+    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);margin-bottom:10px}
+    .hero-note{ background:#FFF; border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin-top:6px; display:inline-block }
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+    .cta{
+      display:inline-flex;gap:10px;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,var(--accent-soft),var(--accent));
+      color:var(--accent-ink);font-weight:700;text-decoration:none;
+      padding:12px 16px;border-radius:12px;border:1px solid rgba(201,146,58,.55);
+      box-shadow:0 6px 16px rgba(58,36,21,.18);transition:.18s ease
+    }
+    .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
+    .cta.ghost{background:#FFF;color:var(--ink);box-shadow:none}
+
+    /* Foto secundaria */
+    .photo-chip{justify-self:center}
+    .photo-chip img{ width:min(100%,720px); border-radius:16px; border:1px solid var(--line); box-shadow:0 12px 28px rgba(58,36,21,.12); margin:0 auto; aspect-ratio:4/3 }
+
+    /* SECCIONES */
+    main section{padding:44px 0;border-top:1px solid var(--line)}
+    h2{
+      font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(24px,3.6vw,34px);
+      margin:0 0 12px;position:relative;padding-bottom:6px;display:flex;align-items:center;gap:.5rem
+    }
+    h2::after{ content:"";position:absolute;left:0;bottom:0;width:84px;height:2px;border-radius:2px;
+      background:linear-gradient(90deg,var(--accent),rgba(201,146,58,0)) }
+    main h2::before{ content:"";width:32px;height:32px;flex:0 0 32px;background:center/contain no-repeat url("https://arturuou.github.io/CafeJudicial/logo-symbol-256.png"); transform:translateY(1px) }
+    .lead{color:var(--muted);margin:0 0 16px}
+    .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
+
+    /* Tarjetas / listas */
+    .cards{display:grid;gap:14px}
+    @media (min-width:860px){ .cards{grid-template-columns:repeat(3,1fr)} }
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+    .card h3{margin-bottom:6px}
+    .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:6px;font-size:14px;color:var(--muted)}
+    .mini-list li strong{color:var(--ink)}
+
+    /* Nota/Tip */
+    .tip{ margin-top:10px; font-size:14px; color:#5a3b21; background:#fff7ea; border:1px solid #f1d6a6; padding:10px 12px; border-radius:10px }
+
+    /* WhatsApp FAB */
+    .whatsapp-fab{
+      position:fixed; right:18px; bottom:18px; width:56px; height:56px;
+      border-radius:50%; background:#25D366; display:grid; place-items:center;
+      color:#fff; box-shadow:0 10px 30px rgba(37,211,102,.25); z-index:1100; transition:transform .15s ease
+    }
+    .whatsapp-fab:hover{ transform: translateY(-2px) }
+    .whatsapp-fab::after{
+      content:""; position:absolute; inset:-6px; border-radius:50%;
+      box-shadow:0 0 0 0 rgba(37,211,102,.22); animation:wa-pulse 2.2s infinite
+    }
+
+    /* Footer */
+    footer{ padding:28px 96px 96px 64px; text-align:center; color:#7a5a46; font-style:italic; position:relative; background:#FFFFFF }
+    @media (min-width:600px){ footer{ padding-bottom:32px } }
+    footer::before{
+      content:""; position:absolute; left:12px; top:50%; transform:translateY(-50%);
+      width:44px; height:44px; background:center/contain no-repeat url("https://arturuou.github.io/CafeJudicial/logo-symbol-256.png"); opacity:.9
+    }
+
+    @keyframes wa-pulse{ 0%{box-shadow:0 0 0 0 rgba(37,211,102,.22)} 70%{box-shadow:0 0 0 12px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
+    @media (prefers-reduced-motion: reduce){ .whatsapp-fab::after{ animation:none } html{ scroll-behavior:auto } }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site">
+    <div class="wrap header-stack">
+      <div class="brand-wrap">
+        <picture>
+          <source srcset="https://arturuou.github.io/CafeJudicial/logo-hero-640.webp" type="image/webp">
+          <img class="brand-lockup"
+               src="https://arturuou.github.io/CafeJudicial/logo-nav-640.png"
+               alt="Café Judicial — logotipo completo"
+               width="640" height="300"
+               fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+
+      <!-- MENÚ con botón ← Inicio (vuelve al top de la home) -->
+      <nav class="top-nav" aria-label="Secciones">
+        <div class="links wrap">
+          <a href="https://arturuou.github.io/CafeJudicial/#top">← Inicio</a>
+          <a href="https://arturuou.github.io/CafeJudicial/marcas/" aria-current="true">Marcas</a>
+          <a href="#cobertura">Cobertura</a>
+          <a href="#paquetes">Paquetes</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="top" class="hero" aria-label="Portada">
+    <div class="inner wrap">
+      <div class="headline">
+        <h1>Registro de Marcas</h1>
+        <p class="sub">Te ayudamos a <strong>proteger el nombre y logo</strong> de tu proyecto: búsqueda de viabilidad, solicitud ante INAPI, defensa de oposiciones y renovaciones.</p>
+
+        <p class="hero-note">💬 Atendemos presencial u online. Podemos reunirnos en tu café favorito o por videollamada.</p>
+
+        <div class="cta-row" style="margin-top:6px">
+          <a class="cta" href="https://forms.gle/TU_LINK_MARCAS" target="_blank" rel="noopener">Quiero registrar mi marca</a>
+          <a class="cta ghost" href="https://wa.me/569XXXXXXXX?text=Hola%2C%20quiero%20asesor%C3%ADa%20para%20registrar%20mi%20marca%20en%20INAPI" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Reemplaza la ruta si tienes una foto específica de marcas -->
+      <figure class="photo-chip">
+        <img src="./IMG_marcas_hero.jpeg" loading="lazy" alt="Asesoría en registro de marcas y propiedad industrial">
+        <figcaption style="text-align:center;color:#6E4F3D;font-size:12px;margin-top:6px">
+          Estrategia marcaria para emprendedores y pymes
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <main class="wrap" role="main">
+    <!-- COBERTURA -->
+    <section id="cobertura" aria-labelledby="cobertura-h">
+      <div class="kicker">Qué hacemos</div>
+      <h2 id="cobertura-h">Cobertura del servicio</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Búsqueda & estrategia</h3>
+          <ul class="mini-list">
+            <li><strong>Viabilidad:</strong> búsqueda fonética/figurativa y análisis de riesgo.</li>
+            <li><strong>Clases Niza:</strong> definición estratégica de productos/servicios.</li>
+            <li><strong>Hoja de ruta:</strong> presupuesto y plazos del trámite.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Trámite ante INAPI</h3>
+          <ul class="mini-list">
+            <li><strong>Solicitud:</strong> preparación y presentación de tu marca.</li>
+            <li><strong>Publicación & observaciones:</strong> respuesta a reparos formales.</li>
+            <li><strong>Título:</strong> seguimiento hasta la concesión.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Defensa & gestión</h3>
+          <ul class="mini-list">
+            <li><strong>Oposiciones:</strong> defensa técnica y acuerdos de coexistencia.</li>
+            <li><strong>Contratos:</strong> licencias, cesiones y franquicias.</li>
+            <li><strong>Vigilancia & renovación:</strong> alertas y mantención de derechos.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="tip">💡 ¿Tienes varias marcas? Armamos un <strong>plan de cartera</strong> con vigilancia y renovaciones.</p>
+    </section>
+
+    <!-- PAQUETES -->
+    <section id="paquetes" aria-labelledby="paquetes-h">
+      <div class="kicker">Opciones claras</div>
+      <h2 id="paquetes-h">Paquetes sugeridos</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Búsqueda & Viabilidad</h3>
+          <p class="lead">Informe de riesgo (idénticas/similares), clases Niza y estrategia.</p>
+          <ul class="mini-list">
+            <li>Recomendado antes de invertir en branding.</li>
+            <li>Entrega con próximos pasos y presupuesto.</li>
+          </ul>
+          <p class="tip">Desde $____ • 100% online o presencial.</p>
+        </article>
+        <article class="card">
+          <h3>Solicitud de Marca</h3>
+          <p class="lead">Redacción y presentación ante INAPI, seguimiento y publicación.</p>
+          <ul class="mini-list">
+            <li>Incluye respuesta a observaciones formales.</li>
+            <li>Reporte de avance por hitos.</li>
+          </ul>
+          <p class="tip">Desde $____ • Tasas oficiales aparte.</p>
+        </article>
+        <article class="card">
+          <h3>Oposición / Observación</h3>
+          <p class="lead">Defensa estratégica ante oposiciones o reparos de fondo.</p>
+          <ul class="mini-list">
+            <li>Análisis comparado de signos y argumentos.</li>
+            <li>Negociación y acuerdos de coexistencia.</li>
+          </ul>
+          <p class="tip">Desde $____ • Presupuesto según complejidad.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso" aria-labelledby="proceso-h">
+      <div class="kicker">Cómo trabajamos</div>
+      <h2 id="proceso-h">Proceso simple</h2>
+      <div class="cards">
+        <article class="card"><h3>1) Consulta</h3><p class="lead">Cuéntanos tu marca y rubros (clases).</p></article>
+        <article class="card"><h3>2) Búsqueda</h3><p class="lead">Revisamos antecedentes y riesgos.</p></article>
+        <article class="card"><h3>3) Solicitud</h3><p class="lead">Presentamos y hacemos seguimiento.</p></article>
+        <article class="card"><h3>4) Defensa</h3><p class="lead">Respondemos observaciones u oposiciones y cuidamos la renovación.</p></article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-h">
+      <div class="kicker">Dudas comunes</div>
+      <h2 id="faq-h">Preguntas frecuentes</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>¿Necesito logo?</h3>
+          <p class="lead">Puedes registrar marca nominativa (solo nombre), figurativa (logo) o mixta. Te orientamos en la mejor opción.</p>
+        </article>
+        <article class="card">
+          <h3>¿Cuándo conviene buscar antes?</h3>
+          <p class="lead">Siempre: la búsqueda reduce riesgos y ayuda a elegir clases y cobertura correctas.</p>
+        </article>
+        <article class="card">
+          <h3>¿Renueva cada cuánto?</h3>
+          <p class="lead">Las marcas se renuevan periódicamente. Te avisamos a tiempo y gestionamos la renovación.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="contacto" aria-labelledby="cta-h">
+      <div class="kicker">Contacto</div>
+      <h2 id="cta-h">Conversemos</h2>
+      <p class="lead">Cuéntanos tu nombre, rubros y si tienes logo. Te respondemos a la brevedad.</p>
+      <p class="cta-row">
+        <a class="cta" href="mailto:contacto@cafejudicial.cl?subject=Registro%20de%20Marcas">contacto@cafejudicial.cl</a>
+        <a class="cta ghost" href="https://wa.me/569XXXXXXXX?text=Hola%2C%20quiero%20registrar%20mi%20marca" target="_blank" rel="noopener">WhatsApp</a>
+      </p>
+      <p class="tip" style="margin-top:12px">Este sitio entrega <strong>asesoría legal</strong>. No constituye asesoría contable o de branding.</p>
+    </section>
+  </main>
+
+  <!-- WhatsApp -->
+  <a class="whatsapp-fab"
+     href="https://wa.me/569XXXXXXXX?text=Hola%2C%20quiero%20asesor%C3%ADa%20para%20registrar%20mi%20marca"
+     target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path fill="white" d="M19.11 17.64c-.27-.14-1.6-.78-1.85-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46h-.53c-.18 0-.48 .07-.74 .34-.25 .27-.98 .96-.98 2.33 0 1.37 1 2.69 1.14 2.87 .14 .18 1.97 3 4.77 4.2 .67 .29 1.19 .46 1.6 .59 .67 .21 1.28 .18 1.76 .11 .54-.08 1.6-.65 1.83-1.27 .23-.62 .23-1.15 .16-1.27 -.07-.12-.25-.18-.52-.32z"/>
+      <path fill="#25D366" d="M27.6 4.4C24.7 1.5 20.9 0 17 0 8.1 0 .9 7.2 .9 16.1c0 2.8 .7 5.5 2.1 7.9L0 32l8.3-2.7c2.4 1.3 5.1 2 7.8 2h.1c8.9 0 16.1-7.2 16.1-16.1 0 -3.9 -1.5 -7.7 -4.3 -10.8z"/>
+    </svg>
+  </a>
+
+  <footer role="contentinfo">
+    Café Judicial® — Donde la justicia se sirve en taza · Santiago, Chile
+  </footer>
+
+  <!-- JSON-LD: Legal Service (servicio específico) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LegalService",
+    "name":"Café Judicial — Registro de Marcas",
+    "url":"https://arturuou.github.io/CafeJudicial/marcas/",
+    "image":"https://arturuou.github.io/CafeJudicial/og-cafe-judicial-1200x630.jpg",
+    "email":"contacto@cafejudicial.cl",
+    "areaServed":"CL",
+    "serviceType":"Registro de marcas y propiedad industrial",
+    "provider":"Café Judicial"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"¿Puedo registrar solo el nombre?",
+       "acceptedAnswer":{"@type":"Answer","text":"Sí. Puedes registrar marca nominativa (nombre), figurativa (logo) o mixta. Te orientamos en cuál conviene según tu caso."}},
+      {"@type":"Question","name":"¿Conviene buscar antes de solicitar?",
+       "acceptedAnswer":{"@type":"Answer","text":"Sí. La búsqueda de viabilidad ayuda a medir riesgos, definir clases y evitar rechazos o oposiciones."}},
+      {"@type":"Question","name":"¿Qué pasa si me oponen?",
+       "acceptedAnswer":{"@type":"Answer","text":"Preparamos defensa técnica y, si procede, buscamos acuerdos de coexistencia. También acompañamos apelaciones."}}
+    ]
+  }
+  </script>
+
+  <!-- JS: offset + resaltado activo del menú local + scroll compensado -->
+  <script>
+    // Compensa el header fijo
+    const headerEl = document.querySelector('header.site');
+    function setHeaderOffset(){
+      const h = headerEl.getBoundingClientRect().height || 300;
+      document.documentElement.style.setProperty('--headerH', h + 'px');
+    }
+    setHeaderOffset();
+    window.addEventListener('load', setHeaderOffset);
+    window.addEventListener('resize', setHeaderOffset, {passive:true});
+    window.addEventListener('orientationchange', ()=>setTimeout(setHeaderOffset, 250));
+
+    // Menú: activo por sección (#)
+    const inPageLinks = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
+    const sections = ['top','cobertura','paquetes','proceso','faq','contacto']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    const map = Object.fromEntries(inPageLinks.map(a => [a.getAttribute('href').slice(1), a]));
+    const selfLink = document.querySelector('.top-nav .links a[aria-current="true"]'); // "Marcas"
+    function mark(link){
+      document.querySelectorAll('.top-nav .links a').forEach(l => l.setAttribute('aria-current','false'));
+      link?.setAttribute('aria-current','true');
+    }
+    mark(selfLink);
+
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const id = e.target.id;
+          mark(map[id] || selfLink);
+        }
+      });
+    }, {rootMargin:'-40% 0px -55% 0px', threshold:0.01});
+    sections.forEach(s => io.observe(s));
+
+    // Scroll suave con compensación (solo para #)
+    inPageLinks.forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const id = a.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if(!target) return;
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.pageYOffset - (headerEl.offsetHeight || 0) - 8;
+        window.scrollTo({ top, behavior:'smooth' });
+        history.replaceState(null, '', '#' + id);
+      });
+    });
+
+    // Menú: arrancar scrolleado a la izquierda en móviles
+    const linksWrap = document.querySelector('.top-nav .links');
+    function resetNavScroll(){ if(linksWrap) linksWrap.scrollLeft = 0; }
+    window.addEventListener('load', resetNavScroll);
+    window.addEventListener('orientationchange', ()=>setTimeout(resetNavScroll, 200));
+  </script>
+</body>
+</html>
