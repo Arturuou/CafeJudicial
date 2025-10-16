@@ -135,32 +135,26 @@
     .top-nav .links a[aria-current="true"]{
       color:var(--ink); box-shadow:0 0 0 1px var(--line) inset;
     }
-/* ===== Equipo: tipografías y subtítulos ===== */
+/* ===== Equipo: tipografías y subtítulos (final) ===== */
+
+/* Nombres (h3) con Playfair */
 #equipo h3{
   font-family:"Playfair Display", serif;
   font-weight:700;
   line-height:1.25;
   letter-spacing:.2px;
+  margin-bottom:6px;
 }
 
-#equipo .discreet{
+/* Subtítulos internos (h4) en minúscula + negrita */
+#equipo h4.discreet{
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.04em;
-  font-size:13px;
-  color:#5a3b21;
-}
-
-/* Equipo: subtítulos internos en minúscula y negrita */
-#equipo .discreet{
-  font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  font-weight: 700;        /* negrita */
-  text-transform: none;    /* sin MAYÚSCULAS forzadas */
-  letter-spacing: 0;       /* sin espaciado de mayúsculas */
-  font-size: 14px;         /* ajústalo a 13px si los quieres más discretos */
-  color: #3A2415;          /* mismo tono del texto principal */
-  margin: 8px 0 4px;       /* respirito arriba/abajo */
+  font-weight:700;       /* negrita */
+  text-transform:none;   /* sin MAYÚSCULAS forzadas */
+  letter-spacing:0;
+  font-size:14px;        /* usa 13px si los quieres más discretos */
+  color:#3A2415;
+  margin:8px 0 4px;
 }
     /* ===== HERO ===== */
     .hero{
