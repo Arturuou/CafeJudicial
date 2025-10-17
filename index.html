@@ -135,27 +135,25 @@
     .top-nav .links a[aria-current="true"]{
       color:var(--ink); box-shadow:0 0 0 1px var(--line) inset;
     }
-/* ===== Equipo: tipografías y subtítulos (final) ===== */
 
-/* Nombres (h3) con Playfair */
-#equipo h3{
-  font-family:"Playfair Display", serif;
-  font-weight:700;
-  line-height:1.25;
-  letter-spacing:.2px;
-  margin-bottom:6px;
-}
+    /* ===== Equipo: tipografías y subtítulos ===== */
+    #equipo h3{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      line-height:1.25;
+      letter-spacing:.2px;
+      margin-bottom:6px;
+    }
+    #equipo h4.discreet{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-weight:700;       /* negrita */
+      text-transform:none;   /* sin MAYÚSCULAS forzadas */
+      letter-spacing:0;
+      font-size:14px;        /* 13px si los quieres más discretos */
+      color:#3A2415;
+      margin:8px 0 4px;
+    }
 
-/* Subtítulos internos (h4) en minúscula + negrita */
-#equipo h4.discreet{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  font-weight:700;       /* negrita */
-  text-transform:none;   /* sin MAYÚSCULAS forzadas */
-  letter-spacing:0;
-  font-size:14px;        /* usa 13px si los quieres más discretos */
-  color:#3A2415;
-  margin:8px 0 4px;
-}
     /* ===== HERO ===== */
     .hero{
       position:relative;
@@ -304,7 +302,6 @@
     }
 
     /* ===== Acordeones / contenido colapsable ===== */
-    .discreet{ margin-left:.5rem; color:var(--muted); font-weight:600; font-size:.95rem }
     details.card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 14px }
     details.card + details.card{ margin-top:10px }
     details.card summary{ list-style:none; cursor:pointer; font-weight:700; display:flex; align-items:center; justify-content:space-between; gap:10px }
@@ -336,22 +333,22 @@
       </div>
 
     <nav class="top-nav" aria-label="Secciones">
-  <div class="links wrap">
-    <a href="#top">Inicio</a>
-    <a href="#que-es">Qué es</a>
-    <a href="#areas">Áreas</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#proceso">Proceso</a>
-    <a href="defensa-medica/">Defensa Médica</a>
-    <a href="marcas/">Marcas</a>
-    <a href="#popup">Pop-Up Café Judicial®</a>
-    <a href="#equipo">Equipo</a>
-    <a href="#testimonios">Lo que dicen</a>
-    <a href="#proximamente">Próximamente</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contacto">Contacto</a>
-  </div>
-</nav>
+      <div class="links wrap">
+        <a href="#top">Inicio</a>
+        <a href="#que-es">Qué es</a>
+        <a href="#areas">Áreas</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="defensa-medica/">Defensa Médica</a>
+        <a href="marcas/">Marcas</a>
+        <a href="#popup">Pop-Up Café Judicial®</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#testimonios">Lo que dicen</a>
+        <a href="#proximamente">Próximamente</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
     </div>
   </header>
 
@@ -405,8 +402,7 @@
       <h2 id="areas-h">Áreas de práctica</h2>
 
       <details class="card">
-        <summary>Derecho Civil y de Familia
-        </summary>
+        <summary>Derecho Civil y de Familia</summary>
         <div class="content">
           <ul class="ul-bulleted">
             <li><strong>Cambio de nombre y rectificación de partidas:</strong> Tramitación judicial/administrativa para modificar nombres o apellidos por uso, identidad o error registral; incluye revisión de antecedentes, presentación y gestión ante el Registro Civil.</li>
@@ -419,8 +415,7 @@
       </details>
 
       <details class="card">
-        <summary>Procedimientos Administrativos y Sumarios
-        </summary>
+        <summary>Procedimientos Administrativos y Sumarios</summary>
         <div class="content">
           <ul class="ul-bulleted">
             <li><strong>Descargos y defensas en sumarios:</strong> Análisis de expediente, estrategia, asistencia a declaraciones, descargos y solicitud de diligencias, resguardando debido proceso y proporcionalidad.</li>
@@ -432,54 +427,54 @@
     </section>
 
     <!-- SERVICIOS (con foto) -->
-<section id="servicios" aria-labelledby="servicios-h">
-  <div class="kicker">Contrata como prefieras</div>
-  <h2 id="servicios-h">Servicios</h2>
+    <section id="servicios" aria-labelledby="servicios-h">
+      <div class="kicker">Contrata como prefieras</div>
+      <h2 id="servicios-h">Servicios</h2>
 
-  <!-- Foto de las tazas -->
-  <figure class="photo-chip" style="margin:12px 0 18px">
-    <img
-      src="C1DE53E0-7879-45E1-8128-E2D24925FB5C.png"
-      alt="Tazas en barra con nombres de servicios legales: Sumarios, Escrituras, Posesión efectiva, Cambio de Nombre, Recursos Administrativos, Testamento y Asesoría 45 minutos"
-      width="1536" height="1024"
-      loading="lazy" decoding="async"
-      style="aspect-ratio:3/2">
-    <figcaption style="text-align:center;color:#6E4F3D;font-size:12px;margin-top:6px">
-      Servicios en simple, servido en taza ☕️
-    </figcaption>
-  </figure>
+      <!-- Foto de las tazas -->
+      <figure class="photo-chip" style="margin:12px 0 18px">
+        <img
+          src="C1DE53E0-7879-45E1-8128-E2D24925FB5C.png"
+          alt="Tazas en barra con nombres de servicios legales: Sumarios, Escrituras, Posesión efectiva, Cambio de Nombre, Recursos Administrativos, Testamento y Asesoría 45 minutos"
+          width="1536" height="1024"
+          loading="lazy" decoding="async"
+          style="aspect-ratio:3/2">
+        <figcaption style="text-align:center;color:#6E4F3D;font-size:12px;margin-top:6px">
+          Servicios en simple, servido en taza ☕️
+        </figcaption>
+      </figure>
 
-  <details class="card">
-    <summary>Asesoría 45’ (presencial u online)</summary>
-    <div class="content">
-      <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
-      <ul class="mini-list">
-        <li><strong>Presencial:</strong> te invitamos a un café ☕️</li>
-        <li><strong>Online:</strong> te acompañamos con tu café en casa</li>
-      </ul>
-      <p class="cta-row" style="margin-top:10px">
-        <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
-        <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
-      </p>
-    </div>
-  </details>
+      <details class="card">
+        <summary>Asesoría 45’ (presencial u online)</summary>
+        <div class="content">
+          <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
+          <ul class="mini-list">
+            <li><strong>Presencial:</strong> te invitamos a un café ☕️</li>
+            <li><strong>Online:</strong> te acompañamos con tu café en casa</li>
+          </ul>
+          <p class="cta-row" style="margin-top:10px">
+            <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
+            <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
+          </p>
+        </div>
+      </details>
 
-  <details class="card">
-    <summary>Escritura o documento</summary>
-    <div class="content">
-      <p class="lead">Redacción a medida en lenguaje claro. Una iteración incluida para ajustar.</p>
-      <p><a class="cta" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
-    </div>
-  </details>
+      <details class="card">
+        <summary>Escritura o documento</summary>
+        <div class="content">
+          <p class="lead">Redacción a medida en lenguaje claro. Una iteración incluida para ajustar.</p>
+          <p><a class="cta" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
+        </div>
+      </details>
 
-  <details class="card">
-    <summary>Revisión de contrato</summary>
-    <div class="content">
-      <p class="lead">Detectamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
-      <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
-    </div>
-  </details>
-</section>
+      <details class="card">
+        <summary>Revisión de contrato</summary>
+        <div class="content">
+          <p class="lead">Detectamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
+          <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
+        </div>
+      </details>
+    </section>
 
     <!-- PROCESO (colapsado) -->
     <section id="proceso" aria-labelledby="proceso-h">
@@ -500,177 +495,180 @@
     </section>
 
     <!-- POP-UP (visible: el gancho principal) -->
-<section id="popup" aria-labelledby="popup-h">
-  <div class="kicker">Piloto en cafeterías</div>
-  <h2 id="popup-h">Pop-Up Café Judicial®</h2>
-  <p class="lead">Muy pronto estaremos en <strong>cafeterías de Santiago</strong> (Barrio Italia, Lastarria y Providencia) con eventos especiales:
-    una taza de café + asesoría legal clara y cercana.</p>
-  <p class="lead">Café Judicial® es <strong>itinerante</strong>: nos movemos por <strong>distintos cafés y barrios</strong> para acercar el derecho a tu zona.</p>
+    <section id="popup" aria-labelledby="popup-h">
+      <div class="kicker">Piloto en cafeterías</div>
+      <h2 id="popup-h">Pop-Up Café Judicial®</h2>
+      <p class="lead">Muy pronto estaremos en <strong>cafeterías de Santiago</strong> (Barrio Italia, Lastarria y Providencia) con eventos especiales:
+        una taza de café + asesoría legal clara y cercana.</p>
+      <p class="lead">Café Judicial® es <strong>itinerante</strong>: nos movemos por <strong>distintos cafés y barrios</strong> para acercar el derecho a tu zona.</p>
 
-  <!-- Foto del Pop-Up -->
-  <figure class="photo-chip" style="margin:12px 0 18px">
-    <img
-      src="382DEC3F-81C2-4025-AC2D-7BAD023A54AD.png"
-      alt="Conversación cercana entre abogado y clienta, con café de por medio"
-      width="1536" height="1024"
-      loading="lazy" decoding="async"
-      style="aspect-ratio:3/2">
-    <figcaption style="text-align:center;color:#6E4F3D;font-size:12px;margin-top:6px">
-      Conversar lo legal, con café ☕️
-    </figcaption>
-  </figure>
+      <!-- Foto del Pop-Up -->
+      <figure class="photo-chip" style="margin:12px 0 18px">
+        <img
+          src="382DEC3F-81C2-4025-AC2D-7BAD023A54AD.png"
+          alt="Conversación cercana entre abogado y clienta, con café de por medio"
+          width="1536" height="1024"
+          loading="lazy" decoding="async"
+          style="aspect-ratio:3/2">
+        <figcaption style="text-align:center;color:#6E4F3D;font-size:12px;margin-top:6px">
+          Conversar lo legal, con café ☕️
+        </figcaption>
+      </figure>
 
-  <div class="cards">
-    <article class="card">
-      <h3>¿Cómo funciona?</h3>
-      <ul class="mini-list">
-        <li><strong>1)</strong> Reservas un cupo de 45’</li>
-        <li><strong>2)</strong> Nos juntamos en la cafetería anfitriona</li>
-        <li><strong>3)</strong> Sales con pasos claros y, si quieres, documento encargado</li>
-      </ul>
-    </article>
+      <div class="cards">
+        <article class="card">
+          <h3>¿Cómo funciona?</h3>
+          <ul class="mini-list">
+            <li><strong>1)</strong> Reservas un cupo de 45’</li>
+            <li><strong>2)</strong> Nos juntamos en la cafetería anfitriona</li>
+            <li><strong>3)</strong> Sales con pasos claros y, si quieres, documento encargado</li>
+          </ul>
+        </article>
 
-    <article class="card">
-      <h3>Barrios visitados / próximos</h3>
-      <ul class="mini-list">
-        <li>Barrio Italia</li>
-        <li>Lastarria</li>
-        <li>Providencia</li>
-        <li>¡Pronto más!</li>
-      </ul>
-    </article>
+        <article class="card">
+          <h3>Barrios visitados / próximos</h3>
+          <ul class="mini-list">
+            <li>Barrio Italia</li>
+            <li>Lastarria</li>
+            <li>Providencia</li>
+            <li>¡Pronto más!</li>
+          </ul>
+        </article>
 
-    <article class="card">
-      <h3>Quiero sumarme</h3>
-      <p class="lead">¿Quieres enterarte de las próximas fechas o invitar el Pop-Up Café Judicial® a tu cafetería/barrio?</p>
-      <p class="cta-row" style="margin-top:10px">
-        <a class="cta" href="https://wa.me/569XXXXXXXX?text=Quiero%20postular%20mi%20cafeter%C3%ADa%20o%20barrio%20para%20el%20Pop-Up%20Caf%C3%A9%20Judicial" target="_blank" rel="noopener">Proponer café/barrio</a>
-        <a class="cta ghost" href="https://forms.gle/TU_LINK_INTERES" target="_blank" rel="noopener">Avisarme fechas</a>
-      </p>
-    </article>
-  </div>
-</section>
-<!-- ================ EQUIPO ================ -->
-<section id="equipo" aria-labelledby="equipo-h">
-  <div class="kicker">Quiénes somos</div>
-  <h2 id="equipo-h">Nuestro equipo</h2>
-  <p class="lead">
-    Café Judicial® une el mundo legal y la gestión estratégica. Dos amigos que creen que las conversaciones
-    difíciles pueden volverse más claras y cercanas… con un café al medio.
-  </p>
-
-  <div class="cards">
-    <!-- EMILIO (se mantiene igual) -->
-    <article class="card" style="text-align:center">
-      <img src="IMG_8542.jpeg" alt="Luis Emilio Bobadilla — fotografía" class="avatar-xl">
-      <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:10px 0 6px">
-        <h3 style="margin:0;line-height:1.25">
-          Luis Emilio Bobadilla Cofré — Abogado,<br>Pontificia Universidad Católica de Chile
-        </h3>
-        <img src="IMG_8589.jpeg" alt="Logo Pontificia Universidad Católica de Chile" class="brand-uc">
+        <article class="card">
+          <h3>Quiero sumarme</h3>
+          <p class="lead">¿Quieres enterarte de las próximas fechas o invitar el Pop-Up Café Judicial® a tu cafetería/barrio?</p>
+          <p class="cta-row" style="margin-top:10px">
+            <a class="cta" href="https://wa.me/569XXXXXXXX?text=Quiero%20postular%20mi%20cafeter%C3%ADa%20o%20barrio%20para%20el%20Pop-Up%20Caf%C3%A9%20Judicial" target="_blank" rel="noopener">Proponer café/barrio</a>
+            <a class="cta ghost" href="https://forms.gle/TU_LINK_INTERES" target="_blank" rel="noopener">Avisarme fechas</a>
+          </p>
+        </article>
       </div>
-      <span class="tag">Socio fundador</span>
-      <span class="tag">Lidera la asesoría legal</span>
+    </section>
 
-      <details class="card" style="margin-top:10px">
-        <summary>Ver perfil completo</summary>
-        <div class="content">
-          <p class="lead" style="text-align:left">Egresado y Licenciado en Derecho por la Pontificia Universidad Católica de Chile, una de las
-    universidades más prestigiosas del país. Con <strong>más de 15 años de trayectoria</strong> ha
-    ejercido en el ámbito <strong>penal, civil y de familia</strong>, combinando litigación,
-    redacción de documentos y acompañamiento cercano a personas y organizaciones.
-  </p>
-  <p class="lead" style="text-align:left">
-    En el sector público se desempeñó como <strong>fiscal adjunto</strong> en la
-    <strong>Fiscalía Metropolitana Sur</strong>, participando en miles de causas penales y
-    trabajando directamente con víctimas, jueces y equipos de investigación. Fue además abogado de la
-    <strong>Municipalidad de Macul</strong>, donde brindó asesoría a autoridades, vecinos y
-    comunidades en materias civiles, administrativas y comunitarias.
-  </p>
-  <p class="lead" style="text-align:left">
-    En el ámbito privado ha acompañado a <strong>emprendedores, pymes y familias</strong> en la
-    resolución de conflictos, en la <strong>redacción de contratos y escrituras</strong>, y en la
-    defensa de sus derechos en tribunales. También ha dictado <strong>capacitaciones</strong> a
-    profesionales sobre ética, derecho y gestión pública.</p>
+    <!-- ================ EQUIPO ================ -->
+    <section id="equipo" aria-labelledby="equipo-h">
+      <div class="kicker">Quiénes somos</div>
+      <h2 id="equipo-h">Nuestro equipo</h2>
+      <p class="lead">
+        Café Judicial® une el mundo legal y la gestión estratégica. Dos amigos que creen que las conversaciones
+        difíciles pueden volverse más claras y cercanas… con un café al medio.
+      </p>
+
+      <div class="cards">
+        <!-- EMILIO -->
+        <article class="card" style="text-align:center">
+          <img src="IMG_8542.jpeg" alt="Luis Emilio Bobadilla — fotografía" class="avatar-xl">
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:10px 0 6px">
+            <h3 style="margin:0;line-height:1.25">
+              Luis Emilio Bobadilla Cofré — Abogado,<br>Pontificia Universidad Católica de Chile
+            </h3>
+            <img src="IMG_8589.jpeg" alt="Logo Pontificia Universidad Católica de Chile" class="brand-uc">
+          </div>
+          <span class="tag">Socio fundador</span>
+          <span class="tag">Lidera la asesoría legal</span>
+
+          <details class="card" style="margin-top:10px">
+            <summary>Ver perfil completo</summary>
+            <div class="content">
+              <p class="lead" style="text-align:left">
+                Egresado y Licenciado en Derecho por la Pontificia Universidad Católica de Chile, una de las
+                universidades más prestigiosas del país. Con <strong>más de 15 años de trayectoria</strong> ha
+                ejercido en el ámbito <strong>penal, civil y de familia</strong>, combinando litigación,
+                redacción de documentos y acompañamiento cercano a personas y organizaciones.
+              </p>
+              <p class="lead" style="text-align:left">
+                En el sector público se desempeñó como <strong>fiscal adjunto</strong> en la
+                <strong>Fiscalía Metropolitana Sur</strong>, participando en miles de causas penales y
+                trabajando directamente con víctimas, jueces y equipos de investigación. Fue además abogado de la
+                <strong>Municipalidad de Macul</strong>, donde brindó asesoría a autoridades, vecinos y
+                comunidades en materias civiles, administrativas y comunitarias.
+              </p>
+              <p class="lead" style="text-align:left">
+                En el ámbito privado ha acompañado a <strong>emprendedores, pymes y familias</strong> en la
+                resolución de conflictos, en la <strong>redacción de contratos y escrituras</strong>, y en la
+                defensa de sus derechos en tribunales. También ha dictado <strong>capacitaciones</strong> a
+                profesionales sobre ética, derecho y gestión pública.
+              </p>
               <p class="lead" style="font-weight:700">En Café Judicial® es el <strong>rostro principal de la asesoría legal</strong>: escucha, orienta y entrega soluciones claras.</p>
               <p class="lead" style="font-style:italic">“El derecho no tiene por qué ser enredado: mi foco es que salgas con claridad y tranquilidad.”</p>
             </div>
           </details>
         </article>
 
-    <!-- ARTURO (texto que nos diste, formato igual que Emilio) -->
-    <article class="card" style="text-align:center">
-      <img src="IMG_8543.jpeg" alt="Arturo Morales — fotografía"
-           style="width:180px;height:180px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;border:1px solid var(--line);">
-      <h3 style="margin-bottom:6px">
-        Arturo Morales Gutiérrez — Ingeniero Comercial, Magíster en Administración de Empresas (MBA)
-      </h3>
-      <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:4px">
-        <span class="tag">Socio fundador</span>
-        <span class="tag">Impulsa la estrategia y la organización del proyecto</span>
+        <!-- ARTURO -->
+        <article class="card" style="text-align:center">
+          <img src="IMG_8543.jpeg" alt="Arturo Morales — fotografía"
+               style="width:180px;height:180px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;border:1px solid var(--line);">
+          <h3 style="margin-bottom:6px">
+            Arturo Morales Gutiérrez — Ingeniero Comercial, Magíster en Administración de Empresas (MBA)
+          </h3>
+          <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:4px">
+            <span class="tag">Socio fundador</span>
+            <span class="tag">Impulsa la estrategia y la organización del proyecto</span>
+          </div>
+
+          <details class="card" style="margin-top:10px; text-align:left">
+            <summary>Ver perfil completo</summary>
+            <div class="content">
+              <h4 class="discreet">Qué hace</h4>
+              <p class="lead">
+                Diseña y coordina los procesos operativos de Café Judicial® para que la experiencia sea accesible y ordenada:
+                agenda, pagos, documentación, control de calidad del servicio y métricas para la toma de decisiones.
+                También gestiona alianzas con cafeterías para el formato Pop-Up.
+              </p>
+
+              <h4 class="discreet">Sello</h4>
+              <p class="lead">Une gestión y trato humano; convierte trámites en experiencias simples, con rigurosidad operativa y comunicación clara.</p>
+
+              <h4 class="discreet">Trayectoria destacada</h4>
+              <p class="lead">
+                Jefe de Operaciones en un estudio de abogados (2021–presente). Experiencia previa en control de calidad y soporte gerencial,
+                y formación analítica (MBA y diplomado en modelamiento y análisis de datos).
+              </p>
+
+              <h4 class="discreet">Frase</h4>
+              <p class="lead" style="font-style:italic">“Me gusta convertir trámites en experiencias simples — como conversar con un café.”</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- MARIELA (igual formato que Arturo) -->
+        <article class="card" style="text-align:center">
+          <img src="IMG_MARIELA.jpeg" alt="Mariela Henríquez — fotografía"
+               style="width:180px;height:180px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;border:1px solid var(--line);">
+          <h3 style="margin-bottom:6px">Mariela Henríquez — Diseñadora Industrial y Gráfica</h3>
+          <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:4px">
+            <span class="tag">Logos e identidad de marca</span>
+            <span class="tag">Diseño &amp; contenidos</span>
+          </div>
+
+          <details class="card" style="margin-top:10px; text-align:left">
+            <summary>Ver perfil completo</summary>
+            <div class="content">
+              <h4 class="discreet">Qué hace</h4>
+              <p class="lead">
+                Diseña identidades de marca y logos (paleta, tipografías, sistema gráfico y usos).
+                Desarrolla brand kits y manuales de aplicación para un uso consistente online y offline.
+                Produce piezas para web, redes sociales y material impreso (presentaciones, fichas, plantillas, señalética).
+                Aplica legal design para que documentos y propuestas de los clientes sean claros y fáciles de leer.
+                Coordina producción con proveedores cuando se requieren impresos o soportes físicos.
+              </p>
+
+              <h4 class="discreet">Sello</h4>
+              <p class="lead">Convierte información compleja en piezas simples y elegantes, priorizando legibilidad y coherencia de marca.</p>
+
+              <h4 class="discreet">Trayectoria destacada</h4>
+              <p class="lead">Identidad y sistemas visuales, retail/visual merchandising y campañas de comunicación; gestión y calendario de contenidos para marcas y PYMES.</p>
+
+              <h4 class="discreet">Frase</h4>
+              <p class="lead" style="font-style:italic">“Mi trabajo es que todo se entienda de una mirada: claro, ordenado y con carácter.”</p>
+            </div>
+          </details>
+        </article>
       </div>
-
-      <details class="card" style="margin-top:10px; text-align:left">
-        <summary>Ver perfil completo</summary>
-        <div class="content">
-          <h4 class="discreet">Qué hace</h4>
-          <p class="lead">
-            Diseña y coordina los procesos operativos de Café Judicial® para que la experiencia sea accesible y ordenada:
-            agenda, pagos, documentación, control de calidad del servicio y métricas para la toma de decisiones.
-            También gestiona alianzas con cafeterías para el formato Pop-Up.
-          </p>
-
-          <h4 class="discreet">Sello</h4>
-          <p class="lead">Une gestión y trato humano; convierte trámites en experiencias simples, con rigurosidad operativa y comunicación clara.</p>
-
-          <h4 class="discreet">Trayectoria destacada</h4>
-          <p class="lead">
-            Jefe de Operaciones en un estudio de abogados (2021–presente). Experiencia previa en control de calidad y soporte gerencial,
-            y formación analítica (MBA y diplomado en modelamiento y análisis de datos).
-          </p>
-
-          <h4 class="discreet">Frase</h4>
-          <p class="lead" style="font-style:italic">“Me gusta convertir trámites en experiencias simples — como conversar con un café.”</p>
-        </div>
-      </details>
-    </article>
-
-    <!-- MARIELA (mismo formato que Arturo) -->
-<article class="card" style="text-align:center">
-  <img src="IMG_MARIELA.jpeg" alt="Mariela Henríquez — fotografía"
-       style="width:180px;height:180px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;border:1px solid var(--line);">
-  <h3 style="margin-bottom:6px">Mariela Henríquez — Diseñadora Industrial y Gráfica</h3>
-  <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:4px">
-    <span class="tag">Logos e identidad de marca</span>
-    <span class="tag">Diseño &amp; contenidos</span>
-  </div>
-
-  <details class="card" style="margin-top:10px; text-align:left">
-    <summary>Ver perfil completo</summary>
-    <div class="content">
-      <h4 class="discreet">Qué hace</h4>
-      <ul class="mini-list">
-        <li><strong>Diseña identidades de marca y logos</strong> para nuestros clientes (paleta, tipografías, sistema gráfico y usos).</li>
-        <li><strong>Desarrolla brand kits y manuales</strong> de aplicación para un uso consistente online y offline.</li>
-        <li><strong>Produce piezas</strong> para web, redes sociales y material impreso (presentaciones, fichas, plantillas, señalética).</li>
-        <li><strong>Aplica legal design</strong> para que documentos y propuestas de los clientes sean claros y fáciles de leer.</li>
-        <li><strong>Coordina producción</strong> con proveedores cuando se requieren impresos o soportes físicos.</li>
-      </ul>
-
-      <h4 class="discreet">Sello</h4>
-      <p class="lead">Convierte información compleja en piezas simples y elegantes, priorizando legibilidad y coherencia de marca.</p>
-
-      <h4 class="discreet">Trayectoria destacada</h4>
-      <p class="lead">Identidad y sistemas visuales, retail/visual merchandising y campañas de comunicación; gestión y calendario de contenidos para marcas y PYMES.</p>
-
-      <h4 class="discreet">Frase</h4>
-      <p class="lead" style="font-style:italic">“Mi trabajo es que todo se entienda de una mirada: claro, ordenado y con carácter.”</p>
-    </div>
-  </details>
-</article>
-  </div>
-</section>
-<!-- ============== /EQUIPO ============== -->
+    </section>
+    <!-- ============== /EQUIPO ============== -->
 
     <!-- TESTIMONIOS (1 visible + resto al abrir) -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
