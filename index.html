@@ -92,16 +92,15 @@
 
     /* ===== HEADER: logo + menú (fijos) ===== */
     header.site{
-      position:sticky; top:0; z-index:30; background:#FFFFFF;
+      position:sticky; top:0; z-index:10; background:#FFFFFF;
       backdrop-filter:saturate(120%) blur(8px);
-      border-bottom:1px solid var(--line);
     }
     .header-stack{
       display:flex; flex-direction:column; align-items:center;
       gap:0; padding-top:2px; padding-bottom:0;
     }
 
-    /* Contenedor del logo (más pequeño en móvil) */
+    /* Contenedor del logo */
     .brand-wrap{
       width:100%;
       display:flex;
@@ -109,82 +108,36 @@
       align-items:center;
       padding:0;
       overflow:hidden;
-      height:110px;
+      height:180px;
     }
+    @media (min-width:600px){ .brand-wrap{ height:200px } }
+    @media (min-width:1024px){ .brand-wrap{ height:220px } }
+
     .brand-lockup{
-      height:80px; width:auto; object-fit:contain; margin-inline:auto;
-    }
-    @media (min-width:600px){
-      .brand-wrap{ height:140px }
-      .brand-lockup{ height:100px }
-    }
-    @media (min-width:1024px){
-      .brand-wrap{ height:160px }
-      .brand-lockup{ height:120px }
+      height:100%;
+      max-width:min(var(--logo-max-width), 95vw);
+      object-fit:contain;
+      margin-inline:auto;
+      clip-path:none;
+      image-rendering:auto;
     }
 
-    /* ===== Menú con botón + cortina ===== */
+    /* Menú */
     .top-nav{
       width:100%;
-      background:#FFFFFF;
       border-top:1px solid var(--line);
       border-bottom:1px solid var(--line);
-      position:relative;
-      z-index:31; /* encima de la cortina */
+      background:#FFFFFF;
     }
-    .top-nav .bar{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:8px 10px;
-    }
-    .nav-toggle{
-      display:inline-flex; align-items:center; gap:8px;
-      border:1px solid var(--line); background:#fff; border-radius:10px;
-      padding:8px 10px; font-weight:700; color:var(--ink);
-    }
-    .nav-toggle svg{ width:22px; height:22px }
+    .top-nav .wrap{ padding-left:8px; padding-right:8px; }
     .top-nav .links{
-      max-height:0; overflow:hidden; padding:0 8px;
-      transition:max-height .25s ease, padding .25s ease;
-      display:grid; gap:6px;
-    }
-    .top-nav .links a{
-      color:var(--muted); text-decoration:none;
-      font-size:15px; padding:8px 10px; border-radius:8px;
-      transition: background-color .15s ease, box-shadow .15s ease;
-    }
-    .top-nav .links a:hover{ background:#FBF4EA }
-    .top-nav .links a[aria-current="true"]{
-      color:var(--ink);
-      box-shadow:0 0 0 1px var(--line) inset;
-    }
-    .top-nav.open .links{ max-height:420px; padding:8px 8px 10px }
-
-    /* Cortina beige translúcida detrás del menú */
-    .nav-overlay{
-      position:fixed; inset:0; background:rgba(217,199,166,.82);
-      -webkit-backdrop-filter: blur(2px);
-              backdrop-filter: blur(2px);
-      opacity:0; visibility:hidden; transition:opacity .25s ease;
-      z-index:20;
-    }
-    .top-nav.open + .nav-overlay{ opacity:1; visibility:visible }
-
-    /* Desktop: menú siempre visible en una línea y sin cortina */
-    @media (min-width:900px){
-      .nav-toggle{ display:none }
-      .top-nav .links{
-        max-height:none; overflow:visible; padding:6px 8px;
-        display:flex; align-items:center; justify-content:center; gap:8px;
-      }
-      .nav-overlay{ display:none }
-      /* Scroll horizontal suave y máscara en desktop si rebalsa */
-      .top-nav .links{
-        flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
-        scrollbar-width:none; scroll-snap-type:x proximity;
-        -webkit-mask-image: linear-gradient(to right, transparent, black var(--fadeW), black calc(100% - var(--fadeW)), transparent);
-                mask-image: linear-gradient(to right, transparent, black var(--fadeW), black calc(100% - var(--fadeW)), transparent);
-      }
-      .top-nav .links::-webkit-scrollbar{ display:none }
+      position:relative;
+      display:flex; align-items:center; justify-content:flex-start;
+      gap:8px; padding:6px 8px;
+      flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+      scrollbar-width:none; scroll-snap-type:x proximity;
+      -webkit-mask-image: linear-gradient(to right, transparent, black var(--fadeW), black calc(100% - var(--fadeW)), transparent);
+              mask-image: linear-gradient(to right, transparent, black var(--fadeW), black calc(100% - var(--fadeW)), transparent);
     }
     /* Scrollbar fina visible en dispositivos con mouse */
     @media (any-hover:hover){
@@ -192,6 +145,19 @@
       .top-nav .links::-webkit-scrollbar{ height:8px; }
       .top-nav .links::-webkit-scrollbar-thumb{ background:#e3d3bf; border-radius:8px; }
       .top-nav .links::-webkit-scrollbar-track{ background:transparent; }
+    }
+
+    .top-nav .links a{
+      color:var(--muted); text-decoration:none;
+      font-size:clamp(13px, 2.9vw, 15px);
+      padding:6px 8px; border-radius:8px; white-space:nowrap;
+      scroll-snap-align:start;
+      transition: background-color .15s ease, box-shadow .15s ease;
+    }
+    .top-nav .links a:hover{ background:#FBF4EA }
+    .top-nav .links a[aria-current="true"]{
+      color:var(--ink);
+      box-shadow:0 0 0 1px var(--line) inset;
     }
 
     /* ===== HERO ===== */
@@ -276,8 +242,6 @@
     .ul-bulleted li{ margin-bottom:8px }
 
     /* EQUIPO extras */
-    .avatar-xl{ width:min(92vw, 340px); height:min(92vw, 340px); border-radius:14px; object-fit:cover; border:1px solid var(--line) }
-    .brand-uc{ height:120px; width:auto; opacity:.95 }
     .team-grid{display:grid;gap:16px}
     @media (min-width:860px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
     .team-card{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start;background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px}
@@ -341,6 +305,7 @@
     details.card summary::after{ content:"+"; font-size:20px; line-height:1; color:var(--ink) }
     details.card[open] summary::after{ content:"–" }
     details.card .content{ margin-top:10px }
+    /* details internos más livianos dentro de .card */
     .card details.card{ border-radius:10px; padding:10px 12px }
   </style>
 </head>
@@ -363,33 +328,23 @@
         </picture>
       </div>
 
-      <!-- MENÚ con botón -->
-      <nav class="top-nav" aria-label="Secciones">
-        <div class="bar wrap">
-          <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-links" aria-label="Abrir menú">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
-            Menú
-          </button>
-        </div>
-
-        <div class="links wrap" id="site-links">
-          <a href="#top">Inicio</a>
-          <a href="#que-es">Qué es</a>
-          <a href="#areas">Áreas</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#proceso">Proceso</a>
-          <a href="defensa-medica/">Defensa Médica</a>
-          <a href="marcas/">Marcas</a>
-          <a href="#popup">Pop-Up Café Judicial®</a>
-          <a href="#equipo">Equipo</a>
-          <a href="#testimonios">Lo que dicen</a>
-          <a href="#proximamente">Próximamente</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contacto">Contacto</a>
-        </div>
-      </nav>
-      <!-- Cortina -->
-      <div class="nav-overlay" id="nav-overlay" hidden></div>
+    <nav class="top-nav" aria-label="Secciones">
+      <div class="links wrap">
+        <a href="#top">Inicio</a>
+        <a href="#que-es">Qué es</a>
+        <a href="#areas">Áreas</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="defensa-medica/">Defensa Médica</a>
+        <a href="marcas/">Marcas</a>
+        <a href="#popup">Pop-Up Café Judicial®</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#testimonios">Lo que dicen</a>
+        <a href="#proximamente">Próximamente</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
     </div>
   </header>
 
@@ -886,6 +841,7 @@
     const sections = [...document.querySelectorAll('main section, #top')];
     const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
     const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
+    // estado inicial
     links.forEach(l => l.setAttribute('aria-current','false'));
     (map['top']||links[0])?.setAttribute('aria-current','true');
 
@@ -931,32 +887,6 @@
     function resetNavScroll(){ if(linksWrap) linksWrap.scrollLeft = 0; }
     window.addEventListener('load', resetNavScroll);
     window.addEventListener('orientationchange', ()=>setTimeout(resetNavScroll, 200));
-
-    // === Toggle del menú + cortina ===
-    const nav = document.querySelector('.top-nav');
-    const btn = document.getElementById('nav-toggle');
-    const overlay = document.getElementById('nav-overlay');
-
-    function closeMenu(){
-      nav.classList.remove('open');
-      btn?.setAttribute('aria-expanded','false');
-      overlay?.setAttribute('hidden','');
-    }
-    function openMenu(){
-      nav.classList.add('open');
-      btn?.setAttribute('aria-expanded','true');
-      overlay?.removeAttribute('hidden');
-    }
-
-    btn?.addEventListener('click', ()=>{
-      const open = nav.classList.contains('open');
-      open ? closeMenu() : openMenu();
-    });
-    overlay?.addEventListener('click', closeMenu);
-    // Cerrar al clicar un enlace ancla
-    document.querySelectorAll('.top-nav .links a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', closeMenu);
-    });
   </script>
 </body>
 </html>
