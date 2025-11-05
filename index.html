@@ -25,8 +25,8 @@
   <link rel="icon" type="image/png" sizes="256x256" href="logo-symbol-256.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="logo-symbol-256.png" />
 
-  <!-- Tema -->
-  <meta name="theme-color" content="#CFA875">
+  <!-- Tema fijo claro -->
+  <meta name="theme-color" content="#FFFFFF">
   <meta name="color-scheme" content="light">
   <meta name="supported-color-schemes" content="light">
 
@@ -39,29 +39,13 @@
 
   <style>
     :root{
-      /* PALETA base */
-      --moka:#4B2E05;       /* Marrón Moka */
-      --beige:#D9C7A6;      /* Beige */
-      --bottle:#264E3A;     /* Verde Botella */
-      --gold:#CFA875;       /* Dorado Suave */
-
-      /* TOKENS de UI derivados */
-      --bg:#FFFFFF;
-      --panel:#FFFDF8;               /* beige muy claro para secciones */
-      --card:#FFFFFF;
-      --ink:#2B1A0C;                 /* texto principal */
-      --muted:#6E4F3D;               /* texto secundario */
-      --line:#E8DCC8;                /* borde suave */
-
-      --accent:var(--gold);          /* acento principal */
-      --accent-ink:var(--moka);      /* texto sobre acento */
-      --accent-soft:#F2E6D2;         /* fondo/gradiente suave */
-
-      --brand:var(--bottle);         /* enlaces y detalles de marca */
-      --headerH:300px;
-      --logo-max-width:880px;
-      --focus:2px solid var(--bottle);
-      --fadeW:26px; /* fade lateral del menú */
+      --bg:#FFFFFF; --panel:#FFFFFF; --card:#FFFFFF;
+      --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
+      --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
+      --headerH: 300px;
+      --logo-max-width: 880px;
+      --focus: 2px solid #2A1A0E;
+      --fadeW: 26px; /* ancho del fade lateral del menú */
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -76,9 +60,9 @@
     body{
       color:var(--ink);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      line-height:1.6; background:var(--bg);
+      line-height:1.6; background:#FFFFFF;
     }
-    a{ color: var(--brand) }
+    a{color:var(--accent)}
     .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
     /* ===== Accesibilidad ===== */
@@ -113,6 +97,7 @@
     @media (min-width:600px){ .brand-wrap{ height:200px } }
     @media (min-width:1024px){ .brand-wrap{ height:220px } }
 
+    /* Imagen del logo (centrado, sin recortes agresivos) */
     .brand-lockup{
       height:100%;
       max-width:min(var(--logo-max-width), 95vw);
@@ -139,25 +124,34 @@
       -webkit-mask-image: linear-gradient(to right, transparent, black var(--fadeW), black calc(100% - var(--fadeW)), transparent);
               mask-image: linear-gradient(to right, transparent, black var(--fadeW), black calc(100% - var(--fadeW)), transparent);
     }
-    /* Scrollbar fina visible en dispositivos con mouse */
-    @media (any-hover:hover){
-      .top-nav .links{ scrollbar-width:thin; }
-      .top-nav .links::-webkit-scrollbar{ height:8px; }
-      .top-nav .links::-webkit-scrollbar-thumb{ background:#e3d3bf; border-radius:8px; }
-      .top-nav .links::-webkit-scrollbar-track{ background:transparent; }
-    }
-
+    .top-nav .links::-webkit-scrollbar{ display:none }
     .top-nav .links a{
       color:var(--muted); text-decoration:none;
       font-size:clamp(13px, 2.9vw, 15px);
       padding:6px 8px; border-radius:8px; white-space:nowrap;
       scroll-snap-align:start;
-      transition: background-color .15s ease, box-shadow .15s ease;
     }
-    .top-nav .links a:hover{ background:#FBF4EA }
+    .top-nav .links a:hover{ background:#fff7ec }
     .top-nav .links a[aria-current="true"]{
-      color:var(--ink);
-      box-shadow:0 0 0 1px var(--line) inset;
+      color:var(--ink); box-shadow:0 0 0 1px var(--line) inset;
+    }
+
+    /* ===== Equipo: tipografías y subtítulos ===== */
+    #equipo h3{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      line-height:1.25;
+      letter-spacing:.2px;
+      margin-bottom:6px;
+    }
+    #equipo h4.discreet{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-weight:700;       /* negrita */
+      text-transform:none;   /* sin MAYÚSCULAS forzadas */
+      letter-spacing:0;
+      font-size:14px;        /* 13px si los quieres más discretos */
+      color:#3A2415;
+      margin:8px 0 4px;
     }
 
     /* ===== HERO ===== */
@@ -169,8 +163,8 @@
     }
     .hero .inner{
       position:relative; z-index:1; max-width:980px; padding:20px 18px;
-      background:#FFFFFF; border:1px solid rgba(232,220,200,.85);
-      border-radius:16px; box-shadow:0 24px 60px rgba(43,26,12,.14);
+      background:#FFFFFF; border:1px solid rgba(227,200,166,.85);
+      border-radius:16px; box-shadow:0 24px 60px rgba(58,36,21,.14);
       display:grid; gap:18px;
     }
     @media (min-width:900px){
@@ -185,17 +179,17 @@
     }
     .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);margin-bottom:14px}
     .cta-row{display:flex;gap:10px;flex-wrap:wrap}
-
     .cta{
       display:inline-flex;gap:10px;align-items:center;justify-content:center;
       background:linear-gradient(180deg,var(--accent-soft),var(--accent));
       color:var(--accent-ink);font-weight:700;text-decoration:none;
-      padding:12px 16px;border-radius:12px;border:1px solid rgba(207,168,117,.55);
-      box-shadow:0 6px 16px rgba(75,46,5,.18);transition:.18s ease
+      padding:12px 16px;border-radius:12px;border:1px solid rgba(201,146,58,.55);
+      box-shadow:0 6px 16px rgba(58,36,21,.18);transition:.18s ease
     }
     .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
-    .cta.ghost{background:#FFF;color:var(--ink);box-shadow:none;border:1px solid var(--line)}
+    .cta.ghost{background:#FFF;color:var(--ink);box-shadow:none}
 
+    /* Cinta aviso en HERO */
     .hero-note{
       background:#FFF;border:1px solid var(--line);border-radius:10px;
       padding:10px 12px;margin-top:6px;display:inline-block
@@ -206,10 +200,10 @@
     .photo-chip img{
       width:min(100%, 720px); height:auto;
       border-radius:16px;border:1px solid var(--line);
-      box-shadow:0 12px 28px rgba(43,26,12,.12);
+      box-shadow:0 12px 28px rgba(58,36,21,.12);
       margin:0 auto; aspect-ratio:4/3;
     }
-    .photo-chip figcaption{font-size:12px;color:#7A5A46;text-align:center;margin-top:6px}
+    .photo-chip figcaption{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
 
     /* SECCIONES */
     main section{padding:44px 0;border-top:1px solid var(--line)}
@@ -220,7 +214,7 @@
     }
     h2::after{
       content:"";position:absolute;left:0;bottom:0;width:84px;height:2px;border-radius:2px;
-      background:linear-gradient(90deg,var(--accent),rgba(207,168,117,0))
+      background:linear-gradient(90deg,var(--accent),rgba(201,146,58,0))
     }
     main h2::before{
       content:"";width:32px;height:32px;flex:0 0 32px;
@@ -246,7 +240,7 @@
     @media (min-width:860px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
     .team-card{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start;background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px}
     .team-avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
-    .tag{display:inline-block;font-size:12px;line-height:1;padding:6px 8px;border:1px solid var(--line);border-radius:999px;color:#7A5A46;margin-right:6px;margin-top:4px}
+    .tag{display:inline-block;font-size:12px;line-height:1;padding:6px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin-right:6px;margin-top:4px}
 
     /* Testimonios */
     .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
@@ -295,6 +289,16 @@
     @media (prefers-reduced-motion: reduce){
       .whatsapp-fab::after{ animation: none; }
       html{ scroll-behavior: auto; }
+    }
+
+    /* ===== Mejora equipo (Emilio más grande) ===== */
+    .avatar-xl{
+      width:min(92vw, 340px);
+      height:min(92vw, 340px);
+      border-radius:14px; object-fit:cover; border:1px solid var(--line);
+    }
+    .brand-uc{
+      height:120px; width:auto; opacity:.95;
     }
 
     /* ===== Acordeones / contenido colapsable ===== */
@@ -427,6 +431,7 @@
       <div class="kicker">Contrata como prefieras</div>
       <h2 id="servicios-h">Servicios</h2>
 
+      <!-- Foto de las tazas -->
       <figure class="photo-chip" style="margin:12px 0 18px">
         <img
           src="C1DE53E0-7879-45E1-8128-E2D24925FB5C.png"
@@ -489,7 +494,7 @@
       </details>
     </section>
 
-    <!-- POP-UP -->
+    <!-- POP-UP (visible: el gancho principal) -->
     <section id="popup" aria-labelledby="popup-h">
       <div class="kicker">Piloto en cafeterías</div>
       <h2 id="popup-h">Pop-Up Café Judicial®</h2>
@@ -497,6 +502,7 @@
         una taza de café + asesoría legal clara y cercana.</p>
       <p class="lead">Café Judicial® es <strong>itinerante</strong>: nos movemos por <strong>distintos cafés y barrios</strong> para acercar el derecho a tu zona.</p>
 
+      <!-- Foto del Pop-Up -->
       <figure class="photo-chip" style="margin:12px 0 18px">
         <img
           src="382DEC3F-81C2-4025-AC2D-7BAD023A54AD.png"
@@ -627,7 +633,7 @@
           </details>
         </article>
 
-        <!-- MARIELA -->
+        <!-- MARIELA (igual formato que Arturo) -->
         <article class="card" style="text-align:center">
           <img src="IMG_MARIELA.jpeg" alt="Mariela Henríquez — fotografía"
                style="width:180px;height:180px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;border:1px solid var(--line);">
@@ -664,12 +670,13 @@
     </section>
     <!-- ============== /EQUIPO ============== -->
 
-    <!-- TESTIMONIOS -->
+    <!-- TESTIMONIOS (1 visible + resto al abrir) -->
     <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
       <div class="ts-wrap">
         <div class="kicker">Prueba social</div>
         <h2 id="testimonios-h">Lo que dicen</h2>
 
+        <!-- 1 destacado -->
         <div class="ts-grid" style="margin-bottom:10px">
           <figure class="ts-card">
             <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format"
@@ -683,6 +690,7 @@
           </figure>
         </div>
 
+        <!-- Más opiniones -->
         <details class="card">
           <summary>Ver más opiniones</summary>
           <div class="content">
@@ -714,7 +722,7 @@
       </div>
     </section>
 
-    <!-- PRÓXIMAMENTE -->
+    <!-- PRÓXIMAMENTE (colapsado) -->
     <section id="proximamente" aria-labelledby="prox-h">
       <div class="kicker">Lo que viene</div>
       <h2 id="prox-h">Próximos proyectos</h2>
@@ -747,7 +755,7 @@
       </details>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (colapsado) -->
     <section id="faq" aria-labelledby="faq-h">
       <div class="kicker">Dudas comunes</div>
       <h2 id="faq-h">Preguntas frecuentes</h2>
@@ -764,7 +772,7 @@
       </details>
     </section>
 
-    <!-- CONTACTO -->
+    <!-- CONTACTO (visible para conversión) -->
     <section id="contacto" class="center" aria-labelledby="cta-h">
       <div class="kicker">Contacto</div>
       <h2 id="cta-h">Conversemos</h2>
