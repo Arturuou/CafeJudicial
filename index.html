@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es-CL">
+
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Café Judicial® – Donde la justicia se sirve en taza</title>
@@ -27,6 +29,7 @@
   <meta name="supported-color-schemes" content="light">
 
     <link rel="preload" as="image" href="logo-hero-640.webp" />
+  
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -132,7 +135,7 @@
 
     /* ===== Equipo: tipografías y subtítulos (MODIFICADO) ===== */
     #equipo h3{
-      font-family:inherit; /* <<< CAMBIO AQUÍ */
+      font-family:inherit; /* <<< CAMBIO AQUÍ: Usa la fuente del body (Inter) */
       font-weight:700;
       line-height:1.25;
       letter-spacing:.2px;
@@ -166,7 +169,7 @@
     }
 
     .headline > h1{
-      font-family:inherit; /* <<< CAMBIO AQUÍ */
+      font-family:inherit; /* <<< CAMBIO AQUÍ: Usa la fuente del body (Inter) */
       font-weight:700;
       font-size:clamp(28px,4.2vw,48px);
       line-height:1.08; margin:2px 0 8px;
@@ -203,7 +206,7 @@
     /* SECCIONES (MODIFICADO) */
     main section{padding:44px 0;border-top:1px solid var(--line)}
     h2{
-      font-family:inherit; /* <<< CAMBIO AQUÍ */
+      font-family:inherit; /* <<< CAMBIO AQUÍ: Usa la fuente del body (Inter) */
       font-weight:700;
       font-size:clamp(24px,3.6vw,34px);margin:0 0 12px;position:relative;padding-bottom:6px;
       display:flex;align-items:center;gap:.5rem;
@@ -246,7 +249,7 @@
     .ts-card{
       display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;
       background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px
-    }
+  t }
     .ts-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover}
     .ts-name{font-weight:700}
     .ts-role{color:var(--muted);margin-left:.35rem}
@@ -257,238 +260,4 @@
     .whatsapp-fab{
       position:fixed; right:18px; bottom:18px; width:56px; height:56px;
       border-radius:50%; background:#25D366; display:grid; place-items:center;
-      color:#fff; box-shadow:0 10px 30px rgba(37,211,102,.25);
-      z-index:1100; transition:transform .15s ease;
-    }
-    .whatsapp-fab:hover{ transform: translateY(-2px) }
-    .whatsapp-fab::after{
-      content:""; position:absolute; inset:-6px; border-radius:50%;
-      box-shadow:0 0 0 0 rgba(37,211,102,.22); animation:wa-pulse 2.2s infinite;
-    }
-
-    /* Footer */
-    footer{
-      padding:28px 96px 96px 64px;
-      text-align:center;color:#7a5a46;font-style:italic;position:relative;background:#FFFFFF;
-    }
-    @media (min-width:600px){ footer{ padding-bottom:32px } }
-    footer::before{
-      content:""; position:absolute; left:12px; top:50%; transform:translateY(-50%);
-      width:44px; height:44px; background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
-    }
-
-    @keyframes wa-pulse{
-      0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.22); }
-      70%  { box-shadow: 0 0 0 12px rgba(37,211,102,0); }
-      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-    }
-    @media (prefers-reduced-motion: reduce){
-      .whatsapp-fab::after{ animation: none; }
-      html{ scroll-behavior: auto; }
-    }
-
-    /* ===== Mejora equipo (Emilio más grande) ===== */
-    .avatar-xl{
-      width:min(92vw, 340px);
-      height:min(92vw, 340px);
-      border-radius:14px; object-fit:cover; border:1px solid var(--line);
-    }
-    .brand-uc{
-      height:120px; width:auto; opacity:.95;
-    }
-
-    /* ===== Acordeones / contenido colapsable ===== */
-    details.card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 14px }
-    details.card + details.card{ margin-top:10px }
-    details.card summary{ list-style:none; cursor:pointer; font-weight:700; display:flex; align-items:center; justify-content:space-between; gap:10px }
-    details.card summary::-webkit-details-marker{ display:none }
-    details.card summary::after{ content:"+"; font-size:20px; line-height:1; color:var(--ink) }
-    details.card[open] summary::after{ content:"–" }
-    details.card .content{ margin-top:10px }
-    /* details internos más livianos dentro de .card */
-    .card details.card{ border-radius:10px; padding:10px 12px }
-  </style>
-</head>
-<body>
-
-    <a href="#que-es" class="skip-link">Saltar al contenido</a>
-
-    <header class="site">
-    <div class="wrap header-stack">
-      <div class="brand-wrap">
-        <picture>
-          <source srcset="logo-hero-640.webp" type="image/webp">
-          <img class="brand-lockup"
-               src="logo-nav-640.png"
-               alt="Café Judicial — logotipo completo"
-               width="640" height="300"
-               fetchpriority="high" decoding="async">
-        </picture>
-      </div>
-
-    <nav class="top-nav" aria-label="Secciones">
-      <div class="links wrap">
-        <a href="#top">Inicio</a>
-        <a href="#que-es">Qué es</a>
-        <a href="#areas">Áreas</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#proceso">Proceso</a>
-        <a href="defensa-medica/">Defensa Médica</a>
-        <a href="marcas/">Marcas</a>
-        <a href="#popup">Pop-Up Café Judicial®</a>
-        <a href="#equipo">Equipo</a>
-        <a href="#testimonios">Lo que dicen</a>
-        <a href="#proximamente">Próximamente</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacto">Contacto</a>
-      </div>
-    </nav>
-    </div>
-  </header>
-
-    <section id="top" class="hero" aria-label="Portada">
-    <div class="inner wrap">
-      <div class="headline">
-        <h1>Te invitamos a tu café favorito.</h1>
-        <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y <strong>en palabras simples</strong>.</p>
-
-        <p class="hero-note">
-          ✨ <strong>Nuevo:</strong> <a href="#popup">Pop-Up Café Judicial®</a>
-          (Barrio Italia, Lastarria, Providencia). ¡Pronto fechas!
-        </p>
-
-        <div class="cta-row" style="margin-top:6px">
-          <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
-          <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
-        </div>
-      </div>
-
-      <figure class="photo-chip">
-        <img src="IMG_8339.jpeg" loading="lazy" alt="Asesoría legal en mesa de café, ambiente tranquilo" width="1200" height="900" sizes="(min-width:900px) 50vw, 100vw">
-        <figcaption>Café invitado ☕️</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <main class="wrap" role="main">
-        <section id="que-es" aria-labelledby="que-es-h">
-      <div class="kicker">Presentación</div>
-      <h2 id="que-es-h">¿Qué es Café Judicial?</h2>
-      <p class="lead">
-        Un servicio legal <strong>presencial u online</strong> con trato humano: te invitamos tu café favorito y, en esa instancia,
-        te asesoramos <strong>en persona o por videollamada</strong> y trabajamos tu caso (escrituras, contratos, asesorías y más).
-      </p>
-      <p class="lead">
-        Nuestro gancho es simple: <strong>derecho en simple, con buen café</strong>. Nos enfocamos en claridad, pasos concretos y
-        entregables listos para usar.
-      </p>
-      <p class="lead">
-        Además, contamos con la modalidad <strong>Pop-Up Café Judicial®</strong>: encuentros <em>itinerantes</em> en distintas
-        cafeterías de Santiago (Barrio Italia, Lastarria, Providencia y más) para acercar el derecho a tu propio barrio.
-      </p>
-    </section>
-
-        <section id="areas" aria-labelledby="areas-h">
-      <div class="kicker">Especialidades</div>
-      <h2 id="areas-h">Áreas de práctica</h2>
-
-      <details class="card">
-        <summary>Derecho Civil y de Familia</summary>
-        <div class="content">
-          <ul class="ul-bulleted">
-            <li><strong>Cambio de nombre y rectificación de partidas:</strong> Tramitación judicial/administrativa para modificar nombres o apellidos por uso, identidad o error registral; incluye revisión de antecedentes, presentación y gestión ante el Registro Civil.</li>
-            <li><strong>Posesión efectiva (testada e intestada):</strong> Gestión integral ante Registro Civil o tribunales, levantamiento de herederos, preparación de antecedentes y coordinación de inscripciones en Conservador de Bienes Raíces y otras entidades.</li>
-            <li><strong>Testamentos y asesoría sucesoria:</strong> Diagnóstico patrimonial y familiar; redacción y revisión de testamentos abiertos, cerrados o especiales; coordinación de firmas en notaría y orientación sobre modificaciones futuras.</li>
-            <li><strong>Partición de herencia y acuerdos entre herederos:</strong> Negociación extrajudicial o representación en juicio particional; formalización e inscripción de adjudicaciones.</li>
-            <li><strong>Contratos civiles:</strong> Redacción y/o revisión de compraventa, promesa, arriendo, comodato, prestación de servicios y otros; cláusulas de garantías, penalidades y acompañamiento en la firma.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="card">
-        <summary>Procedimientos Administrativos y Sumarios</summary>
-        <div class="content">
-          <ul class="ul-bulleted">
-            <li><strong>Descargos y defensas en sumarios:</strong> Análisis de expediente, estrategia, asistencia a declaraciones, descargos y solicitud de diligencias, resguardando debido proceso y proporcionalidad.</li>
-            <li><strong>Recursos administrativos:</strong> Reposición, jerárquico o apelación según estatuto aplicable; fundamentos de hecho y derecho, acompañamiento probatorio y control de plazos.</li>
-            <li><strong>Contraloría General de la República:</strong> Reclamos y consultas de legalidad, informes en derecho y seguimiento hasta su resolución.</li>
-          </ul>
-        </div>
-      </details>
-    </section>
-
-        <section id="servicios" aria-labelledby="servicios-h">
-      <div class="kicker">Contrata como prefieras</div>
-      <h2 id="servicios-h">Servicios</h2>
-
-            <figure class="photo-chip" style="margin:12px 0 18px">
-        <img
-          src="C1DE53E0-7879-45E1-8128-E2D24925FB5C.png"
-          alt="Tazas en barra con nombres de servicios legales: Sumarios, Escrituras, Posesión efectiva, Cambio de Nombre, Recursos Administrativos, Testamento y Asesoría 45 minutos"
-          width="1536" height="1024"
-          loading="lazy" decoding="async"
-          style="aspect-ratio:3/2">
-        <figcaption style="text-align:center;color:#6E4F3D;font-size:12px;margin-top:6px">
-          Servicios en simple, servido en taza ☕️
-        </figcaption>
-      </figure>
-
-      <details class="card">
-        <summary>Asesoría 45’ (presencial u online)</summary>
-        <div class="content">
-          <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
-          <ul class="mini-list">
-            <li><strong>Presencial:</strong> te invitamos a un café ☕️</li>
-            <li><strong>Online:</strong> te acompañamos con tu café en casa</li>
-          </ul>
-          <p class="cta-row" style="margin-top:10px">
-            <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
-            <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
-          </p>
-        </div>
-      </details>
-
-      <details class="card">
-        <summary>Escritura o documento</summary>
-        <div class="content">
-          <p class="lead">Redacción a medida en lenguaje claro. Una iteración incluida para ajustar.</p>
-          <p><a class="cta" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
-        </div>
-      </details>
-
-      <details class="card">
-        <summary>Revisión de contrato</summary>
-        <div class="content">
-          <p class="lead">Detectamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
-          <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
-        </div>
-      </details>
-    </section>
-
-        <section id="proceso" aria-labelledby="proceso-h">
-      <div class="kicker">Cómo trabajamos</div>
-      <h2 id="proceso-h">Proceso simple</h2>
-
-      <details class="card">
-        <summary>Ver pasos</summary>
-        <div class="content">
-          <div class="cards">
-            <article class="card"><h3>1) Consulta</h3><p class="lead">Conversemos tu caso (presencial u online) con un buen café.</p></article>
-            <article class="card"><h3>2) Evaluación</h3><p class="lead">Revisamos documentos y definimos riesgos.</p></article>
-            <article class="card"><h3>3) Estrategia</h3><p class="lead">Plan claro con tareas y entregables.</p></article>
-            <article class="card"><h3>4) Acción</h3><p class="lead">Redacción, presentación o gestión concreta.</p></article>
-        t </div>
-        </div>
-      </details>
-    </section>
-
-        <section id="popup" aria-labelledby="popup-h">
-      <div class="kicker">Piloto en cafeterías</div>
-      <h2 id="popup-h">Pop-Up Café Judicial®</h2>
-      <p class="lead">Muy pronto estaremos en <strong>cafeterías de Santiago</strong> (Barrio Italia, Lastarria y Providencia) con eventos especiales:
-        una taza de café + asesoría legal clara y cercana.</p>
-      <p class="lead">Café Judicial® es <strong>itinerante</strong>: nos movemos por <strong>distintos cafés y barrios</strong> para acercar el derecho a tu zona.</p>
-
-            <figure class="photo-chip" style="margin:12px 0 18px">
-        <img
-          src="3
+      color:#fff; box-shadow:0 10px 30px rgba(37,21
