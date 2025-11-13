@@ -1,28 +1,13 @@
-/cafe-judicial
-|-- index.html            # Página principal con secciones Inicio, Equipo, Contacto
-|-- servicios.html        # Detalle de servicios (opcional, o secciones ancla en index)
-|-- contacto.html         # Página de contacto (o formulario en index)
-|-- css/
-|   |-- style.css         # Estilos generales, media queries
-|-- js/
-|   |-- main.js           # Scripts para interactividad (menú, validación)
-|-- images/
-|   |-- logo.png          # Logotipo del café judicial
-|   |-- hero.jpg          # Imagen de cabecera (por ejemplo, café y abogados)
-|   |-- abogado1.jpg      # Fotos del equipo
-|   |-- ...
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Café Judicial</title>
-  <!-- Vincular hoja de estilos -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Encabezado con logo y menú -->
+  <!-- Encabezado -->
   <header>
     <div class="container">
       <img src="images/logo.png" alt="Logo Café Judicial" class="logo">
@@ -34,21 +19,21 @@
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
-      <button class="menu-toggle">☰</button> <!-- Menú hamburguesa para móvil -->
+      <button class="menu-toggle">☰</button>
     </div>
   </header>
 
-  <!-- Sección de Inicio / Hero -->
+  <!-- Hero -->
   <section id="inicio" class="hero">
     <div class="overlay"></div>
     <div class="hero-content container">
       <h1>Cercanía y Asesoría Legal Profesional</h1>
-      <p>En Café Judicial te brindamos asesoramiento legal personalizado con un trato cercano.</p>
+      <p>En Café Judicial te brindamos asesoramiento legal personalizado con un trato cercano y humano.</p>
       <a href="#contacto" class="btn-cta">Contáctanos</a>
     </div>
   </section>
 
-  <!-- Sección de Servicios -->
+  <!-- Servicios -->
   <section id="servicios" class="servicios container">
     <h2>Nuestros Servicios</h2>
     <div class="cards">
@@ -60,7 +45,7 @@
       <div class="card">
         <img src="images/servicio-penal.jpg" alt="Derecho Penal">
         <h3>Derecho Penal</h3>
-        <p>Defensa penal y representation legal.</p>
+        <p>Defensa penal y representación legal.</p>
       </div>
       <div class="card">
         <img src="images/servicio-laboral.jpg" alt="Derecho Laboral">
@@ -70,7 +55,7 @@
     </div>
   </section>
 
-  <!-- Sección de Equipo -->
+  <!-- Equipo -->
   <section id="equipo" class="equipo container">
     <h2>Nuestro Equipo</h2>
     <p>Conoce a nuestros abogados especializados y con amplia experiencia.</p>
@@ -85,11 +70,10 @@
         <h3>María López</h3>
         <p>Especialista en Derecho Laboral, enfocada en la defensa de trabajadores.</p>
       </div>
-      <!-- Más miembros del equipo -->
     </div>
   </section>
 
-  <!-- Sección de Contacto -->
+  <!-- Contacto -->
   <section id="contacto" class="contacto container">
     <h2>Contacto</h2>
     <p>Escríbenos o visítanos, estamos para ayudarte.</p>
@@ -105,6 +89,7 @@
 
       <button type="submit" class="btn-cta">Enviar Mensaje</button>
     </form>
+
     <div class="contact-info">
       <p><strong>Dirección:</strong> Dr. Torres Boonen 511, Providencia, Santiago</p>
       <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
@@ -116,99 +101,107 @@
     <p>&copy; 2025 Café Judicial. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Script JS -->
   <script src="js/main.js"></script>
 </body>
 </html>
-/* css/style.css */
-
-/* Colores de la paleta */
 :root {
   --marron-moka: #4B2E05;
   --beige: #D9C7A6;
   --verde-botella: #264E3A;
   --dorado-suave: #CFA875;
   --blanco: #FFFFFF;
-  --gris-claro: #f5f5f5;
+  --gris-claro: #F5F5F5;
 }
 
-/* Estilos globales */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: Arial, sans-serif;
   color: var(--marron-moka);
   line-height: 1.6;
   background-color: var(--gris-claro);
 }
+
 .container {
   width: 90%;
   max-width: 1200px;
   margin: auto;
 }
 
-/* Encabezado */
+/* Header */
 header {
   background: var(--verde-botella);
   color: var(--blanco);
   padding: 20px 0;
 }
+
 header .logo {
   height: 50px;
 }
+
 header nav {
-  display: inline-block;
   float: right;
 }
+
 header nav ul {
   list-style: none;
 }
+
 header nav ul li {
   display: inline-block;
   margin-left: 20px;
 }
+
 header nav ul li a {
   color: var(--blanco);
   text-decoration: none;
   font-weight: bold;
 }
+
 header .menu-toggle {
-  display: none; /* Se muestra solo en móvil */
+  display: none;
 }
 
 /* Hero */
 .hero {
   position: relative;
   background: url('../images/hero.jpg') no-repeat center center/cover;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   color: var(--blanco);
   text-align: center;
 }
+
 .hero .overlay {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(75,46,5,0.6); /* marrón oscuro transparente */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(75,46,5,0.6);
 }
+
 .hero-content {
   position: relative;
   z-index: 1;
   width: 100%;
 }
+
 .hero h1 {
   font-size: 2.5em;
   margin-bottom: 0.5em;
-  font-family: 'Arial', sans-serif;
 }
+
 .hero p {
   font-size: 1.2em;
   margin-bottom: 1em;
 }
+
 .btn-cta {
   background: var(--dorado-suave);
   color: var(--verde-botella);
@@ -219,63 +212,54 @@ header .menu-toggle {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .btn-cta:hover {
   background: var(--blanco);
 }
 
-/* Sección de Servicios */
+/* Servicios */
 .servicios {
   padding: 60px 0;
   text-align: center;
   background: var(--blanco);
 }
+
 .servicios h2 {
   margin-bottom: 20px;
   font-size: 2em;
 }
-.servicios .cards {
+
+.cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
-.servicios .card {
+
+.card {
   background: var(--beige);
   border-radius: 8px;
   width: 300px;
   margin: 10px;
   padding: 20px;
-  text-align: left;
 }
-.servicios .card img {
+
+.card img {
   width: 100%;
   border-radius: 8px;
 }
-.servicios .card h3 {
-  margin: 15px 0 10px;
-}
-.servicios .card p {
-  font-size: 0.95em;
-}
 
-/* Sección de Equipo */
+/* Equipo */
 .equipo {
   padding: 60px 0;
   text-align: center;
 }
-.equipo h2 {
-  margin-bottom: 10px;
-  font-size: 2em;
-}
-.equipo p {
-  margin-bottom: 30px;
-  font-size: 1.1em;
-  color: var(--marron-moka);
-}
+
 .team {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .member {
   background: var(--beige);
   margin: 10px;
@@ -284,6 +268,7 @@ header .menu-toggle {
   border-radius: 8px;
   text-align: center;
 }
+
 .member img {
   width: 150px;
   height: 150px;
@@ -291,26 +276,13 @@ header .menu-toggle {
   border-radius: 50%;
   margin-bottom: 15px;
 }
-.member h3 {
-  margin-bottom: 5px;
-}
-.member p {
-  font-size: 0.95em;
-}
 
-/* Sección de Contacto */
+/* Contacto */
 .contacto {
   padding: 60px 0;
   background: var(--blanco);
 }
-.contacto h2 {
-  margin-bottom: 10px;
-  font-size: 2em;
-}
-.contacto p {
-  margin-bottom: 30px;
-  font-size: 1.1em;
-}
+
 #contact-form {
   display: flex;
   flex-direction: column;
@@ -318,15 +290,18 @@ header .menu-toggle {
   max-width: 500px;
   margin: 0 auto;
 }
+
 #contact-form label {
   margin: 10px 0 5px;
 }
-#contact-form input, 
+
+#contact-form input,
 #contact-form textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 #contact-form button {
   margin-top: 15px;
   width: 150px;
@@ -340,46 +315,54 @@ footer {
   text-align: center;
   padding: 20px 0;
   margin-top: 40px;
-  font-size: 0.9em;
 }
 
-/* Media Queries */
+/* Responsive */
 @media (max-width: 768px) {
   header nav ul {
-    display: none; /* Ocultar menú en pantallas pequeñas */
+    display: none;
   }
+
+  header nav ul.show {
+    display: block;
+    text-align: center;
+    background: var(--verde-botella);
+    padding: 10px 0;
+  }
+
   header .menu-toggle {
-    display: inline-block; /* Mostrar botón menú */
+    display: inline-block;
     background: none;
     color: var(--blanco);
     font-size: 1.5em;
     border: none;
   }
-  .servicios .cards, .team {
+
+  .cards,
+  .team {
     flex-direction: column;
     align-items: center;
   }
+
   .hero h1 {
     font-size: 2em;
   }
+
   .hero p {
     font-size: 1em;
   }
 }
-// js/main.js
-
-// Ejemplo: funcionalidad para menú hamburguesa
+// Menú móvil
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('header nav ul');
 
 menuToggle.addEventListener('click', () => {
-  nav.classList.toggle('show'); // Alternar clase para mostrar/ocultar menú
+  nav.classList.toggle('show');
 });
 
-// Validación simple del formulario (puede ampliarse)
+// Validación del formulario
 const form = document.getElementById('contact-form');
-form.addEventListener('submit', function(e) {
-  // Aquí se podría validar campos antes de enviar
-  alert('Formulario enviado. ¡Gracias!');
-  // e.preventDefault(); // Descomentar si no se envía a backend real
+form.addEventListener('submit', (e) => {
+  alert('Formulario enviado. ¡Gracias por contactarnos!');
 });
+
