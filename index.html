@@ -1,116 +1,876 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café Judicial</title>
-    <!-- Vincula el archivo CSS principal -->
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Café Judicial® – Donde la justicia se sirve en taza</title>
+
+  <link rel="canonical" href="https://arturuou.github.io/CafeJudicial/" />
+  <meta name="robots" content="index,follow" />
+
+  <meta name="description" content="Te invitamos a tu café favorito. Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y en palabras simples. Asesoría y documentos en simple." />
+  <meta property="og:title" content="Café Judicial® – Donde la justicia se sirve en taza" />
+  <meta property="og:description" content="Te invitamos a tu café favorito. Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y en palabras simples." />
+  <meta property="og:image" content="https://arturuou.github.io/CafeJudicial/og-cafe-judicial-1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Café Judicial®" />
+  <meta property="og:locale" content="es_CL" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" sizes="256x256" href="logo-symbol-256.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="logo-symbol-256.png" />
+
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+
+  <link rel="preload" as="image" href="logo-hero-640.webp" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#FFFFFF; --panel:#FFFFFF; --card:#FFFFFF;
+      --ink:#3A2415; --muted:#6E4F3D; --line:#E3C8A6;
+      --accent:#C9923A; --accent-ink:#2A1A0E; --accent-soft:#F2D49B;
+      --headerH: 300px;
+      --logo-max-width: 880px;
+      --focus: 2px solid #2A1A0E;
+      --fadeW: 26px; /* ancho del fade lateral del menú */
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    img{max-width:100%;display:block;height:auto}
+    html{
+      scroll-behavior:smooth;
+      color-scheme: light !important;
+      scroll-padding-top: calc(var(--headerH) + 12px);
+    }
+    :target{scroll-margin-top: calc(var(--headerH) + 12px)}
+
+    body{
+      color:var(--ink);
+      /* Fuente base Sans Serif (Inter) */
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.6; background:#FFFFFF;
+    }
+    a{color:var(--accent)}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    /* ===== Accesibilidad ===== */
+    .skip-link{
+      position:absolute; left:8px; top:-40px; z-index:9999;
+      background:#fff; border:1px solid var(--line); padding:8px 10px; border-radius:10px;
+      transition: top .15s ease; box-shadow:0 6px 20px rgba(0,0,0,.06);
+    }
+    .skip-link:focus{ top:8px; outline: var(--focus) }
+    :focus-visible{ outline: var(--focus); outline-offset: 2px }
+
+    /* ===== HEADER: logo + menú (fijos) ===== */
+    header.site{
+      position:sticky; top:0; z-index:10; background:#FFFFFF;
+      backdrop-filter:saturate(120%) blur(8px);
+    }
+    .header-stack{
+      display:flex; flex-direction:column; align-items:center;
+      gap:0; padding-top:2px; padding-bottom:0;
+    }
+
+    /* Contenedor del logo */
+    .brand-wrap{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:0;
+      overflow:hidden;
+      height:180px;
+    }
+    @media (min-width:600px){ .brand-wrap{ height:200px } }
+    @media (min-width:1024px){ .brand-wrap{ height:220px } }
+
+    /* Imagen del logo (centrado, sin recortes agresivos) */
+    .brand-lockup{
+      height:100%;
+      max-width:min(var(--logo-max-width), 95vw);
+      object-fit:contain;
+      margin-inline:auto;
+      clip-path:none;
+      image-rendering:auto;
+    }
+
+    /* Menú */
+    .top-nav{
+      width:100%;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:#FFFFFF;
+    }
+    .top-nav .wrap{ padding-left:8px; padding-right:8px; }
+    .top-nav .links{
+      position:relative;
+      display:flex; align-items:center; justify-content:flex-start;
+      gap:8px; padding:6px 8px;
+      flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+      scrollbar-width:none; scroll-snap-type:x proximity;
+      -webkit-mask-image: linear-gradient(to right, transparent, black var(--fadeW), black calc(100% - var(--fadeW)), transparent);
+              mask-image: linear-gradient(to right, transparent, black var(--fadeW), black calc(100% - var(--fadeW)), transparent);
+    }
+    .top-nav .links::-webkit-scrollbar{ display:none }
+    .top-nav .links a{
+      color:var(--muted); text-decoration:none;
+      font-size:clamp(13px, 2.9vw, 15px);
+      padding:6px 8px; border-radius:8px; white-space:nowrap;
+      scroll-snap-align:start;
+    }
+    .top-nav .links a:hover{ background:#fff7ec }
+    .top-nav .links a[aria-current="true"]{
+      color:var(--ink); box-shadow:0 0 0 1px var(--line) inset;
+    }
+
+    /* ===== Equipo: tipografías y subtítulos ===== */
+    #equipo h3{
+      /* CAMBIO: Tipografía Sans Serif heredada */
+      font-family: inherit;
+      font-weight:700;
+      line-height:1.25;
+      letter-spacing:.2px;
+      margin-bottom:6px;
+    }
+    #equipo h4.discreet{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-weight:700;        /* negrita */
+      text-transform:none;   /* sin MAYÚSCULAS forzadas */
+      letter-spacing:0;
+      font-size:14px;         /* 13px si los quieres más discretos */
+      color:#3A2415;
+      margin:8px 0 4px;
+    }
+
+    /* ===== HERO ===== */
+    .hero{
+      position:relative;
+      min-height:52vh;
+      display:grid; place-items:center; text-align:left; overflow:hidden;
+      padding:4px 0 24px;
+    }
+    .hero .inner{
+      position:relative; z-index:1; max-width:980px; padding:20px 18px;
+      background:#FFFFFF; border:1px solid rgba(227,200,166,.85);
+      border-radius:16px; box-shadow:0 24px 60px rgba(58,36,21,.14);
+      display:grid; gap:18px;
+    }
+    @media (min-width:900px){
+      .hero .inner{grid-template-columns:1fr 1fr; align-items:center}
+    }
+
+    .headline > h1{
+      /* CAMBIO: Tipografía Sans Serif heredada */
+      font-family: inherit;
+      font-weight:700;
+      font-size:clamp(28px,4.2vw,48px);
+      line-height:1.08; margin:2px 0 8px;
+      letter-spacing:.2px;
+    }
+    .sub{font-size:clamp(15px,2.2vw,18px);color:var(--muted);margin-bottom:14px}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+    .cta{
+      display:inline-flex;gap:10px;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,var(--accent-soft),var(--accent));
+      color:var(--accent-ink);font-weight:700;text-decoration:none;
+      padding:12px 16px;border-radius:12px;border:1px solid rgba(201,146,58,.55);
+      box-shadow:0 6px 16px rgba(58,36,21,.18);transition:.18s ease
+    }
+    .cta:hover{transform:translateY(-1px);filter:brightness(1.03)}
+    .cta.ghost{background:#FFF;color:var(--ink);box-shadow:none}
+
+    /* Cinta aviso en HERO */
+    .hero-note{
+      background:#FFF;border:1px solid var(--line);border-radius:10px;
+      padding:10px 12px;margin-top:6px;display:inline-block
+    }
+
+    /* Foto secundaria */
+    .photo-chip{justify-self:center}
+    .photo-chip img{
+      width:min(100%, 720px); height:auto;
+      border-radius:16px;border:1px solid var(--line);
+      box-shadow:0 12px 28px rgba(58,36,21,.12);
+      margin:0 auto; aspect-ratio:4/3;
+    }
+    .photo-chip figcaption{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
+
+    /* SECCIONES */
+    main section{padding:44px 0;border-top:1px solid var(--line)}
+    h2{
+      /* CAMBIO: Tipografía Sans Serif heredada */
+      font-family: inherit;
+      font-weight:700;
+      font-size:clamp(24px,3.6vw,34px);margin:0 0 12px;position:relative;padding-bottom:6px;
+      display:flex;align-items:center;gap:.5rem;
+    }
+    h2::after{
+      content:"";position:absolute;left:0;bottom:0;width:84px;height:2px;border-radius:2px;
+      background:linear-gradient(90deg,var(--accent),rgba(201,146,58,0))
+    }
+    main h2::before{
+      content:"";width:32px;height:32px;flex:0 0 32px;
+      background:center/contain no-repeat url("logo-symbol-256.png");
+      transform:translateY(1px);
+    }
+
+    .lead{color:var(--muted);margin:0 0 16px}
+    .kicker{color:#5a3b21;letter-spacing:.06em;text-transform:uppercase;font-size:12px;margin-bottom:6px;opacity:.85}
+
+    /* Tarjetas */
+    .cards{display:grid;gap:14px}
+    @media (min-width:860px){ .cards{grid-template-columns:repeat(3,1fr)} }
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+    .card h3{margin-bottom:6px}
+    .mini-list{list-style:none;padding-left:0;margin:8px 0 0;display:grid;gap:6px;font-size:14px;color:var(--muted)}
+    .mini-list li strong{color:var(--ink)}
+    .ul-bulleted{ list-style:disc; padding-left:1.2rem; margin:8px 0 0 }
+    .ul-bulleted li{ margin-bottom:8px }
+
+    /* EQUIPO extras */
+    .team-grid{display:grid;gap:16px}
+    @media (min-width:860px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
+    .team-card{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start;background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px}
+    .team-avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+    .tag{display:inline-block;font-size:12px;line-height:1;padding:6px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);margin-right:6px;margin-top:4px}
+
+    /* Testimonios */
+    .section-testimonials{padding:48px 0;border-top:1px solid var(--line);background:var(--panel)}
+    .ts-wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+    .ts-grid{display:grid;gap:16px}
+    @media (min-width:860px){ .ts-grid{grid-template-columns:repeat(3,1fr)} }
+    .ts-card{
+      display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;
+      background:#FFF;border:1px solid var(--line);border-radius:14px;padding:14px
+    }
+    .ts-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover}
+    .ts-name{font-weight:700}
+    .ts-role{color:var(--muted);margin-left:.35rem}
+    .ts-stars{color:var(--accent);letter-spacing:.08em;margin:2px 0 6px}
+    .ts-card blockquote{margin:0;color:var(--ink)}
+
+    /* WhatsApp FAB */
+    .whatsapp-fab{
+      position:fixed; right:18px; bottom:18px; width:56px; height:56px;
+      border-radius:50%; background:#25D366; display:grid; place-items:center;
+      color:#fff; box-shadow:0 10px 30px rgba(37,211,102,.25);
+      z-index:1100; transition:transform .15s ease;
+    }
+    .whatsapp-fab:hover{ transform: translateY(-2px) }
+    .whatsapp-fab::after{
+      content:""; position:absolute; inset:-6px; border-radius:50%;
+      box-shadow:0 0 0 0 rgba(37,211,102,.22); animation:wa-pulse 2.2s infinite;
+    }
+
+    /* Footer */
+    footer{
+      padding:28px 96px 96px 64px;
+      text-align:center;color:#7a5a46;font-style:italic;position:relative;background:#FFFFFF;
+    }
+    @media (min-width:600px){ footer{ padding-bottom:32px } }
+    footer::before{
+      content:""; position:absolute; left:12px; top:50%; transform:translateY(-50%);
+      width:44px; height:44px; background:center/contain no-repeat url("logo-symbol-256.png"); opacity:.9;
+    }
+
+    @keyframes wa-pulse{
+      0%    { box-shadow: 0 0 0 0 rgba(37,211,102,.22); }
+      70%   { box-shadow: 0 0 0 12px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .whatsapp-fab::after{ animation: none; }
+      html{ scroll-behavior: auto; }
+    }
+
+    /* ===== Mejora equipo (Emilio más grande) ===== */
+    .avatar-xl{
+      width:min(92vw, 340px);
+      height:min(92vw, 340px);
+      border-radius:14px; object-fit:cover; border:1px solid var(--line);
+    }
+    .brand-uc{
+      height:120px; width:auto; opacity:.95;
+    }
+
+    /* ===== Acordeones / contenido colapsable ===== */
+    details.card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 14px }
+    details.card + details.card{ margin-top:10px }
+    details.card summary{ list-style:none; cursor:pointer; font-weight:700; display:flex; align-items:center; justify-content:space-between; gap:10px }
+    details.card summary::-webkit-details-marker{ display:none }
+    details.card summary::after{ content:"+"; font-size:20px; line-height:1; color:var(--ink) }
+    details.card[open] summary::after{ content:"–" }
+    details.card .content{ margin-top:10px }
+    /* details internos más livianos dentro de .card */
+    .card details.card{ border-radius:10px; padding:10px 12px }
+  </style>
 </head>
 <body>
-    <!-- Este archivo define la estructura principal del sitio Café Judicial (index.html) -->
-    <!-- Navegación principal -->
-    <nav>
-        <div class="logo">Café Judicial</div>
-        <div class="menu-toggle">&#9776;</div>
-        <ul class="menu">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#equipo">Equipo</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
+
+  <a href="#que-es" class="skip-link">Saltar al contenido</a>
+
+  <header class="site">
+    <div class="wrap header-stack">
+      <div class="brand-wrap">
+        <picture>
+          <source srcset="logo-hero-640.webp" type="image/webp">
+          <img class="brand-lockup"
+               src="logo-nav-640.png"
+               alt="Café Judicial — logotipo completo"
+               width="640" height="300"
+               fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+
+    <nav class="top-nav" aria-label="Secciones">
+      <div class="links wrap">
+        <a href="#top">Inicio</a>
+        <a href="#que-es">Qué es</a>
+        <a href="#areas">Áreas</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="defensa-medica/">Defensa Médica</a>
+        <a href="marcas/">Marcas</a>
+        <a href="#popup">Pop-Up Café Judicial®</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#testimonios">Lo que dicen</a>
+        <a href="#proximamente">Próximamente</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </div>
     </nav>
-
-    <!-- Sección de inicio (Hero) -->
-    <section id="inicio">
-        <div class="contenido">
-            <h1>Bienvenido a Café Judicial</h1>
-            <p>Donde los sabores se encuentran con la justicia y la camaradería.</p>
-            <button id="btn-agendar">Agenda aquí tu cita</button>
-        </div>
-    </section>
-
-    <!-- Sección de Servicios -->
-    <section id="servicios">
-        <h2>Nuestros Servicios</h2>
-        <div class="servicio-contenedor">
-            <div class="servicio-item">
-                <h3>Café Gourmet</h3>
-                <p>Disfruta de nuestra selección de cafés especiales con un aroma inigualable.</p>
-            </div>
-            <div class="servicio-item">
-                <h3>Pastelería</h3>
-                <p>Dulces y postres artesanales hechos con los mejores ingredientes.</p>
-            </div>
-            <div class="servicio-item">
-                <h3>Eventos</h3>
-                <p>Organización de eventos privados, reuniones o presentaciones en nuestro espacio.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección del Equipo -->
-    <section id="equipo">
-        <h2>Conoce a Nuestro Equipo</h2>
-        <div class="equipo-contenedor">
-            <div class="miembro-equipo">
-                <img src="https://via.placeholder.com/150" alt="Foto de Ana">
-                <h4>Ana López</h4>
-                <p>Barista y Fundadora</p>
-            </div>
-            <div class="miembro-equipo">
-                <img src="https://via.placeholder.com/150" alt="Foto de Carlos">
-                <h4>Carlos García</h4>
-                <p>Chef de Pastelería</p>
-            </div>
-            <div class="miembro-equipo">
-                <img src="https://via.placeholder.com/150" alt="Foto de Elena">
-                <h4>Elena Martínez</h4>
-                <p>Coordinadora de Eventos</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Contacto -->
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <form class="form-contacto" action="#" method="post">
-            <input type="text" placeholder="Nombre" required>
-            <input type="email" placeholder="Correo electrónico" required>
-            <textarea placeholder="Mensaje" required></textarea>
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Café Judicial. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- Vincula el archivo JavaScript -->
-    <script src="js/main.js"></script>
-    <!-- Modal de Agenda -->
-<div id="modal-agenda" class="modal">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h2>Agenda tu cita</h2>
-        <form class="form-agenda">
-            <label>Nombre y Apellido</label>
-            <input type="text" required>
-
-            <label>RUT</label>
-            <input type="text" required>
-
-            <label>Teléfono</label>
-            <input type="tel" required>
-
-            <label>Email</label>
-            <input type="email" required>
-
-            <button type="submit" class="btn-modal">Enviar</button>
-        </form>
     </div>
-</div>
+  </header>
+
+  <section id="top" class="hero" aria-label="Portada">
+    <div class="inner wrap">
+      <div class="headline">
+        <h1>Te invitamos a tu café favorito.</h1>
+        <p class="sub">Mientras lo disfrutas, resolvemos lo legal en persona u online: claro, rápido y <strong>en palabras simples</strong>.</p>
+
+        <p class="hero-note">
+          ✨ <strong>Nuevo:</strong> <a href="#popup">Pop-Up Café Judicial®</a>
+          (Barrio Italia, Lastarria, Providencia). ¡Pronto fechas!
+        </p>
+
+        <div class="cta-row" style="margin-top:6px">
+          <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
+          <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
+        </div>
+      </div>
+
+      <figure class="photo-chip">
+        <img src="IMG_8339.jpeg" loading="lazy" alt="Asesoría legal en mesa de café, ambiente tranquilo" width="1200" height="900" sizes="(min-width:900px) 50vw, 100vw">
+        <figcaption>Café invitado ☕️</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <main class="wrap" role="main">
+    <section id="que-es" aria-labelledby="que-es-h">
+      <div class="kicker">Presentación</div>
+      <h2 id="que-es-h">¿Qué es Café Judicial?</h2>
+      <p class="lead">
+        Un servicio legal <strong>presencial u online</strong> con trato humano: te invitamos tu café favorito y, en esa instancia,
+        te asesoramos <strong>en persona o por videollamada</strong> y trabajamos tu caso (escrituras, contratos, asesorías y más).
+      </p>
+      <p class="lead">
+        Nuestro gancho es simple: <strong>derecho en simple, con buen café</strong>. Nos enfocamos en claridad, pasos concretos y
+        entregables listos para usar.
+      </p>
+      <p class="lead">
+        Además, contamos con la modalidad <strong>Pop-Up Café Judicial®</strong>: encuentros <em>itinerantes</em> en distintas
+        cafeterías de Santiago (Barrio Italia, Lastarria, Providencia y más) para acercar el derecho a tu propio barrio.
+      </p>
+    </section>
+
+    <section id="areas" aria-labelledby="areas-h">
+      <div class="kicker">Especialidades</div>
+      <h2 id="areas-h">Áreas de práctica</h2>
+
+      <details class="card">
+        <summary>Derecho Civil y de Familia</summary>
+        <div class="content">
+          <ul class="ul-bulleted">
+            <li><strong>Cambio de nombre y rectificación de partidas:</strong> Tramitación judicial/administrativa para modificar nombres o apellidos por uso, identidad o error registral; incluye revisión de antecedentes, presentación y gestión ante el Registro Civil.</li>
+            <li><strong>Posesión efectiva (testada e intestada):</strong> Gestión integral ante Registro Civil o tribunales, levantamiento de herederos, preparación de antecedentes y coordinación de inscripciones en Conservador de Bienes Raíces y otras entidades.</li>
+            <li><strong>Testamentos y asesoría sucesoria:</strong> Diagnóstico patrimonial y familiar; redacción y revisión de testamentos abiertos, cerrados o especiales; coordinación de firmas en notaría y orientación sobre modificaciones futuras.</li>
+            <li><strong>Partición de herencia y acuerdos entre herederos:</strong> Negociación extrajudicial o representación en juicio particional; formalización e inscripción de adjudicaciones.</li>
+            <li><strong>Contratos civiles:</strong> Redacción y/o revisión de compraventa, promesa, arriendo, comodato, prestación de servicios y otros; cláusulas de garantías, penalidades y acompañamiento en la firma.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="card">
+        <summary>Procedimientos Administrativos y Sumarios</summary>
+        <div class="content">
+          <ul class="ul-bulleted">
+            <li><strong>Descargos y defensas en sumarios:</strong> Análisis de expediente, estrategia, asistencia a declaraciones, descargos y solicitud de diligencias, resguardando debido proceso y proporcionalidad.</li>
+            <li><strong>Recursos administrativos:</strong> Reposición, jerárquico o apelación según estatuto aplicable; fundamentos de hecho y derecho, acompañamiento probatorio y control de plazos.</li>
+            <li><strong>Contraloría General de la República:</strong> Reclamos y consultas de legalidad, informes en derecho y seguimiento hasta su resolución.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section id="servicios" aria-labelledby="servicios-h">
+      <div class="kicker">Contrata como prefieras</div>
+      <h2 id="servicios-h">Servicios</h2>
+
+      <figure class="photo-chip" style="margin:12px 0 18px">
+        <img
+          src="C1DE53E0-7879-45E1-8128-E2D24925FB5C.png"
+          alt="Tazas en barra con nombres de servicios legales: Sumarios, Escrituras, Posesión efectiva, Cambio de Nombre, Recursos Administrativos, Testamento y Asesoría 45 minutos"
+          width="1536" height="1024"
+          loading="lazy" decoding="async"
+          style="aspect-ratio:3/2">
+        <figcaption style="text-align:center;color:#6E4F3D;font-size:12px;margin-top:6px">
+          Servicios en simple, servido en taza ☕️
+        </figcaption>
+      </figure>
+
+      <details class="card">
+        <summary>Asesoría 45’ (presencial u online)</summary>
+        <div class="content">
+          <p class="lead">Resolvemos dudas y definimos tu hoja de ruta. Incluye resumen por correo.</p>
+          <ul class="mini-list">
+            <li><strong>Presencial:</strong> te invitamos a un café ☕️</li>
+            <li><strong>Online:</strong> te acompañamos con tu café en casa</li>
+          </ul>
+          <p class="cta-row" style="margin-top:10px">
+            <a class="cta" href="https://forms.gle/TU_LINK_PRESENCIAL" target="_blank" rel="noopener">Agendar presencial</a>
+            <a class="cta ghost" href="https://forms.gle/TU_LINK_ONLINE" target="_blank" rel="noopener">Agendar online</a>
+          </p>
+        </div>
+      </details>
+
+      <details class="card">
+        <summary>Escritura o documento</summary>
+        <div class="content">
+          <p class="lead">Redacción a medida en lenguaje claro. Una iteración incluida para ajustar.</p>
+          <p><a class="cta" href="https://forms.gle/TU_LINK_DOCUMENTO" target="_blank" rel="noopener">Encargar documento</a></p>
+        </div>
+      </details>
+
+      <details class="card">
+        <summary>Revisión de contrato</summary>
+        <div class="content">
+          <p class="lead">Detectamos riesgos y mejoras. Entrega con comentarios y sugerencias.</p>
+          <p><a class="cta" href="https://forms.gle/TU_LINK_REVISION" target="_blank" rel="noopener">Solicitar revisión</a></p>
+        </div>
+      </details>
+    </section>
+
+    <section id="proceso" aria-labelledby="proceso-h">
+      <div class="kicker">Cómo trabajamos</div>
+      <h2 id="proceso-h">Proceso simple</h2>
+
+      <details class="card">
+        <summary>Ver pasos</summary>
+        <div class="content">
+          <div class="cards">
+            <article class="card"><h3>1) Consulta</h3><p class="lead">Conversemos tu caso (presencial u online) con un buen café.</p></article>
+            <article class="card"><h3>2) Evaluación</h3><p class="lead">Revisamos documentos y definimos riesgos.</p></article>
+            <article class="card"><h3>3) Estrategia</h3><p class="lead">Plan claro con tareas y entregables.</p></article>
+            <article class="card"><h3>4) Acción</h3><p class="lead">Redacción, presentación o gestión concreta.</p></article>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="popup" aria-labelledby="popup-h">
+      <div class="kicker">Piloto en cafeterías</div>
+      <h2 id="popup-h">Pop-Up Café Judicial®</h2>
+      <p class="lead">Muy pronto estaremos en <strong>cafeterías de Santiago</strong> (Barrio Italia, Lastarria y Providencia) con eventos especiales:
+        una taza de café + asesoría legal clara y cercana.</p>
+      <p class="lead">Café Judicial® es <strong>itinerante</strong>: nos movemos por <strong>distintos cafés y barrios</strong> para acercar el derecho a tu zona.</p>
+
+      <figure class="photo-chip" style="margin:12px 0 18px">
+        <img
+          src="382DEC3F-81C2-4025-AC2D-7BAD023A54AD.png"
+          alt="Conversación cercana entre abogado y clienta, con café de por medio"
+          width="1536" height="1024"
+          loading="lazy" decoding="async"
+          style="aspect-ratio:3/2">
+        <figcaption style="text-align:center;color:#6E4F3D;font-size:12px;margin-top:6px">
+          Conversar lo legal, con café ☕️
+        </figcaption>
+      </figure>
+
+      <div class="cards">
+        <article class="card">
+          <h3>¿Cómo funciona?</h3>
+          <ul class="mini-list">
+            <li><strong>1)</strong> Reservas un cupo de 45’</li>
+            <li><strong>2)</strong> Nos juntamos en la cafetería anfitriona</li>
+            <li><strong>3)</strong> Sales con pasos claros y, si quieres, documento encargado</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Barrios visitados / próximos</h3>
+          <ul class="mini-list">
+            <li>Barrio Italia</li>
+            <li>Lastarria</li>
+            <li>Providencia</li>
+            <li>¡Pronto más!</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Quiero sumarme</h3>
+          <p class="lead">¿Quieres enterarte de las próximas fechas o invitar el Pop-Up Café Judicial® a tu cafetería/barrio?</p>
+          <p class="cta-row" style="margin-top:10px">
+            <a class="cta" href="https://wa.me/569XXXXXXXX?text=Quiero%20postular%20mi%20cafeter%C3%ADa%20o%20barrio%20para%20el%20Pop-Up%20Caf%C3%A9%20Judicial" target="_blank" rel="noopener">Proponer café/barrio</a>
+            <a class="cta ghost" href="https://forms.gle/TU_LINK_INTERES" target="_blank" rel="noopener">Avisarme fechas</a>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="equipo" aria-labelledby="equipo-h">
+      <div class="kicker">Quiénes somos</div>
+      <h2 id="equipo-h">Nuestro equipo</h2>
+      <p class="lead">
+        Café Judicial® une el mundo legal y la gestión estratégica. Dos amigos que creen que las conversaciones
+        difíciles pueden volverse más claras y cercanas… con un café al medio.
+      </p>
+
+      <div class="cards">
+        <article class="card" style="text-align:center">
+          <img src="IMG_8542.jpeg" alt="Luis Emilio Bobadilla — fotografía" class="avatar-xl">
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:10px 0 6px">
+            <h3 style="margin:0;line-height:1.25">
+              Luis Emilio Bobadilla Cofré — Abogado,<br>Pontificia Universidad Católica de Chile
+            </h3>
+            <img src="IMG_8589.jpeg" alt="Logo Pontificia Universidad Católica de Chile" class="brand-uc">
+          </div>
+          <span class="tag">Socio fundador</span>
+          <span class="tag">Lidera la asesoría legal</span>
+
+          <details class="card" style="margin-top:10px">
+            <summary>Ver perfil completo</summary>
+            <div class="content">
+              <p class="lead" style="text-align:left">
+                Egresado y Licenciado en Derecho por la Pontificia Universidad Católica de Chile, una de las
+                universidades más prestigiosas del país. Con <strong>más de 15 años de trayectoria</strong> ha
+                ejercido en el ámbito <strong>penal, civil y de familia</strong>, combinando litigación,
+                redacción de documentos y acompañamiento cercano a personas y organizaciones.
+              </p>
+              <p class="lead" style="text-align:left">
+                En el sector público se desempeñó como <strong>fiscal adjunto</strong> en la
+                <strong>Fiscalía Metropolitana Sur</strong>, participando en miles de causas penales y
+                trabajando directamente con víctimas, jueces y equipos de investigación. Fue además abogado de la
+                <strong>Municipalidad de Macul</strong>, donde brindó asesoría a autoridades, vecinos y
+                comunidades en materias civiles, administrativas y comunitarias.
+              </p>
+              <p class="lead" style="text-align:left">
+                En el ámbito privado ha acompañado a <strong>emprendedores, pymes y familias</strong> en la
+                resolución de conflictos, en la <strong>redacción de contratos y escrituras</strong>, y en la
+                defensa de sus derechos en tribunales. También ha dictado <strong>capacitaciones</strong> a
+                profesionales sobre ética, derecho y gestión pública.
+              </p>
+              <p class="lead" style="font-weight:700">En Café Judicial® es el <strong>rostro principal de la asesoría legal</strong>: escucha, orienta y entrega soluciones claras.</p>
+              <p class="lead" style="font-style:italic">“El derecho no tiene por qué ser enredado: mi foco es que salgas con claridad y tranquilidad.”</p>
+            </div>
+          </details>
+        </article>
+
+        <article class="card" style="text-align:center">
+          <img src="IMG_8543.jpeg" alt="Arturo Morales — fotografía"
+               style="width:180px;height:180px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;border:1px solid var(--line);">
+          <h3 style="margin-bottom:6px">
+            Arturo Morales Gutiérrez — Ingeniero Comercial, Magíster en Administración de Empresas (MBA)
+          </h3>
+          <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:4px">
+            <span class="tag">Socio fundador</span>
+            <span class="tag">Impulsa la estrategia y la organización del proyecto</span>
+          </div>
+
+          <details class="card" style="margin-top:10px; text-align:left">
+            <summary>Ver perfil completo</summary>
+            <div class="content">
+              <h4 class="discreet">Qué hace</h4>
+              <p class="lead">
+                Diseña y coordina los procesos operativos de Café Judicial® para que la experiencia sea accesible y ordenada:
+                agenda, pagos, documentación, control de calidad del servicio y métricas para la toma de decisiones.
+                También gestiona alianzas con cafeterías para el formato Pop-Up.
+              </p>
+
+              <h4 class="discreet">Sello</h4>
+              <p class="lead">Une gestión y trato humano; convierte trámites en experiencias simples, con rigurosidad operativa y comunicación clara.</p>
+
+              <h4 class="discreet">Trayectoria destacada</h4>
+              <p class="lead">
+                Jefe de Operaciones en un estudio de abogados (2021–presente). Experiencia previa en control de calidad y soporte gerencial,
+                y formación analítica (MBA y diplomado en modelamiento y análisis de datos).
+              </p>
+
+              <h4 class="discreet">Frase</h4>
+              <p class="lead" style="font-style:italic">“Me gusta convertir trámites en experiencias simples — como conversar con un café.”</p>
+            </div>
+          </details>
+        </article>
+
+        <article class="card" style="text-align:center">
+          <img src="IMG_MARIELA.jpeg" alt="Mariela Henríquez — fotografía"
+               style="width:180px;height:180px;border-radius:50%;object-fit:cover;margin:0 auto 12px;display:block;border:1px solid var(--line);">
+          <h3 style="margin-bottom:6px">Mariela Henríquez — Diseñadora Industrial y Gráfica</h3>
+          <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:4px">
+            <span class="tag">Logos e identidad de marca</span>
+            <span class="tag">Diseño &amp; contenidos</span>
+          </div>
+
+          <details class="card" style="margin-top:10px; text-align:left">
+            <summary>Ver perfil completo</summary>
+            <div class="content">
+              <h4 class="discreet">Qué hace</h4>
+              <p class="lead">
+                Diseña identidades de marca y logos (paleta, tipografías, sistema gráfico y usos).
+                Desarrolla brand kits y manuales de aplicación para un uso consistente online y offline.
+                Produce piezas para web, redes sociales y material impreso (presentaciones, fichas, plantillas, señalética).
+                Aplica legal design para que documentos y propuestas de los clientes sean claros y fáciles de leer.
+                Coordina producción con proveedores cuando se requieren impresos o soportes físicos.
+              </p>
+
+              <h4 class="discreet">Sello</h4>
+              <p class="lead">Convierte información compleja en piezas simples y elegantes, priorizando legibilidad y coherencia de marca.</p>
+
+              <h4 class="discreet">Trayectoria destacada</h4>
+              <p class="lead">Identidad y sistemas visuales, retail/visual merchandising y campañas de comunicación; gestión y calendario de contenidos para marcas y PYMES.</p>
+
+              <h4 class="discreet">Frase</h4>
+              <p class="lead" style="font-style:italic">“Mi trabajo es que todo se entienda de una mirada: claro, ordenado y con carácter.”</p>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+    <section id="testimonios" class="section-testimonials" aria-labelledby="testimonios-h">
+      <div class="ts-wrap">
+        <div class="kicker">Prueba social</div>
+        <h2 id="testimonios-h">Lo que dicen</h2>
+
+        <div class="ts-grid" style="margin-bottom:10px">
+          <figure class="ts-card">
+            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format"
+                 loading="lazy" alt="Retrato de Andrés M., abogado junior"
+                 class="ts-avatar" width="64" height="64">
+            <figcaption>
+              <div><span class="ts-name">Andrés M.</span> <span class="ts-role">Abogado junior</span></div>
+              <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
+              <blockquote>“Online fue clarísimo. Salí con pasos concretos y un resumen útil.”</blockquote>
+            </figcaption>
+          </figure>
+        </div>
+
+        <details class="card">
+          <summary>Ver más opiniones</summary>
+          <div class="content">
+            <div class="ts-grid">
+              <figure class="ts-card">
+                <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format"
+                     loading="lazy" alt="Retrato de Miguel V., emprendedor"
+                     class="ts-avatar" width="64" height="64">
+                <figcaption>
+                  <div><span class="ts-name">Miguel V.</span> <span class="ts-role">Emprendedor</span></div>
+                  <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
+                  <blockquote>“Tomamos café en mi barrio y me entregaron el documento al día siguiente.”</blockquote>
+                </figcaption>
+              </figure>
+
+              <figure class="ts-card">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format"
+                     loading="lazy" alt="Retrato de Paula R., dueña de PYME"
+                     class="ts-avatar" width="64" height="64">
+                <figcaption>
+                  <div><span class="ts-name">Paula R.</span> <span class="ts-role">Dueña de PYME</span></div>
+                  <div class="ts-stars" aria-label="5 de 5">★★★★★</div>
+                  <blockquote>“Revisaron mi contrato y me enviaron los cambios el mismo día. Sin vueltas.”</blockquote>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="proximamente" aria-labelledby="prox-h">
+      <div class="kicker">Lo que viene</div>
+      <h2 id="prox-h">Próximos proyectos</h2>
+
+      <details class="card">
+        <summary>Ver próximos proyectos</summary>
+        <div class="content">
+          <div class="cards">
+            <article class="card">
+              <h3>Pop-Up Café Judicial®</h3>
+              <p class="lead">Eventos en cafeterías: café + asesoría legal de 45’ en tu barrio.</p>
+              <p class="cta-row" style="margin-top:10px">
+                <a class="cta" href="#popup">Ver más</a>
+              </p>
+            </article>
+            <article class="card">
+              <h3>Cafetería física</h3>
+              <p class="lead">Un espacio para estudiar, reunirse y conversar con calma.</p>
+            </article>
+            <article class="card">
+              <h3>Moot court & tutorías</h3>
+              <p class="lead">Simulaciones de juicio y acompañamiento a estudiantes y equipos.</p>
+            </article>
+            <article class="card">
+              <h3>Comunidad & productos</h3>
+              <p class="lead">Charlas, merch con sello jurídico y FritHurra! (spray textil) — en preparación.</p>
+            </article>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-h">
+      <div class="kicker">Dudas comunes</div>
+      <h2 id="faq-h">Preguntas frecuentes</h2>
+
+      <details class="card">
+        <summary>Ver preguntas frecuentes</summary>
+        <div class="content">
+          <div class="cards">
+            <article class="card"><h3>¿Qué significa “en palabras simples”?</h3><p class="lead">Te explicamos todo sin tecnicismos, con ejemplos y pasos accionables.</p></article>
+            <article class="card"><h3>¿Dónde atendemos?</h3><p class="lead">Santiago y online para todo Chile.</p></article>
+            <article class="card"><h3>¿Cómo agendo?</h3><p class="lead">Por WhatsApp o en los botones “Agendar”.</p></article>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section id="contacto" class="center" aria-labelledby="cta-h">
+      <div class="kicker">Contacto</div>
+      <h2 id="cta-h">Conversemos</h2>
+      <p class="lead">Escríbenos y te respondemos a la brevedad.</p>
+      <p>
+        <a class="cta" href="mailto:contacto@cafejudicial.cl" id="mail-link">contacto@cafejudicial.cl</a>
+        <button class="cta ghost" id="copy-mail" type="button" aria-label="Copiar correo">Copiar correo</button>
+      </p>
+    </section>
+  </main>
+
+  <a class="whatsapp-fab"
+     href="https://wa.me/569XXXXXXXX?text=Hola%20Caf%C3%A9%20Judicial%2C%20quiero%20agendar%20asesor%C3%ADa%20(presencial%20u%20online)."
+     target="_blank" rel="noopener" aria-label="Abrir chat de WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path fill="white" d="M19.11 17.64c-.27-.14-1.6-.78-1.85-.87-.25-.09-.43-.14-.62.14-.18.27-.71.87-.87 1.05-.16.18-.32.2-.6.07-.27-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.46h-.53c-.18 0-.48 .07-.74 .34-.25 .27-.98 .96-.98 2.33 0 1.37 1 2.69 1.14 2.87 .14 .18 1.97 3 4.77 4.2 .67 .29 1.19 .46 1.6 .59 .67 .21 1.28 .18 1.76 .11 .54-.08 1.6-.65 1.83-1.27 .23-.62 .23-1.15 .16-1.27 -.07-.12-.25-.18-.52-.32z"/>
+      <path fill="#25D366" d="M27.6 4.4C24.7 1.5 20.9 0 17 0 8.1 0 .9 7.2 .9 16.1c0 2.8 .7 5.5 2.1 7.9L0 32l8.3 -2.7c2.4 1.3 5.1 2 7.8 2h.1c8.9 0 16.1 -7.2 16.1 -16.1 0 -3.9 -1.5 -7.7 -4.3 -10.8z"/>
+    </svg>
+  </a>
+
+  <footer role="contentinfo">
+    Café Judicial® — Donde la justicia se sirve en taza · Santiago, Chile
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LegalService",
+    "name":"Café Judicial",
+    "url":"https://arturuou.github.io/CafeJudicial/",
+    "image":"https://arturuou.github.io/CafeJudicial/og-cafe-judicial-1200x630.jpg",
+    "email":"contacto@cafejudicial.cl",
+    "areaServed":"CL",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Santiago",
+      "addressCountry":"CL"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"¿Qué significa “en palabras simples”?",
+       "acceptedAnswer":{"@type":"Answer","text":"Explicamos todo sin tecnicismos, con ejemplos claros y pasos accionables."}},
+      {"@type":"Question","name":"¿Dónde atendemos?",
+       "acceptedAnswer":{"@type":"Answer","text":"Santiago y online para todo Chile."}},
+      {"@type":"Question","name":"¿Cómo agendo?",
+       "acceptedAnswer":{"@type":"Answer","text":"Por WhatsApp o en los botones “Agendar”."}}
+    ]
+  }
+  </script>
+
+  <script>
+    // Altura real del header
+    const headerEl = document.querySelector('header.site');
+    function setHeaderOffset(){
+      const h = headerEl.getBoundingClientRect().height || 300;
+      document.documentElement.style.setProperty('--headerH', h + 'px');
+    }
+    setHeaderOffset();
+    window.addEventListener('load', setHeaderOffset);
+    window.addEventListener('resize', setHeaderOffset, {passive:true});
+    window.addEventListener('orientationchange', ()=>setTimeout(setHeaderOffset, 250));
+
+    // Menú activo por intersección (solo enlaces con #)
+    const sections = [...document.querySelectorAll('main section, #top')];
+    const links = [...document.querySelectorAll('.top-nav .links a[href^="#"]')];
+    const map = Object.fromEntries(links.map(a => [a.getAttribute('href').replace('#','') || 'top', a]));
+    // estado inicial
+    links.forEach(l => l.setAttribute('aria-current','false'));
+    (map['top']||links[0])?.setAttribute('aria-current','true');
+
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const id = e.target.id || 'top';
+          links.forEach(l => l.setAttribute('aria-current','false'));
+          (map[id]||map['top']).setAttribute('aria-current','true');
+        }
+      });
+    }, {rootMargin:'-40% 0px -55% 0px', threshold:0.01});
+    sections.forEach(s => io.observe(s));
+
+    // Scroll con compensación
+    links.forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href');
+        if(!href.startsWith('#')) return;
+        const id = href.slice(1);
+        const target = document.getElementById(id);
+        if(!target) return;
+        e.preventDefault();
+        const headerH = headerEl.offsetHeight || 0;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+        window.scrollTo({ top, behavior:'smooth' });
+        history.replaceState(null, '', '#' + id);
+      });
+    });
+
+    // Copiar correo
+    const btnCopy = document.getElementById('copy-mail');
+    btnCopy?.addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText('contacto@cafejudicial.cl');
+        btnCopy.textContent = 'Copiado ✅';
+        setTimeout(()=>btnCopy.textContent='Copiar correo', 1500);
+      }catch(e){ btnCopy.textContent='Error'; }
+    });
+
+    // Menú: arrancar desde la izquierda
+    const linksWrap = document.querySelector('.top-nav .links');
+    function resetNavScroll(){ if(linksWrap) linksWrap.scrollLeft = 0; }
+    window.addEventListener('load', resetNavScroll);
+    window.addEventListener('orientationchange', ()=>setTimeout(resetNavScroll, 200));
+  </script>
 
 </body>
 </html>
